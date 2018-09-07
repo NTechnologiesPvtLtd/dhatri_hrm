@@ -8,29 +8,29 @@ package com.hrm.bean;
  *
  */
 public class EmployeeBean {
-	private String empid;
-	private String firstname;
-	private String lastname;
+	private String employeeId;
+	private String firstName;
+	private String lastName;
 	private String gender;
 	private String dob;
-	private String emailid;
-	private long mobilenumber;
-	private long aadhar;
-	private String permanentaddress;
-	private String localaddress;
+	private String emailId;
+	private long mobileNumber;
+	private long aadharNo;
+	private String permanentAddress;
+	private String localAddress;
 
-	private String schoolname;
-	private String intermediatecollegename;
-	private String graduationdetails;
+	private String schoolName;
+	private String intermediateCollegeName;
+	private String graduationDetails;
 	private String branch;
 
-	private String companyname;
+	private String companyName;
 	private String role;
-	private String noticeperiod;
+	private String noticePeriod;
 	private String location;
 	private String experience;
-	private double currentctc;
-	private double expectedctc;
+	private double currentCTC;
+	private double expectedCTC;
 	
 	public String getEmpid() {
 		return empid;
