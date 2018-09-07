@@ -15,7 +15,7 @@ public class EmployeeBean {
 	private String dob;
 	private String emailid;
 	private long mobilenumber;
-	private int aadhar;
+	private long aadhar;
 	private String permanentaddress;
 	private String localaddress;
 
@@ -71,12 +71,16 @@ public class EmployeeBean {
 	public long getMobilenumber() {
 		return mobilenumber;
 	}
+	public long getAadhar() {
+		return aadhar;
+	}
+	public void setAadhar(long aadhar) {
+		this.aadhar = aadhar;
+	}
 	public void setMobilenumber(long mobilenumber) {
 		this.mobilenumber = mobilenumber;
 	}
-	public int getAadhar() {
-		return aadhar;
-	}
+	
 	public void setAadhar(int aadhar) {
 		this.aadhar = aadhar;
 	}
