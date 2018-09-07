@@ -41,25 +41,25 @@ public class RegistrationServlet extends HttpServlet {
 
 				response.setContentType("text/html");
 
-				String id=request.getParameter("empid").trim();
-				String firstname=request.getParameter("firstname").trim();
-				String lastname=request.getParameter("lastname").trim();
+				String employeeId=request.getParameter("employeeId").trim();
+				String firstName=request.getParameter("firstName").trim();
+				String lastName=request.getParameter("lastName").trim();
 				String gender=request.getParameter("gender").trim();
 				String dob=request.getParameter("dob").trim();
-				String emailid=request.getParameter("emailid").trim();
-				String mobilenumber=request.getParameter("mobilenumber").trim();
+				String emailId=request.getParameter("emailId").trim();
+				String mobileNumber=request.getParameter("mobileNumber").trim();
 				String aadhar=request.getParameter("aadhar").trim();
-				String permanentaddress=request.getParameter("permanentaddress").trim();
-				String localaddress=request.getParameter("localaddress").trim();
+				String permanentAddress=request.getParameter("permanentAddress").trim();
+				String localAddress=request.getParameter("localAddress").trim();
 				
-				String schoolname=request.getParameter("schoolname").trim();
-				String intermediatecollegename=request.getParameter("intermediatecollegename").trim();
-				String graduationdetails=request.getParameter("graduationdetails").trim();
+				String schoolName=request.getParameter("schoolName").trim();
+				String intermediateCollegeName=request.getParameter("intermediateCollegeName").trim();
+				String graduationDetails=request.getParameter("graduationDetails").trim();
 				String branch=request.getParameter("branch").trim();
 				
-				String companyname=request.getParameter("companyname").trim();
+				String companyName=request.getParameter("companyName").trim();
 				String role=request.getParameter("role").trim();
-				String noticeperiod=request.getParameter("noticeperiod").trim();
+				String noticePeriod=request.getParameter("noticePeriod").trim();
 				String location=request.getParameter("location").trim();
 				String experience=request.getParameter("experience").trim();
 				String currentctc=request.getParameter("currentctc").trim();
@@ -69,38 +69,38 @@ public class RegistrationServlet extends HttpServlet {
 				
 				EmployeeBean employeebean=new EmployeeBean();
 				
-				if(mobilenumber!=null && !mobilenumber.isEmpty()){
-					employeebean.setMobilenumber(Long.parseLong(mobilenumber));
+				if(mobileNumber!=null && !mobileNumber.isEmpty()){
+					employeebean.setMobileNumber(Long.parseLong(mobileNumber));
 				}
 				
 				if(aadhar!=null && !aadhar.isEmpty()){
-					employeebean.setAadhar(Long.parseLong(aadhar));
+					employeebean.setAadharNo(Long.parseLong(aadhar));
 				}
 				
 				if(currentctc!=null && !currentctc.isEmpty()){
-					employeebean.setCurrentctc(Double.parseDouble(currentctc));
+					employeebean.setCurrentCTC(Double.parseDouble(currentctc));
 				}
 				
 				if(expectedctc!=null && !expectedctc.isEmpty()){
-					employeebean.setExpectedctc(Double.parseDouble(expectedctc));
+					employeebean.setExpectedCTC(Double.parseDouble(expectedctc));
 				}
 				
-				employeebean.setFirstname(firstname);
-				employeebean.setLastname(lastname);
+				employeebean.setFirstName(firstName);
+				employeebean.setLastName(lastName);
 				employeebean.setGender(gender);
 				employeebean.setDob(dob);
-				employeebean.setEmailid(emailid);
-				employeebean.setPermanentaddress(permanentaddress);
-				employeebean.setLocaladdress(localaddress);
+				employeebean.setEmailId(emailId);
+				employeebean.setLocalAddress(permanentAddress);
+				employeebean.setLocalAddress(localAddress);
 				
-				employeebean.setSchoolname(schoolname);
-				employeebean.setIntermediatecollegename(intermediatecollegename);
-				employeebean.setGraduationdetails(graduationdetails);
+				employeebean.setLastName(schoolName);
+				employeebean.setIntermediateCollegeName(intermediateCollegeName);
+				employeebean.setGraduationDetails(graduationDetails);
 				employeebean.setBranch(branch);
 				
-				employeebean.setCompanyname(companyname);
+				employeebean.setCompanyName(companyName);
 				employeebean.setRole(role);
-				employeebean.setNoticeperiod(noticeperiod);
+				employeebean.setNoticePeriod(noticePeriod);
 				employeebean.setLocation(location);
 				employeebean.setExperience(experience);
 	}
