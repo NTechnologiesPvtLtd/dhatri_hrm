@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.hrm.bean;
 
 /**
@@ -28,27 +25,24 @@ public class EmployeeBean {
 	private String role;
 	private String noticePeriod;
 	private String location;
-	private String experience;
-	private double currentCTC;
-	private double expectedCTC;
 	
-	public String getEmpid() {
-		return empid;
+	public String getEmployeeId() {
+		return employeeId;
 	}
-	public void setEmpid(String empid) {
-		this.empid = empid;
+	public void setEmployeeId(String employeeId) {
+		this.employeeId = employeeId;
 	}
-	public String getFirstname() {
-		return firstname;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-	public String getLastname() {
-		return lastname;
+	public String getLastName() {
+		return lastName;
 	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	public String getGender() {
 		return gender;
@@ -62,57 +56,53 @@ public class EmployeeBean {
 	public void setDob(String dob) {
 		this.dob = dob;
 	}
-	public String getEmailid() {
-		return emailid;
+	public String getEmailId() {
+		return emailId;
 	}
-	public void setEmailid(String emailid) {
-		this.emailid = emailid;
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
-	public long getMobilenumber() {
-		return mobilenumber;
+	public long getMobileNumber() {
+		return mobileNumber;
 	}
-	public long getAadhar() {
-		return aadhar;
+	public void setMobileNumber(long mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
-	public void setAadhar(long aadhar) {
-		this.aadhar = aadhar;
+	public long getAadharNo() {
+		return aadharNo;
 	}
-	public void setMobilenumber(long mobilenumber) {
-		this.mobilenumber = mobilenumber;
+	public void setAadharNo(long aadharNo) {
+		this.aadharNo = aadharNo;
 	}
-	
-	public void setAadhar(int aadhar) {
-		this.aadhar = aadhar;
+	public String getPermanentAddress() {
+		return permanentAddress;
 	}
-	public String getPermanentaddress() {
-		return permanentaddress;
+	public void setPermanentAddress(String permanentAddress) {
+		this.permanentAddress = permanentAddress;
 	}
-	public void setPermanentaddress(String permanentaddress) {
-		this.permanentaddress = permanentaddress;
+	public String getLocalAddress() {
+		return localAddress;
 	}
-	public String getLocaladdress() {
-		return localaddress;
+	public void setLocalAddress(String localAddress) {
+		this.localAddress = localAddress;
 	}
-	public void setLocaladdress(String localaddress) {
-		this.localaddress = localaddress;
+	public String getSchoolName() {
+		return schoolName;
 	}
-	public String getSchoolname() {
-		return schoolname;
+	public void setSchoolName(String schoolName) {
+		this.schoolName = schoolName;
 	}
-	public void setSchoolname(String schoolname) {
-		this.schoolname = schoolname;
+	public String getIntermediateCollegeName() {
+		return intermediateCollegeName;
 	}
-	public String getIntermediatecollegename() {
-		return intermediatecollegename;
+	public void setIntermediateCollegeName(String intermediateCollegeName) {
+		this.intermediateCollegeName = intermediateCollegeName;
 	}
-	public void setIntermediatecollegename(String intermediatecollegename) {
-		this.intermediatecollegename = intermediatecollegename;
+	public String getGraduationDetails() {
+		return graduationDetails;
 	}
-	public String getGraduationdetails() {
-		return graduationdetails;
-	}
-	public void setGraduationdetails(String graduationdetails) {
-		this.graduationdetails = graduationdetails;
+	public void setGraduationDetails(String graduationDetails) {
+		this.graduationDetails = graduationDetails;
 	}
 	public String getBranch() {
 		return branch;
@@ -120,11 +110,11 @@ public class EmployeeBean {
 	public void setBranch(String branch) {
 		this.branch = branch;
 	}
-	public String getCompanyname() {
-		return companyname;
+	public String getCompanyName() {
+		return companyName;
 	}
-	public void setCompanyname(String companyname) {
-		this.companyname = companyname;
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 	public String getRole() {
 		return role;
@@ -132,11 +122,11 @@ public class EmployeeBean {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public String getNoticeperiod() {
-		return noticeperiod;
+	public String getNoticePeriod() {
+		return noticePeriod;
 	}
-	public void setNoticeperiod(String noticeperiod) {
-		this.noticeperiod = noticeperiod;
+	public void setNoticePeriod(String noticePeriod) {
+		this.noticePeriod = noticePeriod;
 	}
 	public String getLocation() {
 		return location;
@@ -150,17 +140,21 @@ public class EmployeeBean {
 	public void setExperience(String experience) {
 		this.experience = experience;
 	}
-	public double getCurrentctc() {
-		return currentctc;
+	public double getCurrentCTC() {
+		return currentCTC;
 	}
-	public void setCurrentctc(double currentctc) {
-		this.currentctc = currentctc;
+	public void setCurrentCTC(double currentCTC) {
+		this.currentCTC = currentCTC;
 	}
-	public double getExpectedctc() {
-		return expectedctc;
+	public double getExpectedCTC() {
+		return expectedCTC;
 	}
-	public void setExpectedctc(double expectedctc) {
-		this.expectedctc = expectedctc;
+	public void setExpectedCTC(double expectedCTC) {
+		this.expectedCTC = expectedCTC;
 	}
+	private String experience;
+	private double currentCTC;
+	private double expectedCTC;
+	
 
 }
