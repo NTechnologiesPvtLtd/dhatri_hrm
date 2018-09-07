@@ -74,7 +74,7 @@ public class RegistrationServlet extends HttpServlet {
 				}
 				
 				if(aadhar!=null && !aadhar.isEmpty()){
-					employeebean.setAadhar(Integer.parseInt(aadhar));
+					employeebean.setAadhar(Long.parseLong(aadhar));
 				}
 				
 				if(currentctc!=null && !currentctc.isEmpty()){
