@@ -1,6 +1,8 @@
 package com.hrm.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -44,8 +46,20 @@ public class RegistrationServlet extends HttpServlet {
 				String employeeId=request.getParameter("employeeId").trim();
 				String firstName=request.getParameter("firstName").trim();
 				String lastName=request.getParameter("lastName").trim();
+				String fatherName=request.getParameter("fatherName").trim();
 				String gender=request.getParameter("gender").trim();
-				String dob=request.getParameter("dob").trim();
+				
+				Date dob=null;
+				try{
+				SimpleDateFormat sdf=new SimpleDateFormat();
+				
+				 dob=sdf.parse(request.getParameter("dob"));
+				}
+				catch(Exception e)
+				{
+					System.out.println(e);
+				}
+				
 				String emailId=request.getParameter("emailId").trim();
 				String mobileNumber=request.getParameter("mobileNumber").trim();
 				String aadharNo=request.getParameter("aadharNo").trim();
@@ -53,9 +67,13 @@ public class RegistrationServlet extends HttpServlet {
 				String localAddress=request.getParameter("localAddress").trim();
 				
 				String schoolName=request.getParameter("schoolName").trim();
+				String tenthPassedOut=request.getParameter("tenthPassedOut").trim();
 				String intermediateCollegeName=request.getParameter("intermediateCollegeName").trim();
+				String interPassedOut=request.getParameter("interPassedOut").trim();
 				String graduationDetails=request.getParameter("graduationDetails").trim();
+				String graduationPassedOut=request.getParameter("graduationPassedOut").trim();
 				String branch=request.getParameter("branch").trim();
+				String university=request.getParameter("university").trim();
 				
 				String companyName=request.getParameter("companyName").trim();
 				String role=request.getParameter("role").trim();
@@ -77,6 +95,22 @@ public class RegistrationServlet extends HttpServlet {
 					employeebean.setAadharNo(Long.parseLong(aadharNo));
 				}
 				
+				if(tenthPassedOut!=null && !interPassedOut.isEmpty()){
+					employeebean.setTenthPassedOut(Integer.parseInt(tenthPassedOut));
+				}
+				
+				if(interPassedOut!=null && !tenthPassedOut.isEmpty()){
+					employeebean.setInterPassedOut(Integer.parseInt(interPassedOut));
+				}
+				
+				if(graduationPassedOut!=null && !graduationPassedOut.isEmpty()){
+					employeebean.setGraduationPaseedOut(Integer.parseInt(graduationPassedOut));
+				}
+				
+				if(noticePeriod!=null && !noticePeriod.isEmpty()){
+					employeebean.setNoticePeriod(Integer.parseInt(noticePeriod));
+				}
+				
 				if(currentCTC!=null && !currentCTC.isEmpty()){
 					employeebean.setCurrentCTC(Double.parseDouble(currentCTC));
 				}
@@ -87,20 +121,20 @@ public class RegistrationServlet extends HttpServlet {
 				
 				employeebean.setFirstName(firstName);
 				employeebean.setLastName(lastName);
+				employeebean.setFatherName(fatherName);
 				employeebean.setGender(gender);
 				employeebean.setDob(dob);
 				employeebean.setEmailId(emailId);
 				employeebean.setPermanentAddress(permanentAddress);
 				employeebean.setLocalAddress(localAddress);
 				
-				employeebean.setSchoolName(schoolName);
+				employeebean.setSchoolName(schoolName);				
 				employeebean.setIntermediateCollegeName(intermediateCollegeName);
 				employeebean.setGraduationDetails(graduationDetails);
 				employeebean.setBranch(branch);
 				
 				employeebean.setCompanyName(companyName);
 				employeebean.setRole(role);
-				employeebean.setNoticePeriod(noticePeriod);
 				employeebean.setLocation(location);
 				employeebean.setExperience(experience);
 	}
