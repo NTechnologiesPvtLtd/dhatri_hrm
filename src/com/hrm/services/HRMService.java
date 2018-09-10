@@ -1,5 +1,7 @@
 package com.hrm.services;
 
-public interface HRMService {
+import com.hrm.bean.EmployeeBean;
 
+public interface HRMService {
+	public abstract int insertEmployeeData(EmployeeBean employeeBean);
 }
