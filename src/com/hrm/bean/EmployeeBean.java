@@ -25,6 +25,9 @@ public class EmployeeBean {
 	private String role;
 	private String noticePeriod;
 	private String location;
+	private String experience;
+	private double currentCTC;
+	private double expectedCTC;
 	
 	public String getEmployeeId() {
 		return employeeId;
@@ -152,9 +155,6 @@ public class EmployeeBean {
 	public void setExpectedCTC(double expectedCTC) {
 		this.expectedCTC = expectedCTC;
 	}
-	private String experience;
-	private double currentCTC;
-	private double expectedCTC;
 	
 
 }
