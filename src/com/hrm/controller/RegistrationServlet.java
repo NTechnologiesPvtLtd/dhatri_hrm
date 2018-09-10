@@ -48,7 +48,7 @@ public class RegistrationServlet extends HttpServlet {
 				String dob=request.getParameter("dob").trim();
 				String emailId=request.getParameter("emailId").trim();
 				String mobileNumber=request.getParameter("mobileNumber").trim();
-				String aadhar=request.getParameter("aadhar").trim();
+				String aadharNo=request.getParameter("aadharNo").trim();
 				String permanentAddress=request.getParameter("permanentAddress").trim();
 				String localAddress=request.getParameter("localAddress").trim();
 				
@@ -62,8 +62,8 @@ public class RegistrationServlet extends HttpServlet {
 				String noticePeriod=request.getParameter("noticePeriod").trim();
 				String location=request.getParameter("location").trim();
 				String experience=request.getParameter("experience").trim();
-				String currentctc=request.getParameter("currentctc").trim();
-				String expectedctc=request.getParameter("expectedctc").trim();
+				String currentCTC=request.getParameter("currentCTC").trim();
+				String expectedCTC=request.getParameter("expectedCTC").trim();
 				
 				// inject client reading values into Encapsulation object
 				
@@ -73,16 +73,16 @@ public class RegistrationServlet extends HttpServlet {
 					employeebean.setMobileNumber(Long.parseLong(mobileNumber));
 				}
 				
-				if(aadhar!=null && !aadhar.isEmpty()){
-					employeebean.setAadharNo(Long.parseLong(aadhar));
+				if(aadharNo!=null && !aadharNo.isEmpty()){
+					employeebean.setAadharNo(Long.parseLong(aadharNo));
 				}
 				
-				if(currentctc!=null && !currentctc.isEmpty()){
-					employeebean.setCurrentCTC(Double.parseDouble(currentctc));
+				if(currentCTC!=null && !currentCTC.isEmpty()){
+					employeebean.setCurrentCTC(Double.parseDouble(currentCTC));
 				}
 				
-				if(expectedctc!=null && !expectedctc.isEmpty()){
-					employeebean.setExpectedCTC(Double.parseDouble(expectedctc));
+				if(expectedCTC!=null && !expectedCTC.isEmpty()){
+					employeebean.setExpectedCTC(Double.parseDouble(expectedCTC));
 				}
 				
 				employeebean.setFirstName(firstName);
@@ -90,10 +90,10 @@ public class RegistrationServlet extends HttpServlet {
 				employeebean.setGender(gender);
 				employeebean.setDob(dob);
 				employeebean.setEmailId(emailId);
-				employeebean.setLocalAddress(permanentAddress);
+				employeebean.setPermanentAddress(permanentAddress);
 				employeebean.setLocalAddress(localAddress);
 				
-				employeebean.setLastName(schoolName);
+				employeebean.setSchoolName(schoolName);
 				employeebean.setIntermediateCollegeName(intermediateCollegeName);
 				employeebean.setGraduationDetails(graduationDetails);
 				employeebean.setBranch(branch);
