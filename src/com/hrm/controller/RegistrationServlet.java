@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hrm.bean.EmployeeBean;
+import com.hrm.services.HRMService;
+import com.hrm.services.HRMServicesImplementation;
 
 /**
  * Servlet implementation class RegistrationServlet
@@ -137,6 +139,11 @@ public class RegistrationServlet extends HttpServlet {
 				employeebean.setRole(role);
 				employeebean.setLocation(location);
 				employeebean.setExperience(experience);
+				
+				//calling the services
+				HRMService hrmService=new HRMServicesImplementation();
+				int result = hrmService.insertEmployeeData(employeebean);
+				
 	}
 
 }
