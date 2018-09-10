@@ -16,7 +16,6 @@ public class HRMDaoImplementation implements HRMDao {
 		}
 	@Override
 	public int insertEmployeeData(EmployeeBean employeeBean) {
-	{
 		int result=0;
 		String query="insert into table values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try
@@ -48,10 +47,8 @@ public class HRMDaoImplementation implements HRMDao {
 		catch(Exception e)
 		{
 			System.out.println(e);
-
 		}		
 		return result;
 		
 	}
-
 }
