@@ -1,5 +1,8 @@
 package com.hrm.dao;
 
-public interface HRMDao {
+import com.hrm.bean.EmployeeBean;
 
+public interface HRMDao
+{
+	public abstract int insertEmployeeData(EmployeeBean employeeBean);
 }
