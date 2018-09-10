@@ -14,11 +14,10 @@ public class HRMDaoImplementation implements HRMDao {
 		//connection code
 		//con=MyConnection.getInstance();
 		}
-	
-	public int insertRegistration()
+	@Override
+	public int insertEmployeeData(EmployeeBean employeeBean) {
 	{
 		int result=0;
-		EmployeeBean employeeBean=null;
 		String query="insert into table values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try
 		{
@@ -54,6 +53,5 @@ public class HRMDaoImplementation implements HRMDao {
 		return result;
 		
 	}
-	
 
 }
