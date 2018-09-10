@@ -13,21 +13,21 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" media="all" href="stylesheets/animate.css" />
+<link rel="stylesheet" media="all" href="stylesheets/animate.css">
 </head>
 <body>
 	<div id="nav">
 		<h1>
-			<a href="index.html">Dhatsol IT Solutions</a>
+			<a href="index.jsp">Dhatsol IT Solutions</a>
 		</h1>
 
 		<nav>
 		<ul>
-			<li id="active"><a href="index.html">Home</a></li>
+			<li id="active"><a href="index.jsp">Home</a></li>
 
 
 
-			<li><a href="user.html">Login</a></li>
+			<li><a href="User.jsp">Login</a></li>
 			<!--                 <li><a href="registration.html">Employee</a> </li>-->
 
 			<div class="dropdown">
@@ -35,7 +35,7 @@
 					Employee <i class="fa fa-caret-down"></i>
 				</button>
 				<div class="dropdown-content">
-					<a href="registration.html">New Registration</a> <a href="#">Response
+					<a href="EmployeeRegistration.jsp">New Registration</a> <a href="#">Response
 						Approved</a>
 
 				</div>
@@ -46,6 +46,7 @@
 		</ul>
 	</div>
 	<div id="#mainform"></div>
+	
 </body>
 </html>
 
