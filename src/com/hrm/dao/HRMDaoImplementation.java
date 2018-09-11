@@ -2,6 +2,7 @@ package com.hrm.dao;
 import java.sql.*;
 
 import com.hrm.bean.*;
+import com.hrm.db.connections.MySqlDBConnection;
 
 
 public class HRMDaoImplementation implements HRMDao {
@@ -11,8 +12,7 @@ public class HRMDaoImplementation implements HRMDao {
 	PreparedStatement pstmt;
 	
 	public HRMDaoImplementation(){
-		//connection code
-		//con=MyConnection.getInstance();
+		con=MySqlDBConnection.getInstance();
 		}
 	@Override
 	public int insertEmployeeData(EmployeeBean employeeBean) {
