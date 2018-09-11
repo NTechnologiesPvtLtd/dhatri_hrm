@@ -24,7 +24,7 @@ public class HRMDaoImplementation implements HRMDao {
 		pstmt.setString(2,employeeBean.getFirstName());
 		pstmt.setString(3,employeeBean.getLastName());
 		pstmt.setString(4,employeeBean.getGender());
-		pstmt.setString(5,employeeBean.getDob());
+		pstmt.setString(5,employeeBean.getDob().toString());
 		pstmt.setString(6,employeeBean.getEmailId());
 		pstmt.setLong(7,employeeBean.getMobileNumber());
 		pstmt.setLong(8,employeeBean.getAadharNo());
@@ -36,7 +36,7 @@ public class HRMDaoImplementation implements HRMDao {
 		pstmt.setString(14,employeeBean.getBranch());
 		pstmt.setString(15,employeeBean.getCompanyName());
 		pstmt.setString(16,employeeBean.getRole());
-		pstmt.setString(17,employeeBean.getNoticePeriod());
+		pstmt.setInt(17,employeeBean.getNoticePeriod());
 		pstmt.setString(18,employeeBean.getLocation());
 		pstmt.setString(19,employeeBean.getExperience());
 		pstmt.setDouble(20,employeeBean.getCurrentCTC());

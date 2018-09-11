@@ -45,7 +45,6 @@ public class RegistrationServlet extends HttpServlet {
 
 				response.setContentType("text/html");
 
-				String employeeId=request.getParameter("employeeId").trim();
 				String firstName=request.getParameter("firstName").trim();
 				String lastName=request.getParameter("lastName").trim();
 				String fatherName=request.getParameter("fatherName").trim();
