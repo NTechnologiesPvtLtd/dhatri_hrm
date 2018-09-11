@@ -15,45 +15,10 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" media="all" href="stylesheets/animate.css"/>
+<script type="text/javascript" src="employeeValidation.js">
 
-
-<script type="text/javascript">
-function registrationValidation(){
-	var fName = document.getElementById("firstName").value;
-	var lName = document.getElementById("lastName").value;
-	var faName = document.getElementById("fatherName").value;
-	var gender1 = document.getElementById("gender1").value;
-	var gender2 = document.getElementById("gender2").value;
-
-	if(fName == null || fName==""){
-		document.getElementById("errorMsg").innerHTML = "Please enter FirstName";
-		return false;
-	}
+</script>
 	
-	else if(lName == null || lName==""){
-		document.getElementById("errorMsg1").innerHTML = "Please enter LastName";
-		return false;
-	}
-	else if(faName == null || faName==""){
-		document.getElementById("errorMsg2").innerHTML = "Please enter fatherName";
-		return false;
-	}
-	else return true;
-}
-
-function clearForm(){
-	document.getElementById("errorMsg").innerHTML = "";
-	document.getElementById("errorMsg1").innerHTML = "";
-	document.getElementById("errorMsg2").innerHTML = "";
-}
-</script>	
-
-
-
-
-
-
-
 </head>
 <body>
 	<div id="nav">
@@ -93,7 +58,7 @@ function clearForm(){
 					
 				</h1>
 				<hr>
-				<!-- <form action="RegistrationServlet" method="post"> -->
+				<form action="RegistrationServlet" method="post">
 				<div class="panel panel-default">
 					<h2>Personal Information</h2>
 					<br> <br>
@@ -101,8 +66,8 @@ function clearForm(){
 						<tr>
 							<td>*First Name:</td>
 							<td><input type=text onkeypress="clearForm()" id="firstName"
-								name="fName"><br> <br></td>
-								<td><p id="errorMsg" style="color: red;"></p></td> 
+								name="firstName"><br> <br></td>
+								<td><p id="errorMsg" style=color:red;></p></td> 
 								
 							
 						</tr>
@@ -110,21 +75,21 @@ function clearForm(){
 						<td>*Last Name:</td>
 							<td><input type="text" onkeypress="clearForm()" id="lastName"
 								name="lastName"><br> <br></td>
-								<td><p id="errorMsg1" style="color: red;"></p></td> 
+								<td><p id="errorMsg1" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
 							<td>*Father Name:</td>
 							<td><input type="text" onkeypress="clearForm()" id="fatherName" name="fatherName"><br> <br></td>
-							<td><p id="errorMsg2" style="color: red;"></p></td> 
+							<td><p id="errorMsg2" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
 							<td>*Gender:</td>
 							<td><input type="radio" name="gender" value="Male" 
-								onkeypress="clearForm()" id="gender1">Male <input
-								type="radio" name="gender" value="Female" id="gender2">Female <input
-								type="radio" name="gender" value="Others">Others</td>
+								onkeypress="clearForm()" id="gender">Male <input
+								type="radio" name="gender" id="gender" value="Female">Female <input
+								type="radio" name="gender" id="gender" value="Others">Others</td>
 							<td><p2 id="errorMsg3" style=color:red;></p2><br> <br></td>
 						</tr>
 						<tr>
@@ -298,11 +263,8 @@ function clearForm(){
 							value="submit" class="sowmya">
 
 					</center>
-					
 				</div>
-				</form>>
-				
-				
+				</form>
 				
 </body>
 </html>
