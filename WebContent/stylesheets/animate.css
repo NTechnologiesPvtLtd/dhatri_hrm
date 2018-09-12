@@ -225,11 +225,11 @@ margin:0;
  
 }
 .container h2{
-background-color:#b15952;
-color:black;
+background-color:#5967b9;
+color:white;
 text-align:left;}
-.container h3{background-color:#b15952	;
-color:black;
+.container h3{background-color:#5967b9	;
+color:white;
 text-align:left;}
 .sowmya{
 background-color:green;
@@ -251,8 +251,8 @@ box-sizing:border-box;
 background:transparent;
 outline:none;
 border:none;
-border-bottom:1px solid #3c3636;
-color:#8d8f9e;
+border-bottom:1px solid #986c9c;
+color:#111312;
 	font-size:15px;
 		
 
@@ -286,8 +286,27 @@ color:black;
     background-size:cover;
 	}
 td{
-	color:#b1786f;
+	color:#eae1df;
 	font-size:20px;
 }
+.button {
+  padding: 10px 10px;
+  font-size: 30px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
 
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
                               
