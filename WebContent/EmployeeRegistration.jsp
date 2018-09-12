@@ -105,7 +105,7 @@
 						<tr>
 							<td>Email Id*:</td>
 							<td><input type=text onkeypress="clearForm()" id="emailId"
-								name="emailid"><br> <br></td>
+								name="emailId"><br> <br></td>
 								<td><p id="errorMsg5" style=color:red;></p></td> 
 							
 						</tr>
@@ -224,12 +224,12 @@
 						<tr>
 							<td>Notice Period:</td>
 							<td><select name="noticePeriod" onkeypress="clearForm()" id="noticePeriod">
-									<option value="None">Enter notice period</option>
-									<option value="10days">10days</option>
-									<option value="15days">15days</option>
-									<option value="1month">1month</option>
-									<option value="20days">20days</option>
-									<option value="2months">2months</option>
+									<option value="0">Enter notice period</option>
+									<option value="10">10days</option>
+									<option value="15">15days</option>
+									<option value="30">1month</option>
+									<option value="20">20days</option>
+									<option value="60">2months</option>
 
 							</select><br> <br></td>
 							<td><p id="errorMsg20" style=color:red;></p></td> 
