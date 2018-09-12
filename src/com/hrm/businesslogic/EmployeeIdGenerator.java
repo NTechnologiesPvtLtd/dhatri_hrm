@@ -10,10 +10,34 @@ import java.util.Random;
  *
  */
 public class EmployeeIdGenerator {
-	public static void generateId()
+	public static String generateId()
 	{
-		String s="DS-";
+		String compantString="DS-";
+		String employeeId="";
 		Random rd=new Random();
-		 System.out.printf(s.substring(0,3)+""+"%04d%n",rd.nextInt(9999));
+		int number = rd.nextInt(99);
+		employeeId=compantString+factOfNumber(number);
+		return employeeId;
+	}
+	
+	public static String factOfNumber(int number){
+		String fourDigits="";
+		for(int i=number-1;i>=1;i--){
+			number=number*i;
+		}
+		String fact=new String(new Integer(number).toString());
+		if(fact.length()<4){
+			fourDigits = String.format("%04d", number);
+		}else{
+			for(int i=0;i<=3;i++){
+				fourDigits=fourDigits+fact.charAt(i);
+			}
+		}
+		return fourDigits;
+		}
+	
+	public static void main(String[] args) {
+		for(int i=0;i<=5;i++)
+		System.out.println(generateId());
 	}
 }

@@ -2,6 +2,7 @@ package com.hrm.dao;
 import java.sql.*;
 
 import com.hrm.bean.*;
+import com.hrm.businesslogic.EmployeeIdGenerator;
 import com.hrm.db.connections.MySqlDBConnection;
 
 
@@ -21,7 +22,7 @@ public class HRMDaoImplementation implements HRMDao {
 		try
 		{
 			pstmt=con.prepareStatement(query);
-		pstmt.setString(1,employeeBean.getEmployeeId());
+		pstmt.setString(1,EmployeeIdGenerator.generateId());
 		pstmt.setString(2,employeeBean.getFirstName());
 		pstmt.setString(3,employeeBean.getLastName());
 		pstmt.setString(4,employeeBean.getGender());
