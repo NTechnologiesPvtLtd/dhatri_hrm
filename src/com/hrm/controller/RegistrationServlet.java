@@ -106,7 +106,7 @@ public class RegistrationServlet extends HttpServlet {
 				}
 				
 				if(graduationPassedOut!=null && !graduationPassedOut.isEmpty()){
-					employeebean.setGraduationPaseedOut(Integer.parseInt(graduationPassedOut));
+					employeebean.setGraduationPassedOut(Integer.parseInt(graduationPassedOut));
 				}
 				
 				if(noticePeriod!=null && !noticePeriod.isEmpty()){
