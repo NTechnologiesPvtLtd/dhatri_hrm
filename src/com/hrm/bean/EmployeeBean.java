@@ -24,7 +24,7 @@ public class EmployeeBean {
 	private String intermediateCollegeName;
 	private int interPassedOut;
 	private String graduationDetails;
-	private int graduationPaseedOut;
+	private int graduationPassedOut;
 	private String branch;
 	private String university;
 
@@ -134,11 +134,11 @@ public class EmployeeBean {
 	public void setGraduationDetails(String graduationDetails) {
 		this.graduationDetails = graduationDetails;
 	}
-	public int getGraduationPaseedOut() {
-		return graduationPaseedOut;
+	public int getGraduationPassedOut() {
+		return graduationPassedOut;
 	}
-	public void setGraduationPaseedOut(int graduationPaseedOut) {
-		this.graduationPaseedOut = graduationPaseedOut;
+	public void setGraduationPassedOut(int graduationPaseedOut) {
+		this.graduationPassedOut = graduationPaseedOut;
 	}
 	public String getBranch() {
 		return branch;
