@@ -20,6 +20,7 @@ public class HRMDaoImplementation implements HRMDao {
 		String query="insert into table values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try
 		{
+			pstmt=con.prepareStatement(query);
 		pstmt.setString(1,employeeBean.getEmployeeId());
 		pstmt.setString(2,employeeBean.getFirstName());
 		pstmt.setString(3,employeeBean.getLastName());
@@ -41,7 +42,7 @@ public class HRMDaoImplementation implements HRMDao {
 		pstmt.setString(19,employeeBean.getExperience());
 		pstmt.setDouble(20,employeeBean.getCurrentCTC());
 		pstmt.setDouble(21,employeeBean.getExpectedCTC());
-		result=pstmt.executeUpdate(query);
+		result=pstmt.executeUpdate();
 		
 		}
 		catch(Exception e)
