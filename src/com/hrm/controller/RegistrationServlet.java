@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -144,6 +145,14 @@ public class RegistrationServlet extends HttpServlet {
 				
 				HRMService hrmService=new HRMServicesImplementation();
 				int result = hrmService.insertEmployeeData(employeebean);
+				
+				RequestDispatcher requestDisForward=request.getRequestDispatcher("Home.jsp");
+				RequestDispatcher requestDisInclude=request.getRequestDispatcher("EmployeeRegistration.jsp");
+				if(result>0){
+					requestDisForward.forward(request, response);
+				}else{
+					requestDisInclude.include(request, response);
+				}
 				
 	}
 
