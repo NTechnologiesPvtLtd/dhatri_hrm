@@ -133,11 +133,13 @@ public class RegistrationServlet extends HttpServlet {
 				employeebean.setIntermediateCollegeName(intermediateCollegeName);
 				employeebean.setGraduationDetails(graduationDetails);
 				employeebean.setBranch(branch);
+				employeebean.setUniversity(university);
 				
 				employeebean.setCompanyName(companyName);
 				employeebean.setRole(role);
 				employeebean.setLocation(location);
 				employeebean.setExperience(experience);
+				
 				
 				//calling the services
 				
