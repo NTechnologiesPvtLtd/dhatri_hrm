@@ -38,7 +38,7 @@ public class HRMDaoImplementation implements HRMDao {
 		pstmt.setString(14,employeeBean.getIntermediateCollegeName());
 		pstmt.setInt(15,employeeBean.getInterPassedOut());
 		pstmt.setString(16,employeeBean.getGraduationDetails());
-		pstmt.setInt(17,employeeBean.getGraduationPaseedOut());
+		pstmt.setInt(17,employeeBean.getGraduationPassedOut());
 		pstmt.setString(18,employeeBean.getBranch());
 		pstmt.setString(19,employeeBean.getUniversity());
 		pstmt.setString(20,employeeBean.getCompanyName());

@@ -137,8 +137,8 @@ public class EmployeeBean {
 	public int getGraduationPassedOut() {
 		return graduationPassedOut;
 	}
-	public void setGraduationPassedOut(int graduationPaseedOut) {
-		this.graduationPassedOut = graduationPaseedOut;
+	public void setGraduationPassedOut(int graduationPassedOut) {
+		this.graduationPassedOut = graduationPassedOut;
 	}
 	public String getBranch() {
 		return branch;
