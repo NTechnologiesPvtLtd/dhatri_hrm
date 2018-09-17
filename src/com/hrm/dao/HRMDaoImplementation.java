@@ -18,11 +18,11 @@ public class HRMDaoImplementation implements HRMDao {
 	@Override
 	public int insertEmployeeData(EmployeeBean employeeBean) {
 		int result=0;
-		String query="insert into table values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String query="insert into employeebean values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try
 		{
 			pstmt=con.prepareStatement(query);
-		pstmt.setString(1,EmployeeIdGenerator.generateId());
+		pstmt.setString(1,EmployeeIdGenerator.getEmployeeId());
 		pstmt.setString(2,employeeBean.getFirstName());
 		pstmt.setString(3,employeeBean.getLastName());
 		pstmt.setString(4,employeeBean.getFatherName());
