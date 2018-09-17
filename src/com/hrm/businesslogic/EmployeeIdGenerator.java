@@ -1,43 +1,58 @@
-/**
- * 
- */
 package com.hrm.businesslogic;
 
+import java.text.DecimalFormat;
 import java.util.Random;
 
-/**
- * @author LADDU
- *
- */
-public class EmployeeIdGenerator {
-	public static String generateId()
+public class EmployeeIdGenerator
+{
+	private static String employeeId="DS-";
+	
+	
+	public static String getEmployeeId()
 	{
-		String compantString="DS-";
-		String employeeId="";
-		Random rd=new Random();
-		int number = rd.nextInt(99);
-		employeeId=compantString+factOfNumber(number);
+		employeeId=employeeId+unqiueNo();
 		return employeeId;
 	}
 	
-	public static String factOfNumber(int number){
+	private final static String unqiueNo()
+	{
 		String fourDigits="";
-		for(int i=number-1;i>=1;i--){
-			number=number*i;
+		String temp=""+factorial();
+		if(temp.length()>4)
+		{
+			for(int i=0;i<=3;i++)
+				fourDigits=fourDigits+temp.charAt(i);
 		}
-		String fact=new String(new Integer(number).toString());
-		if(fact.length()<4){
-			fourDigits = String.format("%04d", number);
-		}else{
-			for(int i=0;i<=3;i++){
-				fourDigits=fourDigits+fact.charAt(i);
-			}
+		else
+		{
+			
+			DecimalFormat df = new DecimalFormat("0000");
+			int number=Integer.parseInt(temp);
+			
+			 fourDigits=df.format(number);
+			
 		}
+		
+		
 		return fourDigits;
-		}
-	
-	public static void main(String[] args) {
-		for(int i=0;i<=5;i++)
-		System.out.println(generateId());
+		
 	}
+	
+	private static int factorial()
+	{
+		int fact=1;
+		Random random=new Random();
+		int randomNo=random.nextInt(10);
+		
+		for(int i=1;i<randomNo;i++)
+		{
+			fact=fact*i;
+		}
+		
+		return fact;
+	}
+	public static void main(String[] args) {
+		System.out.println(getEmployeeId());
+	}
+
 }

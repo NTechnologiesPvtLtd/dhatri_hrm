@@ -59,7 +59,7 @@ public class RegistrationServlet extends HttpServlet {
 				}
 				catch(Exception e)
 				{
-					System.out.println(e);
+					dob=new Date();
 				}
 				
 				String emailId=request.getParameter("emailId").trim();
