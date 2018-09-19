@@ -10,10 +10,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.hrm.bean.EmployeeBean;
 import com.hrm.services.HRMService;
 import com.hrm.services.HRMServicesImplementation;
+import com.hrm.session.SharedObject;
 
 /**
  * Servlet implementation class RegistrationServlet
@@ -141,12 +143,15 @@ public class RegistrationServlet extends HttpServlet {
 				employeebean.setLocation(location);
 				employeebean.setExperience(experience);
 				
+				//Session
+//				HttpSession session=SharedObject.getInstance();
+				
 				//calling the services
 				
 				HRMService hrmService=new HRMServicesImplementation();
 				int result = hrmService.insertEmployeeData(employeebean);
 				
-				RequestDispatcher requestDisForward=request.getRequestDispatcher("Home.jsp");
+				RequestDispatcher requestDisForward=request.getRequestDispatcher("EmployeeView.jsp");
 				RequestDispatcher requestDisInclude=request.getRequestDispatcher("EmployeeRegistration.jsp");
 				if(result>0){
 					requestDisForward.forward(request, response);
