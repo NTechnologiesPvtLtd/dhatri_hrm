@@ -1,5 +1,7 @@
 package com.hrm.dao;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.hrm.bean.*;
 import com.hrm.businesslogic.EmployeeIdGenerator;
@@ -13,6 +15,7 @@ public class HRMDaoImplementation implements HRMDao {
 	Connection con;
 	Statement stmt;
 	PreparedStatement pstmt;
+	ResultSet resultSet;
 	
 	public HRMDaoImplementation(){
 		con=MySqlDBConnection.getInstance();
@@ -61,5 +64,27 @@ public class HRMDaoImplementation implements HRMDao {
 		}		
 		return result;
 		
+	}
+	@Override
+	public List<EmployeeBean> search() {
+		List<EmployeeBean> listOfEmployee = new ArrayList<>();
+		String query="select * from employeebean";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			resultSet=pstmt.executeQuery();
+			EmployeeBean employeeBean=null;
+			while(resultSet.next()){
+				employeeBean = new EmployeeBean();
+				employeeBean.setEmployeeId(resultSet.getString(1));
+				employeeBean.setFirstName(resultSet.getString(2));
+				listOfEmployee.add(employeeBean);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return listOfEmployee;
 	}
 }
