@@ -3,6 +3,7 @@ import java.sql.*;
 
 import com.hrm.bean.*;
 import com.hrm.businesslogic.EmployeeIdGenerator;
+import com.hrm.constants.EmployeeConstants;
 import com.hrm.db.connections.MySqlDBConnection;
 import com.hrm.session.SharedObject;
 
@@ -24,7 +25,7 @@ public class HRMDaoImplementation implements HRMDao {
 		{
 			pstmt=con.prepareStatement(query);
 			String employeeId=EmployeeIdGenerator.getEmployeeId();
-			SharedObject.putInToSession("EmployeeId", employeeId);
+			SharedObject.putInToSession(EmployeeConstants.EMPLOYEE_ID, employeeId);
 		pstmt.setString(1,employeeId);
 		pstmt.setString(2,employeeBean.getFirstName());
 		pstmt.setString(3,employeeBean.getLastName());

@@ -1,3 +1,4 @@
+<%@page import="com.hrm.constants.EmployeeConstants"%>
 <%@page import="com.hrm.session.SharedObject"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -9,7 +10,7 @@
 </head>
 <body>
 <%
-Object obj=SharedObject.getFromSession("EmployeeId");
+Object obj=SharedObject.getFromSession(EmployeeConstants.EMPLOYEE_ID);
 if(obj!=null){
 	String employeeId=(String)obj;
 %>
