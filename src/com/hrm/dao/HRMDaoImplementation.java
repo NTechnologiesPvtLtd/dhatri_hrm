@@ -6,6 +6,7 @@ import java.util.List;
 import com.hrm.bean.*;
 import com.hrm.businesslogic.EmployeeIdGenerator;
 import com.hrm.db.connections.MySqlDBConnection;
+import com.hrm.session.SharedObject;
 
 
 public class HRMDaoImplementation implements HRMDao {
@@ -25,7 +26,9 @@ public class HRMDaoImplementation implements HRMDao {
 		try
 		{
 			pstmt=con.prepareStatement(query);
-		pstmt.setString(1,EmployeeIdGenerator.getEmployeeId());
+			String employeeId=EmployeeIdGenerator.getEmployeeId();
+			SharedObject.putInToSession("EmployeeId", employeeId);
+		pstmt.setString(1,employeeId);
 		pstmt.setString(2,employeeBean.getFirstName());
 		pstmt.setString(3,employeeBean.getLastName());
 		pstmt.setString(4,employeeBean.getFatherName());

@@ -143,15 +143,13 @@ public class RegistrationServlet extends HttpServlet {
 				employeebean.setLocation(location);
 				employeebean.setExperience(experience);
 				
-				//Session
-//				HttpSession session=SharedObject.getInstance();
 				
 				//calling the services
 				
 				HRMService hrmService=new HRMServicesImplementation();
 				int result = hrmService.insertEmployeeData(employeebean);
 				
-				RequestDispatcher requestDisForward=request.getRequestDispatcher("EmployeeView.jsp");
+				RequestDispatcher requestDisForward=request.getRequestDispatcher("SucessPage.jsp");
 				RequestDispatcher requestDisInclude=request.getRequestDispatcher("EmployeeRegistration.jsp");
 				if(result>0){
 					requestDisForward.forward(request, response);
