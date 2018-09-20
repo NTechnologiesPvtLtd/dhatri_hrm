@@ -143,11 +143,10 @@ public class RegistrationServlet extends HttpServlet {
 				employeebean.setLocation(location);
 				employeebean.setExperience(experience);
 				
-<<<<<<< HEAD
-=======
+
 				//Session
 //				HttpSession session=SharedObject.getInstance();
->>>>>>> 9277d6dd212a14eafb45227e66b3be17436f7e0c
+
 				
 				//calling the services
 				
