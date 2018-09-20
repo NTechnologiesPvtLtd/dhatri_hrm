@@ -29,7 +29,7 @@
 
 
 
-			<li><a href="user.jsp">Login</a></li>
+			<li><a href="User.jsp">Login</a></li>
 			<!--                 <li><a href="registration.html">Employee</a> </li>-->
 
 			<div class="dropdown">

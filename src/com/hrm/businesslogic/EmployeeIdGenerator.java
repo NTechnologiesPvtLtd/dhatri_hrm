@@ -5,12 +5,11 @@ import java.util.Random;
 
 public class EmployeeIdGenerator
 {
-	private static String employeeId="";
+	private static String employeeId="DS-";
 	
 	
 	public static String getEmployeeId()
 	{
-		employeeId="DS-";
 		employeeId=employeeId+unqiueNo();
 		return employeeId;
 	}
