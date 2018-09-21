@@ -40,7 +40,7 @@
 					<a href="EmployeeRegistration.jsp">New Registration</a>
 					 <a href="#">ResponseApproved</a>
 						
-						<a href="EmployeeView.jsp">Display Employees</a>
+						<a href="EmployeeView.jsp">Search Employee</a>
 						<a href="user.jsp">Login</a>
 						
 

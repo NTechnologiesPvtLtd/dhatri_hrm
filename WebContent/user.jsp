@@ -70,6 +70,8 @@ function clearForm()
     <div class="dropdown-content">
       <a href="EmployeeRegistration.jsp">New Registration</a>
       <a href="#">Response Approved</a>
+      <a href="EmployeeView.jsp">Search Employee</a>
+						<a href="user.jsp">Login</a>
      
     </div>
   </div> 

@@ -29,7 +29,7 @@
 		<nav>
 		<ul>
 			<li><a href="index.jsp">Home</a></li>
-			<li><a href="User.jsp">Login</a></li>
+			<li><a href="user.jsp">Login</a></li>
 		
 
 
@@ -40,6 +40,8 @@
 				<div class="dropdown-content">
 					<a href="EmployeeRegistration.jsp">New Registration</a> <a href="#">Response
 						Approved</a>
+						<a href="EmployeeView.jsp">Search Employee</a>
+						<a href="user.jsp">Login</a>
 
 				</div>
 			</div>
@@ -52,7 +54,7 @@
 	<div id="#mainform">
 		<br> <br>
 
-		<div class="container" style="background-image:url(re1.jpg)";>
+		<div class="container" style="background-image:url(r1.jpg)";>
 			<center>
 				<h1 style="color:red";"padding:50%"; "margin-top:50%"; "height:20%";>
 					
