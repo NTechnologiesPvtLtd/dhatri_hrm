@@ -59,7 +59,7 @@ function clearForm()
             <nav>
             <ul>
                 <li><a href="index.jsp">Home</a></li>
-                <li id="active"><a href="User.jsp">Login</a> </li> 
+                <li id="active"><a href="user.jsp">Login</a> </li> 
 <!--                 <li><a href="EmployeeRegistration.jsp">Employee</a> </li> -->
                 
 
