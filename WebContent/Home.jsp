@@ -37,9 +37,12 @@
 					Employee <i class="fa fa-caret-down"></i>
 				</button>
 				<div class="dropdown-content">
-					<a href="EmployeeRegistration.jsp">New Registration</a> <a href="#">Response
-						Approved</a>
+					<a href="EmployeeRegistration.jsp">New Registration</a>
+					 <a href="#">ResponseApproved</a>
+						
 						<a href="EmployeeView.jsp">Display Employees</a>
+						<a href="user.jsp">Login</a>
+						
 
 				</div>
 			</div>
