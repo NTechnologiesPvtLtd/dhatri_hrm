@@ -39,6 +39,7 @@
 				<div class="dropdown-content">
 					<a href="EmployeeRegistration.jsp">New Registration</a> <a href="#">Response
 						Approved</a>
+						<a href="EmployeeView.jsp">Display Employees</a>
 
 				</div>
 			</div>
