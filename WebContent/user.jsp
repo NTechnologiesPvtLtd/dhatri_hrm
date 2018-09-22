@@ -88,7 +88,7 @@ function clearForm()
 
 <br><br>
 <h1>LOGIN HERE</h1>
-<form action="index.html">
+<!--<form action="index.jsp">-->
 <p><b>UserName<b>
 <input type="text"  onkeypress="clearForm()"  id="loginId" name="Uname" placeholder="Enter username" required></p>
 <p id="errorMsg" style="color: red;"></p>
@@ -107,7 +107,7 @@ function clearForm()
 <option value="hr">hr</option>
 </select>
 <br><br>
-<input type="submit" onclick="return loginValidation()" value="login"><br>
+<a href="LoginView.jsp"><input type="submit" onclick="return loginValidation()" value="login"></a><br>
 
 
 <a href="#">forgot password</a>
