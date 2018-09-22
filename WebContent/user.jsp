@@ -3,33 +3,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
-
-
-
-
-
-
-
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-
-
-         <title>Dhatsol</title>
+<title>Dhatsol</title>
      
     <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" media="all" href="stylesheets/animate.css" />
     
-    <script type="text/javascript">
+<script type="text/javascript">
+    
 function loginValidation()
 {
-	var Uname=document.getElementById("loginId").value;
+	var employeeId=document.getElementById("loginId").value;
 	var Pass=document.getElementById("Password").value;
-	if(Uname==null||Uname=="")
+	if(employeeId==null||employeeId=="")
 	{
-	document.getElementById("errorMsg").innerHTML="please enter UserName";
+	document.getElementById("errorMsg").innerHTML="please enter EmployeeId";
 	return false;
 	}
 else if(Pass==null||Pass=="")
@@ -71,7 +62,7 @@ function clearForm()
       <a href="EmployeeRegistration.jsp">New Registration</a>
       <a href="#">Response Approved</a>
       <a href="EmployeeView.jsp">Search Employee</a>
-						<a href="user.jsp">Login</a>
+	  <a href="user.jsp">Login</a>
      
     </div>
   </div> 
@@ -88,23 +79,24 @@ function clearForm()
 
 <br><br>
 <h1>LOGIN HERE</h1>
-<form action="index.html">
-<p><b>UserName<b>
-<input type="text"  onkeypress="clearForm()"  id="loginId" name="Uname" placeholder="Enter username" required></p>
-<p id="errorMsg" style="color: red;"></p>
+<form action="LoginServlet" method="post">
+
+<p><b>EmployeeId<b>
+<input type="text"  onkeypress="clearForm()"  id="loginId" name="employeeId" placeholder="Enter EmployeeId" required></p>
+<p id="errorMsg" style="color: #FF8000;"></p>
 <p>Password</p>
 <input type="password"  onkeypress="clearForm()"  id="Password" name="Pass" placeholder="Enter password" required><br>
-<p id="errorMsg1" style="color: red;"></p>
+<p id="errorMsg1" style="color: #FF8000;"></p>
 <p>Type</p>
             
                 
 
 <select name="type" checked>
     <option value="employee">Enter Given Type</option>
-<option value="employee">Employee</option>
-<option value="employeer">employeer</option>
-<option value="admin">admin</option>
-<option value="hr">hr</option>
+    <option value="employee">Employee</option>
+    <option value="employeer">employeer</option>
+    <option value="admin">admin</option>
+    <option value="hr">hr</option>
 </select>
 <br><br>
 <input type="submit" onclick="return loginValidation()" value="login"><br>
