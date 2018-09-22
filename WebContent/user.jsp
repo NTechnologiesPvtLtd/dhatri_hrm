@@ -19,6 +19,7 @@ function loginValidation()
 {
 	var employeeId=document.getElementById("loginId").value;
 	var mobileNumber=document.getElementById("Password").value;
+	var type=document.getElementById("type").value;
 	if(employeeId==null||employeeId=="")
 	{
 	document.getElementById("errorMsg").innerHTML="please enter EmployeeId";
@@ -29,6 +30,10 @@ else if(mobileNumber==null||mobileNumber=="")
 	document.getElementById("errorMsg1").innerHTML="please enter Password";
 	return false;
 	}
+else if(type==null||type=="Enter Given Type")
+	{
+	document.getElementById("errorMsg2").innerHTML="Enter Given Type";
+	}
 	
 else
 	return true;
@@ -36,7 +41,9 @@ else
 function clearForm()
 {
 	document.getElementById("errorMsg").innerHTML="";
-	document.getElementById("errorMsg1").innerHTML="";}
+	document.getElementById("errorMsg1").innerHTML="";
+	document.getElementById("errorMsg2").innerHTML="";
+}
 
 </script>
 
@@ -81,15 +88,15 @@ function clearForm()
 <form action="LoginServlet" method="post">
 <p><b>EmployeeId<b>
 <input type="text"  onkeypress="clearForm()"  id="loginId" name="employeeId" placeholder="Enter employeeId" required></p>
-<p id="errorMsg" style="color: red;"></p>
+<p id="errorMsg" style="color:black";"background-color:orange";></p>
 <p>Password</p>
 <input type="password"  onkeypress="clearForm()"  id="Password" name="mobileNumber" placeholder="Enter password" required><br>
-<p id="errorMsg1" style="color: red;"></p>
+<p id="errorMsg1" style="color:black";"background-color:orange";></p>
 
 
 <p>Type</p>            
 
-<select name="type" checked>
+<select name="type" id="type"checked>
 <option value="employee">Enter Given Type</option>
 <option value="employee">Employee</option>
 <option value="employeer">employeer</option>
