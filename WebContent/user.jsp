@@ -17,7 +17,7 @@
 function loginValidation()
 {
 	var employeeId=document.getElementById("loginId").value;
-	var Pass=document.getElementById("Password").value;
+	var mobileNumber=document.getElementById("Password").value;
 	if(employeeId==null||employeeId=="")
 	{
 	document.getElementById("errorMsg").innerHTML="please enter EmployeeId";
@@ -85,7 +85,7 @@ function clearForm()
 <input type="text"  onkeypress="clearForm()"  id="loginId" name="employeeId" placeholder="Enter EmployeeId" required></p>
 <p id="errorMsg" style="color: #FF8000;"></p>
 <p>Password</p>
-<input type="password"  onkeypress="clearForm()"  id="Password" name="Pass" placeholder="Enter password" required><br>
+<input type="password"  onkeypress="clearForm()"  id="Password" name="mobileNumber" placeholder="Enter password" required><br>
 <p id="errorMsg1" style="color: #FF8000;"></p>
 <p>Type</p>
             
