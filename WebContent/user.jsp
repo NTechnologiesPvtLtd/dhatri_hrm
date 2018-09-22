@@ -31,9 +31,9 @@ else if(mobileNumber==null||mobileNumber=="")
 	return false;
 	}
 else if(type==null||type=="Enter Given Type")
-	{
-	document.getElementById("errorMsg2").innerHTML="Enter Given Type";
-	}
+{
+document.getElementById("errorMsg2").innerHTML="Enter Given Type";
+}
 	
 else
 	return true;
