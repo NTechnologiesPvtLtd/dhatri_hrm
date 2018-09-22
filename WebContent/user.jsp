@@ -4,40 +4,31 @@
 <html>
 <head>
 
-
-
-
-
-
-
-
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-
-
-         <title>Dhatsol</title>
+<title>Dhatsol</title>
      
     <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" media="all" href="stylesheets/animate.css" />
     
-    <script type="text/javascript">
+<script type="text/javascript">
+
 function loginValidation()
 {
-	var Uname=document.getElementById("loginId").value;
-	var Pass=document.getElementById("Password").value;
-	if(Uname==null||Uname=="")
+	var employeeId=document.getElementById("loginId").value;
+	var mobileNumber=document.getElementById("Password").value;
+	if(employeeId==null||employeeId=="")
 	{
-	document.getElementById("errorMsg").innerHTML="please enter UserName";
+	document.getElementById("errorMsg").innerHTML="please enter EmployeeId";
 	return false;
 	}
-else if(Pass==null||Pass=="")
+else if(mobileNumber==null||mobileNumber=="")
 	{
 	document.getElementById("errorMsg1").innerHTML="please enter Password";
 	return false;
 	}
-
 	
 else
 	return true;
@@ -51,7 +42,7 @@ function clearForm()
 
 	
     
-    </head>
+ </head>
     <body>
        <div id="nav">
            <h1><a href="index.jsp">Dhatsol IT Solutions</a></h1>
@@ -60,8 +51,7 @@ function clearForm()
             <ul>
                 <li><a href="index.jsp">Home</a></li>
                 <li id="active"><a href="user.jsp">Login</a> </li> 
-<!--                 <li><a href="EmployeeRegistration.jsp">Employee</a> </li> -->
-                
+                <li><a href="EmployeeRegistration.jsp">Employee</a> </li>
 
 <div class="dropdown">
     <button class="dropbtn">Employee
@@ -71,12 +61,12 @@ function clearForm()
       <a href="EmployeeRegistration.jsp">New Registration</a>
       <a href="#">Response Approved</a>
       <a href="EmployeeView.jsp">Search Employee</a>
-						<a href="user.jsp">Login</a>
+	  <a href="user.jsp">Login</a>
      
     </div>
   </div> 
 
-                <li><a href="Aboutus.html">about us</a></li>
+      <li><a href="Aboutus.html">about us</a></li>
                 
                 
                 
@@ -88,26 +78,26 @@ function clearForm()
 
 <br><br>
 <h1>LOGIN HERE</h1>
-<!--<form action="index.jsp">-->
-<p><b>UserName<b>
-<input type="text"  onkeypress="clearForm()"  id="loginId" name="Uname" placeholder="Enter username" required></p>
+<form action="LoginServlet" method="post">
+<p><b>EmployeeId<b>
+<input type="text"  onkeypress="clearForm()"  id="loginId" name="employeeId" placeholder="Enter employeeId" required></p>
 <p id="errorMsg" style="color: red;"></p>
 <p>Password</p>
-<input type="password"  onkeypress="clearForm()"  id="Password" name="Pass" placeholder="Enter password" required><br>
+<input type="password"  onkeypress="clearForm()"  id="Password" name="mobileNumber" placeholder="Enter password" required><br>
 <p id="errorMsg1" style="color: red;"></p>
-<p>Type</p>
-            
-                
+
+
+<p>Type</p>            
 
 <select name="type" checked>
-    <option value="employee">Enter Given Type</option>
+<option value="employee">Enter Given Type</option>
 <option value="employee">Employee</option>
 <option value="employeer">employeer</option>
 <option value="admin">admin</option>
 <option value="hr">hr</option>
 </select>
 <br><br>
-<a href="LoginView.jsp"><input type="submit" onclick="return loginValidation()" value="login"></a><br>
+<input type="submit" onclick="return loginValidation()" value="login"><br>
 
 
 <a href="#">forgot password</a>
@@ -118,10 +108,6 @@ function clearForm()
         </div>
         
        
-
+</form>
 </body>
-
-
-
-
 </html>
