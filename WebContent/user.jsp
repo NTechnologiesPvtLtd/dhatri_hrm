@@ -79,12 +79,13 @@ function clearForm()
 <br><br>
 <h1>LOGIN HERE</h1>
 <form action="LoginServlet" method="post">
-<p><b>EmployeeId<b>
-<input type="text"  onkeypress="clearForm()"  id="loginId" name="employeeId" placeholder="Enter employeeId" required></p>
-<p id="errorMsg" style="color: red;"></p>
+<p><b>EmployeeId</b>
+<input type="text" onkeypress="clearForm()"  id="loginId" name="employeeId" placeholder="Enter employeeId" required></p>
+
+<p id="errorMsg" style="color:black;background:orange;"></p>
 <p>Password</p>
 <input type="password"  onkeypress="clearForm()"  id="Password" name="mobileNumber" placeholder="Enter password" required><br>
-<p id="errorMsg1" style="color: red;"></p>
+<p id="errorMsg1" style="color:black;background:orange;"></p>
 
 
 <p>Type</p>            
