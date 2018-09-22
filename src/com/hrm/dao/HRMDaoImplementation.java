@@ -68,7 +68,7 @@ public class HRMDaoImplementation implements HRMDao {
 	@Override
 	public List<EmployeeBean> search() {
 		List<EmployeeBean> listOfEmployee = new ArrayList<>();
-		String query="select * from employeebean";
+		String query="select EmployeeId,FirstName,FatherName,Gender,EmailId,MobileNo,AadharNo from employeebean";
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -78,6 +78,13 @@ public class HRMDaoImplementation implements HRMDao {
 				employeeBean = new EmployeeBean();
 				employeeBean.setEmployeeId(resultSet.getString(1));
 				employeeBean.setFirstName(resultSet.getString(2));
+				employeeBean.setFatherName(resultSet.getString(3));
+				employeeBean.setGender(resultSet.getString(4));
+
+				employeeBean.setEmailId(resultSet.getString(5));
+				employeeBean.setMobileNumber(Long.parseLong(resultSet.getString(6)));
+				employeeBean.setAadharNo(Long.parseLong(resultSet.getString(7)));
+				
 				listOfEmployee.add(employeeBean);
 			}
 			
