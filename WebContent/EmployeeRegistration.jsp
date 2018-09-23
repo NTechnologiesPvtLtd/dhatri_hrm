@@ -56,7 +56,7 @@
 
 		<div class="container" style="background-image:url(r1.jpg)";>
 			<center>
-				<h1 style="color:red";"padding:50%"; "margin-top:50%"; "height:20%";>
+				<h1 style="color:red padding:50% margin-top:50% height:20%";>
 					
 				</h1>
 				<hr>

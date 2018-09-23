@@ -19,6 +19,15 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" media="all" href="stylesheets/animate.css"/>
 <script type="text/javascript" src="employeeValidation.js">
+   
+
+
+
+
+
+
+
+
 
 </script>
 	
@@ -57,9 +66,9 @@
 	<div id="#mainform">
 		<br> <br>
 
-		<div class="container" style="background-image:url(re1.jpg)";>
+		<div class="container" style="background-image:url(r1.jpg)";>
 			<center>
-				<h1 style="color:red";"padding:50%"; "margin-top:50%"; "height:20%";>
+				<h1 style=" padding:50% margin-top:50% height:20%";>
 					
 				</h1>
 				<hr>
@@ -71,8 +80,16 @@
 		List<EmployeeBean> employeeResponse = service.search();
 		if (employeeResponse != null && !employeeResponse.isEmpty()) {
 	%>
+	 <div class="table">
 
-	<table align="center">
+	<table align=center>	
+  
+         
+       
+         
+		<tr>
+		
+		<td id="header" colspan="7"><h1>Display Information Of Employees </h1></td></tr>
 		<tr>
 			<th>EmployeeId</th>
 			<th>First Name</th>
@@ -82,9 +99,9 @@
 			<th>Mobile No</th>
 			<th>Aadhar No</th>
 			
-			
+		
 		</tr>
-
+</div>
 		<%
 			for (EmployeeBean employeeBean : employeeResponse) {
 		%>
@@ -103,6 +120,7 @@
 
 
 
+	</table>
 	</table>
 
 	<%
