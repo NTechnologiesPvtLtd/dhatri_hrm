@@ -1,9 +1,13 @@
 package com.hrm.dao;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.hrm.bean.*;
+import com.hrm.bean.EmployeeBean;
 import com.hrm.businesslogic.EmployeeIdGenerator;
 import com.hrm.constants.EmployeeConstants;
 import com.hrm.db.connections.MySqlDBConnection;
@@ -111,5 +115,49 @@ public class HRMDaoImplementation implements HRMDao {
 			System.out.println(e);
 		}
 		return s1;
+	}
+	
+	public  int update(EmployeeBean emp)
+	{
+		int result=0;
+		String sql="update employeebean set FirstName=?,LastName=?,FatherName=?,Gender=?,dateOfBirth=?,EmailId=?,MobileNo=?,AadharNo=?,PermanatAddress=?,localAddress=?,SchoolName=?,tenthPassedout=?,IntermeadiateCollegeName=?,InterPassedout=?,GraduationDetails=?,GraduationPassedout=?,Branch=?,University=?,CompanyName=?,Role=?,NoticePeriod=?,Location=?,Experience=?,CurrentCtc=?,ExpectedCtc=? where EmployeeId=?";
+		try{
+			PreparedStatement pstmt=con.prepareStatement(sql);
+			pstmt.setString(1,emp.getFirstName());
+			pstmt.setString(2, emp.getLastName());
+			pstmt.setString(3, emp.getFatherName());
+			pstmt.setString(4,emp.getGender());
+			pstmt.setString(5, emp.getDob().toString());
+			pstmt.setString(6, emp.getEmailId());
+			pstmt.setLong(7, emp.getMobileNumber());
+			pstmt.setLong(8, emp.getAadharNo());
+			pstmt.setString(9, emp.getPermanentAddress());
+			pstmt.setString(10, emp.getLocalAddress());
+			pstmt.setString(11, emp.getSchoolName());
+			pstmt.setInt(12, emp.getTenthPassedOut());
+			pstmt.setString(13,emp.getIntermediateCollegeName());
+			pstmt.setInt(14, emp.getInterPassedOut());
+			pstmt.setString(15, emp.getGraduationDetails());
+			pstmt.setInt(16, emp.getGraduationPassedOut());
+			pstmt.setString(17,emp.getBranch());
+			pstmt.setString(18, emp.getUniversity());
+			pstmt.setString(19,emp.getCompanyName());
+			pstmt.setString(20, emp.getRole());
+			pstmt.setInt(21,emp.getNoticePeriod());
+			pstmt.setString(22,emp.getLocation());
+			pstmt.setString(23, emp.getExperience());
+			pstmt.setDouble(24, emp.getCurrentCTC());
+			pstmt.setDouble(25, emp.getExpectedCTC());
+			pstmt.setString(26,emp.getEmployeeId());
+			
+		 result=pstmt.executeUpdate();
+		}catch(NullPointerException e)
+		{
+			e.printStackTrace();
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return result;
 	}
 }

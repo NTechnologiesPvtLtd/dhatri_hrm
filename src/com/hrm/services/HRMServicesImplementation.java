@@ -30,4 +30,8 @@ public class HRMServicesImplementation implements HRMService {
 	public boolean login(String employeeId,long mobileNumber){
 		return hrmDao.login(employeeId, mobileNumber);
 	}
+	public  int update(EmployeeBean emp)
+	{
+		return hrmDao.update(emp);
+	}
 }
