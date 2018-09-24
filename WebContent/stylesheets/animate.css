@@ -225,10 +225,10 @@ margin:0;
  
 }
 .container h2{
-background-color:#2c314e;
+background-color:#b1a574;
 color:white;
 text-align:left;}
-.container h3{background-color:#2c314e;
+.container h3{background-color:#b1a574;
 color:white;
 text-align:left;}
 .sowmya{
@@ -251,7 +251,7 @@ box-sizing:border-box;
 background:transparent;
 outline:none;
 border:none;
-border-bottom:1px solid #986c9c;
+border-bottom:1px solid #c5a8c7;
 color:white;
 	font-size:15px;
 		
@@ -261,7 +261,7 @@ color:white;
 box-sizing:border-box;*background:transparent;
 outline:none;
 border:none;
-border-bottom:1px solid #3c3636;
+border-bottom:1px solid #c5a8c7;
  color:#fff; 
 color:black;
 	font-size:15px;	
@@ -272,7 +272,7 @@ box-sizing:border-box;
 background:transparent;
 outline:none;
 border:none;
-border-bottom:1px solid #3c3636;
+border-bottom:1px solid #c5a8c7;
  color:#fff; 
 color:black;
 	font-size:15px;	
@@ -348,5 +348,14 @@ td{
          }
                  
                  .table tr:hover {background-color: #ddd;}
+                          blink{
                           
+                           
+        animation: blinker 0.6s linear infinite;
+       }
+      @keyframes blinker {  
+        50% { opacity: 0; }
+        
+       }
+                          }
                               

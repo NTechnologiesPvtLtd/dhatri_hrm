@@ -1,6 +1,9 @@
+<%@page import="com.hrm.constants.EmployeeConstants"%>
+<%@page import="com.hrm.session.SharedObject"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@page import="com.hrm.bean.EmployeeBean"%>
+   
 <%@page import="java.util.List"%>
 <%@page import="com.hrm.services.HRMServicesImplementation"%>
 <%@page import="com.hrm.services.HRMService"%>
@@ -19,20 +22,19 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" media="all" href="stylesheets/animate.css"/>
 <script type="text/javascript" src="employeeValidation.js">
-   
-
-
-
-
-
-
-
-
 
 </script>
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
 	
 </head>
 <body>
+<!--  <%SharedObject.setRequest(request); %> -->
+
+	
 	<div id="nav">
 		<h1>
 			<a href="index.jsp">Dhatsol IT Solutions</a>
@@ -66,112 +68,40 @@
 	<div id="#mainform">
 		<br> <br>
 
-		<div class="container" style="background-color:#ddd";>
-			<center>
-				<h1 style=" padding:50% margin-top:50% height:20%";>
+		<div class="container" style="background-color:#91a6a9";>
+		<!-- 	<center>  -->
+				<h1 style="color:black";"padding:50%"; "margin-top:50%"; "height:20%";>
 					
-				</h1>
-				<hr>
-				<form >
-				<div class="panel panel-default">
-				
-				<%
+				</h1>				<hr>
+   	
+<h1>Single Employee Details</h1>
+
+<%
+String empId=request.getParameter("empId");
+
+
 		HRMService service = new HRMServicesImplementation();
-		List<EmployeeBean> employeeResponse = service.search();
-		if (employeeResponse != null && !employeeResponse.isEmpty()) {
-	%>
-	 <div class="table">
-
-	<table align=center>	
-  
-         
-       
-         
-		<tr>
-		
-		<td id="header" colspan="7"><h1>Display Information Of Employees </h1></td></tr>
-		<tr>
-			<th>EmployeeId</th>
-			<th>First Name</th>
-			<th>Father Name</th>
-			<th>Gender</th>
-			<th>Email Id</th>
-			<th>Mobile No</th>
-			<th>Aadhar No</th>
+		EmployeeBean bean = service.searchOneEmployee(empId);
+		if (empId != null && !empId.isEmpty()) {
 			
-		
-		</tr>
-</div>
-		<%
-			for (EmployeeBean employeeBean : employeeResponse) {
-		%>
-		<tr>
-			<td><%=employeeBean.getEmployeeId()%></td>
-			<td><%=employeeBean.getFirstName()%></td>
-			<td><%=employeeBean.getFatherName()%></td>
-			<td><%=employeeBean.getGender()%></td>
-			<td><%=employeeBean.getEmailId()%></td>
-			<td><%=employeeBean.getMobileNumber()%></td>
-			<td><%=employeeBean.getAadharNo()%></td>
-		</tr>
-		<%
-			}
-		%>
-
-
-
+	%>
+	<%=bean%>
+	<table>
+  <tr>  <td>	Employee Id:</td><td><%=empId%></td></tr>
+	<tr><td>Employee Name:</td><td><%=bean.getFirstName()%></td></tr>
+	<tr><td>Father Name:</td><td><%=bean.getFatherName()%></td></tr>
+	<tr><td>Gender:</td> <td><%=bean.getGender()%></td></tr>
+	<tr><td>Email Id:</td><td>	<%=bean.getEmailId()%></td></tr>
+	<tr><td>Mobile No:</td><td>	<%=bean.getMobileNumber()%></td></tr>
+	<tr><td>Aadhar No:</td><td><%=bean.getAadharNo()%> </td></tr>
 	</table>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	
+<%} %>
 
-	<%
-		} else {
-			out.print("No Result Found");
-		}
-	%>						
-					
+				
 				</div>
-				</form>
+				
+		<!--  		</center>   -->
+				</div>
 				
 </body>
 </html>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-
