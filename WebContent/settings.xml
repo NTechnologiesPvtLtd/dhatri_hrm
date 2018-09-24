@@ -1,0 +1,22 @@
+<settings>
+	<pluginGroups>
+		<pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+	</pluginGroups>
+	<profiles>
+		<profile>
+			<id>sonar</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<sonar.host.url>http://myserver:9000</sonar.host.url>
+				<sonar.login>2d6192595aad46aaa6ed30a14fe8522f837aff1e</sonar.login>
+				<sonar.projectName>Apache James</sonar.projectName>
+				<sonar.projectVersion>master</sonar.projectVersion>
+				<sonar.test.exclusions>**/test/**/*.*</sonar.test.exclusions>
+				<sonar.exclusions>**/ai/**/*.*,**/jdbc/**/*.*,**/mpt/**/*.*,**/jcr/**/*.*,**/JDBC*
+				</sonar.exclusions>
+			</properties>
+		</profile>
+	</profiles>
+</settings>
