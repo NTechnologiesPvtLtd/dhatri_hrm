@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>view here</h1>
+<h1>LoginView</h1>
+<div align="right" ><input type="submit" formaction="user.jsp" value="logout"></div>
 </body>
 </html>

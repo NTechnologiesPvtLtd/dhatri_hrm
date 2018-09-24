@@ -94,4 +94,22 @@ public class HRMDaoImplementation implements HRMDao {
 		}
 		return listOfEmployee;
 	}
+	
+	public boolean login(String employeeId,long mobileNumber)
+	{
+		boolean s1=false;
+		try{
+		String q1="select * from employeebean where employeeId=? and mobileNo=?";
+		pstmt=con.prepareStatement(q1);
+		pstmt.setString(1,employeeId);
+		pstmt.setLong(2,mobileNumber);
+		resultSet=pstmt.executeQuery();
+		s1=resultSet.next();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+		return s1;
+	}
 }

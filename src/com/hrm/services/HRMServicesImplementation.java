@@ -27,5 +27,7 @@ public class HRMServicesImplementation implements HRMService {
 		// TODO Auto-generated method stub
 		return hrmDao.search();
 	}
-
+	public boolean login(String employeeId,long mobileNumber){
+		return hrmDao.login(employeeId, mobileNumber);
+	}
 }
