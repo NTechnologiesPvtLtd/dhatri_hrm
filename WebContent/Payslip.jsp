@@ -10,6 +10,7 @@
 div.headtext {
 	margin-left: 25px;
 	margin-right: 25px;
+	align:center;
 			}
 div.backgrouondColor {
 	background-color: AliceBlue;
@@ -75,7 +76,14 @@ div.imgpadding {
 }
 
 td.padding6{
+
 padding-left: 12.2cm;
+color:white;
+font-size:20px;
+}
+td.padding7{
+font-size:20px;	
+color:white;
 }
 </style>
 </head>
@@ -98,7 +106,7 @@ double netPay =ctc- totalDeductions;
 %>
 	
 <div class ="imgpadding">
-<img src="logo.png" alt="logo" width="210" height="100">
+<img src="logo.png" alt="logo" width="210" height="100" align="center">
 </div>
 
 <div class="headtext">
@@ -113,21 +121,21 @@ double netPay =ctc- totalDeductions;
 	<div class="backgrouondColor">
 	<table>
 				<tr>
-					<td>EmpName:</td>
+					<td><br>EmpName:<br><br></td><br><br>
 					<td><input type="text" name="emploeeName">
-					<td class="padding2">EmpID:</td>
+					<td class="padding2">EmpID:<br></td>
 					<td class="padding2"><input type="text" name="employeeID">
 				</tr>
 				<tr>
-					<td>Designation:</td>
+					<td>Designation:<br><br></td>
 					<td><input type="text" name="desigantion">
-					<td class="padding2">Bank:</td>
+					<td class="padding2">Bank:<br></td>
 					<td class="padding2"><input type="text" name="bank">
 				</tr>
 				<tr>
-					<td>Date of Joining:</td>
+					<td><br>Date of Joining:<br><br></td>
 					<td><input type="text" name="date of joining">
-					<td class="padding2">BankAccountNo:</td>
+					<td class="padding2">BankAccountNo:<br></td>
 					<td class="padding2"><input type="text" name="bankAccountNO">
 				</tr>
 	</table>
@@ -135,8 +143,8 @@ double netPay =ctc- totalDeductions;
 			<div class="backgrouondColor1">
 			<table>
 					<tr>
-					<td>Earnings</td>
-					<td class="padding6">Deductions</td>
+					<td class="padding7">Earnings</td><br>
+					<td class="padding6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Deductions</td>
 					</tr>
 			</table>
 		</div>
@@ -144,39 +152,39 @@ double netPay =ctc- totalDeductions;
 <div class="backgrouondColor2">
 <table>
 
-<tr>
-<td>Basic:</td>
+<tr><br><br>
+<td><br>Basic:<br><br></td>
 <td><input type="text" name="basic" value=<%=basic %>>
-<td class="padding2">ProfessionalTax:</td>
+<td class="padding2"><br>ProfessionalTax:<br><br></td>
 <td class="padding2"><input type="text" name="professionalTax" value="<%=professionalTax%>"></td>
 </tr>
 
 <tr>
-<td>Conveyance:</td>
+<td><br>Conveyance:<br><br></td>
 <td><input type="text" name="conveyance" value="<%=conveyance %>">
-<td class="padding2">IncomeTax:</td>
+<td class="padding2"><br>IncomeTax:<br><br></td>
 <td class="padding2"><input type="text" name="incomeTax" value="<%=incomeTax%>">
 </tr>
 
 <tr>
-<td>HRA:</td>
+<td><br>HRA:<br><br></td>
 <td><input type="text" name="hra" value="<%=hra%>">
-<td class="padding2">OtherDeductions:</td>
+<td class="padding2"><br>OtherDeductions:<br><br></td>
 <td class="padding2"><input type="text" name="incomeTax" value=<%=otherDeductions %>"></td>
 </tr>
 
 <tr>
-<td>CityCompensatoryAll:</td>
+<td><br>CityCompensatoryAll:<br><br></td>
 <td><input type="text" name="cityCompensatoryAll" value=<%=cityCompensatoryAll %>></td>
 </tr>
 
 <tr>
-<td>SpecialAllowance:</td>
+<td><br>SpecialAllowance:<br><br></td>
 <td><input type="text" name="specialAllowance" value=<%=specialAllowance %>></td>
 </tr>
 				
 <tr>
-<td>Medical:</td>
+<td><br>Medical:<br><br></td>
 <td><input type="text" name="medical" value="<%=medical%>"></td>
 </tr>
 </table>
@@ -212,7 +220,7 @@ double netPay =ctc- totalDeductions;
 
 	<footer>
   <p class ="aligncenter">DHATRI INFO SOLUTIONS PVT.LTD.</p>
-  <p styple = "padding-left :2cm;">____________________________________________________________________________________________________________</p>
+  <p styple = "padding-left :2cm;">_______________________________________________________________________________________________________________________________________________________________________________________</p>
   <p class ="aligncenter"> Manjeera Trinity Corporate, Suite #406, KPHB Phase 3, Kukatpally, Hyderabad: 500 072, Telangana, India<br> 
 			Phone: +91 40 6591 3555, 6555 7888 website: 
 
