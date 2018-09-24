@@ -315,11 +315,12 @@ td{
 .table,th,td{
    
    border-collapse:collapse;
+   
    opocity:0.95;
    }                           
        th,td{
        padding:10px;
-       text-align:center;
+       text-align:left;
        }                       
       
          .table,td{

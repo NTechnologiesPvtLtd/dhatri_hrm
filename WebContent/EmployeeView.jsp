@@ -121,7 +121,7 @@
 
 
 	</table>
-	</table>
+	
 
 	<%
 		} else {
