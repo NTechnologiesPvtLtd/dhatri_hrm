@@ -30,7 +30,7 @@ else if(mobileNumber==null||mobileNumber=="")
 	document.getElementById("errorMsg1").innerHTML="please enter Password";
 	return false;
 	}
-else if(type==null||type=="Enter Given Type")
+else if(type==""||type=="None")
     {
     document.getElementById("errorMsg2").innerHTML="Enter Given Type";
     return false;
@@ -67,7 +67,7 @@ function clearForm()
     <div class="dropdown-content">
       <a href="EmployeeRegistration.jsp">New Registration</a>
       <a href="#">Response Approved</a>
-      <a href="EmployeeView.jsp">Search Employee</a>
+      <a href="EmployeeViewDirection.jsp">Search Employee</a>
 	  <a href="user.jsp">Login</a>
      
     </div>
@@ -80,28 +80,30 @@ function clearForm()
                 </ul>
             </div>
         <div id="#mainform">
-        
+        <br> <br>
+
+		
         <div class="loginbox">
 
 <br><br>
 <h1>LOGIN HERE</h1>
 <form action="LoginServlet" method="post">
 <p><b>EmployeeId<b>
-<input type="text"  onkeypress="clearForm()"  id="loginId" name="employeeId" placeholder="Enter employeeId" required></p>
+<input type="text"  onkeypress="clearForm()" id="loginId" name="employeeId" placeholder="Enter employeeId" required></p>
 <p id="errorMsg" style="color:black";"background-color:orange";></p>
 <p>Password</p>
-<input type="password"  onkeypress="clearForm()"  id="Password" name="mobileNumber" placeholder="Enter password" required><br>
+<input type="password" onkeypress="clearForm()" id="Password" name="mobileNumber" placeholder="Enter password" required><br>
 <p id="errorMsg1" style="color:black";"background-color:orange";></p>
 
 
 <p>Type</p>            
 
-<select name="type" id="type"checked>
-<option value="employee">Enter Given Type</option>
-<option value="employee">Employee</option>
-<option value="employeer">employeer</option>
-<option value="admin">admin</option>
-<option value="hr">hr</option>
+<select name="type" onkeypress="clearForm()" id="type">
+<option value="None">Enter Given Type</option>
+<option value="employee">EMPLOYEE</option>
+<option value="employeer">EMPLOYEER</option>
+<option value="admin">ADMIN</option>
+<option value="hr">HR</option>
 </select>
 <br><br>
 <input type="submit" onclick="return loginValidation()" value="login"><br>

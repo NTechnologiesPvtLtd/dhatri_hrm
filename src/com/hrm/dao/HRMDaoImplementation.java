@@ -112,4 +112,39 @@ public class HRMDaoImplementation implements HRMDao {
 		}
 		return s1;
 	}
+/*	public  EmployeeBean searchOneEmployee(String empId){
+		
+		String id="DS-07200720";
+		
+		String query="select FirstName,FatherName,Gender,EmailId,MobileNo,AadharNo from employeebean where EmployeeId=?";
+		EmployeeBean bean=null;
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1,id);
+			resultSet=pstmt.executeQuery();
+			
+			
+				bean = new EmployeeBean();
+				//bean.setEmployeeId(resultSet.getString(1));
+				bean.setFirstName(resultSet.getString(1));
+				bean.setFatherName(resultSet.getString(2));
+				bean.setGender(resultSet.getString(3));
+
+				bean.setEmailId(resultSet.getString(4));
+				bean.setMobileNumber(Long.parseLong(resultSet.getString(5)));
+				bean.setAadharNo(Long.parseLong(resultSet.getString(6)));
+				
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bean;
+		
+		
+		
+	}*/
+	
 }

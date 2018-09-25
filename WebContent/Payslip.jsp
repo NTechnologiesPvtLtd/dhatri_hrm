@@ -108,7 +108,7 @@ double netPay =ctc- totalDeductions;
 <div class ="imgpadding">
 <img src="logo.png" alt="logo" width="210" height="100" align="center">
 </div>
-
+<br><br	>
 <div class="headtext">
 <table>
 				<tr>

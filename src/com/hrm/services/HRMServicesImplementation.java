@@ -29,5 +29,9 @@ public class HRMServicesImplementation implements HRMService {
 	}
 	public boolean login(String employeeId,long mobileNumber){
 		return hrmDao.login(employeeId, mobileNumber);
-	}
-}
+	}}
+	/*public  EmployeeBean searchOneEmployee(String empId){
+		return hrmDao.searchOneEmployee(empId);*/
+	
+	
+
