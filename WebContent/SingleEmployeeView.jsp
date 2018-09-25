@@ -75,9 +75,9 @@
 				<div class="panel panel-default">
    	
 <h1>Single Employee Details</h1>
-<%! int count=1; %>
+<%! int count=0; %>
 <%
-String empId=request.getParameter("empId");
+String resp=request.getParameter("req").trim();
 
 
 		HRMService service = new HRMServicesImplementation();
@@ -88,14 +88,14 @@ String empId=request.getParameter("empId");
 			String s1=bean.getEmployeeId();
 			String s2=bean.getFirstName();
 		
-		if (s1.equals(empId) || s2.equals(empId)) {
-		count++;	
+		if (s1.equals(resp) || s2.equalsIgnoreCase(resp)) {
+		count=1;	
 			
 	%>
 	<div class="table">
 	<table align="center">
 	</div>
-  <tr>  <td>	Employee Id:</td><td><%=bean.getEmployeeId()%></td></tr>
+  <tr>  <td>Employee Id:</td><td><%=bean.getEmployeeId()%></td></tr>
 	<tr><td>Employee Name:</td><td><%=bean.getFirstName()%></td></tr>
 	<tr><td>Father Name:</td><td><%=bean.getFatherName()%></td></tr>
 	<tr><td>Gender:</td> <td><%=bean.getGender()%></td></tr>
@@ -105,16 +105,9 @@ String empId=request.getParameter("empId");
 	</table>
 	<br></br>
 	<br></br>
-	<br></br>
-	<br></br>
-	<br></br>
-	<br></br>
-	<br></br>
-	<br></br>
+	<hr>
 <% }
-		else{
-			count=0;
-		}
+		
 		} %>
 		<%
 		if(count==0){
@@ -122,7 +115,7 @@ String empId=request.getParameter("empId");
 			<h1>Please Enter valid EmployeeId or Employee Name</h1>
 			
 			<%
-			
+		count=0;	
 		}
 		%>
 

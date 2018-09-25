@@ -80,7 +80,7 @@ table, th, td {
     <br><br><br><br>
 	<form action="SingleEmployeeView.jsp" >
 	
-	Enter EmployeeId:<input type="text" name="empId" id="empId">
+	Enter EmployeeId:<input type="text" name="req" id="empId" style="color:black";>
 	<input type="submit" value="submit">
 	
 	
