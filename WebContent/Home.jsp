@@ -51,11 +51,20 @@
 			<li><a href="Aboutus.html">about us</a></li>
 		</ul>
 	</div>
-	<div id="#mainform"></div>
+	<div id="#mainform">
+	<div class="container" style="background-image:url(r1.jpg)";>
+			<center>
+				<h1 style="width:100%;height:100%";>
+					
+				</h1>
+				<hr>
+				<form >
+				<div class="panel panel-default"></div>
+	
+	
+	</div>
 	
 </body>
 </html>
 
 
-</body>
-</html>

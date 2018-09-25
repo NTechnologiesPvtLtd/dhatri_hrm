@@ -59,8 +59,7 @@ function clearForm()
             <ul>
                 <li><a href="index.jsp">Home</a></li>
                 <li id="active"><a href="user.jsp">Login</a> </li> 
-                <li><a href="EmployeeRegistration.jsp">Employee</a> </li>
-
+                
 <div class="dropdown">
     <button class="dropbtn">Employee
       <i class="fa fa-caret-down"></i>
