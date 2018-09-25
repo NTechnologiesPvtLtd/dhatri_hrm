@@ -119,7 +119,7 @@ public class HRMDaoImplementation implements HRMDao {
 	
 	public  int update(EmployeeBean emp)
 	{
-		int result=0;
+	int result=0;
 		String sql="update employeebean set FirstName=?,LastName=?,FatherName=?,Gender=?,dateOfBirth=?,EmailId=?,MobileNo=?,AadharNo=?,PermanatAddress=?,localAddress=?,SchoolName=?,tenthPassedout=?,IntermeadiateCollegeName=?,InterPassedout=?,GraduationDetails=?,GraduationPassedout=?,Branch=?,University=?,CompanyName=?,Role=?,NoticePeriod=?,Location=?,Experience=?,CurrentCtc=?,ExpectedCtc=? where EmployeeId=?";
 		try{
 			PreparedStatement pstmt=con.prepareStatement(sql);

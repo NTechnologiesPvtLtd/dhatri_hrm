@@ -138,6 +138,7 @@ public class UpdateServlet extends HttpServlet {
 		}
 		
 		
+		//emp.setEmployeeId(EmployeeId);
 		emp.setEmployeeId(EmployeeId);
 		
 		//calling the service
