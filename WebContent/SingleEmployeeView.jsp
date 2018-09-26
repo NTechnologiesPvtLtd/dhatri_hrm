@@ -75,7 +75,7 @@
 				<div class="panel panel-default">
    	
 <h1> Employee Details</h1>
-<%! int count=1; %>
+<%! int count=0; %>
 <%
 String resp=request.getParameter("req").trim();
 
@@ -89,7 +89,7 @@ String resp=request.getParameter("req").trim();
 			String s2=bean.getFirstName();
 		
 		if (s1.equals(resp) || s2.equalsIgnoreCase(resp)) {
-		count=1;	
+		count++;	
 			
 	%>
 	<div class="table">
