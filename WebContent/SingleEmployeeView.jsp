@@ -74,8 +74,8 @@
 				</h1>				<hr>
 				<div class="panel panel-default">
    	
-<h1>Single Employee Details</h1>
-<%! int count=0; %>
+<h1> Employee Details</h1>
+<%! int count=1; %>
 <%
 String resp=request.getParameter("req").trim();
 
@@ -112,7 +112,8 @@ String resp=request.getParameter("req").trim();
 		<%
 		if(count==0){
 			%>
-			<h1>Please Enter valid EmployeeId or Employee Name</h1>
+			
+			<h1 style="color:red;">Please Enter valid EmployeeId or Employee Name</h1>
 			
 			<%
 		count=0;	

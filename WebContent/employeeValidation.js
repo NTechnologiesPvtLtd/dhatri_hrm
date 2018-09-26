@@ -54,7 +54,7 @@ function registrationValidation()
 	
 	else if(dob==null||dob=="")
 	{
-	document.getElementById("errorMsg4").innerHTML="please select the gender";
+	document.getElementById("errorMsg4").innerHTML="please select your Date of birth";
 	return false;
 	}	
 	
