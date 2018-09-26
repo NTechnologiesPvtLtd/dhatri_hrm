@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@page import="com.hrm.bean.EmployeeBean"%>
-<%@page import="com.hrm.session.SharedObject"%>
+    pageEncoding="ISO-8859-1"%>
+    <%@page import="com.hrm.bean.EmployeeBean"%>
+    <%@page import="com.hrm.session.SharedObject"%>
 <%@page import="java.util.List"%>
 <%@page import="com.hrm.services.HRMServicesImplementation"%>
 <%@page import="com.hrm.services.HRMService"%>
@@ -18,31 +18,31 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" media="all" href="stylesheets/animate.css" />
+<link rel="stylesheet" media="all" href="stylesheets/animate.css"/>
 <script type="text/javascript" src="employeeValidation.js">
 
 </script>
 <style>
-table,th,td {
-	border: 1px solid black;
+table, th, td {
+    border: 1px solid black;
 }
 </style>
-
+	
 </head>
 <body>
-	<%SharedObject.setRequest(request); %>
+<%SharedObject.setRequest(request); %>
 
-
+	
 	<div id="nav">
 		<h1>
 			<a href="index.jsp">Dhatsol IT Solutions</a>
 		</h1>
 
-
+		
 		<ul>
 			<li><a href="index.jsp">Home</a></li>
-			<li><a href="user.jsp">Login</a></li>
-
+			<li><a href="Login.jsp">Login</a></li>
+		
 
 
 			<div class="dropdown">
@@ -51,8 +51,9 @@ table,th,td {
 				</button>
 				<div class="dropdown-content">
 					<a href="EmployeeRegistration.jsp">New Registration</a> <a href="#">Response
-						Approved</a> <a href="EmployeeView.jsp">Search Employee</a> <a
-						href="user.jsp">Login</a>
+						Approved</a>
+						<a href="EmployeeViewDirection.jsp">Search Employee</a>
+						<a href="Login.jsp">Login</a>
 
 				</div>
 			</div>
@@ -61,34 +62,45 @@ table,th,td {
 		</ul>
 	</div>
 
-	</div>
+	</div>	
 	<div id="#mainform">
 		<br> <br>
 
-		<div class="container" style="background-color: #ddd";>
+		<div class="container" style="background-color:#ddd";>
 			<center>
-				<h1 style="color: black";"padding:50%"; "margin-top:50%"; "height:20%";>
-
+				<h1 style="color:black";"padding:50%"; "margin-top:50%"; "height:20%";>
+					
 				</h1>
 				<hr>
+				
+				
+		
 
+   <a href="EmployeeView.jsp"><blink>Display All Employes</blink></a> 
+    <br><br><br><br>
+	<form action="SingleEmployeeView.jsp" >
+	
+	Enter EmployeeId:<input type="text" name="req" id="empId" style="color:black";>
+	<input type="submit" value="submit">
+	
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 
-
-
-				<a href="EmployeeView.jsp"><blink>Display All Employes</blink></a> <br>
-				<br>
-				<br>
-				<br>
-				<form action="SingleEmployeeView.jsp">
-
-					Enter EmployeeId:<input type="text" name="empId" id="empId">
-					<input type="submit" value="submit"> <br> <br> <br>
-					<br> <br> <br> <br> <br> <br> <br>
-					<br>
-		</div>
-		</form>
-		</center>
-	</div>
-
+				
+				</div>
+				</form>
+				</center>
+				</div>
+				
 </body>
 </html>

@@ -17,7 +17,7 @@
 <link rel="stylesheet" media="all" href="stylesheets/animate.css">
 </head>
 <body>
-	<%SharedObject.setRequest(request); %>
+<%SharedObject.setRequest(request); %>
 	<div id="nav">
 		<h1>
 			<a href="index.jsp">Dhatsol IT Solutions</a>
@@ -29,7 +29,7 @@
 
 
 
-			<li><a href="User.jsp">Login</a></li>
+			<li><a href="Login.jsp">Login</a></li>
 			<!--                 <li><a href="registration.html">Employee</a> </li>-->
 
 			<div class="dropdown">
@@ -37,10 +37,12 @@
 					Employee <i class="fa fa-caret-down"></i>
 				</button>
 				<div class="dropdown-content">
-					<a href="EmployeeRegistration.jsp">New Registration</a> <a href="#">ResponseApproved</a>
-
-					<a href="EmployeeView.jsp">Search Employee</a> <a href="user.jsp">Login</a>
-
+					<a href="EmployeeRegistration.jsp">New Registration</a>
+					 <a href="#">ResponseApproved</a>
+						
+						<a href="EmployeeViewDirection.jsp">Search Employee</a>
+						<a href="Login.jsp">Login</a>
+						
 
 				</div>
 			</div>
@@ -50,13 +52,20 @@
 		</ul>
 	</div>
 	<div id="#mainform">
-		<div class="container" style="background-image: url(r1.jpg)";>
+	<div class="container" style="background-image:url(pg.jpg)";><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br>
 			<center>
-				<h1 style="width: 100%; height: 100%";></h1>
+				<h1 style="width:100%;height:100%";>
+					
+				</h1>
 				<hr>
-				<form>
-					<div class="panel panel-default"></div>
-		</div>
+				<form >
+				<div class="panel panel-default"></div>
+	
+	
+	</div>
+	
 </body>
 </html>
 

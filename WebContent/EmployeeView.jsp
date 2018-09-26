@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@page import="com.hrm.bean.EmployeeBean"%>
+    pageEncoding="ISO-8859-1"%>
+    <%@page import="com.hrm.bean.EmployeeBean"%>
 <%@page import="java.util.List"%>
 <%@page import="com.hrm.services.HRMServicesImplementation"%>
 <%@page import="com.hrm.services.HRMService"%>
@@ -17,7 +17,7 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" media="all" href="stylesheets/animate.css" />
+<link rel="stylesheet" media="all" href="stylesheets/animate.css"/>
 <script type="text/javascript" src="employeeValidation.js">
    
 
@@ -30,7 +30,7 @@
 
 
 </script>
-
+	
 </head>
 <body>
 	<div id="nav">
@@ -38,11 +38,11 @@
 			<a href="index.jsp">Dhatsol IT Solutions</a>
 		</h1>
 
-
+		
 		<ul>
 			<li><a href="index.jsp">Home</a></li>
-			<li><a href="user.jsp">Login</a></li>
-
+			<li><a href="Login.jsp">Login</a></li>
+		
 
 
 			<div class="dropdown">
@@ -51,8 +51,9 @@
 				</button>
 				<div class="dropdown-content">
 					<a href="EmployeeRegistration.jsp">New Registration</a> <a href="#">Response
-						Approved</a> <a href="EmployeeView.jsp">Search Employee</a> <a
-						href="user.jsp">Login</a>
+						Approved</a>
+						<a href="EmployeeViewDirection.jsp">Search Employee</a>
+						<a href="Login.jsp">Login</a>
 
 				</div>
 			</div>
@@ -61,108 +62,116 @@
 		</ul>
 	</div>
 
-	</div>
+	</div>	
 	<div id="#mainform">
 		<br> <br>
 
-		<div class="container" style="background-color: #ddd";>
+		<div class="container" style="background-color:#ddd";>
 			<center>
-				<h1 style="padding: 50% margin-top:50% height:20%";></h1>
+				<h1 style=" padding:50% margin-top:50% height:20%";>
+					
+				</h1>
 				<hr>
-				<form>
-					<div class="panel panel-default">
-
-						<%
+				<form >
+				<div class="panel panel-default">
+				
+				<%
 		HRMService service = new HRMServicesImplementation();
 		List<EmployeeBean> employeeResponse = service.search();
 		if (employeeResponse != null && !employeeResponse.isEmpty()) {
 	%>
-						<div class="table">
+	 <div class="table">
 
-							<table align=center>
-
-
-
-
-								<tr>
-
-									<td id="header" colspan="7"><h1>Display Information
-											Of Employees</h1></td>
-								</tr>
-								<tr>
-									<th>EmployeeId</th>
-									<th>First Name</th>
-									<th>Father Name</th>
-									<th>Gender</th>
-									<th>Email Id</th>
-									<th>Mobile No</th>
-									<th>Aadhar No</th>
-
-
-								</tr>
-								</div>
-								<%
+	<table align=center>	
+  
+         
+       
+         
+		<tr>
+		
+		<td id="header" colspan="7"><h1>Display Information Of Employees </h1></td></tr>
+		<tr>
+			<th>EmployeeId</th>
+			<th>First Name</th>
+			<th>Father Name</th>
+			<th>Gender</th>
+			<th>Email Id</th>
+			<th>Mobile No</th>
+			<th>Aadhar No</th>
+			
+		
+		</tr>
+</div>
+		<%
 			for (EmployeeBean employeeBean : employeeResponse) {
 		%>
-								<tr>
-									<td><%=employeeBean.getEmployeeId()%></td>
-									<td><%=employeeBean.getFirstName()%></td>
-									<td><%=employeeBean.getFatherName()%></td>
-									<td><%=employeeBean.getGender()%></td>
-									<td><%=employeeBean.getEmailId()%></td>
-									<td><%=employeeBean.getMobileNumber()%></td>
-									<td><%=employeeBean.getAadharNo()%></td>
-								</tr>
-								<%
+		<tr>
+			<td><%=employeeBean.getEmployeeId()%></td>
+			<td><%=employeeBean.getFirstName()%></td>
+			<td><%=employeeBean.getFatherName()%></td>
+			<td><%=employeeBean.getGender()%></td>
+			<td><%=employeeBean.getEmailId()%></td>
+			<td><%=employeeBean.getMobileNumber()%></td>
+			<td><%=employeeBean.getAadharNo()%></td>
+		</tr>
+		<%
 			}
 		%>
 
 
 
-							</table>
-							<br> <br> <br> <br> <br> <br> <br>
-							<br> <br>
+	</table>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
 
-
-							<%
+	<%
 		} else {
 			out.print("No Result Found");
 		}
-	%>
-
-						</div>
+	%>						
+					
+				</div>
 				</form>
+				
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
