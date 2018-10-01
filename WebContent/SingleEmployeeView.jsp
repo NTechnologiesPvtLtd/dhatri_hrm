@@ -1,10 +1,11 @@
 <%@page import="com.hrm.constants.EmployeeConstants"%>
 <%@page import="com.hrm.session.SharedObject"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@page import="com.hrm.bean.EmployeeBean"%>
-
+    pageEncoding="ISO-8859-1"%>
+    <%@page import="com.hrm.bean.EmployeeBean"%>
+   
 <%@page import="java.util.List"%>
+<%@page import="java.util.Iterator"%>
 <%@page import="com.hrm.services.HRMServicesImplementation"%>
 <%@page import="com.hrm.services.HRMService"%>
 
@@ -12,7 +13,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Display title here</title>
 <link href="font-awesome-4.7.0/css/font-awesome.min.css"
 	rel="stylesheet">
 <link
@@ -20,31 +21,29 @@
 	rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" media="all" href="stylesheets/animate.css" />
+<link rel="stylesheet" media="all" href="stylesheets/animate.css"/>
 <script type="text/javascript" src="employeeValidation.js">
 
 </script>
 <style>
-table,th,td {
-	border: 1px solid black;
-}
-</style>
 
+</style>
+	
 </head>
 <body>
-	<!--  <%SharedObject.setRequest(request); %> -->
 
 
+	
 	<div id="nav">
 		<h1>
 			<a href="index.jsp">Dhatsol IT Solutions</a>
 		</h1>
 
-
+		
 		<ul>
 			<li><a href="index.jsp">Home</a></li>
 			<li><a href="user.jsp">Login</a></li>
-
+		
 
 
 			<div class="dropdown">
@@ -53,8 +52,9 @@ table,th,td {
 				</button>
 				<div class="dropdown-content">
 					<a href="EmployeeRegistration.jsp">New Registration</a> <a href="#">Response
-						Approved</a> <a href="EmployeeView.jsp">Search Employee</a> <a
-						href="user.jsp">Login</a>
+						Approved</a>
+						<a href="EmployeeViewDirection.jsp">Search Employee</a>
+						<a href="user.jsp">Login</a>
 
 				</div>
 			</div>
@@ -63,66 +63,67 @@ table,th,td {
 		</ul>
 	</div>
 
-	</div>
+	</div>	
 	<div id="#mainform">
 		<br> <br>
 
-		<div class="container" style="background-color: #91a6a9";>
-			<!-- 	<center>  -->
-			<h1 style="color: black";"padding:50%"; "margin-top:50%"; "height:20%";>
-
-			</h1>
-			<hr>
-
-			<h1>Single Employee Details</h1>
-
-			<%
-String empId=request.getParameter("empId");
+		<div class="container" style="background-color:#ddd";>
+			<center>  
+				<h1 style="color:black";"padding:50%"; "margin-top:50%"; "height:20%";>
+					
+				</h1>				<hr>
+				<div class="panel panel-default">
+   	
+<h1>Single Employee Details</h1>
+<%! int count=0; %>
+<%
+String resp=request.getParameter("req").trim();
 
 
 		HRMService service = new HRMServicesImplementation();
-		EmployeeBean bean = service.searchOneEmployee(empId);
-		if (empId != null && !empId.isEmpty()) {
+		List<EmployeeBean> list=service.search();
+		Iterator<EmployeeBean> itr=list.iterator();
+		while(itr.hasNext()){       
+			
+			EmployeeBean bean=itr.next();
+			String s1=bean.getEmployeeId();
+			String s2=bean.getFirstName();
+		
+		if (s1.equals(resp) || s2.equalsIgnoreCase(resp)) {
+		count=1;	
 			
 	%>
-			<%=bean%>
-			<table>
-				<tr>
-					<td>Employee Id:</td>
-					<td><%=empId%></td>
-				</tr>
-				<tr>
-					<td>Employee Name:</td>
-					<td><%=bean.getFirstName()%></td>
-				</tr>
-				<tr>
-					<td>Father Name:</td>
-					<td><%=bean.getFatherName()%></td>
-				</tr>
-				<tr>
-					<td>Gender:</td>
-					<td><%=bean.getGender()%></td>
-				</tr>
-				<tr>
-					<td>Email Id:</td>
-					<td><%=bean.getEmailId()%></td>
-				</tr>
-				<tr>
-					<td>Mobile No:</td>
-					<td><%=bean.getMobileNumber()%></td>
-				</tr>
-				<tr>
-					<td>Aadhar No:</td>
-					<td><%=bean.getAadharNo()%></td>
-				</tr>
-			</table>
-			<%} %>
-
-
-		</div>
-
-		<!--  		</center>   -->
+	<div class="table">
+	<table align="center">
 	</div>
+  <tr>  <td>	Employee Id:</td><td><%=bean.getEmployeeId()%></td></tr>
+	<tr><td>Employee Name:</td><td><%=bean.getFirstName()%></td></tr>
+	<tr><td>Father Name:</td><td><%=bean.getFatherName()%></td></tr>
+	<tr><td>Gender:</td> <td><%=bean.getGender()%></td></tr>
+	<tr><td>Email Id:</td><td>	<%=bean.getEmailId()%></td></tr>
+	<tr><td>Mobile No:</td><td>	<%=bean.getMobileNumber()%></td></tr>
+	<tr><td>Aadhar No:</td><td><%=bean.getAadharNo()%> </td></tr>
+	</table>
+	<br></br>
+	<br></br>
+	<hr>
+<% }
+		
+		} %>
+		<%
+		if(count==0){
+			%>
+			<h1>Please Enter valid EmployeeId or Employee Name</h1>
+			
+			<%			
+		}else{count=0;}
+		%>
 
+				
+				</div>
+				
+	 		</center>   
+				</div>
+				
 </body>
 </html>

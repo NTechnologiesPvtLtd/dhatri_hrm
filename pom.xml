@@ -14,24 +14,6 @@
 </dependency>
 
 </dependencies>
-<profiles>
-		<profile>
-			<id>sonar</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<properties>
-				<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-				<sonar.login>dhatrihrm</sonar.login>
-				<sonar.password>JANoneview@1</sonar.password>
-				<sonar.projectName>narsinghraom_dhatri_hrm</sonar.projectName>
-				<sonar.projectVersion>master</sonar.projectVersion>
-				<sonar.test.exclusions>**/test/**/*.*</sonar.test.exclusions>
-				<sonar.exclusions>**/ai/**/*.*,**/jdbc/**/*.*,**/mpt/**/*.*,**/jcr/**/*.*,**/JDBC*
-				</sonar.exclusions>
-			</properties>
-		</profile>
-	</profiles>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -57,29 +39,5 @@
         <version>3.5.0.1254</version>
       </plugin>
     </plugins>
-    
-    
-	<!-- <pluginGroups>
-		<pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
-	</pluginGroups>
-	<profiles>
-		<profile>
-			<id>sonar</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<properties>
-				<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-				<sonar.login>dhatrihrm</sonar.login>
-				<sonar.projectName>narsinghraom_dhatri_hrm</sonar.projectName>
-				<sonar.projectVersion>master</sonar.projectVersion>
-				<sonar.test.exclusions>**/test/**/*.*</sonar.test.exclusions>
-				<sonar.exclusions>**/ai/**/*.*,**/jdbc/**/*.*,**/mpt/**/*.*,**/jcr/**/*.*,**/JDBC*
-				</sonar.exclusions>
-			</properties>
-		</profile>
-	</profiles>
- -->
-    
   </build>
 </project>
