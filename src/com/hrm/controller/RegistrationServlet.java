@@ -35,6 +35,7 @@ public class RegistrationServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
@@ -42,6 +43,7 @@ public class RegistrationServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+    @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// reading the client values
@@ -91,37 +93,90 @@ public class RegistrationServlet extends HttpServlet {
 				
 				EmployeeBean employeebean=new EmployeeBean();
 				
-				if(mobileNumber!=null && !mobileNumber.isEmpty()){
-					employeebean.setMobileNumber(Long.parseLong(mobileNumber));
-				}
+			if(mobileNumber!=null && !mobileNumber.isEmpty()){
+				 try {
+						
+					    employeebean.setMobileNumber(Long.parseLong(mobileNumber));
+					  }
+					
+				   catch (Exception e) {
+					mobileNumber=null;
+				   }
+			}
 				
-				if(aadharNo!=null && !aadharNo.isEmpty()){
-					employeebean.setAadharNo(Long.parseLong(aadharNo));
+			if(aadharNo!=null && !aadharNo.isEmpty()){
+				try {
+						
+					   employeebean.setAadharNo(Long.parseLong(aadharNo));
+					}
+					
+				 catch (Exception e) {
+					aadharNo=null;
 				}
+			}
+			
+			if(tenthPassedOut!=null && !tenthPassedOut.isEmpty()){
+				try {
+					
+						employeebean.setTenthPassedOut(Integer.parseInt(tenthPassedOut));
+					}
 				
-				if(tenthPassedOut!=null && !interPassedOut.isEmpty()){
-					employeebean.setTenthPassedOut(Integer.parseInt(tenthPassedOut));
+				catch (Exception e) {
+					tenthPassedOut=null;
 				}
+			}
+			
+			if(interPassedOut!=null && !interPassedOut.isEmpty()){
+				try {
+										
+						employeebean.setInterPassedOut(Integer.parseInt(interPassedOut));
+					}
 				
-				if(interPassedOut!=null && !tenthPassedOut.isEmpty()){
-					employeebean.setInterPassedOut(Integer.parseInt(interPassedOut));
+				 catch (Exception e) {
+					interPassedOut=null;
 				}
+			}	
+			
+			if(graduationPassedOut!=null && !graduationPassedOut.isEmpty()){
+				try {										
+						
+					  employeebean.setGraduationPassedOut(Integer.parseInt(graduationPassedOut));
+					}
 				
-				if(graduationPassedOut!=null && !graduationPassedOut.isEmpty()){
-					employeebean.setGraduationPassedOut(Integer.parseInt(graduationPassedOut));
+				catch (Exception e) {
+					graduationPassedOut=null;
 				}
-				
-				if(noticePeriod!=null && !noticePeriod.isEmpty()){
-					employeebean.setNoticePeriod(Integer.parseInt(noticePeriod));
+			}	
+			
+			if(noticePeriod!=null && !noticePeriod.isEmpty()){							
+				try {									
+						
+					  employeebean.setNoticePeriod(Integer.parseInt(noticePeriod));
+					}
+				 catch (Exception e) {
+					noticePeriod=null;
 				}
-				
-				if(currentCTC!=null && !currentCTC.isEmpty()){
-					employeebean.setCurrentCTC(Double.parseDouble(currentCTC));
+			}
+			
+			if(currentCTC!=null && !currentCTC.isEmpty()){
+				try {					
+					
+						employeebean.setCurrentCTC(Double.parseDouble(currentCTC));
+					}
+				 catch (Exception e) {
+					currentCTC=null;
 				}
-				
-				if(expectedCTC!=null && !expectedCTC.isEmpty()){
-					employeebean.setExpectedCTC(Double.parseDouble(expectedCTC));
+			}
+			
+			if(expectedCTC!=null && !expectedCTC.isEmpty()){
+				try {					
+					
+						employeebean.setExpectedCTC(Double.parseDouble(expectedCTC));
+					}
+				 catch (Exception e) {
+					expectedCTC=null;
 				}
+			}	
 				
 				employeebean.setFirstName(firstName);
 				employeebean.setLastName(lastName);
@@ -149,14 +204,23 @@ public class RegistrationServlet extends HttpServlet {
 				HRMService hrmService=new HRMServicesImplementation();
 				int result = hrmService.insertEmployeeData(employeebean);
 				
-				RequestDispatcher requestDisForward=request.getRequestDispatcher("SucessPage.jsp");
-				RequestDispatcher requestDisInclude=request.getRequestDispatcher("EmployeeRegistration.jsp");
-				if(result>0){
-					requestDisForward.forward(request, response);
-				}else{
-					requestDisInclude.include(request, response);
+				try{
+				    if(result>0)
+				    {
+					    RequestDispatcher requestDisForward=request.getRequestDispatcher("SucessPage.jsp");
+					             requestDisForward.forward(request, response);
+				    }
+				    else
+				    {
+					    RequestDispatcher requestDisInclude=request.getRequestDispatcher("EmployeeRegistration.jsp");
+					             requestDisInclude.include(request, response);
+				    }
 				}
 				
+				   catch(Exception e)
+				{
+					System.out.println(e);
+				}
 	}
 
 }

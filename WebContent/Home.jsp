@@ -30,7 +30,7 @@
 
 
 			<li><a href="Login.jsp">Login</a></li>
-			<!--                 <li><a href="registration.html">Employee</a> </li>-->
+			
 
 			<div class="dropdown">
 				<button class="dropbtn">
@@ -52,7 +52,7 @@
 		</ul>
 	</div>
 	<div id="#mainform">
-	<div class="container" style="background-image:url(pg.jpg)";><br><br><br><br><br><br><br><br><br><br>
+	<div class="container" style="background-image:url(pg1.jpg)";><br><br><br><br><br><br><br><br><br><br>
 	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	<br><br><br><br><br>
 			<center>

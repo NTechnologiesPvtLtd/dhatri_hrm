@@ -35,7 +35,7 @@
 
 			<div class="dropdown">
 				<button class="dropbtn">
-					Employee <i class="fa fa-caret-down" id="active"></i>
+					Employee <em class="fa fa-caret-down" id="active"></em>
 				</button>
 				<div class="dropdown-content">
 					<a href="EmployeeRegistration.jsp">New Registration</a> <a href="#">Response
@@ -66,7 +66,7 @@
 					<br> <br>
 					<table>
 						<tr>
-							<td>First Name*:</td>
+							<td>First Name:<font color="red">*</font></td>
 							<td><input type=text onkeypress="clearForm()" id="firstName"
 								name="firstName"><br> <br></td>
 								<td><p id="errorMsg" style=color:red;></p></td> 
@@ -74,20 +74,20 @@
 							
 						</tr>
 						<tr>
-						<td>Last Name*:</td>
+						<td>Last Name:<font color="red">*</font></td>
 							<td><input type="text" onkeypress="clearForm()" id="lastName"
 								name="lastName"><br> <br></td>
 								<td><p id="errorMsg1" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
-							<td>Father Name*:</td>
+							<td>Father Name:<font color="red">*</font></td>
 							<td><input type="text" onkeypress="clearForm()" id="fatherName" name="fatherName"><br> <br></td>
 							<td><p id="errorMsg2" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
-							<td>Gender*:</td>
+							<td>Gender:<font color="red">*</font></td>
 							<td><input type="radio" name="gender" value="Male" 
 								onkeypress="clearForm()" 
 								id="gender">Male <input
@@ -99,40 +99,40 @@
 							<td><p2 id="errorMsg3" style=color:red;></p2><br> <br></td>
 						</tr>
 						<tr>
-							<td>Date Of Birth*:</td>
+							<td>Date Of Birth:<font color="red">*</font></td>
 							<td><input type="date" name="dob" onkeypress="clearForm()" id="dob"><br> <br></td>
 							<td><p id="errorMsg4" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
-							<td>Email Id*:</td>
+							<td>Email Id:<font color="red">*</font></td>
 							<td><input type=text onkeypress="clearForm()" id="emailId"
 								name="emailId"><br> <br></td>
 								<td><p id="errorMsg5" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
-							<td>Mobile No*:</td>
+							<td>Mobile No:<font color="red">*</font></td>
 							<td><input type=text onkeypress="clearForm()" id="mobileNumber"
 								name="mobileNumber" text-align:right; pattern="[0-9]{10}" title="Mobile number must be 10 digits" placeholder="Mobile number" required><br> <br></td>
 								<td><p id="errorMsg6" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
-							<td>Aadhar Number*:</td>
+							<td>Aadhar Number:<font color="red">*</font></td>
 							<td><input type=text name="aadharNo"onkeypress="clearForm()" id="aadharNo" pattern="[0-9]{12}" title="Aadhar Card Number must be 12 digits" placeholder="Enter AadharCardNumber" required ><br> <br></td>
 							<td><p id="errorMsg7" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
-							<td>Permanent Address*:</td>
+							<td>Permanent Address:<font color="red">*</font></td>
 							<td><textarea rows="2" onkeypress="clearForm()" id="permanentAddress" name="permanentAddress">
 </textarea><br> <br></td>
 <td><p id="errorMsg8" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
-							<td>Local Address*:</td>
+							<td>Local Address:<font color="red">*</font></td>
 							<td><textarea rows="2" onkeypress="clearForm()" id="localAddress" name="localAddress">
 </textarea></td>
 							<br>
@@ -146,29 +146,29 @@
 					<br> <br>
 					<table>
 						<tr>
-							<td>Board Of Secondary Education*:</td>
+							<td>Board Of Secondary Education:<font color="red">*</font></td>
 							<td><input type=text name="schoolName" onkeypress="clearForm()" id="schoolName"><br> <br></td>
 							<td><p id="errorMsg10" style=color:red;></p></td> 
 							
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Passedout*:</td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Passedout:<font color="red">*</font></td>
 							
 							<td><input type=text name="tenthPassedOut" onkeypress="clearForm()" id="tenthPassedOut"></td>
 							<td><p id="errorMsg11" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
-							<td>Board Of Intermediate Education*:</td>
+							<td>Board Of Intermediate Education:<font color="red">*</font></td>
 							<td><input type=text name="intermediateCollegeName"onkeypress="clearForm()" id="intermediateCollegeName"> </select><br>
 								<br></td>
 								<td><p id="errorMsg12" style=color:red;></p></td> 
 								
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;Passedout*:</td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;Passedout:<font color="red">*</font></td>
 							<td><input type=text name="interPassedOut" onkeypress="clearForm()" id="interPassedOut"></td>
 							<td><p id="errorMsg13" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
-							<td>Graduation Details*:</td>
+							<td>Graduation Details:<font color="red">*</font></td>
 							<td><select name="graduationDetails" onkeypress="clearForm()" id="graduationDetails">
 									<option value="None">Select Branch</option>
 									<option value="B.Tech">B.TECH</option>
@@ -179,13 +179,13 @@
 							</select><br> <br></td>
 							<td><p id="errorMsg14" style=color:red;></p></td> 
 							
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;Passedout*:</td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;Passedout:<font color="red">*</font></td>
 							<td><input type=text name="graduationPassedOut" onkeypress="clearForm()" id="graduationPassedOut"></td>
 							<td><p id="errorMsg15" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
-								<td>Branch*:</td>
+								<td>Branch:<font color="red">*</font></td>
 							<td><select name="branch" onkeypress="clearForm()" id="branch">
 									<option value="None">Enter Your Branch</option>
 									<option value="ECE">ECE</option>
@@ -198,7 +198,7 @@
 							<td><p id="errorMsg16" style=color:red;></p></td> 
 							
 							
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;University*:</td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;University:<font color="red">*</font></td>
 							<td><input type=text name="university" onkeypress="clearForm()" id="university"></td>
 							<td><p id="errorMsg17" style=color:red;></p></td> 
 							
@@ -242,7 +242,7 @@
 							<td><input type=text name="location" onkeypress="clearForm()" id="location"><br> <br></td>
 							<td><p id="errorMsg21" style=color:red;></p></td> 
 							
-							<!-- <center style="text-align:top"></center> -->
+						
 						</tr>
 						<tr>
 							<td>Experience:</td>
@@ -262,7 +262,9 @@
 							<td><p id="errorMsg24" style=color:red;></p></td> 
 							
 						</tr>
+						
 					</table>
+					</center>
 					<br>
 					<center>
 						<input type=submit onclick="return registrationValidation()"
@@ -270,7 +272,10 @@
 
 					</center>
 				</div>
+				
+				</div>
 				</form>
+				</div>
 				
 </body>
 </html>

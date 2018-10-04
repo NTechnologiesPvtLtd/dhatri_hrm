@@ -4,6 +4,21 @@
   <artifactId>DhatriHRM_Web</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+  <profiles>	
+		<profile>	
+			<id>sonar</id>	
+			<activation>	
+				<activeByDefault>true</activeByDefault>	
+			</activation>	
+			<properties>	
+				<sonar.host.url>https://sonarcloud.io</sonar.host.url>	
+				<sonar.login>ddb5d72b8fb6f7950952ecedd5ec49d5f55ae9eb</sonar.login>	
+				<sonar.projectName>narsinghraom_dhatri_hrm</sonar.projectName>
+				<sonar.security.realm>LDAP</sonar.security.realm>	
+				<sonar.security.localUsers>admin</sonar.security.localUsers>				
+			</properties>	
+		</profile>	
+	</profiles>
   <dependencies>
     <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 <dependency>
@@ -11,6 +26,11 @@
     <artifactId>javax.servlet-api</artifactId>
     <version>4.0.1</version>
     <scope>provided</scope>
+</dependency>
+<dependency>
+    <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>3.5.0.1254</version>
 </dependency>
 
 </dependencies>

@@ -11,7 +11,7 @@ function registrationValidation()
 	var permanentadd=document.getElementById("permanentAddress").value;
 	var localadd=document.getElementById("localAddress").value;
 	var schoolname=document.getElementById("schoolName").value;
-	var tenththpassedout=document.getElementById("tenthPassedOut").value;
+	var tenthpassedout=document.getElementById("tenthPassedOut").value;
 	var collegename=document.getElementById("intermediateCollegeName").value;
 	var interpassedout=document.getElementById("interPassedOut").value;
 	var graduation=document.getElementById("graduationDetails").value;
@@ -54,7 +54,7 @@ function registrationValidation()
 	
 	else if(dob==null||dob=="")
 	{
-	document.getElementById("errorMsg4").innerHTML="please select the gender";
+	document.getElementById("errorMsg4").innerHTML="please select your Date of Birth";
 	return false;
 	}	
 	
@@ -209,4 +209,36 @@ function registrationValidation()
 		document.getElementById("errorMsg22").innerHTML="";
 		document.getElementById("errorMsg23").innerHTML="";
 		document.getElementById("errorMsg24").innerHTML="";
+	}
+	
+	
+	function loginValidation()
+	{
+		var employeeId=document.getElementById("loginId").value;
+		var mobileNumber=document.getElementById("Password").value;
+		var type=document.getElementById("type").value;
+		if(employeeId==null||employeeId=="")
+		{
+		document.getElementById("errorMsg").innerHTML="please enter EmployeeId";
+		return false;
+		}
+	else if(mobileNumber==null||mobileNumber=="")
+		{
+		document.getElementById("errorMsg1").innerHTML="please enter Password";
+		return false;
+		}
+	else if(type==null||type=="Enter Given Type")
+	    {
+	    document.getElementById("errorMsg2").innerHTML="Enter Given Type";
+	    return false;
+	    }
+		
+	else
+		return true;
+	}
+	function clearForm()
+	{
+		document.getElementById("errorMsg").innerHTML="";
+		document.getElementById("errorMsg1").innerHTML="";
+		document.getElementById("errorMsg2").innerHTML="";
 	}

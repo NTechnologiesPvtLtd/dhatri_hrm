@@ -10,8 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.hrm.constants.EmployeeConstants;
 import com.hrm.dao.HRMDao;
 import com.hrm.dao.HRMDaoImplementation;
+import com.hrm.services.HRMService;
+import com.hrm.services.HRMServicesImplementation;
+import com.hrm.session.SharedObject;
 
 /**
  * Servlet implementation class LoginServlet
@@ -31,6 +35,7 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -39,27 +44,38 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+    @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
 		response.setContentType("text/html");
-		
-		PrintWriter out=response.getWriter();
-		
-		String s1=request.getParameter("employeeId");
-		long s2=Long.parseLong(request.getParameter("mobileNumber"));
-		//String s2=request.getParameter("firstName");
-		
-		HRMDao dao=new HRMDaoImplementation();
 		try{
-			if(dao.login(s1,s2))
+	PrintWriter out=response.getWriter();}catch(Exception e){
+		e.printStackTrace();
+	}
+		
+		String userId =request.getParameter("employeeId").trim();
+		long password;
+		try{
+			password=Long.parseLong(request.getParameter("mobileNumber"));	
+		}
+		catch (Exception e) {
+			password=0;
+		}
+		
+		HRMService service = new HRMServicesImplementation();
+		
+				try{
+			if(service.login(userId,password))
 			{
+				
 				RequestDispatcher rd=request.getRequestDispatcher("LoginView.jsp");
 				rd.forward(request,response);
 			}
 			else
 			{
-				out.println("enter valid username and password");
+				RequestDispatcher includeRequest=request.getRequestDispatcher("user.jsp");
+				includeRequest.include(request, response);
 			}
 		}
 			catch(Exception e)

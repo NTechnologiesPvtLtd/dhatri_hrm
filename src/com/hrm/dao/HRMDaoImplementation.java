@@ -60,7 +60,7 @@ public class HRMDaoImplementation implements HRMDao {
 		}
 		catch(Exception e)
 		{
-			System.out.println(e);
+			e.printStackTrace();
 		}		
 		return result;
 		
@@ -68,7 +68,7 @@ public class HRMDaoImplementation implements HRMDao {
 	@Override
 	public List<EmployeeBean> search() {
 		List<EmployeeBean> listOfEmployee = new ArrayList<>();
-		String query="select EmployeeId,FirstName,FatherName,Gender,EmailId,MobileNo,AadharNo from employeebean";//"select EmployeeId,FirstName,FatherName,Gender,EmailId,MobileNo,AadharNo from employeebean";
+		String query="select EmployeeId,FirstName,FatherName,Gender,EmailId,MobileNo,AadharNo,SchoolName,TenthPassedOut,IntermeadiateCollegeName,InterPassedOut,GraduationDetails,GraduationPassedOut,Branch,University,CompanyName,Role,NoticePeriod,Location,Experience,CurrentCtc,ExpectedCtc,PermanatAddress,LocalAddress from employeebean";
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -78,35 +78,40 @@ public class HRMDaoImplementation implements HRMDao {
 				employeeBean = new EmployeeBean();
 				employeeBean.setEmployeeId(resultSet.getString(1));
 				employeeBean.setFirstName(resultSet.getString(2));
-				//employeeBean.setLastName(resultSet.getString(3));
+				employeeBean.setLastName(resultSet.getString(3));
 				employeeBean.setFatherName(resultSet.getString(3));
 				employeeBean.setGender(resultSet.getString(4));				
-				//employeeBean.setDob(resultSet.getDate(6));
+			
 				employeeBean.setEmailId(resultSet.getString(5));
 				employeeBean.setMobileNumber(Long.parseLong(resultSet.getString(6)));
 				employeeBean.setAadharNo(Long.parseLong(resultSet.getString(7)));
-				/*employeeBean.setPermanentAddress(resultSet.getString(10));
-				employeeBean.setLocalAddress(resultSet.getString(11));
-				employeeBean.setSchoolName(resultSet.getString(12));
-				employeeBean.setTenthPassedOut(Integer.parseInt(resultSet.getString(13)));
-				employeeBean.setIntermediateCollegeName(resultSet.getString(14));
-				employeeBean.setInterPassedOut(Integer.parseInt(resultSet.getString(15)));
-				employeeBean.setGraduationDetails(resultSet.getString(16));
-				employeeBean.setGraduationPassedOut(Integer.parseInt(resultSet.getString(17)));
-				employeeBean.setBranch(resultSet.getString(18));
-				employeeBean.setUniversity(resultSet.getString(19));
-				employeeBean.setCompanyName(resultSet.getString(20));
-				employeeBean.setRole(resultSet.getString(21));
-				employeeBean.setNoticePeriod(Integer.parseInt(resultSet.getString(22)));
-				employeeBean.setLocation(resultSet.getString(23));
-				employeeBean.setExperience(resultSet.getString(24));
-				employeeBean.setCurrentCTC(Integer.parseInt(resultSet.getString(25)));
-				employeeBean.setExpectedCTC(Integer.parseInt(resultSet.getString(26)));*/
+				
+				employeeBean.setSchoolName(resultSet.getString(8));
+				employeeBean.setTenthPassedOut(Integer.parseInt(resultSet.getString(9)));
+				employeeBean.setIntermediateCollegeName(resultSet.getString(10));
+				employeeBean.setInterPassedOut(Integer.parseInt(resultSet.getString(11)));
+				employeeBean.setGraduationDetails(resultSet.getString(12));
+				employeeBean.setGraduationPassedOut(Integer.parseInt(resultSet.getString(13)));
+				employeeBean.setBranch(resultSet.getString(14));
+				employeeBean.setUniversity(resultSet.getString(15));
+				employeeBean.setCompanyName(resultSet.getString(16));
+				employeeBean.setRole(resultSet.getString(17));
+				employeeBean.setNoticePeriod(Integer.parseInt(resultSet.getString(18)));
+				employeeBean.setLocation(resultSet.getString(19));
+				employeeBean.setExperience(resultSet.getString(20));
+				employeeBean.setCurrentCTC(Integer.parseInt(resultSet.getString(21))
+						
+						
+						);
+				employeeBean.setExpectedCTC(Integer.parseInt(resultSet.getString(22)));
+				employeeBean.setPermanentAddress(resultSet.getString(23));
+				employeeBean.setLocalAddress(resultSet.getString(24));
+				
 				listOfEmployee.add(employeeBean);
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		return listOfEmployee;
@@ -125,14 +130,9 @@ public class HRMDaoImplementation implements HRMDao {
 		}
 		catch(Exception e)
 		{
-			System.out.println(e);
+		e.printStackTrace();
 		}
 		return s1;
-	}
-	@Override
-	public int update(EmployeeBean emp) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 	

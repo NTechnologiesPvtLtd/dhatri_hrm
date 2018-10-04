@@ -74,7 +74,7 @@
 				</h1>				<hr>
 				<div class="panel panel-default">
    	
-<h1>Single Employee Details</h1>
+<h1 style="color:#33847c;">Employee Details</h1>
 <%! int count=0; %>
 <%
 String resp=request.getParameter("req").trim();
@@ -103,6 +103,26 @@ String resp=request.getParameter("req").trim();
 	<tr><td>Email Id:</td><td>	<%=bean.getEmailId()%></td></tr>
 	<tr><td>Mobile No:</td><td>	<%=bean.getMobileNumber()%></td></tr>
 	<tr><td>Aadhar No:</td><td><%=bean.getAadharNo()%> </td></tr>
+	<tr><td>Permanent Address:</td><td><%=bean.getPermanentAddress()%></td></tr>
+	<tr><td>Local Address:</td><td><%=bean.getLocalAddress()%></td></tr>
+	
+<tr><td>Board Of Secondary Education:</td> <td><%=bean.getSchoolName()%></td></tr>
+	<tr><td>TenthPassedOut:</td><td><%=bean.getTenthPassedOut()%></td></tr>
+	<tr><td>Board Of Intermediate Education:</td><td><%=bean.getIntermediateCollegeName()%></td></tr>
+	<tr><td>InterPassedOut:</td><td><%=bean.getInterPassedOut()%> </td></tr>
+	
+	<tr><td>Graduation Details:</td><td><%=bean.getGraduationDetails()%></td></tr>
+	<tr><td>GraduationPassedOut:</td><td><%=bean.getGraduationPassedOut()%></td></tr>
+	<tr><td>Branch:</td><td><%=bean.getBranch()%></td></tr>
+	<tr><td>University:</td><td><%=bean.getUniversity()%></td></tr>
+	<tr><td>CompanyName:</td><td>	<%=bean. getCompanyName()%></td></tr>
+	<tr><td>Role:</td><td><%=bean.getRole()%> </td></tr>
+	<tr><td>NoticePeriod:</td><td><%=bean.getNoticePeriod()%></td></tr>
+	<tr><td>Location:</td><td><%=bean.getLocation()%></td></tr>
+	<tr><td>Experience:</td><td><%=bean.getExperience()%></td></tr>
+	<tr><td>CurrentCTC:</td> <td><%=bean.getCurrentCTC()%></td></tr>
+	<tr><td>ExpectedCTC:</td><td><%=bean.getExpectedCTC()%></td></tr>
+	
 	</table>
 	<br></br>
 	<br></br>
@@ -113,7 +133,7 @@ String resp=request.getParameter("req").trim();
 		<%
 		if(count==0){
 			%>
-			<h1>Please Enter valid EmployeeId or Employee Name</h1>
+			<h1 style="color:red;">Please Enter valid EmployeeId or Employee Name</h1>
 			
 			<%			
 		}else{count=0;}

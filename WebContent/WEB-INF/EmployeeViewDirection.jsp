@@ -47,7 +47,7 @@ table, th, td {
 
 			<div class="dropdown">
 				<button class="dropbtn">
-					Employee <em class="fa fa-caret-down" id="active"></em>
+					Employee <i class="fa fa-caret-down" id="active"></i>
 				</button>
 				<div class="dropdown-content">
 					<a href="EmployeeRegistration.jsp">New Registration</a> <a href="#">Response
@@ -76,7 +76,7 @@ table, th, td {
 				
 		
 
-   <a href="EmployeeView.jsp">Display All Employees Data</a> 
+   <a href="EmployeeView.jsp"><blink>Display All Employes</blink></a> 
     <br><br><br><br>
 	<form action="SingleEmployeeView.jsp" >
 	

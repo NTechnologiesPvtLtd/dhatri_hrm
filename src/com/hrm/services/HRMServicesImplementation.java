@@ -6,8 +6,10 @@ package com.hrm.services;
 import java.util.List;
 
 import com.hrm.bean.EmployeeBean;
+import com.hrm.constants.EmployeeConstants;
 import com.hrm.dao.HRMDao;
 import com.hrm.dao.HRMDaoImplementation;
+import com.hrm.session.SharedObject;
 
 /**
  * @author LADDU
@@ -18,16 +20,25 @@ public class HRMServicesImplementation implements HRMService {
 
 	@Override
 	public int insertEmployeeData(EmployeeBean employeeBean) {
-		// TODO Auto-generated method stub
+		
 		return hrmDao.insertEmployeeData(employeeBean);
 	}
 
 	@Override
 	public List<EmployeeBean> search() {
-		// TODO Auto-generated method stub
+		
 		return hrmDao.search();
 	}
 	public boolean login(String employeeId,long mobileNumber){
-		return hrmDao.login(employeeId, mobileNumber);
+		
+		boolean flag=hrmDao.login(employeeId, mobileNumber);
+		if(flag){
+		SharedObject.putInToSession(EmployeeConstants.EMPLOYEE_ID, employeeId);
+		}
+		else{
+			SharedObject.putInToSession(EmployeeConstants.ERROR_MSG_UI, "Invalid Credentials");
+		}
+		
+	return flag;
 	}
 }

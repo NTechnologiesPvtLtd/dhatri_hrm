@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class MySqlDBConnection {
-	 static Connection con;
+	 static Connection con=null;
 	static MySqlDBConnection mySQLDBInstance = new MySqlDBConnection();
 
 	private MySqlDBConnection() {
@@ -15,7 +15,7 @@ public class MySqlDBConnection {
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hrm", "root", "root");
 		} catch (Exception e) {
-			System.out.println(e);
+			System.err.println(e);
 		}
 	}
 

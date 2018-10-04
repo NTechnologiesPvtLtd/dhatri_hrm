@@ -62,7 +62,7 @@ function clearForm()
                 
 <div class="dropdown">
     <button class="dropbtn">Employee
-      <i class="fa fa-caret-down"></i>
+      <em class="fa fa-caret-down"></em>
     </button>
     <div class="dropdown-content">
       <a href="EmployeeRegistration.jsp">New Registration</a>
@@ -88,7 +88,7 @@ function clearForm()
 <br><br>
 <h1>LOGIN HERE</h1>
 <form action="LoginServlet" method="post">
-<p><b>EmployeeId<b>
+<p><strong>EmployeeId</strong>
 <input type="text"  onkeypress="clearForm()" id="loginId" name="employeeId" placeholder="Enter employeeId" required></p>
 <p id="errorMsg" style="color:black";"background-color:orange";></p>
 <p>Password</p>

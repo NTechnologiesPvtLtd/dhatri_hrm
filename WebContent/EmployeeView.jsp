@@ -47,7 +47,7 @@
 
 			<div class="dropdown">
 				<button class="dropbtn">
-					Employee <i class="fa fa-caret-down" id="active"></i>
+					Employee <em class="fa fa-caret-down" id="active"></em>
 				</button>
 				<div class="dropdown-content">
 					<a href="EmployeeRegistration.jsp">New Registration</a> <a href="#">Response
@@ -80,8 +80,9 @@
 		List<EmployeeBean> employeeResponse = service.search();
 		if (employeeResponse != null && !employeeResponse.isEmpty()) {
 	%>
-	 <div class="table">
-
+	
+	 <div class="table" style="overflow-x:auto;">
+<div style="overflow-x:auto;">
 	<table align=center>	
   
          
@@ -89,7 +90,7 @@
          
 		<tr>
 		
-		<td id="header" colspan="7"><h1>Display Information Of Employees </h1></td></tr>
+		<td id="header" colspan="24"><h1>Display Information Of Employees </h1></td></tr>
 		<tr>
 			<th>EmployeeId</th>
 			<th>First Name</th>
@@ -98,6 +99,24 @@
 			<th>Email Id</th>
 			<th>Mobile No</th>
 			<th>Aadhar No</th>
+			<th>Permanent Address</th>
+			<th>Local Address</th>
+			<th>Board Of Secondary Education</th>
+			<th>TenthPassedout</th>
+			<th>Board Of Intermediate Education</th>
+			<th>IntermediatePassedout</th>
+			<th>Graduation Details</th>
+			<th>Passedout</th>
+			<th>Branch</th>
+			<th>University</th>
+			<th>Company Name</th>
+			<th>Role</th>
+			<th>Notice Period</th>
+			<th>Location</th>
+			<th>Experience</th>
+			<th>Current CTC</th>
+			<th>Excepted CTC</th>  
+			
 			
 		
 		</tr>
@@ -113,6 +132,24 @@
 			<td><%=employeeBean.getEmailId()%></td>
 			<td><%=employeeBean.getMobileNumber()%></td>
 			<td><%=employeeBean.getAadharNo()%></td>
+			 <td><%=employeeBean.getPermanentAddress()%></td>
+			<td><%=employeeBean.getLocalAddress()%></td>
+			<td><%=employeeBean.getSchoolName()%></td>
+			<td><%=employeeBean.getTenthPassedOut()%></td>
+			<td><%=employeeBean. getIntermediateCollegeName()%></td>
+			<td><%=employeeBean.getInterPassedOut()%></td>
+			<td><%=employeeBean.getGraduationDetails() %></td>
+			<td><%=employeeBean.getGraduationPassedOut()%></td>
+			<td><%=employeeBean.getBranch()%></td>
+			<td><%=employeeBean.getUniversity()%></td>
+			<td><%=employeeBean.getCompanyName()%></td>
+			<td><%=employeeBean.getRole() %></td>
+			<td><%=employeeBean.getNoticePeriod()%></td>
+			<td><%=employeeBean. getLocation()%></td>
+			<td><%=employeeBean.getExperience()%></td>
+			<td><%=employeeBean.getCurrentCTC()%></td>
+			<td><%=employeeBean.getExpectedCTC()%></td> 
+			
 		</tr>
 		<%
 			}
@@ -121,6 +158,7 @@
 
 
 	</table>
+	</div>
 	<br>
 	<br>
 	<br>
