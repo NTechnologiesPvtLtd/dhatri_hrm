@@ -126,6 +126,8 @@ String resp=request.getParameter("req").trim();
 	</table>
 	<br></br>
 	<br></br>
+		<input type=submit onclick="window.location='http://localhost:8080/DhatriHRM_Web/EmployeeViewDirection.jsp';"
+								value="Back" class="button">
 	<hr>
 <% }
 		

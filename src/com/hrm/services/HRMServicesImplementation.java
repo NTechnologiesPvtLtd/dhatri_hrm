@@ -16,18 +16,27 @@ import com.hrm.session.SharedObject;
  *
  */
 public class HRMServicesImplementation implements HRMService {
+	private static final String String = null;
 	static HRMDao hrmDao=new HRMDaoImplementation();
-
+	
 	@Override
-	public int insertEmployeeData(EmployeeBean employeeBean) {
+	public int insertEmployeeData(EmployeeBean employeeBean) 
+	{
 		
 		return hrmDao.insertEmployeeData(employeeBean);
 	}
 
 	@Override
-	public List<EmployeeBean> search() {
+	public List<EmployeeBean> search() 
+	{
 		
 		return hrmDao.search();
+	}
+	@Override
+	public EmployeeBean search(String empid)
+	{
+		
+		return hrmDao.search(empid);
 	}
 	public boolean login(String employeeId,long mobileNumber){
 		

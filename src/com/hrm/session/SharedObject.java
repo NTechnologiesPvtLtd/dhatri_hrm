@@ -35,7 +35,7 @@ public class SharedObject {
 	 * @param key
 	 * @param value
 	 */
-	public static void putInToSession(String key, String value){
+	public static void putInToSession(String key, Object value){
 		getSession().setAttribute(key, value);
 	}
 	/**
@@ -53,6 +53,7 @@ public class SharedObject {
 	public static void deleteObjectFromSession(String key){
 		getSession().removeAttribute(key);
 	}
+	
 	
 	
 }

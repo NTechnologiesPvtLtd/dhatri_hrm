@@ -15,12 +15,19 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" media="all" href="stylesheets/animate.css"/>
-<script type="text/javascript" src="employeeValidation.js">
-
-</script>
+<script type="text/javascript" >  
+function showcommentform()
+{  
+var data="EmployeeId:<input type='text' name='employeeId'>";  
+ 
+document.getElementById('location').innerHTML=data;  
+} 
+  
+</script>  
 	
 </head>
 <body>
+
 	<div id="nav">
 		<h1>
 			<a href="index.jsp">Dhatsol IT Solutions</a>
@@ -46,7 +53,7 @@
 				</div>
 			</div>
 
-			<li><a href="Aboutus.html">about us</a></li>
+			<li><a href="Aboutus.jsp">about us</a></li>
 		</ul>
 	</div>
 
@@ -54,24 +61,40 @@
 	<div id="#mainform">
 		
 
-		<div class="container" style="background-image:url(111.jpeg)";>
+		<div class="container" style="background-image:url(blue.jpg)";>
 			<center>
 				<h1 style="color:red padding:50% margin-top:50% height:20%";>
 					
 				</h1>
 				<hr>
+				<br>
+				<br>
+				
+    <label for="employee">Employee: </label>  
+              <input type="radio" id="employee" name="employee" value="NewEmployee" onclick="window.location='http://localhost:8080/DhatriHRM_Web/EmployeeRegistration.jsp';"/>NewEmployee  
+              <input type="radio" id="employee" name="employee" value="ExistingEmployee" onclick="showcommentform()"/>ExistingEmployee<br/>  
+<br>
+<br>
+ 
+					 	
+						<p2 id="errorMsg3" style=color:red;></p2><br><br>
+		
+				
 				<form action="RegistrationServlet" method="post">
 				<div class="panel panel-default">
 					<h2>Personal Information</h2>
 					<br> <br>
-					<table>
+					
+					<table><tr>
+					<div id="location"></div> 
+					</tr>
+					
 						<tr>
 							<td>First Name:<font color="red">*</font></td>
 							<td><input type=text onkeypress="clearForm()" id="firstName"
 								name="firstName"><br> <br></td>
 								<td><p id="errorMsg" style=color:red;></p></td> 
-								
-							
+
 						</tr>
 						<tr>
 						<td>Last Name:<font color="red">*</font></td>
@@ -218,8 +241,16 @@
 						</tr>
 						<tr>
 							<td>Role:</td>
-							<td><input type=text name="role" onkeypress="clearForm()"
-								id="role"><br><br></td>
+							<td><select name="roleDetails" onkeypress="clearForm()" id="roleDetails">
+									<option value="None">Select role</option>
+									<option value="associative engineer">Associative Engineer</option>
+									<option value="software engineer">Software Engineer</option>
+									<option value="senior software engineer">Senior Software Engineer</option>
+									<option value="lead analyst">Lead Analyst</option>
+									<option value="Project Manager">Project Manager</option>
+									<option value="HR Manager">HR Manager</option>
+									
+							</select></td>
 								<td><p id="errorMsg19" style=color:red;></p></td> 
 					
 						</tr>

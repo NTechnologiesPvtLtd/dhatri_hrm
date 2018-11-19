@@ -48,7 +48,7 @@
 			</div>
 
 
-			<li><a href="Aboutus.html">about us</a></li>
+			<li><a href="Aboutus3.jsp">about us</a></li>
 		</ul>
 	</div>
 	<div id="#mainform">

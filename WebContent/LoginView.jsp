@@ -20,14 +20,25 @@ String userId="";
 if(null != obj){
 	userId=(String)obj;
 }
-
 %>
-
 <div>
 <div>Login As: <%=userId %>  </div>
-
-
 </div>
+<br>
+<br>
+<table border="5" bordercolor="red">
+    <tr>
+        <th>
+            <a href="UpdateProfile.jsp">Update Profile</a>
+            </th>
+          <th>
+                <a href="Payslip.jsp">Pay Slip</a>
+         </th>
+     <th>
+     <a href="CreateRequest.jsp">CreateRequest</a>
+     </th>
+     </tr>
+     </table>
 
 </body>
 </html>

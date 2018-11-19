@@ -1,5 +1,13 @@
+<%@page import="com.hrm.constants.EmployeeConstants"%>
+<%@page import="com.hrm.session.SharedObject"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@page import="java.util.List"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="com.hrm.services.HRMServicesImplementation"%>
+<%@page import="com.hrm.services.HRMService"%>
+<%@page import="com.hrm.bean.EmployeeBean"%>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -93,15 +101,33 @@ td.padding7 {
 </style>
 </head>
 <body>
+<% SharedObject.setRequest(request); %>
+<form action="PaySlipServlet" method="post">
+<%
+Object obj=SharedObject.getFromSession(EmployeeConstants.EMPLOYEE_ID);
+String userId="";
+int employeeId;
+String name=null;
+String role=null;
+double ctc=0.0;
+if(null != obj)
+{
+	userId=(String)obj;
+	//employeeId=Integer.parseInt(userId);
+}
+HRMService service = new HRMServicesImplementation();
+EmployeeBean bean=service.search(userId);
+	name=bean.getFirstName();
+	role=bean.getRole();
+	ctc=bean.getCurrentCTC();
 
-	<%
-double ctc=Double.parseDouble(request.getParameter("ctc"));
+//Double.parseDouble(request.getParameter("ctc"));
 double basic=(40.0/100)*ctc;
-double conveyance=(1.6/100)*ctc;
+double conveyance=(3.2/100)*ctc;
 double hra=(20.0/100)*ctc;
-double specialAllowance=(25.9/100)*ctc;
+double specialAllowance=(21.8/100)*ctc;
 double cityCompensatoryAll=(10.0/100)*ctc;
-double medical=(2.5/100)*ctc;
+double medical=(5.0/100)*ctc;
 double professionalTax=200;
 double totalDeductions=professionalTax;
 double incomeTax=0.0;
@@ -130,21 +156,21 @@ double netPay =ctc- totalDeductions;
 				<br></td>
 				<br>
 				<br>
-				<td><input type="text" name="emploeeName">
+				<td><input type="text" name="emploeeName" value=<%=name %>>
 				<td class="padding2">EmpID:<br></td>
-				<td class="padding2"><input type="text" name="employeeID">
+				<td class="padding2"><input type="text" name="employeeID" value=<%=userId %>>
 			</tr>
 			<tr>
 				<td>Designation:<br>
 				<br></td>
-				<td><input type="text" name="desigantion">
+				<td><input type="text" name="desigantion" value=<%=role %>>
 				<td class="padding2">Bank:<br></td>
 				<td class="padding2"><input type="text" name="bank">
 			</tr>
 			<tr>
 				<td><br>Date of Joining:<br>
 				<br></td>
-				<td><input type="text" name="date of joining">
+				<td><input type="text" name="date of joining" value=<%=ctc %>>
 				<td class="padding2">BankAccountNo:<br></td>
 				<td class="padding2"><input type="text" name="bankAccountNO">
 			</tr>
@@ -252,17 +278,17 @@ double netPay =ctc- totalDeductions;
 			This is system generated mail.Signature not required.
 		</p>
 	</div>
-
+</form>
 	<footer>
 	<p class="aligncenter">DHATRI INFO SOLUTIONS PVT.LTD.</p>
 	<p styple="padding-left :2cm;">_______________________________________________________________________________________________________________________________________________________________________________________</p>
 	<p class="aligncenter">
-		Manjeera Trinity Corporate, Suite #406, KPHB Phase 3, Kukatpally,
-		Hyderabad: 500 072, Telangana, India<br> Phone: +91 40 6591 3555,
-		6555 7888 website: <a href="www.dhatriinfo.com">
+		P J R Arcade,Plot #129/A, Suite #2, Sri Sai Nagar , Near JNTU Kukatpally, Hyderabad: 500 085, Telangana,
+India Phone: +91 40 4852 0666, website: www.dhatsol.com website: <a href="www.dhatriinfo.com">
 			www.dhatriinfo.com</a>.
 	</p>
 	</footer>
+	
 </body>
 
 </html>

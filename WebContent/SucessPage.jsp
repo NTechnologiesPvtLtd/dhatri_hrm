@@ -10,6 +10,7 @@
 </head>
 <body>
 	<%
+	SharedObject.setRequest(request);
 Object obj=SharedObject.getFromSession(EmployeeConstants.EMPLOYEE_ID);
 if(obj!=null){
 	String employeeId=(String)obj;

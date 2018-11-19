@@ -10,6 +10,7 @@ import com.hrm.db.connections.MySqlDBConnection;
 import com.hrm.session.SharedObject;
 
 
+
 public class HRMDaoImplementation implements HRMDao {
 	
 	Connection con;
@@ -26,8 +27,12 @@ public class HRMDaoImplementation implements HRMDao {
 		String query="insert into employeebean values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try
 		{
+			String employeeId=null;
+			employeeId=employeeBean.getEmployeeId();
 			pstmt=con.prepareStatement(query);
-			String employeeId=EmployeeIdGenerator.getEmployeeId();
+			if(employeeId==null || employeeId.isEmpty()){
+			 employeeId=EmployeeIdGenerator.getEmployeeId();
+			}
 			SharedObject.putInToSession(EmployeeConstants.EMPLOYEE_ID, employeeId);
 		pstmt.setString(1,employeeId);
 		pstmt.setString(2,employeeBean.getFirstName());
@@ -99,11 +104,8 @@ public class HRMDaoImplementation implements HRMDao {
 				employeeBean.setNoticePeriod(Integer.parseInt(resultSet.getString(18)));
 				employeeBean.setLocation(resultSet.getString(19));
 				employeeBean.setExperience(resultSet.getString(20));
-				employeeBean.setCurrentCTC(Integer.parseInt(resultSet.getString(21))
-						
-						
-						);
-				employeeBean.setExpectedCTC(Integer.parseInt(resultSet.getString(22)));
+				employeeBean.setCurrentCTC(Double.parseDouble(resultSet.getString(21)));
+				employeeBean.setExpectedCTC(Double.parseDouble(resultSet.getString(22)));
 				employeeBean.setPermanentAddress(resultSet.getString(23));
 				employeeBean.setLocalAddress(resultSet.getString(24));
 				
@@ -117,6 +119,32 @@ public class HRMDaoImplementation implements HRMDao {
 		return listOfEmployee;
 	}
 	
+	public EmployeeBean search(String empid)
+	{
+		String employeeId=null;
+		employeeId=empid;
+		EmployeeBean employeeBean=new EmployeeBean();
+		String query="select FirstName,Role,CurrentCtc from employeebean where employeeId=?";
+		try
+		{
+			pstmt=con.prepareStatement(query);
+			pstmt.setString(1,empid);
+			resultSet=pstmt.executeQuery();
+			while(resultSet.next())
+			{
+				employeeBean.setFirstName(resultSet.getString(1));
+				employeeBean.setRole(resultSet.getString(2));
+				employeeBean.setCurrentCTC(Double.parseDouble(resultSet.getString(3)));
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+		return employeeBean;
+	}
+	
+
 	public boolean login(String employeeId,long mobileNumber)
 	{
 		boolean s1=false;

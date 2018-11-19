@@ -109,9 +109,8 @@ function clearForm()
 <input type="submit" onclick="return loginValidation()" value="login"><br>
 
 
-<a href="#">forgot password</a>
+<a href="ForgetPassword.jsp">forgot password</a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="#">don't have a account</a>
 </form>
 </div>
         </div>

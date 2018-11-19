@@ -49,6 +49,7 @@ public class RegistrationServlet extends HttpServlet {
 		// reading the client values
 
 				response.setContentType("text/html");
+				String employeeId = request.getParameter("employeeId");
 
 				String firstName=request.getParameter("firstName").trim();
 				String lastName=request.getParameter("lastName").trim();
@@ -82,7 +83,7 @@ public class RegistrationServlet extends HttpServlet {
 				String university=request.getParameter("university").trim();
 				
 				String companyName=request.getParameter("companyName").trim();
-				String role=request.getParameter("role").trim();
+				String role=request.getParameter("roleDetails").trim();
 				String noticePeriod=request.getParameter("noticePeriod").trim();
 				String location=request.getParameter("location").trim();
 				String experience=request.getParameter("experience").trim();
@@ -92,17 +93,9 @@ public class RegistrationServlet extends HttpServlet {
 				// inject client reading values into Encapsulation object
 				
 				EmployeeBean employeebean=new EmployeeBean();
+				employeebean.setEmployeeId(employeeId);
 				
-			if(mobileNumber!=null && !mobileNumber.isEmpty()){
-				 try {
-						
-					    employeebean.setMobileNumber(Long.parseLong(mobileNumber));
-					  }
-					
-				   catch (Exception e) {
-					mobileNumber=null;
-				   }
-			}
+			setMobileNumber(mobileNumber, employeebean);
 				
 			if(aadharNo!=null && !aadharNo.isEmpty()){
 				try {
@@ -200,13 +193,14 @@ public class RegistrationServlet extends HttpServlet {
 				
 				
 				//calling the services
-				
+				SharedObject.setRequest(request);
 				HRMService hrmService=new HRMServicesImplementation();
 				int result = hrmService.insertEmployeeData(employeebean);
 				
 				try{
 				    if(result>0)
 				    {
+				    	
 					    RequestDispatcher requestDisForward=request.getRequestDispatcher("SucessPage.jsp");
 					             requestDisForward.forward(request, response);
 				    }
@@ -221,6 +215,23 @@ public class RegistrationServlet extends HttpServlet {
 				{
 					System.out.println(e);
 				}
+	}
+
+	/**
+	 * @param mobileNumber
+	 * @param employeebean
+	 */
+	private void setMobileNumber(String mobileNumber, EmployeeBean employeebean) {
+		if(mobileNumber!=null && !mobileNumber.isEmpty()){
+			 try {
+					
+				    employeebean.setMobileNumber(Long.parseLong(mobileNumber));
+				  }
+				
+			   catch (Exception e) {
+				mobileNumber=null;
+			   }
+		}
 	}
 
 }
