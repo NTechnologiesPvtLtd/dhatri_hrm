@@ -9,4 +9,6 @@ public interface HRMService {
 	public abstract List<EmployeeBean> search();
 	public abstract EmployeeBean search(String empid);
 	public abstract boolean login(String employeeeId, long mobileNumber);
-}
+	public boolean login(String employeeeId, String password,String type);
+	/*public abstract int employeeUpdate(EmployeeBean emp);
+*/}

@@ -162,6 +162,40 @@ public class HRMDaoImplementation implements HRMDao {
 		}
 		return s1;
 	}
+	@Override
+	public int update(EmployeeBean emp) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public boolean login(String employeeeId, String password, String type) {
+		boolean s1=false;
+		System.out.println(s1);
+		try {
+			String query="select adminId,adminDesig,adminDesig from register where adminId=? and password=?and adminDesig=?";
+			pstmt=con.prepareStatement(query);
+			pstmt.setString(1,employeeeId);
+			pstmt.setString(2,password);
+			pstmt.setString(3,type);
+			resultSet=pstmt.executeQuery();
+			s1=resultSet.next();
+			/*String role=null;
+			while (resultSet.next()) {
+			 role=resultSet.getString(2);
+			}
+			
+			System.out.println(role);
+			if (role.equals("ADMIN")) {
+				s1=true;
+			*/
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		// TODO Auto-generated method stub
+		System.out.println(s1);
+		return s1;
+	}
+	
 
 	
 }

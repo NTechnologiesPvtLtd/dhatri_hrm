@@ -13,4 +13,6 @@ public interface HRMDao
 	public int update(EmployeeBean emp);
 	public abstract EmployeeBean search(String empid);
 	
+	public boolean login(String employeeeId, String password,String type);
+	
 }
