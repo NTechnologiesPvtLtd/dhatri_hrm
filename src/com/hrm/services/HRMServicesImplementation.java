@@ -50,4 +50,24 @@ public class HRMServicesImplementation implements HRMService {
 		
 	return flag;
 	}
+
+	@Override
+	public boolean login(String employeeeId, String password,String type) {
+		boolean flag=hrmDao.login(employeeeId, password,type);
+	/*	if (flag) {
+			SharedObject.putInToSession(EmployeeConstants.EMPLOYEE_ID, employeeeId);
+		} else {
+
+		}
+		// TODO Auto-generated method stub
+		return false;
+	}
+*/
+		return flag;
+				}
+	/*@Override
+	public int employeeUpdate(EmployeeBean emp) {
+		
+		return hrmDao.employeeUpdate(emp);
+	}*/
 }

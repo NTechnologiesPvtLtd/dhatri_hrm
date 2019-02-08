@@ -62,14 +62,31 @@ public class LoginServlet extends HttpServlet {
 		catch (Exception e) {
 			password=0;
 		}
+		/*String password=request.getParameter("mobileNumber");
+*/		String type=request.getParameter("type").toLowerCase();
 		
 		HRMService service = new HRMServicesImplementation();
-		
+		System.out.println(request.getParameter("type"));
 				try{
-			if(service.login(userId,password))
-			{
+			if(service.login(userId,password) && type.equals("admin")){
+				/*	if(service.login(userId,password,type)){
+				*/
+					
+				System.out.println("true");
 				
-				RequestDispatcher rd=request.getRequestDispatcher("LoginView.jsp");
+				RequestDispatcher rd=request.getRequestDispatcher("AdminView.jsp");
+				rd.forward(request,response);
+				
+			}else if (service.login(userId,password) && type.equals("hr")) {
+				RequestDispatcher rd=request.getRequestDispatcher("hrview.jsp");
+				rd.forward(request,response);
+				
+			}else if (service.login(userId,password) && type.equals("employee")) {
+				RequestDispatcher rd=request.getRequestDispatcher("employeeview.jsp");
+				rd.forward(request,response);
+				
+			}else if (service.login(userId,password) && type.equals("employeer")) {
+				RequestDispatcher rd=request.getRequestDispatcher("employeerview.jsp");
 				rd.forward(request,response);
 			}
 			else
@@ -80,7 +97,8 @@ public class LoginServlet extends HttpServlet {
 		}
 			catch(Exception e)
 			{
-				System.out.println(e);
+				e.printStackTrace();
+				//System.out.println(e);
 			}
 	}
 

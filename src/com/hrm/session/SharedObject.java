@@ -10,32 +10,28 @@ public class SharedObject {
 		//do nothing
 	}
 	/**
-	 * 
-	 * @param request
+	  @param request
 	 */
 	public static void setRequest(HttpServletRequest request){
 		SharedObject.request=request;
 	}
 	/**
-	 * 
-	 * @return
+	  @return
 	 */
 	public static HttpServletRequest getRequest(){
 		return request;
 	}
 	/**
-	 * 
-	 * @return
+	  @return
 	 */
 	public static HttpSession getSession(){
 		return getRequest().getSession();
 	}
 	/**
-	 * 
-	 * @param key
+	  @param key
 	 * @param value
 	 */
-	public static void putInToSession(String key, Object value){
+	public static void putInToSession(String key, String value){
 		getSession().setAttribute(key, value);
 	}
 	/**
