@@ -15,12 +15,13 @@ Object obj=SharedObject.getFromSession(EmployeeConstants.EMPLOYEE_ID);
 if(obj!=null){
 	String employeeId=(String)obj;
 %>
-	<h1>
+	<h1 style="color: green">
 		Registered Successfully EmployeeId :
 		<%= employeeId%></h1>
 
-	<%
+<%
 }
 %>
+<jsp:include page="userupdate.jsp"></jsp:include>
 </body>
 </html>

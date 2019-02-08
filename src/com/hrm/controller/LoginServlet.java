@@ -62,15 +62,10 @@ public class LoginServlet extends HttpServlet {
 		}
 
 		HRMService service = new HRMServicesImplementation();
-<<<<<<< HEAD
-=======
-		System.out.println(request.getParameter("type"));
->>>>>>> ee881ea478eaa9ba1e1605b6e1f2be7133a40126
 		if (SharedObject.getSession() == null) {
 			SharedObject.setSession(request.getSession());;
 		}
 
-<<<<<<< HEAD
 		try {
 
 			if (service.login(userId, password)) {
@@ -84,35 +79,6 @@ public class LoginServlet extends HttpServlet {
 						"Invalid Credentials");
 				RequestDispatcher includeRequest = request
 						.getRequestDispatcher("user.jsp");
-=======
-		//HttpSession session=request.getSession();  
-				try{
-			if(service.login(userId,password) && type.equals("admin")){
-				/*	if(service.login(userId,password,type)){
-				*/
-		  //      session.setAttribute("empid",userId);
-				System.out.println("true");
-				
-				RequestDispatcher rd=request.getRequestDispatcher("AdminView.jsp");
-				rd.forward(request,response);
-				
-			}else if (service.login(userId,password) && type.equals("hr")) {
-				
-				RequestDispatcher rd=request.getRequestDispatcher("hrview.jsp");
-				rd.forward(request,response);
-				
-			}else if (service.login(userId,password) && type.equals("employee")) {
-				RequestDispatcher rd=request.getRequestDispatcher("employeeview.jsp");
-				rd.forward(request,response);
-				
-			}else if (service.login(userId,password) && type.equals("employeer")) {
-				RequestDispatcher rd=request.getRequestDispatcher("employeerview.jsp");
-				rd.forward(request,response);
-			}
-			else
-			{
-				RequestDispatcher includeRequest=request.getRequestDispatcher("user.jsp");
->>>>>>> ee881ea478eaa9ba1e1605b6e1f2be7133a40126
 				includeRequest.include(request, response);
 			}
 		} catch (Exception e) {

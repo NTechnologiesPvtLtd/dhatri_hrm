@@ -41,15 +41,6 @@ public class HRMServicesImplementation implements HRMService {
 	public boolean login(String employeeId,long mobileNumber){
 		
 		boolean flag=hrmDao.login(employeeId, mobileNumber);
-<<<<<<< HEAD
-=======
-		if(flag && employeeId!=null){
-		SharedObject.putInToSession(EmployeeConstants.EMPLOYEE_ID, employeeId);
-		}
-		else{
-			SharedObject.putInToSession(EmployeeConstants.ERROR_MSG_UI, "Invalid Credentials");
-		}
->>>>>>> ee881ea478eaa9ba1e1605b6e1f2be7133a40126
 		
 	return flag;
 	}
@@ -71,5 +62,9 @@ public class HRMServicesImplementation implements HRMService {
 	public EmployeeBean searchGmailId(java.lang.String str1) {
 		// TODO Auto-generated method stub
 		return hrmDao.searchGmailId(str1);
+	}
+	public List<EmployeeBean> searchManagerEmp(java.lang.String Manager) {
+		// TODO Auto-generated method stub
+		return hrmDao.searchManagerEmp(Manager);
 	}
 }

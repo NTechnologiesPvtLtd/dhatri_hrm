@@ -28,10 +28,6 @@ public class SharedObject {
 	 * 
 	 * @return
 	 */
-	public static void setSession(HttpSession session) {
-		SharedObject.session = session;
-	}
-	
 	public static HttpSession getSession(){
 		return session;
 	}
@@ -61,13 +57,9 @@ public class SharedObject {
 	/**
 	 * @param session the session to set
 	 */
-<<<<<<< HEAD
 	public static void setSession(HttpSession session) {
 		SharedObject.session = session;
 	}
-=======
-	
->>>>>>> ee881ea478eaa9ba1e1605b6e1f2be7133a40126
 	
 	
 	

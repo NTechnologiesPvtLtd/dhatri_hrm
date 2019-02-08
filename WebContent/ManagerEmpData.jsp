@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>View Emp</title>
 </head>
+
 <body>
 	<div id="#mainform">
 		<br> <br>

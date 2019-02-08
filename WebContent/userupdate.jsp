@@ -359,6 +359,25 @@ ul li:hover ul li {
 
 					</tr>
 					<tr>
+						<%EmployeeBean employeeBean=new EmployeeBean(); 
+						 service = new HRMServicesImplementation();
+						List<EmployeeBean> managerslist= service.searchManager("HR Manager");%>
+						<td>Manager:</td>
+					<td>
+						<select name="empmanager" id="empmanager">
+						<option value="default">default</option>
+						<%for(EmployeeBean empBean:managerslist)
+						{
+						%>
+						
+						<option value=<%=empBean.getEmployeeId() %>>
+						<%=empBean.getFirstName()+" "+empBean.getLastName()+" "+empBean.getEmployeeId() %></option>
+						<%} %>
+						</select>
+						</td>
+						
+						</tr>
+					<tr>
 						<td>Notice Period:</td>
 						<td><select name="noticePeriod" onkeypress="clearForm()"
 							id="noticePeriod" value=<%=bean.getNoticePeriod()%> checked>

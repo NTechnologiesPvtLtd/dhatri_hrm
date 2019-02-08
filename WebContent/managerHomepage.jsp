@@ -35,7 +35,7 @@
 		<nav>
 		<ul>
 			<li><a href="userupdate.jsp">Update Profile</a></li>
-			<li><a href="ViewManagerEmpData.jsp?<%=userId%>">EmployeeData</a></li>
+			<li><a href="ManagerEmpServlet?<%=userId%>">EmployeeData</a></li>
 			<li><a href="Payslip.jsp">Pay Slip</a></li>
 			<li><a href="CreateRequest.jsp">CreateRequest</a></li>
 			<li><p align="right">

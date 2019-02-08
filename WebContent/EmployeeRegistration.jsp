@@ -261,18 +261,21 @@ document.getElementById('location').innerHTML=data;
 						<tr>
 						<%EmployeeBean employeeBean=new EmployeeBean(); 
 						HRMService service = new HRMServicesImplementation();
-						List<EmployeeBean> managerslist= service.searchManager("HR Manager");
-						for(EmployeeBean empBean:managerslist){
-						%>
+						List<EmployeeBean> managerslist= service.searchManager("HR Manager");%>
 						<td>Manager:</td>
-						<td>
+					<td>
 						<select name="empmanager" id="empmanager">
 						<option value="default">default</option>
+						<%for(EmployeeBean empBean:managerslist)
+						{
+						%>
+						
 						<option value=<%=empBean.getEmployeeId() %>>
-						<%=empBean.getFirstName()+"  "+empBean.getLastName()+"  "+empBean.getEmployeeId() %></option>
+						<%=empBean.getFirstName()+" "+empBean.getLastName()+" "+empBean.getEmployeeId() %></option>
+						<%} %>
 						</select>
 						</td>
-						<%} %>
+						
 						</tr>
 						<tr>
 							<td>Notice Period:</td>

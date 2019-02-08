@@ -18,7 +18,6 @@
 <link rel="stylesheet" media="all" href="stylesheets/animate.css">
 </head>
 <body>
-<<<<<<< HEAD
 	<%
 		Object obj = SharedObject
 				.getFromSession(EmployeeConstants.EMPLOYEE_ID);
@@ -54,40 +53,6 @@
 	<div></div>
 	<br>
 	<br>
-=======
-<% SharedObject.setRequest(request); %>
-<%SharedObject.setSession(session); %>
-
-<h1>LoginView</h1>
-<form action="LogOutServlet" method="post">
-<input type="submit" value="LogOut">
-</form>
-<%
-Object obj=SharedObject.getFromSession(EmployeeConstants.EMPLOYEE_ID);
-String userId="";
-if(null != obj){
-	userId=(String)obj;
-}
-%>
-<div>
-<div>Login As: <%=userId %>  </div>
-</div>
-<br>
-<br>
-<table border="5" bordercolor="red">
-    <tr>
-        <th>
-            <a href="UpdateProfile.jsp">Update Profile</a>
-            </th>
-          <th>
-                <a href="Payslip.jsp">Pay Slip</a>
-         </th>
-     <th>
-     <a href="CreateRequest.jsp">CreateRequest</a>
-     </th>
-     </tr>
-     </table>
->>>>>>> ee881ea478eaa9ba1e1605b6e1f2be7133a40126
 
 </body>
 </html>
