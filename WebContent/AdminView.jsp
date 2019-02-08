@@ -74,7 +74,7 @@
 <% SharedObject.setRequest(request); %>
 <%SharedObject.setSession(session); %>
 
-<h1>LoginView</h1>
+<h1>AdminView..</h1>
 <form action="LogOutServlet" method="post">
 <input type="submit" value="LogOut">
 </form>

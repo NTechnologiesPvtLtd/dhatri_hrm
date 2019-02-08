@@ -71,7 +71,6 @@ public class LoginServlet extends HttpServlet {
 		if (SharedObject.getSession() == null) {
 			SharedObject.setSession(request.getSession());;
 		}
-
 		//HttpSession session=request.getSession();  
 				try{
 			if(service.login(userId,password) && type.equals("admin")){
