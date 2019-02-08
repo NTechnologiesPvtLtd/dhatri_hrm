@@ -22,6 +22,7 @@
 <script type="text/javascript" src="employeeValidation.js">
 
 </script>
+<script type="text/javascript" src="jsFiles/searchAjax.js"></script>
 <style>
 table, th, td {
     border: 1px solid black;
@@ -30,7 +31,7 @@ table, th, td {
 	
 </head>
 <body>
-<%SharedObject.setRequest(request); %>
+<%SharedObject.setSession(request.getSession()); %>
 
 	
 	<div id="nav">
@@ -80,9 +81,9 @@ table, th, td {
     <br><br><br><br>
 	<form action="SingleEmployeeView.jsp" >
 	
-	Enter EmployeeId:<input type="text" name="req" id="empId" style="color:black";>
-	<input type="submit" value="submit">
-	
+	Enter EmployeeId:<input type="text" name="empId" id="empId" style="color:black";>
+	<input type="submit" value="submit" onclick="sendInfo()">
+	<div id="searchResults"></div>
 	
 	<br>
 	<br>

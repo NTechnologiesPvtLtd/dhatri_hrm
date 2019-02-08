@@ -6,32 +6,37 @@ import javax.servlet.http.HttpSession;
 public class SharedObject {
 	
 	private static HttpServletRequest request;
+	private static HttpSession session;
 	private SharedObject(){
 		//do nothing
 	}
 	/**
-	  @param request
+	 * 
+	 * @param request
 	 */
 	public static void setRequest(HttpServletRequest request){
 		SharedObject.request=request;
 	}
 	/**
-	  @return
+	 * 
+	 * @return
 	 */
 	public static HttpServletRequest getRequest(){
 		return request;
 	}
 	/**
-	  @return
+	 * 
+	 * @return
 	 */
 	public static HttpSession getSession(){
-		return getRequest().getSession();
+		return session;
 	}
 	/**
-	  @param key
+	 * 
+	 * @param key
 	 * @param value
 	 */
-	public static void putInToSession(String key, String value){
+	public static void putInToSession(String key, Object value){
 		getSession().setAttribute(key, value);
 	}
 	/**
@@ -48,6 +53,12 @@ public class SharedObject {
 	 */
 	public static void deleteObjectFromSession(String key){
 		getSession().removeAttribute(key);
+	}
+	/**
+	 * @param session the session to set
+	 */
+	public static void setSession(HttpSession session) {
+		SharedObject.session = session;
 	}
 	
 	

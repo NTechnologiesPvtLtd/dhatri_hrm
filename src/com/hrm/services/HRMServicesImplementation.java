@@ -33,7 +33,7 @@ public class HRMServicesImplementation implements HRMService {
 		return hrmDao.search();
 	}
 	@Override
-	public EmployeeBean search(String empid)
+	public EmployeeBean search(String empid)throws Exception
 	{
 		
 		return hrmDao.search(empid);
@@ -41,33 +41,26 @@ public class HRMServicesImplementation implements HRMService {
 	public boolean login(String employeeId,long mobileNumber){
 		
 		boolean flag=hrmDao.login(employeeId, mobileNumber);
-		/*if(flag){
-		SharedObject.putInToSession(EmployeeConstants.EMPLOYEE_ID, employeeId);
-		}
-		else{
-			SharedObject.putInToSession(EmployeeConstants.ERROR_MSG_UI, "Invalid Credentials");
-		}*/
 		
 	return flag;
 	}
 
 	@Override
-	public boolean login(String employeeeId, String password,String type) {
-		boolean flag=hrmDao.login(employeeeId, password,type);
-	/*	if (flag) {
-			SharedObject.putInToSession(EmployeeConstants.EMPLOYEE_ID, employeeeId);
-		} else {
-
-		}
-		// TODO Auto-generated method stub
-		return false;
-	}
-*/
-		return flag;
-				}
-	/*@Override
 	public int employeeUpdate(EmployeeBean emp) {
 		
 		return hrmDao.employeeUpdate(emp);
-	}*/
+	}
+
+	@Override
+	public List<EmployeeBean> searchManager(java.lang.String role1) {
+		// TODO Auto-generated method stub
+		return hrmDao.searchManager(role1);
+	}
+ 
+
+	@Override
+	public EmployeeBean searchGmailId(java.lang.String str1) {
+		// TODO Auto-generated method stub
+		return hrmDao.searchGmailId(str1);
+	}
 }
