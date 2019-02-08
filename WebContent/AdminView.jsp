@@ -70,26 +70,23 @@
 							
 				</div>
 </center>	
-<%-- 
+
 <% SharedObject.setRequest(request); %>
- --%>
+<%SharedObject.setSession(session); %>
+
 <h1>LoginView</h1>
 <form action="LogOutServlet" method="post">
 <input type="submit" value="LogOut">
 </form>
 <%
-/* Object obj=SharedObject.getFromSession(EmployeeConstants.EMPLOYEE_ID);
+Object obj=SharedObject.getFromSession(EmployeeConstants.EMPLOYEE_ID);
 String userId="";
 if(null != obj){
 	userId=(String)obj;
-} */
-HttpSession session=request.getSession(false);  
-if(session!=null){  
-String userId=(String)session.getAttribute("empid");
+}
 %>
 <div>
 <div>Login As: <%=userId %>  </div>
-<%} %>
 </div>
 <br>
 <br>

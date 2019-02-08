@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.hrm.constants.EmployeeConstants;
 import com.hrm.session.SharedObject;
@@ -32,8 +33,9 @@ public class LogOutServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		SharedObject.deleteObjectFromSession(EmployeeConstants.EMPLOYEE_ID);
+		/*SharedObject.deleteObjectFromSession(EmployeeConstants.EMPLOYEE_ID);
 		SharedObject.deleteObjectFromSession(EmployeeConstants.ERROR_MSG_UI);
+		*/
 		RequestDispatcher forward=request.getRequestDispatcher("user.jsp");
 		forward.forward(request, response);
 	}

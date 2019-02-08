@@ -10,6 +10,8 @@
 </head>
 <body>
 <% SharedObject.setRequest(request); %>
+<%SharedObject.setSession(session); %>
+
 <h1>LoginView</h1>
 <form action="LogOutServlet" method="post">
 <input type="submit" value="LogOut">

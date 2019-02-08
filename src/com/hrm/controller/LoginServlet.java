@@ -68,13 +68,16 @@ public class LoginServlet extends HttpServlet {
 		
 		HRMService service = new HRMServicesImplementation();
 		System.out.println(request.getParameter("type"));
+		if (SharedObject.getSession() == null) {
+			SharedObject.setSession(request.getSession());;
+		}
 
-		HttpSession session=request.getSession();  
+		//HttpSession session=request.getSession();  
 				try{
 			if(service.login(userId,password) && type.equals("admin")){
 				/*	if(service.login(userId,password,type)){
 				*/
-		        session.setAttribute("empid",userId);
+		  //      session.setAttribute("empid",userId);
 				System.out.println("true");
 				
 				RequestDispatcher rd=request.getRequestDispatcher("AdminView.jsp");

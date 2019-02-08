@@ -41,12 +41,12 @@ public class HRMServicesImplementation implements HRMService {
 	public boolean login(String employeeId,long mobileNumber){
 		
 		boolean flag=hrmDao.login(employeeId, mobileNumber);
-		/*if(flag){
+		if(flag && employeeId!=null){
 		SharedObject.putInToSession(EmployeeConstants.EMPLOYEE_ID, employeeId);
 		}
 		else{
 			SharedObject.putInToSession(EmployeeConstants.ERROR_MSG_UI, "Invalid Credentials");
-		}*/
+		}
 		
 	return flag;
 	}
