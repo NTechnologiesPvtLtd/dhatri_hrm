@@ -72,6 +72,7 @@
 </center>	
 
 <% SharedObject.setRequest(request); %>
+
 <h1>LoginView</h1>
 <form action="LogOutServlet" method="post">
 <input type="submit" value="LogOut">
