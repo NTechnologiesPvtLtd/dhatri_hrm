@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.hrm.constants.EmployeeConstants;
 import com.hrm.dao.HRMDao;
@@ -67,17 +68,20 @@ public class LoginServlet extends HttpServlet {
 		
 		HRMService service = new HRMServicesImplementation();
 		System.out.println(request.getParameter("type"));
+
+		HttpSession session=request.getSession();  
 				try{
 			if(service.login(userId,password) && type.equals("admin")){
 				/*	if(service.login(userId,password,type)){
 				*/
-					
+		        session.setAttribute("empid",userId);
 				System.out.println("true");
 				
 				RequestDispatcher rd=request.getRequestDispatcher("AdminView.jsp");
 				rd.forward(request,response);
 				
 			}else if (service.login(userId,password) && type.equals("hr")) {
+				
 				RequestDispatcher rd=request.getRequestDispatcher("hrview.jsp");
 				rd.forward(request,response);
 				
