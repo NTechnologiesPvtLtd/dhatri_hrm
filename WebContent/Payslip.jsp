@@ -101,7 +101,7 @@ td.padding7 {
 </style>
 </head>
 <body>
-<% SharedObject.setRequest(request); %>
+<% SharedObject.setSession(request.getSession()); %>
 <form action="PaySlipServlet" method="post">
 <%
 Object obj=SharedObject.getFromSession(EmployeeConstants.EMPLOYEE_ID);
@@ -283,8 +283,9 @@ double netPay =ctc- totalDeductions;
 	<p class="aligncenter">DHATRI INFO SOLUTIONS PVT.LTD.</p>
 	<p styple="padding-left :2cm;">_______________________________________________________________________________________________________________________________________________________________________________________</p>
 	<p class="aligncenter">
-		P J R Arcade,Plot #129/A, Suite #2, Sri Sai Nagar , Near JNTU Kukatpally, Hyderabad: 500 085, Telangana,
-India Phone: +91 40 4852 0666, website: www.dhatsol.com website: <a href="www.dhatriinfo.com">
+		Manjeera Trinity Corporate, Suite #406, KPHB Phase 3, Kukatpally,
+		Hyderabad: 500 072, Telangana, India<br> Phone: +91 40 6591 3555,
+		6555 7888 website: <a href="www.dhatriinfo.com">
 			www.dhatriinfo.com</a>.
 	</p>
 	</footer>

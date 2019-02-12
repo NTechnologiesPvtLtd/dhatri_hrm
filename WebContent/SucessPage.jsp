@@ -10,15 +10,15 @@
 </head>
 <body>
 	<%
-	SharedObject.setRequest(request);
+	SharedObject.setSession(request.getSession());
 Object obj=SharedObject.getFromSession(EmployeeConstants.EMPLOYEE_ID);
 if(obj!=null){
 	String employeeId=(String)obj;
 %>
 	<h1>
-		Registered Successfully EmployeeId :
-		<%= employeeId%></h1>
-
+		Updated Successfully EmployeeId :
+		<%= employeeId%> &nsbp check once...</h1>
+ 
 	<%
 }
 %>

@@ -1,7 +1,3 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.*"%>
-<%@page import="com.hrm.bean.EmployeeBean"%>
-<%@page import="com.hrm.services.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -19,19 +15,12 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" media="all" href="stylesheets/animate.css"/>
-<script type="text/javascript" >  
-function showcommentform()
-{  
-var data="EmployeeId:<input type='text' name='employeeId'>";  
- 
-document.getElementById('location').innerHTML=data;  
-} 
-  
-</script>  
+<script type="text/javascript" src="employeeValidation.js">
+
+</script>
 	
 </head>
 <body>
-
 	<div id="nav">
 		<h1>
 			<a href="index.jsp">Dhatsol IT Solutions</a>
@@ -57,7 +46,7 @@ document.getElementById('location').innerHTML=data;
 				</div>
 			</div>
 
-			<li><a href="Aboutus.jsp">about us</a></li>
+			<li><a href="Aboutus.html">about us</a></li>
 		</ul>
 	</div>
 
@@ -65,40 +54,35 @@ document.getElementById('location').innerHTML=data;
 	<div id="#mainform">
 		
 
-		<div class="container" style="background-image:url(blue.jpg)";>
+		<div class="container" style="background-image:url(111.jpeg)";>
 			<center>
 				<h1 style="color:red padding:50% margin-top:50% height:20%";>
 					
 				</h1>
-				<hr>
-				<br>
-				<br>
-				
-    <label for="employee">Employee: </label>  
-              <input type="radio" id="employee" name="employee" value="NewEmployee" onclick="window.location='http://localhost:8080/DhatriHRM_Web/EmployeeRegistration.jsp';"/>NewEmployee  
-              <input type="radio" id="employee" name="employee" value="ExistingEmployee" onclick="showcommentform()"/>ExistingEmployee<br/>  
-<br>
-<br>
- 
-					 	
-						<p2 id="errorMsg3" style=color:red;></p2><br><br>
-		
-				
+				 <hr>
 				<form action="RegistrationServlet" method="post">
 				<div class="panel panel-default">
-					<h2>Personal Information</h2>
+					<h2>Dhatsol address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map</h2>
+					<tr><div align="left">PJR ARCADE <br></tr>
+					<tr>NIZAMPET X ROAD<br></tr>
+					<tr>hyderabad</div></tr>
+					<div align="right"><div>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60882.118209439985!2d78.33450217972735!3d17.50119263872531!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93de421c1c8b%3A0xd519ed11be128485!2sDhatri+Info+Solutions!5e0!3m2!1sen!2sin!4v1542008556997" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+					
+					</div>
+					<h2><center>CONTACT US</center></h2>
 					<br> <br>
 					
-					<table><tr>
-					<div id="location"></div> 
-					</tr>
 					
+					<center><table>
 						<tr>
+						
 							<td>First Name:<font color="red">*</font></td>
 							<td><input type=text onkeypress="clearForm()" id="firstName"
 								name="firstName"><br> <br></td>
 								<td><p id="errorMsg" style=color:red;></p></td> 
-
+								
+							
 						</tr>
 						<tr>
 						<td>Last Name:<font color="red">*</font></td>
@@ -108,7 +92,7 @@ document.getElementById('location').innerHTML=data;
 							
 						</tr>
 						<tr>
-							<td>Father Name:<font color="red">*</font></td>
+							<td>Email id:<font color="red">*</font></td>
 							<td><input type="text" onkeypress="clearForm()" id="fatherName" name="fatherName"><br> <br></td>
 							<td><p id="errorMsg2" style=color:red;></p></td> 
 							
@@ -125,12 +109,7 @@ document.getElementById('location').innerHTML=data;
 								
 							<td><p2 id="errorMsg3" style=color:red;></p2><br> <br></td>
 						</tr>
-						<tr>
-							<td>Date Of Birth:<font color="red">*</font></td>
-							<td><input type="date" name="dob" onkeypress="clearForm()" id="dob"><br> <br></td>
-							<td><p id="errorMsg4" style=color:red;></p></td> 
-							
-						</tr>
+			
 						<tr>
 							<td>Email Id:<font color="red">*</font></td>
 							<td><input type=text onkeypress="clearForm()" id="emailId"
@@ -146,28 +125,21 @@ document.getElementById('location').innerHTML=data;
 							
 						</tr>
 						<tr>
-							<td>Aadhar Number:<font color="red">*</font></td>
-							<td><input type=text name="aadharNo"onkeypress="clearForm()" id="aadharNo" pattern="[0-9]{12}" title="Aadhar Card Number must be 12 digits" placeholder="Enter AadharCardNumber" required ><br> <br></td>
-							<td><p id="errorMsg7" style=color:red;></p></td> 
+							<td>Message:<font color="red">*</font></td>
+							<td><input type=text onkeypress="clearForm()" id="message"
+								name="message"><br> <br></td>
+								<td><p id="errorMsg6" style=color:red;></p></td> 
 							
 						</tr>
-						<tr>
-							<td>Permanent Address:<font color="red">*</font></td>
-							<td><textarea rows="2" onkeypress="clearForm()" id="permanentAddress" name="permanentAddress">
-</textarea><br> <br></td>
-<td><p id="errorMsg8" style=color:red;></p></td> 
-							
-						</tr>
-						<tr>
-							<td>Local Address:<font color="red">*</font></td>
-							<td><textarea rows="2" onkeypress="clearForm()" id="localAddress" name="localAddress">
-</textarea></td>
-							<br>
+		
+                     <tr>
+                      <input type="submit" onclick="return registrationValidation()" value="submit" class="button">
+                      <input type="reset" onclick="return registrationValidation()" value="reset" class="button">
 							<br>
 							<td><p id="errorMsg9" style=color:red;></p></td> 
 							
 						</tr>
-					</table>
+					</table><center>
 					<br> <br>
 					<h2>Educational Information</h2>
 					<br> <br>
@@ -245,34 +217,10 @@ document.getElementById('location').innerHTML=data;
 						</tr>
 						<tr>
 							<td>Role:</td>
-							<td><select name="roleDetails" onkeypress="clearForm()" id="roleDetails">
-									<option value="None">Select role</option>
-									<option value="associative engineer">Associative Engineer</option>
-									<option value="software engineer">Software Engineer</option>
-									<option value="senior software engineer">Senior Software Engineer</option>
-									<option value="lead analyst">Lead Analyst</option>
-									<option value="Project Manager">Project Manager</option>
-									<option value="HR Manager">HR Manager</option>
-									
-							</select></td>
+							<td><input type=text name="role" onkeypress="clearForm()"
+								id="role"><br><br></td>
 								<td><p id="errorMsg19" style=color:red;></p></td> 
 					
-						</tr>
-						<tr>
-						<%EmployeeBean employeeBean=new EmployeeBean(); 
-						HRMService service = new HRMServicesImplementation();
-						List<EmployeeBean> managerslist= service.searchManager("HR Manager");
-						for(EmployeeBean empBean:managerslist){
-						%>
-						<td>Manager:</td>
-						<td>
-						<select name="empmanager" id="empmanager">
-						<option value="default">default</option>
-						<option value=<%=empBean.getEmployeeId() %>>
-						<%=empBean.getFirstName()+"  "+empBean.getLastName()+"  "+empBean.getEmployeeId() %></option>
-						</select>
-						</td>
-						<%} %>
 						</tr>
 						<tr>
 							<td>Notice Period:</td>

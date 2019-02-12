@@ -77,26 +77,28 @@
 <h1 style="color:#33847c;">Employee Details</h1>
 <%! int count=0; %>
 <%
-String resp=request.getParameter("req").trim();
+String empid=request.getParameter("val").trim();
 
 
 		HRMService service = new HRMServicesImplementation();
-		List<EmployeeBean> list=service.search();
-		Iterator<EmployeeBean> itr=list.iterator();
-		while(itr.hasNext()){       
+		//service.search(empid);
+		//EmployeeBean bean=new EmployeeBean();
+		 EmployeeBean bean=service.search(empid);
+		/* Iterator<EmployeeBean> itr=list.iterator();
+		while(itr.hasNext()){  */      
 			
-			EmployeeBean bean=itr.next();
-			String s1=bean.getEmployeeId();
+			//EmployeeBean bean=itr.next();
+			/* String s1=bean.getEmployeeId();
 			String s2=bean.getFirstName();
 		
 		if (s1.equals(resp) || s2.equalsIgnoreCase(resp)) {
-		count=1;	
+		count=1;	 */
 			
 	%>
 	<div class="table">
 	<table align="center">
 	</div>
-  <tr>  <td>	Employee Id:</td><td><%=bean.getEmployeeId()%></td></tr>
+  	<tr><td>Employee Id:</td><td><%=empid%></td></tr>
 	<tr><td>Employee Name:</td><td><%=bean.getFirstName()%></td></tr>
 	<tr><td>Father Name:</td><td><%=bean.getFatherName()%></td></tr>
 	<tr><td>Gender:</td> <td><%=bean.getGender()%></td></tr>
@@ -122,6 +124,7 @@ String resp=request.getParameter("req").trim();
 	<tr><td>Experience:</td><td><%=bean.getExperience()%></td></tr>
 	<tr><td>CurrentCTC:</td> <td><%=bean.getCurrentCTC()%></td></tr>
 	<tr><td>ExpectedCTC:</td><td><%=bean.getExpectedCTC()%></td></tr>
+	<tr><td>Manager:</td><td><%=bean.getManager()%></td></tr>
 	
 	</table>
 	<br></br>
@@ -129,17 +132,17 @@ String resp=request.getParameter("req").trim();
 		<input type=submit onclick="window.location='http://localhost:8080/DhatriHRM_Web/EmployeeViewDirection.jsp';"
 								value="Back" class="button">
 	<hr>
-<% }
+<%-- <% }
 		
-		} %>
-		<%
+		 %> --%>
+		<%-- <%
 		if(count==0){
 			%>
 			<h1 style="color:red;">Please Enter valid EmployeeId or Employee Name</h1>
 			
 			<%			
 		}else{count=0;}
-		%>
+		%>  --%>
 
 				
 				</div>

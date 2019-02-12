@@ -5,48 +5,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<script type="text/javascript">
-function showcommentform() {  
-	
-    if(document.getElementById("emailTo").value=="Projectmanager"){
-    	document.getElementById("emailName").value=("hello@gmail.com");
-    	//document.write('hello@gmail.com');
-    	
-    }else{
-    	document.getElementById("emailName").value=("hrmanager@gmail.com");
-    }
-    
-    
+<script type="text/javascript" src="jsFiles/dropDownAjax.js"> </script>
 
-}
-
-</script>
 </head>
 <body>
-
-<form name="myForm">
+<form action="#">
     <div id="EmailTo">
-    email To: <select id="emailTo" onclick='showcommentform()'>
-              <option value="Projectmanager" >Projectmanager</option>
-              <option value="HrManager">HrManager</option>
+    email To: <select id="emailTo" onchange="getManagerList(this.value)">
+              <option value="Project Manager" >Projectmanager</option>
+              <option value="HR Manager">HrManager</option>
               </select>
               <br>
      </div>
-    <div>
-    <input type="text" name="email"  id="emailName" disabled="disabled" value="hello@gmail.com">
-    </div>
-    <div>
-    Request Type:<select>
-    <option value="Leave">Leave</option>
-    <option value="SalaryCertification">SalaryCertification</option>
-    <option value="AdressCertification">AdressCertification</option>
-    </select>
-    </div>
-    <div>
-    Reason:<br><textarea rows="5" cols="50"></textarea>
-    <input type="submit" value="Submit">
-    </div>
-    </form>
-    
-</body>
+ 
+    <div id="managerOptions"> 
+    Manager : 
+<select> 
+<option>Select name</option> 
+</select> 
+</div> 
+</form>
+</body> 
 </html>
+   
