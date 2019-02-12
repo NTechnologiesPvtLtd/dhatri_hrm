@@ -94,6 +94,10 @@ public class LoginServlet extends HttpServlet {
 			}else if (service.login(userId,password) && type.equals("employeer")) {
 				RequestDispatcher rd=request.getRequestDispatcher("employeerview.jsp");
 				rd.forward(request,response);
+			}else if (service.login(userId,password) && type.equals("manager")) {
+				RequestDispatcher rd=request.getRequestDispatcher("managerHomepage.jsp");
+				rd.forward(request,response);
+				
 			}
 			else
 			{
