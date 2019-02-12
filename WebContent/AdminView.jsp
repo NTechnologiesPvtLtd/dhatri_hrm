@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 <%@page import="com.hrm.constants.EmployeeConstants"%>
 <%@page import="com.hrm.session.SharedObject"%>
+=======
+>>>>>>> 235a76d345463b8acbf4f533f7e4e565ea6decbb
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -47,7 +50,10 @@
 
 				</div>
 			</div>
+<<<<<<< HEAD
 			<li><a href="userupdate.jsp">UPDATE Employee</a></li>
+=======
+>>>>>>> 235a76d345463b8acbf4f533f7e4e565ea6decbb
 
 			<li><a href="Aboutus.html">about us</a></li>
 		</ul>
@@ -69,6 +75,7 @@
 																	
 							
 				</div>
+<<<<<<< HEAD
 </center>	
 
 <% SharedObject.setRequest(request); %>
@@ -104,6 +111,9 @@ if(null != obj){
      </tr>
      </table>
 
+=======
+</center>				
+>>>>>>> 235a76d345463b8acbf4f533f7e4e565ea6decbb
 </body>
 </html>
 	

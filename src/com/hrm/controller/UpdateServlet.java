@@ -208,7 +208,6 @@ public class UpdateServlet extends HttpServlet {
 		try{
 		    if(result>0)
 		    {
-		    	System.out.println( "is this in result");
 			    RequestDispatcher requestDisForward=request.getRequestDispatcher("SucessPage.jsp");
 			             requestDisForward.forward(request, response);
 		    }
