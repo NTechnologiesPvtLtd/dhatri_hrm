@@ -41,15 +41,14 @@ public class HRMServicesImplementation implements HRMService {
 	public boolean login(String employeeId,long mobileNumber){
 		
 		boolean flag=hrmDao.login(employeeId, mobileNumber);
-<<<<<<< HEAD
+
 		if(flag){
 			SharedObject.putInToSession(EmployeeConstants.EMPLOYEE_ID, employeeId);
 			}
 			else{
 				SharedObject.putInToSession(EmployeeConstants.ERROR_MSG_UI, "Invalid Credentials");
 			}
-=======
->>>>>>> 235a76d345463b8acbf4f533f7e4e565ea6decbb
+
 		
 	return flag;
 	}
@@ -65,26 +64,17 @@ public class HRMServicesImplementation implements HRMService {
 		// TODO Auto-generated method stub
 		return hrmDao.searchManager(role1);
 	}
-<<<<<<< HEAD
-=======
- 
->>>>>>> 235a76d345463b8acbf4f533f7e4e565ea6decbb
 
 	@Override
 	public EmployeeBean searchGmailId(java.lang.String str1) {
 		// TODO Auto-generated method stub
 		return hrmDao.searchGmailId(str1);
 	}
-<<<<<<< HEAD
 
-	@Override
-	public List<EmployeeBean> searchManagerEmp(java.lang.String Manager) {
-		// TODO Auto-generated method stub
-		return null;
-=======
+
+	
 	public List<EmployeeBean> searchManagerEmp(java.lang.String Manager) {
 		// TODO Auto-generated method stub
 		return hrmDao.searchManagerEmp(Manager);
->>>>>>> 235a76d345463b8acbf4f533f7e4e565ea6decbb
 	}
 }

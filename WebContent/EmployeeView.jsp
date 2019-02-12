@@ -60,7 +60,7 @@
 			<center>
 				<h1 style="padding: 50% margin-top:50% height:20%";></h1>
 				<hr>
-<<<<<<< HEAD
+
 				<form >
 				<div class="panel panel-default">
 				
@@ -165,109 +165,9 @@
 		}
 	%>						
 					
-				</div>
-=======
-				<form>
-					<div class="panel panel-default">
-
-						<%
-							HRMService service = new HRMServicesImplementation();
-							List<EmployeeBean> employeeResponse = service.search();
-							if (employeeResponse != null && !employeeResponse.isEmpty()) {
-						%>
-
-						<div class="table" style="overflow-x: auto;">
-							<div style="overflow-x: auto;">
-								<table align=center>
-
-
-
-
-									<tr>
-
-										<td id="header" colspan="24"><h1>Display Information
-												Of Employees</h1></td>
-									</tr>
-									<tr>
-										<th>EmployeeId</th>
-										<th>First Name</th>
-										<th>Father Name</th>
-										<th>Gender</th>
-										<th>Email Id</th>
-										<th>Mobile No</th>
-										<th>Aadhar No</th>
-										<th>Permanent Address</th>
-										<th>Local Address</th>
-										<th>Board Of Secondary Education</th>
-										<th>TenthPassedout</th>
-										<th>Board Of Intermediate Education</th>
-										<th>IntermediatePassedout</th>
-										<th>Graduation Details</th>
-										<th>Passedout</th>
-										<th>Branch</th>
-										<th>University</th>
-										<th>Company Name</th>
-										<th>Role</th>
-										<th>Notice Period</th>
-										<th>Location</th>
-										<th>Experience</th>
-										<th>Current CTC</th>
-										<th>Excepted CTC</th>
-
-
-
-									</tr>
-									</div>
-									<%
-										for (EmployeeBean employeeBean : employeeResponse) {
-									%>
-									<tr>
-										<td><%=employeeBean.getEmployeeId()%></td>
-										<td><%=employeeBean.getFirstName()%></td>
-										<td><%=employeeBean.getFatherName()%></td>
-										<td><%=employeeBean.getGender()%></td>
-										<td><%=employeeBean.getEmailId()%></td>
-										<td><%=employeeBean.getMobileNumber()%></td>
-										<td><%=employeeBean.getAadharNo()%></td>
-										<td><%=employeeBean.getPermanentAddress()%></td>
-										<td><%=employeeBean.getLocalAddress()%></td>
-										<td><%=employeeBean.getSchoolName()%></td>
-										<td><%=employeeBean.getTenthPassedOut()%></td>
-										<td><%=employeeBean.getIntermediateCollegeName()%></td>
-										<td><%=employeeBean.getInterPassedOut()%></td>
-										<td><%=employeeBean.getGraduationDetails()%></td>
-										<td><%=employeeBean.getGraduationPassedOut()%></td>
-										<td><%=employeeBean.getBranch()%></td>
-										<td><%=employeeBean.getUniversity()%></td>
-										<td><%=employeeBean.getCompanyName()%></td>
-										<td><%=employeeBean.getRole()%></td>
-										<td><%=employeeBean.getNoticePeriod()%></td>
-										<td><%=employeeBean.getLocation()%></td>
-										<td><%=employeeBean.getExperience()%></td>
-										<td><%=employeeBean.getCurrentCTC()%></td>
-										<td><%=employeeBean.getExpectedCTC()%></td>
-
-									</tr>
-									<%
-										}
-									%>
-
-
-
-								</table>
-							</div>
-							<br> <br> <br> <br> <br> <br> <br>
-							<br> <br>
-
-
-							<%
-								} else {
-									out.print("No Result Found");
-								}
-							%>
-
+			
 						</div>
->>>>>>> 235a76d345463b8acbf4f533f7e4e565ea6decbb
+
 				</form>
 </body>
 </html>
