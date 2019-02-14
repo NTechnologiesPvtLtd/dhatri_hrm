@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+<%@page import="com.hrm.constants.EmployeeConstants"%>
+<%@page import="com.hrm.session.SharedObject"%>
+=======
+>>>>>>> 235a76d345463b8acbf4f533f7e4e565ea6decbb
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -45,6 +50,10 @@
 
 				</div>
 			</div>
+<<<<<<< HEAD
+			<li><a href="userupdate.jsp">UPDATE Employee</a></li>
+=======
+>>>>>>> 235a76d345463b8acbf4f533f7e4e565ea6decbb
 
 			<li><a href="Aboutus.html">about us</a></li>
 		</ul>
@@ -66,7 +75,45 @@
 																	
 							
 				</div>
+<<<<<<< HEAD
+</center>	
+
+<% SharedObject.setRequest(request); %>
+<%SharedObject.setSession(session); %>
+
+<h1>AdminView..</h1>
+<form action="LogOutServlet" method="post">
+<input type="submit" value="LogOut">
+</form>
+<%
+Object obj=SharedObject.getFromSession(EmployeeConstants.EMPLOYEE_ID);
+String userId="";
+if(null != obj){
+	userId=(String)obj;
+}
+%>
+<div>
+<div>Login As: <%=userId %>  </div>
+</div>
+<br>
+<br>
+<table border="5" bordercolor="red">
+    <tr>
+        <th>
+            <a href="UpdateProfile.jsp">Update Profile</a>
+            </th>
+          <th>
+                <a href="Payslip.jsp">Pay Slip</a>
+         </th>
+     <th>
+     <a href="CreateRequest.jsp">CreateRequest</a>
+     </th>
+     </tr>
+     </table>
+
+=======
 </center>				
+>>>>>>> 235a76d345463b8acbf4f533f7e4e565ea6decbb
 </body>
 </html>
 	

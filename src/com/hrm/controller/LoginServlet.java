@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import javax.servlet.http.HttpSession;
+
+
 import com.hrm.constants.EmployeeConstants;
 import com.hrm.dao.HRMDao;
 import com.hrm.dao.HRMDaoImplementation;
@@ -23,6 +26,7 @@ import com.hrm.session.SharedObject;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -62,15 +66,41 @@ public class LoginServlet extends HttpServlet {
 		catch (Exception e) {
 			password=0;
 		}
+		/*String password=request.getParameter("mobileNumber");
+*/		String type=request.getParameter("type").toLowerCase();
 		
 		HRMService service = new HRMServicesImplementation();
-		
+		System.out.println(request.getParameter("type"));
+		if (SharedObject.getSession() == null) {
+			SharedObject.setSession(request.getSession());;
+		}
+		//HttpSession session=request.getSession();  
 				try{
-			if(service.login(userId,password))
-			{
+			if(service.login(userId,password) && type.equals("admin")){
+				/*	if(service.login(userId,password,type)){
+				*/
+		  //      session.setAttribute("empid",userId);
+				System.out.println("true");
 				
-				RequestDispatcher rd=request.getRequestDispatcher("LoginView.jsp");
+				RequestDispatcher rd=request.getRequestDispatcher("AdminView.jsp");
 				rd.forward(request,response);
+				
+			}else if (service.login(userId,password) && type.equals("hr")) {
+				
+				RequestDispatcher rd=request.getRequestDispatcher("hrview.jsp");
+				rd.forward(request,response);
+				
+			}else if (service.login(userId,password) && type.equals("employee")) {
+				RequestDispatcher rd=request.getRequestDispatcher("employeeview.jsp");
+				rd.forward(request,response);
+				
+			}else if (service.login(userId,password) && type.equals("employeer")) {
+				RequestDispatcher rd=request.getRequestDispatcher("employeerview.jsp");
+				rd.forward(request,response);
+			}else if (service.login(userId,password) && type.equals("manager")) {
+				RequestDispatcher rd=request.getRequestDispatcher("managerHomepage.jsp");
+				rd.forward(request,response);
+				
 			}
 			else
 			{
@@ -80,7 +110,8 @@ public class LoginServlet extends HttpServlet {
 		}
 			catch(Exception e)
 			{
-				System.out.println(e);
+				e.printStackTrace();
+				//System.out.println(e);
 			}
 	}
 

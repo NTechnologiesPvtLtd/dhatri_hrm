@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 public class SharedObject {
 	
 	private static HttpServletRequest request;
+	private static HttpSession session;
 	private SharedObject(){
 		//do nothing
 	}
@@ -28,7 +29,7 @@ public class SharedObject {
 	 * @return
 	 */
 	public static HttpSession getSession(){
-		return getRequest().getSession();
+		return session;
 	}
 	/**
 	 * 
@@ -52,6 +53,12 @@ public class SharedObject {
 	 */
 	public static void deleteObjectFromSession(String key){
 		getSession().removeAttribute(key);
+	}
+	/**
+	 * @param session the session to set
+	 */
+	public static void setSession(HttpSession session) {
+		SharedObject.session = session;
 	}
 	
 	

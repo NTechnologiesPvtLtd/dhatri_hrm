@@ -84,6 +84,7 @@ public class RegistrationServlet extends HttpServlet {
 				
 				String companyName=request.getParameter("companyName").trim();
 				String role=request.getParameter("roleDetails").trim();
+				String manager=request.getParameter("empmanager").trim();
 				String noticePeriod=request.getParameter("noticePeriod").trim();
 				String location=request.getParameter("location").trim();
 				String experience=request.getParameter("experience").trim();
@@ -188,12 +189,13 @@ public class RegistrationServlet extends HttpServlet {
 				
 				employeebean.setCompanyName(companyName);
 				employeebean.setRole(role);
+				employeebean.setManager(manager);
 				employeebean.setLocation(location);
 				employeebean.setExperience(experience);
 				
 				
 				//calling the services
-				SharedObject.setRequest(request);
+				SharedObject.setSession(request.getSession());
 				HRMService hrmService=new HRMServicesImplementation();
 				int result = hrmService.insertEmployeeData(employeebean);
 				

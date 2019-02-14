@@ -32,10 +32,18 @@ public class EmployeeBean {
 	private String role;
 	private int noticePeriod;
 	private String location;
+	
 	private String experience;
 	private double currentCTC;
 	private double expectedCTC;
+	private String manager;
 	
+	public String getManager() {
+		return manager;
+	}
+	public void setManager(String manager) {
+		this.manager = manager;
+	}
 	public String getEmployeeId() {
 		return employeeId;
 	}

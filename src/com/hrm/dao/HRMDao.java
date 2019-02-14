@@ -9,8 +9,13 @@ public interface HRMDao
 	//abstract method
 	public abstract int insertEmployeeData(EmployeeBean employeeBean);
 	public abstract List<EmployeeBean> search();
+	public abstract EmployeeBean search(String empid) throws Exception;
 	public abstract boolean login(String employeeeId, long mobileNumber);
-	public int update(EmployeeBean emp);
-	public abstract EmployeeBean search(String empid);
+	public abstract  int employeeUpdate(EmployeeBean emp);
+	public List<EmployeeBean> searchManager(String role1);
+	public List<EmployeeBean> searchManagerEmp(String Manager);
+	public EmployeeBean searchGmailId(String str1);
+	//public abstract int delete(EmployeeBean emp)throws Exception;
+	//int delete(String employeeId) throws Exception;
 	
 }

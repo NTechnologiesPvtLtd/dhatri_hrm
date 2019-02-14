@@ -30,7 +30,7 @@
 		<h1>
 			<a href="index.jsp">Dhatsol IT Solutions</a>
 		</h1>
-<%SharedObject.setRequest(request); %>
+<%SharedObject.setSession(request.getSession()); %>
 		<nav>
 		<ul>
 			<li><a href="index.jsp">Home</a></li>

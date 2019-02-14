@@ -17,7 +17,7 @@
 <link rel="stylesheet" media="all" href="stylesheets/animate.css">
 </head>
 <body>
-<%SharedObject.setRequest(request); %>
+<%SharedObject.setSession(session); %>
 	<div id="nav">
 		<h1>
 			<a href="index.jsp">Dhatsol IT Solutions</a>
