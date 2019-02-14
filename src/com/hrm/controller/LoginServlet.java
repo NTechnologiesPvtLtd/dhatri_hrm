@@ -9,13 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import javax.servlet.http.HttpSession;
 
 
-import com.hrm.constants.EmployeeConstants;
-import com.hrm.dao.HRMDao;
-import com.hrm.dao.HRMDaoImplementation;
+
 import com.hrm.services.HRMService;
 import com.hrm.services.HRMServicesImplementation;
 import com.hrm.session.SharedObject;
@@ -33,7 +30,6 @@ public class LoginServlet extends HttpServlet {
      */
     public LoginServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -41,7 +37,6 @@ public class LoginServlet extends HttpServlet {
 	 */
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -50,7 +45,6 @@ public class LoginServlet extends HttpServlet {
 	 */
     @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
 		response.setContentType("text/html");
 		try{
@@ -80,7 +74,7 @@ public class LoginServlet extends HttpServlet {
 				/*	if(service.login(userId,password,type)){
 				*/
 		  //      session.setAttribute("empid",userId);
-				System.out.println("true");
+				//System.out.println("true");
 				
 				RequestDispatcher rd=request.getRequestDispatcher("AdminView.jsp");
 				rd.forward(request,response);
