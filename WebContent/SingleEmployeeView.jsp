@@ -77,8 +77,13 @@
 <h1 style="color:#33847c;">Employee Details</h1>
 <%! int count=0; %>
 <%
+
 		//String empid=request.getParameter("empId").trim();
   		String empid=request.getParameter("val").trim();
+
+String empid=request.getParameter("val").trim();
+
+
 
 		HRMService service = new HRMServicesImplementation();
 		//service.search(empid);

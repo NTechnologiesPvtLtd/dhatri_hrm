@@ -20,8 +20,18 @@ public class MySqlDBConnection {
 
 	private MySqlDBConnection() {
 		try {
+
 			//Class.forName(DRIVER_CLASS_NAME);
 			con = DriverManager.getConnection(URL, DB_Username, DB_Password);
+
+
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hrmdb", "root", "hanu@007");
+
+			Class.forName(DRIVER_CLASS_NAME);
+			con = DriverManager.getConnection(URL, "root", "system");
+
+
 		} catch (Exception e) {
 			System.err.println(e);
 		}
