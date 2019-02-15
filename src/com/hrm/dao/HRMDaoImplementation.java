@@ -1,4 +1,5 @@
 package com.hrm.dao;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -355,6 +356,7 @@ public class HRMDaoImplementation implements HRMDao {
 		addPlaceHolderValue(pstmt,employeeBean.getCurrentCTC());
 		addPlaceHolderValue(pstmt,employeeBean.getExpectedCTC());
 		addPlaceHolderValue(pstmt, employeeBean.getEmployeeId());
+		addPlaceHolderValue(pstmt, employeeBean.getManager());
 	}
 	/**
 	 * @param employeeBean
@@ -387,6 +389,7 @@ public class HRMDaoImplementation implements HRMDao {
 		addToQuery(query, employeeBean.getExperience(), "experience");
 		addToQuery(query, employeeBean.getCurrentCTC(), "currentctc");
  		addToQuery(query, employeeBean.getExpectedCTC(), "expectedctc");
+ 		addToQuery(query, employeeBean.getManager(),"empmanager");
  		query.replace(query.length()-2, query.length(), "");
 		query.append(" where employeeId=?");
 	}

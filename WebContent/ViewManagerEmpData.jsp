@@ -35,7 +35,7 @@
 			<th>Gender</th>
 			<th>Email Id</th>
 			<th>Mobile No</th>
-			<th>Aadhar No</th>
+			<th>AadharNo</th>
 			<th>Permanent Address</th>
 			<th>Local Address</th>
 			<th>Board Of Secondary Education</th>
@@ -43,7 +43,7 @@
 			<th>Board Of Intermediate Education</th>
 			<th>IntermediatePassedout</th>
 			<th>Graduation Details</th>
-			<th>Passedout</th>
+			<th>Passed out</th>
 			<th>Branch</th>
 			<th>University</th>
 			<th>Company Name</th>
@@ -58,7 +58,7 @@
 			
 		
 		</tr>
-</div>
+ 
 		<%
 		List<EmployeeBean> list=(List<EmployeeBean>)session.getAttribute("managerEmp");
 			for (EmployeeBean employeeBean : list) {

@@ -37,17 +37,12 @@ document.getElementById('result').innerHTML=val;
 </head>
 <body>
 <div align="center">
-<input type="text" name="searchElement" id="searchEle" onkeyup="return sendInfo()" >
-
+<input type="text" name="searchElement" id="searchEle" onkeyup="return sendInfo()">
 </div>
 
 <div id="result">
 
 </div>
-
-
-
-
 
 </body>
 </html>

@@ -77,13 +77,14 @@
 <h1 style="color:#33847c;">Employee Details</h1>
 <%! int count=0; %>
 <%
-String empid=request.getParameter("empId").trim();
-
+		//String empid=request.getParameter("empId").trim();
+  		String empid=request.getParameter("val").trim();
 
 		HRMService service = new HRMServicesImplementation();
 		//service.search(empid);
 		//EmployeeBean bean=new EmployeeBean();
 		 EmployeeBean bean=service.search(empid);
+		//bean=service.search(empid2);
 		/* Iterator<EmployeeBean> itr=list.iterator();
 		while(itr.hasNext()){  */      
 			
@@ -108,7 +109,7 @@ String empid=request.getParameter("empId").trim();
 	<tr><td>Permanent Address:</td><td><%=bean.getPermanentAddress()%></td></tr>
 	<tr><td>Local Address:</td><td><%=bean.getLocalAddress()%></td></tr>
 	
-<tr><td>Board Of Secondary Education:</td> <td><%=bean.getSchoolName()%></td></tr>
+    <tr><td>Board Of Secondary Education:</td> <td><%=bean.getSchoolName()%></td></tr>
 	<tr><td>TenthPassedOut:</td><td><%=bean.getTenthPassedOut()%></td></tr>
 	<tr><td>Board Of Intermediate Education:</td><td><%=bean.getIntermediateCollegeName()%></td></tr>
 	<tr><td>InterPassedOut:</td><td><%=bean.getInterPassedOut()%> </td></tr>

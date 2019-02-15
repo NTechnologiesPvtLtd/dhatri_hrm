@@ -15,7 +15,7 @@ public class EmployeeConstants {
 	public static final String OTHERDEDUCTIONS= "otherDeductions1";
 	public static final String GROSSSALARY= "grossSalary1";
 	public static final String NETPAY= "netPay1";
-	
+
 	
 	
 	private EmployeeConstants() {

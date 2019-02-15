@@ -1,9 +1,11 @@
 package com.hrm.session;
 
+import java.io.Serializable;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-public class SharedObject {
+public class SharedObject implements Serializable{
 	
 	private static HttpServletRequest request;
 	private static HttpSession session;

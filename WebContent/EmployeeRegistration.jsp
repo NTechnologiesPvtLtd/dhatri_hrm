@@ -196,8 +196,8 @@ document.getElementById('location').innerHTML=data;
 						</tr>
 						<tr>
 							<td>Graduation Details:<font color="red">*</font></td>
-							<td><select name="graduationDetails" onkeypress="clearForm()" id="graduationDetails">
-									<option value="None">Select Branch</option>
+							<td><select name="graduationDetails" onkeypress="clearForm()" id="graduationDetails" required>
+									<option value="">Select Branch</option>
 									<option value="B.Tech">B.TECH</option>
 									<option value="M.Tech">M.TECH</option>
 									<option value="MBA">MBA</option>
@@ -213,8 +213,8 @@ document.getElementById('location').innerHTML=data;
 						</tr>
 						<tr>
 								<td>Branch:<font color="red">*</font></td>
-							<td><select name="branch" onkeypress="clearForm()" id="branch">
-									<option value="None">Enter Your Branch</option>
+							<td><select name="branch" onkeypress="clearForm()" id="branch" required>
+									<option value="">Enter Your Branch</option>
 									<option value="ECE">ECE</option>
 									<option value="EEE">EEE</option>
 									<option value="CSE">CSE</option>

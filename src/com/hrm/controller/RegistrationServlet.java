@@ -142,15 +142,7 @@ public class RegistrationServlet extends HttpServlet {
 				}
 			}	
 			
-			if(noticePeriod!=null && !noticePeriod.isEmpty()){							
-				try {									
-						
-					  employeebean.setNoticePeriod(Integer.parseInt(noticePeriod));
-					}
-				 catch (Exception e) {
-					noticePeriod=null;
-				}
-			}
+			converStringToDataType(noticePeriod, employeebean);
 			
 			if(currentCTC!=null && !currentCTC.isEmpty()){
 				try {					
@@ -217,6 +209,22 @@ public class RegistrationServlet extends HttpServlet {
 				{
 					System.out.println(e);
 				}
+	}
+
+	/**
+	 * @param noticePeriod
+	 * @param employeebean
+	 */
+	private void converStringToDataType(String noticePeriod, EmployeeBean employeebean) {
+		if(noticePeriod!=null && !noticePeriod.isEmpty()){							
+			try {									
+					
+				  employeebean.setNoticePeriod(Integer.parseInt(noticePeriod));
+				}
+			 catch (Exception e) {
+				noticePeriod=null;
+			}
+		}
 	}
 
 	/**

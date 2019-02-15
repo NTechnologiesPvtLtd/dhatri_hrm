@@ -16,7 +16,7 @@ import com.hrm.session.SharedObject;
  *
  */
 public class HRMServicesImplementation implements HRMService {
-	private static final String String = null;
+	//private static final String String = null;
 	static HRMDao hrmDao=new HRMDaoImplementation();
 	
 	@Override
@@ -53,18 +53,15 @@ public class HRMServicesImplementation implements HRMService {
 
 	@Override
 	public List<EmployeeBean> searchManager(java.lang.String role1) {
-		// TODO Auto-generated method stub
 		return hrmDao.searchManager(role1);
 	}
  
 
 	@Override
 	public EmployeeBean searchGmailId(java.lang.String str1) {
-		// TODO Auto-generated method stub
 		return hrmDao.searchGmailId(str1);
 	}
-	public List<EmployeeBean> searchManagerEmp(java.lang.String Manager) {
-		// TODO Auto-generated method stub
-		return hrmDao.searchManagerEmp(Manager);
+	public List<EmployeeBean> searchManagerEmp(java.lang.String manager) {
+				return hrmDao.searchManagerEmp(manager);
 	}
 }
