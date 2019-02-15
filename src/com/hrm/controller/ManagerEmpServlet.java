@@ -22,16 +22,13 @@ public class ManagerEmpServlet extends HttpServlet {
    
     public ManagerEmpServlet() {
         super();
-        // TODO Auto-generated constructor stub
-    }
-
+       }
+    @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String employeeid=request.getQueryString();
-		System.out.println(employeeid);
 		SharedObject.setSession(request.getSession());
 		HRMService hrmService=new HRMServicesImplementation();
 		HttpSession session=request.getSession();
-		//EmployeeBean bean=new EmployeeBean();
 		
 		System.out.println(employeeid);
 		List<EmployeeBean> listBean=hrmService.searchManagerEmp(employeeid);
@@ -40,10 +37,9 @@ public class ManagerEmpServlet extends HttpServlet {
          requestDisForward.forward(request, response);
 		
 	}
-
+    @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+			doGet(request, response);
 	}
 
 }

@@ -81,7 +81,7 @@ table, th, td {
     <br><br><br><br>
 	<form action="SingleEmployeeView.jsp" >
 	
-	Enter EmployeeId:<input type="text" name="empId" id="empId" style="color:black";>
+	Enter EmployeeId:<input type="text" name="val" id="empId" style="color:black";>
 	<input type="submit" value="submit" onclick="sendInfo()">
 	<div id="searchResults"></div>
 	

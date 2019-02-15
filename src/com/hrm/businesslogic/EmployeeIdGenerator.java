@@ -52,8 +52,5 @@ public class EmployeeIdGenerator
 		
 		return fact;
 	}
-	public static void main(String[] args) {
-		System.out.println(getEmployeeId());
-	}
-
+	
 }
