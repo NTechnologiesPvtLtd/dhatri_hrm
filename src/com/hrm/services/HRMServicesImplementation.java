@@ -69,15 +69,6 @@ public class HRMServicesImplementation implements HRMService {
 		return hrmDao.searchGmailId(str1);
 	}
 
-	public List<EmployeeBean> searchManagerEmp(java.lang.String manager) {
 				return hrmDao.searchManagerEmp(manager);
 
-
-
-	
-	public List<EmployeeBean> searchManagerEmp(java.lang.String Manager) {
-		// TODO Auto-generated method stub
-		return hrmDao.searchManagerEmp(Manager);
-
-	}
 }
