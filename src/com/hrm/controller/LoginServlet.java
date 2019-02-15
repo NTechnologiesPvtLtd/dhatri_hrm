@@ -21,7 +21,7 @@ import com.hrm.session.SharedObject;
  * Servlet implementation class LoginServlet
  */
 @WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
        
@@ -60,21 +60,16 @@ public class LoginServlet extends HttpServlet {
 		catch (Exception e) {
 			password=0;
 		}
-		/*String password=request.getParameter("mobileNumber");
-*/		String type=request.getParameter("type").toLowerCase();
+		
+		String type=request.getParameter("type").toLowerCase();
 		
 		HRMService service = new HRMServicesImplementation();
 		System.out.println(request.getParameter("type"));
 		if (SharedObject.getSession() == null) {
-			SharedObject.setSession(request.getSession());;
+			SharedObject.setSession(request.getSession());
 		}
-		//HttpSession session=request.getSession();  
-				try{
+		try{
 			if(service.login(userId,password) && type.equals("admin")){
-				/*	if(service.login(userId,password,type)){
-				*/
-		  //      session.setAttribute("empid",userId);
-				//System.out.println("true");
 				
 				RequestDispatcher rd=request.getRequestDispatcher("AdminView.jsp");
 				rd.forward(request,response);
@@ -105,8 +100,7 @@ public class LoginServlet extends HttpServlet {
 			catch(Exception e)
 			{
 				e.printStackTrace();
-				//System.out.println(e);
-			}
+				}
 	}
 
 }
