@@ -26,6 +26,12 @@ var data="EmployeeId:<input type='text' name='employeeId'>";
  
 document.getElementById('location').innerHTML=data;  
 } 
+
+
+function showcommentform1()
+{  
+window.location.assign("http://localhost:8079/DhatriHRM_Web/EmployeeRegistration.jsp");  
+} 
   
 </script>  
 	
@@ -75,7 +81,7 @@ document.getElementById('location').innerHTML=data;
 				<br>
 				
     <label for="employee">Employee: </label>  
-              <input type="radio" id="employee" name="employee" value="NewEmployee" onclick="window.location='http://localhost:8080/DhatriHRM_Web/EmployeeRegistration.jsp';"/>NewEmployee  
+              <input type="radio" id="employee" name="employee" value="NewEmployee" onclick="showcommentform1()"/>NewEmployee  
               <input type="radio" id="employee" name="employee" value="ExistingEmployee" onclick="showcommentform()"/>ExistingEmployee<br/>  
 <br>
 <br>

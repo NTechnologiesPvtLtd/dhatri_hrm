@@ -30,7 +30,7 @@ public class HRMDaoImplementation implements HRMDao {
 	@Override
 	public int insertEmployeeData(EmployeeBean employeeBean) {
 		int result=0;
-		String query="insert into employeebean values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String query="insert into employeebean values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try
 		{
 			String employeeId=null;
@@ -66,7 +66,7 @@ public class HRMDaoImplementation implements HRMDao {
 		pstmt.setString(24,employeeBean.getExperience());
 		pstmt.setDouble(25,employeeBean.getCurrentCTC());
 		pstmt.setDouble(26,employeeBean.getExpectedCTC());
-		pstmt.setString(27, employeeBean.getManager());
+		//pstmt.setString(27, employeeBean.getManager());
 		result=pstmt.executeUpdate();
 		
 		}
