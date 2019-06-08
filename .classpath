@@ -23,5 +23,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Users/sss/Desktop/vtalent/mysql-connector.jar/junit.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sss/Desktop/vtalent/mysql-connector.jar/com.mysql.jdbc_5.1.5.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

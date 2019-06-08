@@ -102,7 +102,7 @@ public class LoginServlet extends HttpServlet {
 
 				} else if (type.equals("employee")) {
 					RequestDispatcher rd = request
-							.getRequestDispatcher("EmployeeView.jsp");
+							.getRequestDispatcher("SingleEmployeeView.jsp");
 					rd.forward(request, response);
 
 				} else if (type.equals("employeer")) {

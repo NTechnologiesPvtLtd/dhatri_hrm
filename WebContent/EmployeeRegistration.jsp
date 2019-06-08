@@ -164,14 +164,14 @@ resize: none;
 						</tr>
 						<tr>
 							<td>Permanent Address:<font color="red">*</font></td>
-							<td><textarea cols="30" rows="50" class="wt-resize" onkeypress="clearForm()" id="permanentAddress" name="permanentAddress">
+							<td><textarea cols="30" rows="5" class="wt-resize" onkeypress="clearForm()" id="permanentAddress" name="permanentAddress">
 </textarea><br> <br></td>
 <td><p id="errorMsg8" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
 							<td>Local Address:<font color="red">*</font></td>
-							<td><textarea cols="30" rows="50" class="wt-resize" onkeypress="clearForm()" id="localAddress" name="localAddress">
+							<td><textarea cols="30" rows="5" class="wt-resize" onkeypress="clearForm()" id="localAddress" name="localAddress">
 </textarea></td>
 							<br>
 							<br>
@@ -283,7 +283,7 @@ resize: none;
 						%>
 						
 						<option value=<%=empBean.getEmployeeId() %>>
-						<%=empBean.getFirstName()+" "+empBean.getLastName()+" "+empBean.getEmployeeId() %></option>
+						<%=empBean.getFirstName()+" "+empBean.getLastName()%></option>
 						<%} %>
 						</select>
 						</td>

@@ -17,8 +17,7 @@ if(obj!=null){
 %>
 
 	<h1>
-		Updated Successfully EmployeeId :
-		<%= employeeId%> &nsbp check once...</h1>
+		Updated Successfully EmployeeId :<%= employeeId%> &nsbp check once...</h1>
  
 	
 	<h1 style="color: green">
@@ -28,6 +27,6 @@ if(obj!=null){
 <%
 }
 %>
-<jsp:include page="userupdate.jsp"></jsp:include>
+<jsp:include page="Login.jsp"></jsp:include>
 </body>
 </html>
