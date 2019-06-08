@@ -32,7 +32,7 @@
 
 		<ul>
 			<li><a href="index.jsp">Home</a></li>
-			<li><a href="Login.jsp">Login</a></li>
+			<li><a href="Login.jsp">LogOut</a></li>
 
 
 
