@@ -30,10 +30,14 @@ document.getElementById('location').innerHTML=data;
 
 function showcommentform1()
 {  
-window.location.assign("http://localhost:8079/DhatriHRM_Web/EmployeeRegistration.jsp");  
+	document.getElementById('location').innerHTML=""; 
 } 
   
 </script>  
+<style type="text/css">
+textarea.wt-resize{
+resize: none;
+}</style>
 	
 </head>
 <body>
@@ -59,6 +63,7 @@ window.location.assign("http://localhost:8079/DhatriHRM_Web/EmployeeRegistration
 						Approved</a>
 						<a href="EmployeeViewDirection.jsp">Search Employee</a>
 						<a href="Login.jsp">Login</a>
+						
 
 				</div>
 			</div>
@@ -159,14 +164,14 @@ window.location.assign("http://localhost:8079/DhatriHRM_Web/EmployeeRegistration
 						</tr>
 						<tr>
 							<td>Permanent Address:<font color="red">*</font></td>
-							<td><textarea rows="2" onkeypress="clearForm()" id="permanentAddress" name="permanentAddress">
+							<td><textarea cols="30" rows="50" class="wt-resize" onkeypress="clearForm()" id="permanentAddress" name="permanentAddress">
 </textarea><br> <br></td>
 <td><p id="errorMsg8" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
 							<td>Local Address:<font color="red">*</font></td>
-							<td><textarea rows="2" onkeypress="clearForm()" id="localAddress" name="localAddress">
+							<td><textarea cols="30" rows="50" class="wt-resize" onkeypress="clearForm()" id="localAddress" name="localAddress">
 </textarea></td>
 							<br>
 							<br>
@@ -259,6 +264,7 @@ window.location.assign("http://localhost:8079/DhatriHRM_Web/EmployeeRegistration
 									<option value="lead analyst">Lead Analyst</option>
 									<option value="Project Manager">Project Manager</option>
 									<option value="HR Manager">HR Manager</option>
+									<option value="Admin">Admin</option>
 									
 							</select></td>
 								<td><p id="errorMsg19" style=color:red;></p></td> 

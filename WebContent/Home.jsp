@@ -62,9 +62,9 @@
 				<hr>
 				<form >
 				<div class="panel panel-default"></div>
-	
-	
 	</div>
+	</div>
+	
 	
 </body>
 </html>
