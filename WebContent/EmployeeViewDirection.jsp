@@ -79,11 +79,12 @@ table, th, td {
 
    <a href="EmployeeView.jsp">Display All Employees Data</a> 
     <br><br><br><br>
-	<form action="SingleEmployeeView.jsp" >
+	<!-- <form action="SingleEmployeeView.jsp" >
 	
 	Enter EmployeeId:<input type="text" name="empId" id="empId" style="color:black";>
 	<input type="submit" value="submit" onclick="sendInfo()">
-	<div id="searchResults"></div>
+	<div id="searchResults"></div> -->
+	<jsp:include page="SingleEmployeeView.jsp"></jsp:include>
 	
 	<br>
 	<br>

@@ -3,6 +3,7 @@ package com.hrm.controller;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Formatter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -57,10 +58,11 @@ public class RegistrationServlet extends HttpServlet {
 				String gender=request.getParameter("gender").trim();
 				
 				Date dob=null;
-				try{
-				SimpleDateFormat sdf=new SimpleDateFormat();
 				
+				try{
+					SimpleDateFormat sdf=new SimpleDateFormat();
 				 dob=sdf.parse(request.getParameter("dob"));
+				 
 				}
 				catch(Exception e)
 				{

@@ -1,6 +1,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.*"%>
 <%@page import="com.hrm.bean.EmployeeBean"%>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@page import="com.hrm.services.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -273,7 +274,8 @@ resize: none;
 						<tr>
 						<%EmployeeBean employeeBean=new EmployeeBean(); 
 						HRMService service = new HRMServicesImplementation();
-						List<EmployeeBean> managerslist= service.searchManager("HR Manager");%>
+						String str1=request.getParameter("roleDetails");
+						List<EmployeeBean> managerslist= service.searchManager(str1);%>
 						<td>Manager:</td>
 					<td>
 						<select name="empmanager" id="empmanager">
