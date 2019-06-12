@@ -1,6 +1,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.*"%>
 <%@page import="com.hrm.bean.EmployeeBean"%>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@page import="com.hrm.services.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -164,14 +165,14 @@ resize: none;
 						</tr>
 						<tr>
 							<td>Permanent Address:<font color="red">*</font></td>
-							<td><textarea cols="30" rows="50" class="wt-resize" onkeypress="clearForm()" id="permanentAddress" name="permanentAddress">
+							<td><textarea cols="30" rows="5" class="wt-resize" onkeypress="clearForm()" id="permanentAddress" name="permanentAddress">
 </textarea><br> <br></td>
 <td><p id="errorMsg8" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
 							<td>Local Address:<font color="red">*</font></td>
-							<td><textarea cols="30" rows="50" class="wt-resize" onkeypress="clearForm()" id="localAddress" name="localAddress">
+							<td><textarea cols="30" rows="5" class="wt-resize" onkeypress="clearForm()" id="localAddress" name="localAddress">
 </textarea></td>
 							<br>
 							<br>
@@ -273,7 +274,8 @@ resize: none;
 						<tr>
 						<%EmployeeBean employeeBean=new EmployeeBean(); 
 						HRMService service = new HRMServicesImplementation();
-						List<EmployeeBean> managerslist= service.searchManager("HR Manager");%>
+						String str1=request.getParameter("roleDetails");
+						List<EmployeeBean> managerslist= service.searchManager(str1);%>
 						<td>Manager:</td>
 					<td>
 						<select name="empmanager" id="empmanager">
@@ -283,7 +285,7 @@ resize: none;
 						%>
 						
 						<option value=<%=empBean.getEmployeeId() %>>
-						<%=empBean.getFirstName()+" "+empBean.getLastName()+" "+empBean.getEmployeeId() %></option>
+						<%=empBean.getFirstName()+" "+empBean.getLastName()%></option>
 						<%} %>
 						</select>
 						</td>

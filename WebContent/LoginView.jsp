@@ -39,16 +39,17 @@
 			<li><p align="right">
 					<b>Login As:</b>
 					<%=userId%></p></li>
+					<form action="LogOutServlet" method="post" align="right">
+		<input type="submit" value="LogOut">
+	</form>
 		</ul>
+		
 	</div>
 
 	<%
 		SharedObject.setSession(request.getSession());
 	%>
-	<h1>LoginView</h1>
-	<form action="LogOutServlet" method="post">
-		<input type="submit" value="LogOut">
-	</form>
+	
 
 	<div></div>
 	<br>

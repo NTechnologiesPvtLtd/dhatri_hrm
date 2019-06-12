@@ -34,36 +34,7 @@
 
 
 	
-	<div id="nav">
-		<h1>
-			<a href="index.jsp">Dhatsol IT Solutions</a>
-		</h1>
-
-		
-		<ul>
-			<li><a href="index.jsp">Home</a></li>
-			<li><a href="user.jsp">Login</a></li>
-		
-
-
-			<div class="dropdown">
-				<button class="dropbtn">
-					Employee <i class="fa fa-caret-down" id="active"></i>
-				</button>
-				<div class="dropdown-content">
-					<a href="EmployeeRegistration.jsp">New Registration</a> <a href="#">Response
-						Approved</a>
-						<a href="EmployeeViewDirection.jsp">Search Employee</a>
-						<a href="user.jsp">Login</a>
-
-				</div>
-			</div>
-
-			<li><a href="Aboutus.html">about us</a></li>
-		</ul>
-	</div>
-
-	</div>	
+	
 	<div id="#mainform">
 		<br> <br>
 
@@ -77,13 +48,17 @@
 <h1 style="color:#33847c;">Employee Details</h1>
 <%! int count=0; %>
 <%
-String empid=request.getParameter("empId").trim();
+String param=request.getParameter("val").trim();
+/*Java String trim() The java string trim() method eliminates leading and trailing spaces.
+The unicode value of space character is '\u0020'. The trim() method in java string checks 
+this unicode value before and after the string, if it exists then removes the spaces and returns 
+the omitted string.*/
 
 
 		HRMService service = new HRMServicesImplementation();
 		//service.search(empid);
 		//EmployeeBean bean=new EmployeeBean();
-		 EmployeeBean bean=service.search(empid);
+		 EmployeeBean bean=service.search(param);
 		/* Iterator<EmployeeBean> itr=list.iterator();
 		while(itr.hasNext()){  */      
 			
@@ -95,41 +70,87 @@ String empid=request.getParameter("empId").trim();
 		count=1;	 */
 			
 	%>
-	<div class="table">
-	<table align="center">
-	</div>
-  	<tr><td>Employee Id:</td><td><%=empid%></td></tr>
-	<tr><td>Employee Name:</td><td><%=bean.getFirstName()%></td></tr>
-	<tr><td>Father Name:</td><td><%=bean.getFatherName()%></td></tr>
-	<tr><td>Gender:</td> <td><%=bean.getGender()%></td></tr>
-	<tr><td>Email Id:</td><td>	<%=bean.getEmailId()%></td></tr>
-	<tr><td>Mobile No:</td><td>	<%=bean.getMobileNumber()%></td></tr>
-	<tr><td>Aadhar No:</td><td><%=bean.getAadharNo()%> </td></tr>
-	<tr><td>Permanent Address:</td><td><%=bean.getPermanentAddress()%></td></tr>
-	<tr><td>Local Address:</td><td><%=bean.getLocalAddress()%></td></tr>
 	
-<tr><td>Board Of Secondary Education:</td> <td><%=bean.getSchoolName()%></td></tr>
-	<tr><td>TenthPassedOut:</td><td><%=bean.getTenthPassedOut()%></td></tr>
-	<tr><td>Board Of Intermediate Education:</td><td><%=bean.getIntermediateCollegeName()%></td></tr>
-	<tr><td>InterPassedOut:</td><td><%=bean.getInterPassedOut()%> </td></tr>
+
 	
-	<tr><td>Graduation Details:</td><td><%=bean.getGraduationDetails()%></td></tr>
-	<tr><td>GraduationPassedOut:</td><td><%=bean.getGraduationPassedOut()%></td></tr>
-	<tr><td>Branch:</td><td><%=bean.getBranch()%></td></tr>
-	<tr><td>University:</td><td><%=bean.getUniversity()%></td></tr>
-	<tr><td>CompanyName:</td><td>	<%=bean. getCompanyName()%></td></tr>
-	<tr><td>Role:</td><td><%=bean.getRole()%> </td></tr>
-	<tr><td>NoticePeriod:</td><td><%=bean.getNoticePeriod()%></td></tr>
-	<tr><td>Location:</td><td><%=bean.getLocation()%></td></tr>
-	<tr><td>Experience:</td><td><%=bean.getExperience()%></td></tr>
-	<tr><td>CurrentCTC:</td> <td><%=bean.getCurrentCTC()%></td></tr>
-	<tr><td>ExpectedCTC:</td><td><%=bean.getExpectedCTC()%></td></tr>
-	<tr><td>Manager:</td><td><%=bean.getManager()%></td></tr>
+	 <div class="table" style="overflow-x:auto;">
+<div style="overflow-x:auto;">
+	<table align=center>	
+  
+		<tr>
+			<th>Employee Id/Name/Salary</th>
+			<th>Employee Name</th>
+			<th>Father Name</th>
+			<th>Gender</th>
+			<th>Email Id</th>
+			<th>Mobile No</th>
+			<th>Aadhar No</th>
+			<th>Permanent Address</th>
+			<th>Local Address</th>
+			<th>Board Of Secondary Education</th>
+			<th>TenthPassedOut</th>
+			<th>Board Of Intermediate Education</th>
+			<th>InterPassedOut</th>
+			<th>Graduation Details</th>
+			<th>GraduationPassedOut</th>
+			<th>Branch</th>
+			<th>University</th>
+			<th>CompanyName</th>
+			<th>Role</th>
+			<th>NoticePeriod</th>
+			<th>Location</th>
+			<th>Experience</th>
+			<th>CurrentCTC</th>
+			<th>ExpectedCTC</th>
+			<th>Manager</th>  
+			
+			
+		
+		</tr>
+</div>
+		
+		<tr>
+			<td><%=param%></td>
+	<td><%=bean.getFirstName()%></td>
+	<td><%=bean.getFatherName()%></td>
+	<td><%=bean.getGender()%></td>
+	<td><%=bean.getEmailId()%></td>
+	<td>	<%=bean.getMobileNumber()%></td>
+	<td><%=bean.getAadharNo()%> </td>
+	<td><%=bean.getPermanentAddress()%></td>
+	<td><%=bean.getLocalAddress()%></td>
 	
+<td><%=bean.getSchoolName()%></td>
+	<td><%=bean.getTenthPassedOut()%></td>
+	<td><%=bean.getIntermediateCollegeName()%></td>
+	<td><%=bean.getInterPassedOut()%> </td>
+	
+	<td><%=bean.getGraduationDetails()%></td>
+	<td><%=bean.getGraduationPassedOut()%></td>
+	<td><%=bean.getBranch()%></td>
+	<td><%=bean.getUniversity()%></td>
+	<td><%=bean. getCompanyName()%></td>
+	<td><%=bean.getRole()%> </td>
+	<td><%=bean.getNoticePeriod()%></td>
+	<td><%=bean.getLocation()%></td>
+	<td><%=bean.getExperience()%></td>
+	<td><%=bean.getCurrentCTC()%></td>
+	<td><%=bean.getExpectedCTC()%></td>
+	<td><%=bean.getManager()%></td>
+	
+			
+		</tr>
+		
 	</table>
+	</div>
+	
+	
+	
+	
+	
 	<br></br>
 	<br></br>
-		<input type=submit onclick="window.location='http://localhost:8080/DhatriHRM_Web/EmployeeViewDirection.jsp';"
+		<input type=submit onclick="window.location='http://localhost:8079/DhatriHRM_Web/EmployeeViewDirection.jsp';"
 								value="Back" class="button">
 	<hr>
 <%-- <% }

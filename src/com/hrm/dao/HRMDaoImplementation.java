@@ -27,10 +27,11 @@ public class HRMDaoImplementation implements HRMDao {
 	public HRMDaoImplementation(){
 		con=MySqlDBConnection.getInstance();
 		}
+	@SuppressWarnings("deprecation")
 	@Override
 	public int insertEmployeeData(EmployeeBean employeeBean) {
 		int result=0;
-		String query="insert into employeebean values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String query="insert into employeebean values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try
 		{
 			String employeeId=null;
@@ -66,7 +67,7 @@ public class HRMDaoImplementation implements HRMDao {
 		pstmt.setString(24,employeeBean.getExperience());
 		pstmt.setDouble(25,employeeBean.getCurrentCTC());
 		pstmt.setDouble(26,employeeBean.getExpectedCTC());
-		//pstmt.setString(27, employeeBean.getManager());
+		pstmt.setString(27, employeeBean.getManager());
 		result=pstmt.executeUpdate();
 		
 		}
@@ -184,11 +185,11 @@ public class HRMDaoImplementation implements HRMDao {
 		EmployeeBean employeeBean=null;
 		List<EmployeeBean> listOfEmployee = new ArrayList<>();
 	
-		String query="select * from employeebean where Role=?";
+		String query="select * from employeebean where Role='Project Manager'";
 			try
 			{
 				pstmt=con.prepareStatement(query);
-				pstmt.setString(1,role1);
+				//pstmt.setString(1,role1);
 				resultSet=pstmt.executeQuery();
 				while(resultSet.next())
 				{
