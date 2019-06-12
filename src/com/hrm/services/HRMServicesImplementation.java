@@ -33,10 +33,10 @@ public class HRMServicesImplementation implements HRMService {
 		return hrmDao.search();
 	}
 	@Override
-	public EmployeeBean search(String empid)throws Exception
+	public EmployeeBean search(String param)throws Exception
 	{
 		
-		return hrmDao.search(empid);
+		return hrmDao.search(param);
 	}
 	public boolean login(String employeeId,long mobileNumber){
 		

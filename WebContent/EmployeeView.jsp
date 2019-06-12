@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="com.hrm.bean.EmployeeBean"%>
+<%@page import="com.hrm.session.SharedObject"%>
 <%@page import="java.util.List"%>
 <%@page import="com.hrm.services.HRMServicesImplementation"%>
 <%@page import="com.hrm.services.HRMService"%>
@@ -21,9 +22,37 @@
 <script type="text/javascript" src="employeeValidation.js">
 	
 </script>
-
+<script type="text/javascript">
+var request;  
+function sendInfo()  
+{  
+var value= document.getElementById("searchEle").value;  
+var url="SingleEmployeeView.jsp?val="+value;  
+  
+if(window.XMLHttpRequest){  
+request=new XMLHttpRequest();  
+}  
+else if(window.ActiveXObject){  
+request=new ActiveXObject("Microsoft.XMLHTTP");  
+}  
+  
+try{  
+request.onreadystatechange=getInfo;  
+request.open("GET",url,true);  
+request.send();  
+}catch(e){alert("Unable to connect to server");}  
+}  
+  
+function getInfo(){  
+if(request.readyState==4){  
+var val=request.responseText;  
+document.getElementById('result').innerHTML=val;  
+}  
+} 
+</script>
 </head>
 <body>
+<%SharedObject.setSession(request.getSession()); %>
 	<div id="nav">
 		<h1>
 			<a href="index.jsp">Dhatsol IT Solutions</a>
@@ -48,11 +77,48 @@
 				</div>
 			</div>
 
-			<li><a href="Aboutus.html">about us</a></li>
+			<li><a href="Aboutus3.jsp">about us</a></li>
 		</ul>
 	</div>
 
 	</div>
+	
+	<div id="#mainform">
+		<br> <br>
+
+		<div class="container" style="background-color:#ddd";>
+			<center>
+				<h1 style="color:black";"padding:50%"; "margin-top:50%"; "height:20%";>
+					
+				</h1>
+				<hr>
+				
+				
+		
+
+   <a href="EmployeeView.jsp">Display All Employees Data</a> 
+    <br><br><br><br>
+	<form action="SingleEmployeeView.jsp" >
+
+
+Filter:<input type="text" name="searchElement" id="searchEle" onkeyup="return sendInfo()"  placeholder="EmployeeId/Salary/EmailId" >
+
+
+
+<div id="result">
+
+</div>
+
+
+
+			
+				</div>
+				</form>
+				</center>
+				</div>
+	
+	
+	
 	<div id="#mainform">
 
 
@@ -71,7 +137,7 @@
 	%>
 	
 	 <div class="table" style="overflow-x:auto;">
-<div style="overflow-x:auto;">
+<div style="overflow-y:auto;">
 	<table align=center>	
   
          

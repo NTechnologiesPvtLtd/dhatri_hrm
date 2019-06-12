@@ -40,7 +40,7 @@
 					<a href="EmployeeRegistration.jsp">New Registration</a>
 					 <a href="#">ResponseApproved</a>
 						
-						<a href="EmployeeViewDirection.jsp">Search Employee</a>
+						<a href="searchemployeeajax.jsp">Search Employee</a>
 						<a href="Login.jsp">Login</a>
 						
 
@@ -62,7 +62,7 @@
 				<hr>
 				<form >
 				<div class="panel panel-default"></div>
-	</div>
+
 	</div>
 	
 	

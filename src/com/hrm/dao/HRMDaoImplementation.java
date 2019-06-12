@@ -127,17 +127,24 @@ public class HRMDaoImplementation implements HRMDao {
 		return listOfEmployee;
 	}
 	
-	public EmployeeBean search(String empid)
+	public EmployeeBean search(String param)
 	{
-		String employeeId=null;
-		employeeId=empid;
+		
 		EmployeeBean employeeBean=new EmployeeBean();
-		String query="select * from employeebean where employeeId=?";
+		String query="select * from employeebean where employeeId="+param +" or emailId="+param +" or currentctc="+param;
+		/*String query1="select * from employeebean where fatherName=param";
+		String query2="select * from employeebean where CurrentCTC=param";
+	*/	
 		try
 		{
-			pstmt=con.prepareStatement(query);
-			pstmt.setString(1,empid);
-			resultSet=pstmt.executeQuery();
+			/*pstmt=con.prepareStatement(query);
+			//pstmt=con.prepareStatement(query1);
+			//pstmt=con.prepareStatement(query2);
+			pstmt.setInt(1, param);*/
+			
+			stmt = con.createStatement();
+			
+			resultSet=stmt.executeQuery(query);
 			while(resultSet.next())
 			{
 				employeeBean.setEmployeeId(resultSet.getString(1));
@@ -432,5 +439,8 @@ public class HRMDaoImplementation implements HRMDao {
 		}
 	}
 
-	
+	public static void main(String[] args) {
+		HRMDaoImplementation dao = new HRMDaoImplementation();
+		System.out.println(dao.search("9999"));
+	}
 }

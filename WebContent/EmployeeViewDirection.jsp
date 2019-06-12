@@ -59,7 +59,7 @@ table, th, td {
 				</div>
 			</div>
 
-			<li><a href="Aboutus.html">about us</a></li>
+			<li><a href="Aboutus3.jsp">about us</a></li>
 		</ul>
 	</div>
 
@@ -79,26 +79,14 @@ table, th, td {
 
    <a href="EmployeeView.jsp">Display All Employees Data</a> 
     <br><br><br><br>
-	<!-- <form action="SingleEmployeeView.jsp" >
+	<form action="SingleEmployeeView.jsp" >
 	
-	Enter EmployeeId:<input type="text" name="empId" id="empId" style="color:black";>
+	
+	EnterEmployeeId:<input type="text" name="empId" id="empId" style="color:black";>
 	<input type="submit" value="submit" onclick="sendInfo()">
-	<div id="searchResults"></div> -->
-	<jsp:include page="SingleEmployeeView.jsp"></jsp:include>
+	<div id="searchResults"></div>
 	
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-
-				
+			
 				</div>
 				</form>
 				</center>

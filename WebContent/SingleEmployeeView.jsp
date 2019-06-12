@@ -150,8 +150,10 @@ the omitted string.*/
 	
 	<br></br>
 	<br></br>
-		<input type=submit onclick="window.location='http://localhost:8079/DhatriHRM_Web/EmployeeViewDirection.jsp';"
+		<input type=submit onclick="window.location='http://localhost:8006/DhatriHRM_Web/index.jsp';"
 								value="Back" class="button">
+								
+								<a href="index.jsp">Back</a>
 	<hr>
 <%-- <% }
 		
