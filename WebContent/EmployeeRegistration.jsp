@@ -137,11 +137,11 @@ resize: none;
 								
 							<td><p2 id="errorMsg3" style=color:red;></p2><br> <br></td>
 						</tr>
+
 						<tr>
 							<td>Date Of Birth:<font color="red">*</font></td>
-							<td><input type="date" name="dob" onkeypress="clearForm()" id="dob"><br> <br></td>
+							<td><input type="date" name="dob" id="dob" onkeypress="clearForm()"></td>
 							<td><p id="errorMsg4" style=color:red;></p></td> 
-							
 						</tr>
 						<tr>
 							<td>Email Id:<font color="red">*</font></td>
@@ -191,7 +191,7 @@ resize: none;
 							
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Passedout:<font color="red">*</font></td>
 							
-							<td><input type=text name="tenthPassedOut" onkeypress="clearForm()" id="tenthPassedOut"></td>
+							<td><input type=text name="tenthPassedOut" onkeypress="clearForm()" id="tenthPassedOut" maxlength="4"  title="Only 4 digits are allowed"></td>
 							<td><p id="errorMsg11" style=color:red;></p></td> 
 							
 						</tr>
@@ -202,7 +202,7 @@ resize: none;
 								<td><p id="errorMsg12" style=color:red;></p></td> 
 								
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;Passedout:<font color="red">*</font></td>
-							<td><input type=text name="interPassedOut" onkeypress="clearForm()" id="interPassedOut"></td>
+							<td><input type=text name="interPassedOut" onkeypress="clearForm()" id="interPassedOut"maxlength="4"  title="Only 4 digits are allowed"></td>
 							<td><p id="errorMsg13" style=color:red;></p></td> 
 							
 						</tr>
@@ -219,7 +219,7 @@ resize: none;
 							<td><p id="errorMsg14" style=color:red;></p></td> 
 							
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;Passedout:<font color="red">*</font></td>
-							<td><input type=text name="graduationPassedOut" onkeypress="clearForm()" id="graduationPassedOut"></td>
+							<td><input type=text name="graduationPassedOut" onkeypress="clearForm()" id="graduationPassedOut" maxlength="4"  title="Only 4 digits are allowed"></td>
 							<td><p id="errorMsg15" style=color:red;></p></td> 
 							
 						</tr>
@@ -274,8 +274,7 @@ resize: none;
 						<tr>
 						<%EmployeeBean employeeBean=new EmployeeBean(); 
 						HRMService service = new HRMServicesImplementation();
-						String str1=request.getParameter("roleDetails");
-						List<EmployeeBean> managerslist= service.searchManager(str1);%>
+						List<EmployeeBean> managerslist= service.searchManager("Project Manager");%>
 						<td>Manager:</td>
 					<td>
 						<select name="empmanager" id="empmanager">

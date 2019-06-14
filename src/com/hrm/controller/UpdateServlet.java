@@ -51,17 +51,9 @@ public class UpdateServlet extends HttpServlet {
 		String lastName=request.getParameter("lastname");
 		String fatherName=request.getParameter("fathername");
 		String gender=request.getParameter("Gender");
+		String dob = request.getParameter("dob");
 		
-		Date dob=null;
-		try{
-		SimpleDateFormat sdf=new SimpleDateFormat();
 		
-		 dob=sdf.parse(request.getParameter("dob"));
-		}
-		catch(Exception e)
-		{
-			dob=new Date();
-		}
 		
 		String emailId=request.getParameter("EmailId");
 		String mobileNumber=request.getParameter("mobileNumber");

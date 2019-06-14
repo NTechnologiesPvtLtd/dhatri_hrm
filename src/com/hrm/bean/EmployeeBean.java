@@ -1,7 +1,5 @@
 package com.hrm.bean;
 
-import java.util.Date;
-
 /**
  * @author LADDU
  *
@@ -12,7 +10,7 @@ public class EmployeeBean {
 	private String lastName;
 	private String fatherName;
 	private String gender;
-	private Date dob;
+	private String dob;
 	private String emailId;
 	private long mobileNumber;
 	private long aadharNo;
@@ -74,10 +72,10 @@ public class EmployeeBean {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public Date getDob() {
+	public String getDob() {
 		return dob;
 	}
-	public void setDob(Date dob) {
+	public void setDob(String dob) {
 		this.dob = dob;
 	}
 	
