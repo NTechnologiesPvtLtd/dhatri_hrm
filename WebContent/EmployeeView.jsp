@@ -9,6 +9,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style>
+.scroll1{
+transform: rotateX(180deg);
+margin-bottom: -160px;
+}
+.displaytable1{
+overflow-y: auto;
+    transform: rotateX(180deg);
+    width:100%;
+    }
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>employee</title>
 <link href="font-awesome-4.7.0/css/font-awesome.min.css"
@@ -136,8 +147,8 @@ Filter:<input type="text" name="searchElement" id="searchEle" onkeyup="return se
 		if (employeeResponse != null && !employeeResponse.isEmpty()) {
 	%>
 	
-	 <div class="table" style="overflow-x:auto;">
-<div style="overflow-y:auto;">
+	 <div class="table displaytable1">
+<div class="scroll1">
 	<table align=center>	
   
          

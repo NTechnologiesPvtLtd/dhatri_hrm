@@ -26,7 +26,15 @@
 
 </script>
 <style>
-
+.scroll1{
+transform: rotateX(180deg);
+margin-bottom: -160px;
+}
+.displaytable1{
+overflow-y: auto;
+    transform: rotateX(180deg);
+    width:100%;
+    }
 </style>
 	
 </head>
@@ -58,7 +66,8 @@ the omitted string.*/
 		HRMService service = new HRMServicesImplementation();
 		//service.search(empid);
 		//EmployeeBean bean=new EmployeeBean();
-		 EmployeeBean bean=service.search(param);
+		  List<EmployeeBean> employeeResponse=service.search(param);
+		  if (employeeResponse != null && !employeeResponse.isEmpty()) {
 		/* Iterator<EmployeeBean> itr=list.iterator();
 		while(itr.hasNext()){  */      
 			
@@ -73,12 +82,14 @@ the omitted string.*/
 	
 
 	
-	 <div class="table" style="overflow-x:auto;">
-<div style="overflow-x:auto;">
+	<div class="table displaytable1">
+<div class="scroll1">
 	<table align=center>	
-  
+  <tr>
+
+<td id="header" colspan="24"><h1>Employee Details </h1></td></tr>
 		<tr>
-			<th>Employee Id/Name/Salary</th>
+			<th>Employee Id</th>
 			<th>Employee Name</th>
 			<th>Father Name</th>
 			<th>Gender</th>
@@ -102,15 +113,19 @@ the omitted string.*/
 			<th>Experience</th>
 			<th>CurrentCTC</th>
 			<th>ExpectedCTC</th>
-			<th>Manager</th>  
+			
 			
 			
 		
 		</tr>
 </div>
-		
+		<div>
+<%
+for (EmployeeBean bean : employeeResponse) {
+%>
 		<tr>
-			<td><%=param%></td>
+		
+			<td><%=bean.getEmployeeId()%></td>
 	<td><%=bean.getFirstName()%></td>
 	<td><%=bean.getFatherName()%></td>
 	<td><%=bean.getGender()%></td>
@@ -136,17 +151,23 @@ the omitted string.*/
 	<td><%=bean.getExperience()%></td>
 	<td><%=bean.getCurrentCTC()%></td>
 	<td><%=bean.getExpectedCTC()%></td>
-	<td><%=bean.getManager()%></td>
+	
 	
 			
 		</tr>
-		
+		<%
+}
+%>
 	</table>
 	</div>
 	
 	
 	
-	
+	<%
+		} else {
+			out.print("No Result Found");
+		}
+	%>	
 	
 	<br></br>
 	<br></br>

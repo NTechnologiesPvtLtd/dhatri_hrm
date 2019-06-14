@@ -127,11 +127,15 @@ public class HRMDaoImplementation implements HRMDao {
 		return listOfEmployee;
 	}
 	
-	public EmployeeBean search(String param)
+	public List<EmployeeBean> search(String param)
 	{
+		if(null == param || param.isEmpty()){
+			return null;
+		}
 		
-		EmployeeBean employeeBean=new EmployeeBean();
-		String query="select * from employeebean where employeeId="+param +" or emailId="+param +" or currentctc="+param;
+		List<EmployeeBean> listOfEmployee = new ArrayList<>();
+		EmployeeBean employeeBean = null;
+		String query="select * from employeebean where employeeId='"+param +"' or firstname='"+param +"' or currentctc='"+param +"'";
 		/*String query1="select * from employeebean where fatherName=param";
 		String query2="select * from employeebean where CurrentCTC=param";
 	*/	
@@ -147,6 +151,7 @@ public class HRMDaoImplementation implements HRMDao {
 			resultSet=stmt.executeQuery(query);
 			while(resultSet.next())
 			{
+				employeeBean= new EmployeeBean();
 				employeeBean.setEmployeeId(resultSet.getString(1));
 				employeeBean.setFirstName(resultSet.getString(2));
 				employeeBean.setLastName(resultSet.getString(3));
@@ -175,15 +180,15 @@ public class HRMDaoImplementation implements HRMDao {
 				employeeBean.setExperience(resultSet.getString(24));
 				employeeBean.setCurrentCTC(resultSet.getDouble(25));
 				employeeBean.setExpectedCTC((resultSet.getDouble(26)));
-				employeeBean.setManager(resultSet.getString(27));
-			
+				//employeeBean.setManager(resultSet.getString(27));
+				listOfEmployee.add(employeeBean);
 			}
 		}
 		catch(Exception e)
 		{
 			System.out.println(e);
 		}
-		return employeeBean;
+		return listOfEmployee;
 	}
 	
 	@SuppressWarnings("null")

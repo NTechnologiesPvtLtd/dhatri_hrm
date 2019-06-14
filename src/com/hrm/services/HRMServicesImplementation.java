@@ -33,7 +33,7 @@ public class HRMServicesImplementation implements HRMService {
 		return hrmDao.search();
 	}
 	@Override
-	public EmployeeBean search(String param)throws Exception
+	public List<EmployeeBean> search(String param)throws Exception
 	{
 		
 		return hrmDao.search(param);
