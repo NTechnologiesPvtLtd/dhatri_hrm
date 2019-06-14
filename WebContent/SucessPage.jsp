@@ -21,12 +21,11 @@ if(obj!=null){
  
 	
 	<h1 style="color: green">
-		Registered Successfully EmployeeId :</h1>
-		<%=employeeId%>
+		Registered Successfully EmployeeId :<%=employeeId%></h1>
 
 <%
 }
 %>
-<jsp:include page="Login.jsp"></jsp:include>
+<jsp:include page="Home.jsp"></jsp:include>
 </body>
 </html>

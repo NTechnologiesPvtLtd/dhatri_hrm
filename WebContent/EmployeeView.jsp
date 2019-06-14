@@ -151,6 +151,7 @@ Filter:<input type="text" name="searchElement" id="searchEle" onkeyup="return se
 			<th>First Name</th>
 			<th>Father Name</th>
 			<th>Gender</th>
+			<th>DOB</th>
 			<th>Email Id</th>
 			<th>Mobile No</th>
 			<th>Aadhar No</th>
@@ -184,6 +185,7 @@ Filter:<input type="text" name="searchElement" id="searchEle" onkeyup="return se
 			<td><%=employeeBean.getFirstName()%></td>
 			<td><%=employeeBean.getFatherName()%></td>
 			<td><%=employeeBean.getGender()%></td>
+			<td><%=employeeBean.getDob()%></td>
 			<td><%=employeeBean.getEmailId()%></td>
 			<td><%=employeeBean.getMobileNumber()%></td>
 			<td><%=employeeBean.getAadharNo()%></td>

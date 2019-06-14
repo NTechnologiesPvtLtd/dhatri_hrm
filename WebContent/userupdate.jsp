@@ -202,7 +202,7 @@ ul li:hover ul li {
 					<tr>
 						<td>Gender:*</td>
 						<td><input type="radio" onkeypress="clearForm()"
-							name="Gender" Id="Gender" value="<%=bean.getGender()%>" checked>male
+							name="Gender" id="Gender" value="<%=bean.getGender()%>" checked>male
 							<input type="radio" name="Gender" checked>female
 						<td><p id="errorMsg4" style="color: red;"></p></td>
 						</td>
@@ -212,8 +212,8 @@ ul li:hover ul li {
 					<tr>
 						<td>Date Of Birthday:*</td>
 						<td><input type="date" onkeypress="clearForm()" name="dob"
-							id="dob"></td>
-						<td><p id="errorMsg5" style="color: red;"></p></td>
+							id="dob" value="value="<%=bean.getDob()%>"></td>
+						<td><p id="errorMsg	5" style="color: red;"></p></td>
 					</tr>
 					<tr>
 						<td>Email Id:*</td>
@@ -380,7 +380,7 @@ ul li:hover ul li {
 					<tr>
 						<td>Notice Period:</td>
 						<td><select name="noticePeriod" onkeypress="clearForm()"
-							id="noticePeriod" value=<%=bean.getNoticePeriod()%> checked>
+							id="noticePeriod" value=<%=bean.getNoticePeriod()%>>
 								<option value="0">Enter notice period</option>
 								<option value="10">10days</option>
 								<option value="15">15days</option>
