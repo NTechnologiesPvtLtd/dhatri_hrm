@@ -3,7 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	<%@page import="java.util.List"%>
+	<%@ page import="java.text.SimpleDateFormat" %>
 <%@page import="java.util.Iterator"%>
+<%@ page import = "java.io.*,java.util.*"%>
 <%@page import="com.hrm.services.HRMServicesImplementation"%>
 <%@page import="com.hrm.services.HRMService"%>
 <%@page import="com.hrm.bean.EmployeeBean"%>
@@ -77,7 +79,7 @@ td.padding5 {
 }
 
 td.padding0 {
-	padding-left: 9cm;
+	padding-left: 20cm;
 }
 
 p.parapadding {
@@ -98,6 +100,13 @@ td.padding7 {
 	font-size: 20px;
 	color: white;
 }
+page[size="A4"] {  
+  width: 21cm;
+  height: 29.7cm; 
+  border-style: solid;
+  border-width: 5px; 
+}
+
 </style>
 </head>
 <body>
@@ -117,9 +126,9 @@ if(null != obj)
 }
 HRMService service = new HRMServicesImplementation();
 EmployeeBean bean=service.search(userId);
-	name=bean.getFirstName();
+	name=bean.getFirstName()+bean.getLastName();
 	role=bean.getRole();
-	ctc=bean.getCurrentCTC();
+	ctc=bean.getCurrentCTC(); 
 
 //Double.parseDouble(request.getParameter("ctc"));
 double basic=(40.0/100)*ctc;
@@ -135,15 +144,15 @@ double otherDeductions=0.0;
 double grossSalary=ctc;
 double netPay =ctc- totalDeductions;
 %>
-
 	<div class="imgpadding">
 		<img src="logo.png" alt="logo" width="210" height="100" align="center">
 	</div>
 
-	<div class="headtext">
+	<div class="headtext" id="date">
 		<table>
 			<tr>
-				<td>Payslip for the month of August,2018</td>
+<td align="right">Payslip for the month of: <%= new SimpleDateFormat("dd-MM-yyyy").format(new java.util.Date())%></td>
+ 
 				<td class="padding0">No.of working Days:31</td>
 			</tr>
 		</table>
@@ -289,7 +298,6 @@ double netPay =ctc- totalDeductions;
 			www.dhatriinfo.com</a>.
 	</p>
 	</footer>
-	
 </body>
 
 </html>

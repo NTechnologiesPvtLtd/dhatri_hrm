@@ -153,38 +153,38 @@ ul li:hover ul li {
 <body>
 <jsp:include page="LoginView.jsp"></jsp:include>
 
-		<center>
-			<form action="UpdateServlet" method="post">
-				<H4>Update Your Profile Here</H4>
-				<a name="top"> </a>
-				<%
-					SharedObject.setSession(request.getSession());
-				%>
-				<%
-					Object obj = SharedObject
-							.getFromSession(EmployeeConstants.EMPLOYEE_ID);
-					String userId = "";
-					if (null != obj) {
-						userId = (String) obj;
-					}
-					HRMService service = new HRMServicesImplementation();
-					EmployeeBean bean = service.search(userId);
-
-				%>
-				<h1>Personal Informaion</h1>
-				<table>
-					<tr>
-						<td>Employee Id</td> ${empid}
-						<td><input type="text" name="empid"
-							value="<%=SharedObject
-					.getFromSession(EmployeeConstants.EMPLOYEE_ID)%>"></td>
-					</tr>
-					<tr>
-						<td>FirstName:*</td>
-						<td><input type="text" onkeypress="clearForm()"
-							name="Firstname" id="Firstname" value="<%=bean.getFirstName()%>"></td>
-						<td><p id="errorMsg" style="color: red;"></p></td>
-					</tr>
+	<center>
+		<form action="UpdateServlet" method="post">
+			<H4>Update Your Profile Here</H4>
+			<a name="top"> </a>
+			<%
+				SharedObject.setSession(request.getSession());
+			%>
+			<%
+				Object obj = SharedObject.getFromSession(EmployeeConstants.EMPLOYEE_ID);
+				String userId = "";
+				if (null != obj) {
+					userId = (String) obj;
+				}
+				HRMService service = new HRMServicesImplementation();
+				EmployeeBean bean = service.search(userId);
+				SharedObject.putInToSession("LoginMailId", bean.getEmailId());
+                //out.println("key"+bean.getEmailId());
+			%>
+			
+			<h1>Personal Informaion</h1>
+			<table>
+				<tr>
+					<td>Employee Id</td> ${empid}
+					<td><input type="text" name="empid"
+						value="<%=SharedObject.getFromSession(EmployeeConstants.EMPLOYEE_ID)%>"></td>
+				</tr>
+				<tr>
+					<td>FirstName:*</td>
+					<td><input type="text" onkeypress="clearForm()"
+						name="Firstname" id="Firstname" value="<%=bean.getFirstName()%>"></td>
+					<td><p id="errorMsg" style="color: red;"></p></td>
+				</tr>
 
 					<tr>
 						<td>LastName:*</td>
@@ -199,21 +199,22 @@ ul li:hover ul li {
 							value="<%=bean.getFatherName()%>"></td>
 						<td><p id="errorMsg1" style="color: red;"></p></td>
 					</tr>
+					
+					
 					<tr>
 						<td>Gender:*</td>
-						<td><input type="radio" onkeypress="clearForm()"
-							name="Gender" Id="Gender" value="<%=bean.getGender()%>" checked>male
-							<input type="radio" name="Gender" checked>female
+						<td><input type="text" onkeypress="clearForm()"
+							name="Gender" id="Gender" value="<%=bean.getGender()%>">
 						<td><p id="errorMsg4" style="color: red;"></p></td>
-						</td>
+					
 
 					</tr>
 
 					<tr>
 						<td>Date Of Birthday:*</td>
-						<td><input type="date" onkeypress="clearForm()" name="dob"
-							id="dob"></td>
-						<td><p id="errorMsg5" style="color: red;"></p></td>
+						<td><input type="text" onkeypress="clearForm()" name="dob"
+							id="dob" value="<%=bean.getDob()%>">
+						<td><p id="errorMsg	5" style="color: red;"></p></td></td>
 					</tr>
 					<tr>
 						<td>Email Id:*</td>
@@ -295,7 +296,7 @@ ul li:hover ul li {
 					<tr>
 
 						<td>Graduation Details*:</td>
-						<td><select name="graduationDetails" onkeypress="clearForm()"
+						<!-- <td><select name="graduationDetails" onkeypress="clearForm()"
 							id="graduationDetails" />
 							<optgroup label=graduation>
 								<option>select branch</option>
@@ -303,7 +304,7 @@ ul li:hover ul li {
 								<option value="M.Tech" checked>M.TECH</option>
 								<option value="MBA" checked>MBA</option>
 								<option value="PG" checked>PG</option>
-							</optgroup> </select> <br> <br></td>
+							</optgroup> </select> <br> <br></td> -->
 						<td><input type="text" value=<%=bean.getGraduationDetails()%>
 							disabled="disabled"></td>
 						<td><p id="errorMsg14" style="color: red;"></p></td>
@@ -317,16 +318,17 @@ ul li:hover ul li {
 					</tr>
 					<tr>
 						<td>Branch*:</td>
-						<td><select name="branch" onkeypress="clearForm()"
-							id="branch" value=<%=bean.getBranch()%> checked>
-								<option value="None">Enter Your Branch</option>
+						<!-- <td><select name="branch" onkeypress="clearForm()"
+							id="branch"/> -->
+								<!-- <option value="None">Enter Your Branch</option>
 								<option value="ECE">ECE</option>
 								<option value="EEE">EEE</option>
 								<option value="CSE">CSE</option>
 								<option value="Civil">CIVIL</option>
 								<option value="Mechanical">MECHANICAL</option>
 								<option value="Bcom">Bcom</option>
-						</select></td>
+						</select></td> -->
+						<td><input type="text" value=<%=bean.getBranch()%>></td>
 						<td><p id="errorMsg16" style="color: red;"></p></td>
 
 
@@ -348,39 +350,20 @@ ul li:hover ul li {
 						<td>Company Name:</td>
 						<td><input type=text name="companyName"
 							onkeypress="clearForm()" id="companyName"
-							value=<%=bean.getUniversity()%>><br> <br></td>
+							value=<%=bean.getCompanyName()%>><br> <br></td>
 						<td><p id="errorMsg18" style="color: red;"></p></td>
 					</tr>
-					<tr>
-						<td>Role:</td>
-						<td><input type=text name="role" onkeypress="clearForm()"
-							id="role" value=<%=bean.getRole()%> checked><br> <br></td>
-						<td><p id="errorMsg19" style="color: red;"></p></td>
-
+					<td>Role:</td>
+						<td><input type=text name="roleDetails"
+							onkeypress="clearForm()" id="roleDetails"
+							value=<%=bean.getRole()%>><br> <br></td>
+						<td><p id="errorMsg18" style="color: red;"></p></td>
 					</tr>
-					<tr>
-						<%EmployeeBean employeeBean=new EmployeeBean(); 
-						 service = new HRMServicesImplementation();
-						List<EmployeeBean> managerslist= service.searchManager("HR Manager");%>
-						<td>Manager:</td>
-					<td>
-						<select name="empmanager" id="empmanager">
-						<option value="default">default</option>
-						<%for(EmployeeBean empBean:managerslist)
-						{
-						%>
-						
-						<option value=<%=empBean.getEmployeeId() %>>
-						<%=empBean.getFirstName()+" "+empBean.getLastName()+" "+empBean.getEmployeeId() %></option>
-						<%} %>
-						</select>
-						</td>
-						
-						</tr>
+					
 					<tr>
 						<td>Notice Period:</td>
-						<td><select name="noticePeriod" onkeypress="clearForm()"
-							id="noticePeriod" value=<%=bean.getNoticePeriod()%> checked>
+						<%-- <td><select name="noticePeriod" onkeypress="clearForm()"
+							id="noticePeriod" value=<%=bean.getNoticePeriod()%>>
 								<option value="0">Enter notice period</option>
 								<option value="10">10days</option>
 								<option value="15">15days</option>
@@ -388,7 +371,10 @@ ul li:hover ul li {
 								<option value="20">20days</option>
 								<option value="60">2months</option>
 
-						</select><br> <br></td>
+						</select><br> <br></td> --%>
+						<td><input type=text name="noticePeriod"
+							onkeypress="clearForm()" id="noticePeriod"
+							value=<%=bean.getNoticePeriod()%>><br> <br></td></td>
 						<td><p id="errorMsg20" style="color: red;"></p></td>
 
 					</tr>
@@ -422,6 +408,14 @@ ul li:hover ul li {
 						<td><input type=text name="expectedCTC"
 							onkeypress="clearForm()" id="expectedCTC"
 							value=<%=bean.getExpectedCTC()%>><br> <br></td>
+						<td><p id="errorMsg24" style="color: red;"></p></td>
+
+					</tr>
+					<tr>
+						<td>Manager:</td>
+						<td><input type=text name="empmanager"
+							onkeypress="clearForm()" id="empmanager"
+							value=<%=bean.getManager()%>><br> <br></td>
 						<td><p id="errorMsg24" style="color: red;"></p></td>
 
 					</tr>

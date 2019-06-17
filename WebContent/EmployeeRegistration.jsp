@@ -1,6 +1,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.*"%>
 <%@page import="com.hrm.bean.EmployeeBean"%>
+<%@ page import="java.text.SimpleDateFormat" %>
 <%@page import="com.hrm.services.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -26,8 +27,18 @@ var data="EmployeeId:<input type='text' name='employeeId'>";
  
 document.getElementById('location').innerHTML=data;  
 } 
+
+
+function showcommentform1()
+{  
+	document.getElementById('location').innerHTML=""; 
+} 
   
 </script>  
+<style type="text/css">
+textarea.wt-resize{
+resize: none;
+}</style>
 	
 </head>
 <body>
@@ -53,6 +64,7 @@ document.getElementById('location').innerHTML=data;
 						Approved</a>
 						<a href="EmployeeViewDirection.jsp">Search Employee</a>
 						<a href="Login.jsp">Login</a>
+						
 
 				</div>
 			</div>
@@ -75,7 +87,7 @@ document.getElementById('location').innerHTML=data;
 				<br>
 				
     <label for="employee">Employee: </label>  
-              <input type="radio" id="employee" name="employee" value="NewEmployee" onclick="window.location='http://localhost:8080/DhatriHRM_Web/EmployeeRegistration.jsp';"/>NewEmployee  
+              <input type="radio" id="employee" name="employee" value="NewEmployee" onclick="showcommentform1()"/>NewEmployee  
               <input type="radio" id="employee" name="employee" value="ExistingEmployee" onclick="showcommentform()"/>ExistingEmployee<br/>  
 <br>
 <br>
@@ -125,11 +137,11 @@ document.getElementById('location').innerHTML=data;
 								
 							<td><p2 id="errorMsg3" style=color:red;></p2><br> <br></td>
 						</tr>
+
 						<tr>
 							<td>Date Of Birth:<font color="red">*</font></td>
-							<td><input type="date" name="dob" onkeypress="clearForm()" id="dob"><br> <br></td>
+							<td><input type="date" name="dob" id="dob" onkeypress="clearForm()"></td>
 							<td><p id="errorMsg4" style=color:red;></p></td> 
-							
 						</tr>
 						<tr>
 							<td>Email Id:<font color="red">*</font></td>
@@ -153,14 +165,14 @@ document.getElementById('location').innerHTML=data;
 						</tr>
 						<tr>
 							<td>Permanent Address:<font color="red">*</font></td>
-							<td><textarea rows="2" onkeypress="clearForm()" id="permanentAddress" name="permanentAddress">
+							<td><textarea cols="30" rows="5" class="wt-resize" onkeypress="clearForm()" id="permanentAddress" name="permanentAddress">
 </textarea><br> <br></td>
 <td><p id="errorMsg8" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
 							<td>Local Address:<font color="red">*</font></td>
-							<td><textarea rows="2" onkeypress="clearForm()" id="localAddress" name="localAddress">
+							<td><textarea cols="30" rows="5" class="wt-resize" onkeypress="clearForm()" id="localAddress" name="localAddress">
 </textarea></td>
 							<br>
 							<br>
@@ -179,7 +191,7 @@ document.getElementById('location').innerHTML=data;
 							
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Passedout:<font color="red">*</font></td>
 							
-							<td><input type=text name="tenthPassedOut" onkeypress="clearForm()" id="tenthPassedOut"></td>
+							<td><input type=text name="tenthPassedOut" onkeypress="clearForm()" id="tenthPassedOut" maxlength="4"  title="Only 4 digits are allowed"></td>
 							<td><p id="errorMsg11" style=color:red;></p></td> 
 							
 						</tr>
@@ -190,7 +202,7 @@ document.getElementById('location').innerHTML=data;
 								<td><p id="errorMsg12" style=color:red;></p></td> 
 								
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;Passedout:<font color="red">*</font></td>
-							<td><input type=text name="interPassedOut" onkeypress="clearForm()" id="interPassedOut"></td>
+							<td><input type=text name="interPassedOut" onkeypress="clearForm()" id="interPassedOut"maxlength="4"  title="Only 4 digits are allowed"></td>
 							<td><p id="errorMsg13" style=color:red;></p></td> 
 							
 						</tr>
@@ -207,7 +219,7 @@ document.getElementById('location').innerHTML=data;
 							<td><p id="errorMsg14" style=color:red;></p></td> 
 							
 							<td>&nbsp;&nbsp;&nbsp;&nbsp;Passedout:<font color="red">*</font></td>
-							<td><input type=text name="graduationPassedOut" onkeypress="clearForm()" id="graduationPassedOut"></td>
+							<td><input type=text name="graduationPassedOut" onkeypress="clearForm()" id="graduationPassedOut" maxlength="4"  title="Only 4 digits are allowed"></td>
 							<td><p id="errorMsg15" style=color:red;></p></td> 
 							
 						</tr>
@@ -253,6 +265,7 @@ document.getElementById('location').innerHTML=data;
 									<option value="lead analyst">Lead Analyst</option>
 									<option value="Project Manager">Project Manager</option>
 									<option value="HR Manager">HR Manager</option>
+									<option value="Admin">Admin</option>
 									
 							</select></td>
 								<td><p id="errorMsg19" style=color:red;></p></td> 
@@ -261,7 +274,7 @@ document.getElementById('location').innerHTML=data;
 						<tr>
 						<%EmployeeBean employeeBean=new EmployeeBean(); 
 						HRMService service = new HRMServicesImplementation();
-						List<EmployeeBean> managerslist= service.searchManager("HR Manager");%>
+						List<EmployeeBean> managerslist= service.searchManager("Project Manager");%>
 						<td>Manager:</td>
 					<td>
 						<select name="empmanager" id="empmanager">
@@ -271,7 +284,7 @@ document.getElementById('location').innerHTML=data;
 						%>
 						
 						<option value=<%=empBean.getEmployeeId() %>>
-						<%=empBean.getFirstName()+" "+empBean.getLastName()+" "+empBean.getEmployeeId() %></option>
+						<%=empBean.getFirstName()+" "+empBean.getLastName()%></option>
 						<%} %>
 						</select>
 						</td>

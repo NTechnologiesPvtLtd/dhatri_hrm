@@ -17,17 +17,15 @@ if(obj!=null){
 %>
 
 	<h1>
-		Updated Successfully EmployeeId :
-		<%= employeeId%> &nsbp check once...</h1>
+		Updated Successfully EmployeeId :<%= employeeId%> &nsbp check once...</h1>
  
 	
 	<h1 style="color: green">
-		Registered Successfully EmployeeId :</h1>
-		<%=employeeId%>
+		Registered Successfully EmployeeId :<%=employeeId%></h1>
 
 <%
 }
 %>
-<jsp:include page="userupdate.jsp"></jsp:include>
+<jsp:include page="Home.jsp"></jsp:include>
 </body>
 </html>

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.hrm.bean.EmployeeBean;
+import com.hrm.bean.RequestBean;
 import com.hrm.businesslogic.EmployeeIdGenerator;
 import com.hrm.constants.EmployeeConstants;
 import com.hrm.db.connections.MySqlDBConnection;
@@ -27,6 +28,7 @@ public class HRMDaoImplementation implements HRMDao {
 	public HRMDaoImplementation(){
 		con=MySqlDBConnection.getInstance();
 		}
+	@SuppressWarnings("deprecation")
 	@Override
 	public int insertEmployeeData(EmployeeBean employeeBean) {
 		int result=0;
@@ -45,7 +47,7 @@ public class HRMDaoImplementation implements HRMDao {
 		pstmt.setString(3,employeeBean.getLastName());
 		pstmt.setString(4,employeeBean.getFatherName());
 		pstmt.setString(5,employeeBean.getGender());
-		pstmt.setString(6,employeeBean.getDob().toString());
+		pstmt.setString(6,employeeBean.getDob());
 		pstmt.setString(7,employeeBean.getEmailId());
 		pstmt.setLong(8,employeeBean.getMobileNumber());
 		pstmt.setLong(9,employeeBean.getAadharNo());
@@ -126,25 +128,37 @@ public class HRMDaoImplementation implements HRMDao {
 		return listOfEmployee;
 	}
 	
-	public EmployeeBean search(String empid)
+	public List<EmployeeBean> search(String param)
 	{
-		String employeeId=null;
-		employeeId=empid;
-		EmployeeBean employeeBean=new EmployeeBean();
-		String query="select * from employeebean where employeeId=?";
+		if(null == param || param.isEmpty()){
+			return null;
+		}
+		
+		List<EmployeeBean> listOfEmployee = new ArrayList<>();
+		EmployeeBean employeeBean = null;
+		String query="select * from employeebean where employeeId='"+param +"' or firstname='"+param +"' or currentctc='"+param +"'";
+		/*String query1="select * from employeebean where fatherName=param";
+		String query2="select * from employeebean where CurrentCTC=param";
+	*/	
 		try
 		{
-			pstmt=con.prepareStatement(query);
-			pstmt.setString(1,empid);
-			resultSet=pstmt.executeQuery();
+			/*pstmt=con.prepareStatement(query);
+			//pstmt=con.prepareStatement(query1);
+			//pstmt=con.prepareStatement(query2);
+			pstmt.setInt(1, param);*/
+			
+			stmt = con.createStatement();
+			
+			resultSet=stmt.executeQuery(query);
 			while(resultSet.next())
 			{
+				employeeBean= new EmployeeBean();
 				employeeBean.setEmployeeId(resultSet.getString(1));
 				employeeBean.setFirstName(resultSet.getString(2));
 				employeeBean.setLastName(resultSet.getString(3));
 				employeeBean.setFatherName(resultSet.getString(4));
 				employeeBean.setGender(resultSet.getString(5));				
-				//employeeBean.setDob(resultSet.getDate(6));
+				employeeBean.setDob(resultSet.getDate(6).toString());
 				//System.out.println(resultSet.getDate(6));
 				//System.out.println("hello");
 				employeeBean.setEmailId(resultSet.getString(7));
@@ -167,15 +181,15 @@ public class HRMDaoImplementation implements HRMDao {
 				employeeBean.setExperience(resultSet.getString(24));
 				employeeBean.setCurrentCTC(resultSet.getDouble(25));
 				employeeBean.setExpectedCTC((resultSet.getDouble(26)));
-				employeeBean.setManager(resultSet.getString(27));
-			
+				//employeeBean.setManager(resultSet.getString(27));
+				listOfEmployee.add(employeeBean);
 			}
 		}
 		catch(Exception e)
 		{
 			System.out.println(e);
 		}
-		return employeeBean;
+		return listOfEmployee;
 	}
 	
 	@SuppressWarnings("null")
@@ -184,11 +198,11 @@ public class HRMDaoImplementation implements HRMDao {
 		EmployeeBean employeeBean=null;
 		List<EmployeeBean> listOfEmployee = new ArrayList<>();
 	
-		String query="select * from employeebean where Role=?";
+		String query="select * from employeebean where Role='Project Manager'";
 			try
 			{
 				pstmt=con.prepareStatement(query);
-				pstmt.setString(1,role1);
+				//pstmt.setString(1,role1);
 				resultSet=pstmt.executeQuery();
 				while(resultSet.next())
 				{
@@ -430,6 +444,22 @@ public class HRMDaoImplementation implements HRMDao {
 			param.append(param3+"=?, ");
 		}
 	}
-
-	
+	public int insertRequestData(RequestBean employeerequest){
+		String query="insert into CreateRequest values(?,?,?,?,?)";
+		int result=0;
+		try
+		{
+			pstmt=con.prepareStatement(query);	
+		pstmt.setInt(1,100);
+		pstmt.setString(2,employeerequest.getReasonName());
+		pstmt.setString(3,employeerequest.getTextArea());
+		pstmt.setString(4,employeerequest.getSenderMail());
+		pstmt.setString(5,employeerequest.getRecieverMail());
+		result=pstmt.executeUpdate();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="com.hrm.bean.EmployeeBean"%>
+<%@page import="com.hrm.session.SharedObject"%>
 <%@page import="java.util.List"%>
 <%@page import="com.hrm.services.HRMServicesImplementation"%>
 <%@page import="com.hrm.services.HRMService"%>
@@ -8,6 +9,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style>
+.scroll1{
+transform: rotateX(180deg);
+margin-bottom: -160px;
+}
+.displaytable1{
+overflow-y: auto;
+    transform: rotateX(180deg);
+    width:100%;
+    }
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>employee</title>
 <link href="font-awesome-4.7.0/css/font-awesome.min.css"
@@ -21,9 +33,37 @@
 <script type="text/javascript" src="employeeValidation.js">
 	
 </script>
-
+<script type="text/javascript">
+var request;  
+function sendInfo()  
+{  
+var value= document.getElementById("searchEle").value;  
+var url="SingleEmployeeView.jsp?val="+value;  
+  
+if(window.XMLHttpRequest){  
+request=new XMLHttpRequest();  
+}  
+else if(window.ActiveXObject){  
+request=new ActiveXObject("Microsoft.XMLHTTP");  
+}  
+  
+try{  
+request.onreadystatechange=getInfo;  
+request.open("GET",url,true);  
+request.send();  
+}catch(e){alert("Unable to connect to server");}  
+}  
+  
+function getInfo(){  
+if(request.readyState==4){  
+var val=request.responseText;  
+document.getElementById('result').innerHTML=val;  
+}  
+} 
+</script>
 </head>
 <body>
+<%SharedObject.setSession(request.getSession()); %>
 	<div id="nav">
 		<h1>
 			<a href="index.jsp">Dhatsol IT Solutions</a>
@@ -32,7 +72,7 @@
 
 		<ul>
 			<li><a href="index.jsp">Home</a></li>
-			<li><a href="Login.jsp">Login</a></li>
+			<li><a href="Login.jsp">LogOut</a></li>
 
 
 
@@ -48,11 +88,48 @@
 				</div>
 			</div>
 
-			<li><a href="Aboutus.html">about us</a></li>
+			<li><a href="Aboutus3.jsp">about us</a></li>
 		</ul>
 	</div>
 
 	</div>
+	
+	<div id="#mainform">
+		<br> <br>
+
+		<div class="container" style="background-color:#ddd";>
+			<center>
+				<h1 style="color:black";"padding:50%"; "margin-top:50%"; "height:20%";>
+					
+				</h1>
+				<hr>
+				
+				
+		
+
+   <a href="EmployeeView.jsp">Display All Employees Data</a> 
+    <br><br><br><br>
+	<form action="SingleEmployeeView.jsp" >
+
+
+Filter:<input type="text" name="searchElement" id="searchEle" onkeyup="return sendInfo()"  placeholder="EmployeeId/Salary/EmailId" >
+
+
+
+<div id="result">
+
+</div>
+
+
+
+			
+				</div>
+				</form>
+				</center>
+				</div>
+	
+	
+	
 	<div id="#mainform">
 
 
@@ -70,8 +147,8 @@
 		if (employeeResponse != null && !employeeResponse.isEmpty()) {
 	%>
 	
-	 <div class="table" style="overflow-x:auto;">
-<div style="overflow-x:auto;">
+	 <div class="table displaytable1">
+<div class="scroll1">
 	<table align=center>	
   
          
@@ -85,6 +162,7 @@
 			<th>First Name</th>
 			<th>Father Name</th>
 			<th>Gender</th>
+			<th>DOB</th>
 			<th>Email Id</th>
 			<th>Mobile No</th>
 			<th>Aadhar No</th>
@@ -118,6 +196,7 @@
 			<td><%=employeeBean.getFirstName()%></td>
 			<td><%=employeeBean.getFatherName()%></td>
 			<td><%=employeeBean.getGender()%></td>
+			<td><%=employeeBean.getDob()%></td>
 			<td><%=employeeBean.getEmailId()%></td>
 			<td><%=employeeBean.getMobileNumber()%></td>
 			<td><%=employeeBean.getAadharNo()%></td>
