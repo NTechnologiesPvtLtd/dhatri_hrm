@@ -3,6 +3,7 @@ package com.hrm.services;
 import java.util.List;
 
 import com.hrm.bean.EmployeeBean;
+import com.hrm.bean.RequestBean;
 
 public interface HRMService {
 	public abstract int insertEmployeeData(EmployeeBean employeeBean);
@@ -13,4 +14,5 @@ public interface HRMService {
 	public List<EmployeeBean> searchManager(String role1);
 	public EmployeeBean searchGmailId(String str1);
 	public List<EmployeeBean> searchManagerEmp(String Manager);
+	public abstract int insertRequestData(RequestBean requestBean);
 }

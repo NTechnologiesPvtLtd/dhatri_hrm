@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.hrm.bean.EmployeeBean;
+import com.hrm.bean.RequestBean;
 import com.hrm.businesslogic.EmployeeIdGenerator;
 import com.hrm.constants.EmployeeConstants;
 import com.hrm.db.connections.MySqlDBConnection;
@@ -443,9 +444,22 @@ public class HRMDaoImplementation implements HRMDao {
 			param.append(param3+"=?, ");
 		}
 	}
-
-	public static void main(String[] args) {
-		HRMDaoImplementation dao = new HRMDaoImplementation();
-		System.out.println(dao.search("9999"));
+	public int insertRequestData(RequestBean employeerequest){
+		String query="insert into CreateRequest values(?,?,?,?,?)";
+		int result=0;
+		try
+		{
+			pstmt=con.prepareStatement(query);	
+		pstmt.setInt(1,100);
+		pstmt.setString(2,employeerequest.getReasonName());
+		pstmt.setString(3,employeerequest.getTextArea());
+		pstmt.setString(4,employeerequest.getSenderMail());
+		pstmt.setString(5,employeerequest.getRecieverMail());
+		result=pstmt.executeUpdate();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return result;
 	}
 }

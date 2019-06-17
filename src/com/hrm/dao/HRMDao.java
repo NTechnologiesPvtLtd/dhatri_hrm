@@ -3,6 +3,7 @@ package com.hrm.dao;
 import java.util.List;
 
 import com.hrm.bean.EmployeeBean;
+import com.hrm.bean.RequestBean;
 
 public interface HRMDao
 {
@@ -17,5 +18,6 @@ public interface HRMDao
 	public EmployeeBean searchGmailId(String str1);
 	//public abstract int delete(EmployeeBean emp)throws Exception;
 	//int delete(String employeeId) throws Exception;
+	public abstract int insertRequestData(RequestBean requestBean);
 	
 }

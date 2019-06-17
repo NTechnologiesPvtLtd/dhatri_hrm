@@ -6,6 +6,7 @@ package com.hrm.services;
 import java.util.List;
 
 import com.hrm.bean.EmployeeBean;
+import com.hrm.bean.RequestBean;
 import com.hrm.constants.EmployeeConstants;
 import com.hrm.dao.HRMDao;
 import com.hrm.dao.HRMDaoImplementation;
@@ -76,5 +77,11 @@ public class HRMServicesImplementation implements HRMService {
 	public List<EmployeeBean> searchManagerEmp(java.lang.String Manager) {
 		// TODO Auto-generated method stub
 		return hrmDao.searchManagerEmp(Manager);
+	}
+
+	@Override
+	public int insertRequestData(RequestBean requestBean) {
+		// TODO Auto-generated method stub
+		return hrmDao.insertRequestData(requestBean);
 	}
 }

@@ -153,38 +153,38 @@ ul li:hover ul li {
 <body>
 <jsp:include page="LoginView.jsp"></jsp:include>
 
-		<center>
-			<form action="UpdateServlet" method="post">
-				<H4>Update Your Profile Here</H4>
-				<a name="top"> </a>
-				<%
-					SharedObject.setSession(request.getSession());
-				%>
-				<%
-					Object obj = SharedObject
-							.getFromSession(EmployeeConstants.EMPLOYEE_ID);
-					String userId = "";
-					if (null != obj) {
-						userId = (String) obj;
-					}
-					HRMService service = new HRMServicesImplementation();
-					EmployeeBean bean = service.search(userId);
-
-				%>
-				<h1>Personal Informaion</h1>
-				<table>
-					<tr>
-						<td>Employee Id</td> ${empid}
-						<td><input type="text" name="empid"
-							value="<%=SharedObject
-					.getFromSession(EmployeeConstants.EMPLOYEE_ID)%>"></td>
-					</tr>
-					<tr>
-						<td>FirstName:*</td>
-						<td><input type="text" onkeypress="clearForm()"
-							name="Firstname" id="Firstname" value="<%=bean.getFirstName()%>"></td>
-						<td><p id="errorMsg" style="color: red;"></p></td>
-					</tr>
+	<center>
+		<form action="UpdateServlet" method="post">
+			<H4>Update Your Profile Here</H4>
+			<a name="top"> </a>
+			<%
+				SharedObject.setSession(request.getSession());
+			%>
+			<%
+				Object obj = SharedObject.getFromSession(EmployeeConstants.EMPLOYEE_ID);
+				String userId = "";
+				if (null != obj) {
+					userId = (String) obj;
+				}
+				HRMService service = new HRMServicesImplementation();
+				EmployeeBean bean = service.search(userId);
+				SharedObject.putInToSession("LoginMailId", bean.getEmailId());
+                //out.println("key"+bean.getEmailId());
+			%>
+			
+			<h1>Personal Informaion</h1>
+			<table>
+				<tr>
+					<td>Employee Id</td> ${empid}
+					<td><input type="text" name="empid"
+						value="<%=SharedObject.getFromSession(EmployeeConstants.EMPLOYEE_ID)%>"></td>
+				</tr>
+				<tr>
+					<td>FirstName:*</td>
+					<td><input type="text" onkeypress="clearForm()"
+						name="Firstname" id="Firstname" value="<%=bean.getFirstName()%>"></td>
+					<td><p id="errorMsg" style="color: red;"></p></td>
+				</tr>
 
 					<tr>
 						<td>LastName:*</td>
