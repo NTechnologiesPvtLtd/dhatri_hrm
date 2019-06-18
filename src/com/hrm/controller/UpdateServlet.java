@@ -3,6 +3,7 @@ package com.hrm.controller;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,19 +30,21 @@ public class UpdateServlet extends HttpServlet {
      */
     public UpdateServlet() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+    @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// reading the client values
 
@@ -92,7 +95,7 @@ public class UpdateServlet extends HttpServlet {
 			}
 			
 		 catch (Exception e) {
-			aadharNo=null;
+			 System.out.println("Please enter correct value"); 
 		}
 	}
 	
@@ -103,7 +106,7 @@ public class UpdateServlet extends HttpServlet {
 			}
 		
 		catch (Exception e) {
-			tenthPassedOut=null;
+			System.out.println("Please enter correct value"); 
 		}
 	}
 	
@@ -114,7 +117,7 @@ public class UpdateServlet extends HttpServlet {
 			}
 		
 		 catch (Exception e) {
-			interPassedOut=null;
+			 System.out.println("Please enter correct value"); 
 		}
 	}	
 	
@@ -125,7 +128,7 @@ public class UpdateServlet extends HttpServlet {
 			}
 		
 		catch (Exception e) {
-			graduationPassedOut=null;
+			System.out.println("Please enter correct value"); 
 		}
 	}	
 	
@@ -135,7 +138,7 @@ public class UpdateServlet extends HttpServlet {
 			emp.setNoticePeriod(Integer.parseInt(noticePeriod));
 			}
 		 catch (Exception e) {
-			noticePeriod=null;
+			 System.out.println("Please enter correct value"); 
 		}
 	}
 	
@@ -145,7 +148,7 @@ public class UpdateServlet extends HttpServlet {
 			emp.setCurrentCTC(Double.parseDouble(currentCTC));
 			}
 		 catch (Exception e) {
-			currentCTC=null;
+			 System.out.println("Please enter correct value"); 
 		}
 	}
 	
@@ -155,7 +158,7 @@ public class UpdateServlet extends HttpServlet {
 			emp.setExpectedCTC(Double.parseDouble(expectedCTC));
 			}
 		 catch (Exception e) {
-			expectedCTC=null;
+			 System.out.println("Please enter correct value"); 
 		}
 	}	
 		
@@ -183,19 +186,18 @@ public class UpdateServlet extends HttpServlet {
 		//calling the services
 		SharedObject.setSession(request.getSession());
 		HRMService hrmService=new HRMServicesImplementation();
-		//HRMDaoImplementation hrmDaoImplementation=new HRMDaoImplementation();
 		try {
-			//hrmDaoImplementation.delete(employeeId);
+			
 		} catch (Exception e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		int result =0;
-		
 		result = hrmService.employeeUpdate(emp);
-		System.out.println("results value: "+emp);
-		System.out.println("results value: "+emp.getFirstName());
-		System.out.println("results value: "+emp.getEmployeeId());
+		final String ACTION_1 = "results value:"; 
+		System.out.println(ACTION_1 +emp);
+		System.out.println(ACTION_1 +emp.getFirstName());
+		System.out.println(ACTION_1 +emp.getEmployeeId());
+		
 		
 		try{
 		    if(result>0)
@@ -228,7 +230,7 @@ if(mobileNumber!=null && !mobileNumber.isEmpty()){
 		  }
 		
 	   catch (Exception e) {
-		mobileNumber=null;
+		   System.out.println("Please enter correct value");
 	   }
 }
 }

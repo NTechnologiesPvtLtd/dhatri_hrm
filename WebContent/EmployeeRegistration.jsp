@@ -1,6 +1,7 @@
+<%@page import="com.hrm.bean.EmployeeBean"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.*"%>
-<%@page import="com.hrm.bean.EmployeeBean"%>
+
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@page import="com.hrm.services.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -20,25 +21,17 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" media="all" href="stylesheets/animate.css"/>
-<script type="text/javascript" >  
-function showcommentform()
-{  
-var data="EmployeeId:<input type='text' name='employeeId'>";  
- 
-document.getElementById('location').innerHTML=data;  
-} 
+<script type="text/javascript"  src="empreg.js">  
 
-
-function showcommentform1()
-{  
-	document.getElementById('location').innerHTML=""; 
-} 
   
 </script>  
 <style type="text/css">
-textarea.wt-resize{
+textarea.wt-resize
+{
 resize: none;
-}</style>
+}
+
+</style>
 	
 </head>
 <body>
@@ -75,10 +68,10 @@ resize: none;
 
 	</div>	
 	<div id="#mainform">
-		
+		<div align="center">
 
-		<div class="container" style="background-image:url(blue.jpg)";>
-			<center>
+		<div class="container" style="background-image:url(blue.jpg)"  >
+		
 				<h1 style="color:red padding:50% margin-top:50% height:20%";>
 					
 				</h1>
@@ -106,27 +99,27 @@ resize: none;
 					</tr>
 					
 						<tr>
-							<td>First Name:<font color="red">*</font></td>
+							<td >First Name: <span style="color:red;">*</span></td>
 							<td><input type=text onkeypress="clearForm()" id="firstName"
 								name="firstName"><br> <br></td>
 								<td><p id="errorMsg" style=color:red;></p></td> 
 
 						</tr>
 						<tr>
-						<td>Last Name:<font color="red">*</font></td>
+						<td>Last Name:<span style="color:red;">*</span></td>
 							<td><input type="text" onkeypress="clearForm()" id="lastName"
 								name="lastName"><br> <br></td>
 								<td><p id="errorMsg1" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
-							<td>Father Name:<font color="red">*</font></td>
+							<td>Father Name:<span style="color:red;">*</span></td>
 							<td><input type="text" onkeypress="clearForm()" id="fatherName" name="fatherName"><br> <br></td>
 							<td><p id="errorMsg2" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
-							<td>Gender:<font color="red">*</font></td>
+							<td>Gender:<span style="color:red;">*</span></td>
 							<td><input type="radio" name="gender" value="Male" 
 								onkeypress="clearForm()" 
 								id="gender">Male <input
@@ -139,39 +132,39 @@ resize: none;
 						</tr>
 
 						<tr>
-							<td>Date Of Birth:<font color="red">*</font></td>
+							<td>Date Of Birth:<span style="color:red;">*</span></td>
 							<td><input type="date" name="dob" id="dob" onkeypress="clearForm()"></td>
 							<td><p id="errorMsg4" style=color:red;></p></td> 
 						</tr>
 						<tr>
-							<td>Email Id:<font color="red">*</font></td>
+							<td>Email Id:<span style="color:red;">*</span></td>
 							<td><input type=text onkeypress="clearForm()" id="emailId"
 								name="emailId"><br> <br></td>
 								<td><p id="errorMsg5" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
-							<td>Mobile No:<font color="red">*</font></td>
+							<td>Mobile No:<span style="color:red;">*</span></td>
 							<td><input type=text onkeypress="clearForm()" id="mobileNumber"
 								name="mobileNumber" text-align:right; pattern="[0-9]{10}" title="Mobile number must be 10 digits" placeholder="Mobile number" required><br> <br></td>
 								<td><p id="errorMsg6" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
-							<td>Aadhar Number:<font color="red">*</font></td>
+							<td>Aadhar Number:<span style="color:red;">*</span></td>
 							<td><input type=text name="aadharNo"onkeypress="clearForm()" id="aadharNo" pattern="[0-9]{12}" title="Aadhar Card Number must be 12 digits" placeholder="Enter AadharCardNumber" required ><br> <br></td>
 							<td><p id="errorMsg7" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
-							<td>Permanent Address:<font color="red">*</font></td>
+							<td>Permanent Address:<span style="color:red;">*</span></td>
 							<td><textarea cols="30" rows="5" class="wt-resize" onkeypress="clearForm()" id="permanentAddress" name="permanentAddress">
 </textarea><br> <br></td>
 <td><p id="errorMsg8" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
-							<td>Local Address:<font color="red">*</font></td>
+							<td>Local Address:<span style="color:red;">*</span></td>
 							<td><textarea cols="30" rows="5" class="wt-resize" onkeypress="clearForm()" id="localAddress" name="localAddress">
 </textarea></td>
 							<br>
@@ -185,29 +178,30 @@ resize: none;
 					<br> <br>
 					<table>
 						<tr>
-							<td>Board Of Secondary Education:<font color="red">*</font></td>
+							<td>Board Of Secondary Education:<span style="color:red;">*</span>
+</td>
 							<td><input type=text name="schoolName" onkeypress="clearForm()" id="schoolName"><br> <br></td>
 							<td><p id="errorMsg10" style=color:red;></p></td> 
 							
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Passedout:<font color="red">*</font></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;Passedout:<span style="color:red;">*</span></td>
 							
 							<td><input type=text name="tenthPassedOut" onkeypress="clearForm()" id="tenthPassedOut" maxlength="4"  title="Only 4 digits are allowed"></td>
 							<td><p id="errorMsg11" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
-							<td>Board Of Intermediate Education:<font color="red">*</font></td>
+							<td>Board Of Intermediate Education:<span style="color:red;">*</span></td>
 							<td><input type=text name="intermediateCollegeName"onkeypress="clearForm()" id="intermediateCollegeName"> </select><br>
 								<br></td>
 								<td><p id="errorMsg12" style=color:red;></p></td> 
 								
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;Passedout:<font color="red">*</font></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;Passedout:<span style="color:red;">*</span></td>
 							<td><input type=text name="interPassedOut" onkeypress="clearForm()" id="interPassedOut"maxlength="4"  title="Only 4 digits are allowed"></td>
 							<td><p id="errorMsg13" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
-							<td>Graduation Details:<font color="red">*</font></td>
+							<td>Graduation Details:<span style="color:red;">*</span></td>
 							<td><select name="graduationDetails" onkeypress="clearForm()" id="graduationDetails">
 									<option value="None">Select Branch</option>
 									<option value="B.Tech">B.TECH</option>
@@ -218,13 +212,13 @@ resize: none;
 							</select><br> <br></td>
 							<td><p id="errorMsg14" style=color:red;></p></td> 
 							
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;Passedout:<font color="red">*</font></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;Passedout:<span style="color:red;">*</span></td>
 							<td><input type=text name="graduationPassedOut" onkeypress="clearForm()" id="graduationPassedOut" maxlength="4"  title="Only 4 digits are allowed"></td>
 							<td><p id="errorMsg15" style=color:red;></p></td> 
 							
 						</tr>
 						<tr>
-								<td>Branch:<font color="red">*</font></td>
+								<td>Branch:<span style="color:red;">*</span></td>
 							<td><select name="branch" onkeypress="clearForm()" id="branch">
 									<option value="None">Enter Your Branch</option>
 									<option value="ECE">ECE</option>
@@ -232,12 +226,13 @@ resize: none;
 									<option value="CSE">CSE</option>
 									<option value="Civil">CIVIL</option>
 									<option value="Mechanical">MECHANICAL</option>
-									<option value="Bcom">Bcom</option>
-							</select></td>
+									<option value="Bcom">BCOM</option>
+							</select>
+							</td>
 							<td><p id="errorMsg16" style=color:red;></p></td> 
 							
 							
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;University:<font color="red">*</font></td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;University:<span style="color:red;">*</span></td>
 							<td><input type=text name="university" onkeypress="clearForm()" id="university"></td>
 							<td><p id="errorMsg17" style=color:red;></p></td> 
 							
@@ -249,6 +244,7 @@ resize: none;
 						<h3>Job Experience Information:</h3>
 						<br>
 						<br>
+						
 						<tr>
 							<td>Company Name:</td>
 							<td><input type=text name="companyName" onkeypress="clearForm()"
@@ -265,7 +261,7 @@ resize: none;
 									<option value="lead analyst">Lead Analyst</option>
 									<option value="Project Manager">Project Manager</option>
 									<option value="HR Manager">HR Manager</option>
-									<option value="Admin">Admin</option>
+									<option value="Admin Manager">Admin Manager</option>
 									
 							</select></td>
 								<td><p id="errorMsg19" style=color:red;></p></td> 
@@ -274,7 +270,8 @@ resize: none;
 						<tr>
 						<%EmployeeBean employeeBean=new EmployeeBean(); 
 						HRMService service = new HRMServicesImplementation();
-						List<EmployeeBean> managerslist= service.searchManager("Project Manager");%>
+						String str1=request.getParameter("roleDetails");
+						List<EmployeeBean> managerslist= service.searchManager(str1);%>
 						<td>Manager:</td>
 					<td>
 						<select name="empmanager" id="empmanager">
@@ -331,19 +328,23 @@ resize: none;
 						</tr>
 						
 					</table>
-					</center>
+					</div>
+					
 					<br>
-					<center>
+							
+					<div align="center">
 						<input type=submit onclick="return registrationValidation()"
 							value="submit" class="button">
 
-					</center>
+					</div>
+					
 				</div>
 				
 				</div>
 				</form>
 				</div>
 				
+		
 </body>
 </html>
 	

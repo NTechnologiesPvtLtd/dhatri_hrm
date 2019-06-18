@@ -153,10 +153,10 @@ ul li:hover ul li {
 <body>
 <jsp:include page="LoginView.jsp"></jsp:include>
 
-	<center>
+	<div align="center">
 		<form action="UpdateServlet" method="post">
 			<H4>Update Your Profile Here</H4>
-			<a name="top"> </a>
+			
 			<%
 				SharedObject.setSession(request.getSession());
 			%>
@@ -298,15 +298,7 @@ ul li:hover ul li {
 					<tr>
 
 						<td>Graduation Details*:</td>
-						<!-- <td><select name="graduationDetails" onkeypress="clearForm()"
-							id="graduationDetails" />
-							<optgroup label=graduation>
-								<option>select branch</option>
-								<option value="B.Tech" checked>B.TECH</option>
-								<option value="M.Tech" checked>M.TECH</option>
-								<option value="MBA" checked>MBA</option>
-								<option value="PG" checked>PG</option>
-							</optgroup> </select> <br> <br></td> -->
+						
 						<td><input type="text" value=<%=bean.getGraduationDetails()%>
 							disabled="disabled"></td>
 						<td><p id="errorMsg14" style="color: red;"></p></td>
@@ -320,21 +312,9 @@ ul li:hover ul li {
 					</tr>
 					<tr>
 						<td>Branch*:</td>
-						<!-- <td><select name="branch" onkeypress="clearForm()"
-							id="branch"/> -->
-								<!-- <option value="None">Enter Your Branch</option>
-								<option value="ECE">ECE</option>
-								<option value="EEE">EEE</option>
-								<option value="CSE">CSE</option>
-								<option value="Civil">CIVIL</option>
-								<option value="Mechanical">MECHANICAL</option>
-								<option value="Bcom">Bcom</option>
-						</select></td> -->
 						<td><input type="text" value=<%=bean.getBranch()%>></td>
 						<td><p id="errorMsg16" style="color: red;"></p></td>
-
-
-						<td>&nbsp;&nbsp;&nbsp;&nbsp;University*:</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;University*:</td>
 						<td><input type=text name="university"
 							onkeypress="clearForm()" id="university"
 							value=<%=bean.getUniversity()%>></td>
@@ -386,7 +366,7 @@ ul li:hover ul li {
 							id="location" value=<%=bean.getLocation()%>><br> <br></td>
 						<td><p id="errorMsg21" style="color: red;"></p></td>
 
-						<!-- <center style="text-align:top"></center> -->
+						
 					</tr>
 					<tr>
 						<td>Experience:</td>
@@ -422,16 +402,17 @@ ul li:hover ul li {
 
 					</tr>
 				</table>
+				</div>
 				<br>
-				<center>
+				<div align="center">
 					<input type=submit onclick="return  userupdatevalidation()"
 						value="update" class="button">
 					</table>
-				</center>
+				</div>
 				<p style="text-decoration: none; color: black; text-align: right;">
 					<a href="#top"> Scroll top </a>
 				</p>
 			</form>
-		</center>
+		
 </body>
 </html>

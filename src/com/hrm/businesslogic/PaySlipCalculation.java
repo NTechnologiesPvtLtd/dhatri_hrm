@@ -8,10 +8,10 @@ import com.hrm.constants.EmployeeConstants;
 public class PaySlipCalculation
 {
 	 
-	public static Map<String,Double> PaySlipCal(double ctc)
+	public static Map<String,Double> paySlipCal(double ctc)
 	{
 	
-		Map<String,Double> map=new HashMap<String,Double>();  
+		Map<String,Double> map=new HashMap<>();  
 		  map.put(EmployeeConstants.BASIC,(40.0/100)*ctc);  
 		  map.put(EmployeeConstants.CONVEYANCE,(3.2/100)*ctc);  
 		  map.put(EmployeeConstants.HRA,(20.0/100)*ctc); 

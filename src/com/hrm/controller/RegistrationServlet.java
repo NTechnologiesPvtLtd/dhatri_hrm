@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Formatter;
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,6 +18,7 @@ import com.hrm.bean.EmployeeBean;
 import com.hrm.services.HRMService;
 import com.hrm.services.HRMServicesImplementation;
 import com.hrm.session.SharedObject;
+import com.mysql.jdbc.log.Log;
 
 /**
  * Servlet implementation class RegistrationServlet
@@ -30,7 +32,6 @@ public class RegistrationServlet extends HttpServlet {
 	 */
 	public RegistrationServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -40,7 +41,6 @@ public class RegistrationServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 	}
 
 	/**
@@ -102,7 +102,7 @@ public class RegistrationServlet extends HttpServlet {
 			}
 
 			catch (Exception e) {
-				aadharNo = null;
+				System.out.println("Please enter correct value");
 			}
 		}
 
@@ -114,7 +114,7 @@ public class RegistrationServlet extends HttpServlet {
 			}
 
 			catch (Exception e) {
-				tenthPassedOut = null;
+				System.out.println("Please enter correct value");
 			}
 		}
 
@@ -126,7 +126,7 @@ public class RegistrationServlet extends HttpServlet {
 			}
 
 			catch (Exception e) {
-				interPassedOut = null;
+				System.out.println("Please enter correct value");
 			}
 		}
 
@@ -138,7 +138,7 @@ public class RegistrationServlet extends HttpServlet {
 			}
 
 			catch (Exception e) {
-				graduationPassedOut = null;
+				System.out.println("Please enter correct value");
 			}
 		}
 
@@ -147,7 +147,7 @@ public class RegistrationServlet extends HttpServlet {
 
 				employeebean.setNoticePeriod(Integer.parseInt(noticePeriod));
 			} catch (Exception e) {
-				noticePeriod = null;
+				System.out.println("Please enter correct value");
 			}
 		}
 
@@ -156,7 +156,7 @@ public class RegistrationServlet extends HttpServlet {
 
 				employeebean.setCurrentCTC(Double.parseDouble(currentCTC));
 			} catch (Exception e) {
-				currentCTC = null;
+				System.out.println("Please enter correct value");
 			}
 		}
 
@@ -165,7 +165,7 @@ public class RegistrationServlet extends HttpServlet {
 
 				employeebean.setExpectedCTC(Double.parseDouble(expectedCTC));
 			} catch (Exception e) {
-				expectedCTC = null;
+				System.out.println("Please enter correct value");
 			}
 		}
 
@@ -225,7 +225,7 @@ public class RegistrationServlet extends HttpServlet {
 			}
 
 			catch (Exception e) {
-				mobileNumber = null;
+				System.out.println("Please enter correct value");
 			}
 		}
 	}
