@@ -125,10 +125,13 @@ if(null != obj)
 	//employeeId=Integer.parseInt(userId);
 }
 HRMService service = new HRMServicesImplementation();
-EmployeeBean bean=service.search(userId);
+List<EmployeeBean> b=service.search(userId);
+for(EmployeeBean bean:b)
+{
 	name=bean.getFirstName()+bean.getLastName();
 	role=bean.getRole();
 	ctc=bean.getCurrentCTC(); 
+}
 
 //Double.parseDouble(request.getParameter("ctc"));
 double basic=(40.0/100)*ctc;
@@ -179,7 +182,7 @@ double netPay =ctc- totalDeductions;
 			<tr>
 				<td><br>Date of Joining:<br>
 				<br></td>
-				<td><input type="text" name="date of joining" value=<%=ctc %>>
+				<td><input type="text" name="date of joining" value=<%=new SimpleDateFormat("dd-MM-yyyy").format(new java.util.Date())%>>
 				<td class="padding2">BankAccountNo:<br></td>
 				<td class="padding2"><input type="text" name="bankAccountNO">
 			</tr>
