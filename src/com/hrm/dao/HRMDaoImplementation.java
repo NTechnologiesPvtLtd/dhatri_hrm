@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.hrm.bean.EmployeeBean;
 import com.hrm.bean.RequestBean;
 import com.hrm.businesslogic.EmployeeIdGenerator;
@@ -17,7 +19,8 @@ import com.hrm.session.SharedObject;
 
 
 public class HRMDaoImplementation implements HRMDao {
-	
+	private static String HRMDaoImplementation;
+	static Logger log=Logger.getLogger(HRMDaoImplementation);
 	private static final EmployeeBean EmployeeBean = null;
 	Connection con;
 	Statement stmt;
@@ -74,7 +77,8 @@ public class HRMDaoImplementation implements HRMDao {
 		}
 		catch(Exception e)
 		{
-			e.printStackTrace();
+		log.info("Exception",e);
+			
 		}		
 		return result;
 		
@@ -123,29 +127,31 @@ public class HRMDaoImplementation implements HRMDao {
 			
 		} catch (SQLException e) {
 			
-			e.printStackTrace();
+			log.info("Exception",e);
 		}
 		return listOfEmployee;
 	}
 	
 	public List<EmployeeBean> search(String param)
 	{
-		if(null == param || param.isEmpty()){
+		log.info("search paramvalue="+param);
+		if(param == null || param.isEmpty()){
 			return null;
 		}
 		
 		List<EmployeeBean> listOfEmployee = new ArrayList<>();
 		EmployeeBean employeeBean = null;
 		String query="select * from employeebean where employeeId='"+param +"' or firstname='"+param +"' or currentctc='"+param +"'";
-		/*String query1="select * from employeebean where fatherName=param";
-		String query2="select * from employeebean where CurrentCTC=param";
-	*/	
+		log.info("search queryvalue="+query);
+		conditionalcheck(listOfEmployee, query);
+		log.info("search response="+listOfEmployee);
+		return listOfEmployee;
+	}
+	private void conditionalcheck(List<EmployeeBean> listOfEmployee, String query) {
+		EmployeeBean employeeBean;
 		try
 		{
-			/*pstmt=con.prepareStatement(query);
-			//pstmt=con.prepareStatement(query1);
-			//pstmt=con.prepareStatement(query2);
-			pstmt.setInt(1, param);*/
+			
 			
 			stmt = con.createStatement();
 			
@@ -158,9 +164,7 @@ public class HRMDaoImplementation implements HRMDao {
 				employeeBean.setLastName(resultSet.getString(3));
 				employeeBean.setFatherName(resultSet.getString(4));
 				employeeBean.setGender(resultSet.getString(5));				
-				employeeBean.setDob(resultSet.getDate(6).toString());
-				//System.out.println(resultSet.getDate(6));
-				//System.out.println("hello");
+				
 				employeeBean.setEmailId(resultSet.getString(7));
 				employeeBean.setMobileNumber(resultSet.getLong(8));
 				employeeBean.setAadharNo(resultSet.getLong(9));
@@ -181,7 +185,7 @@ public class HRMDaoImplementation implements HRMDao {
 				employeeBean.setExperience(resultSet.getString(24));
 				employeeBean.setCurrentCTC(resultSet.getDouble(25));
 				employeeBean.setExpectedCTC((resultSet.getDouble(26)));
-				//employeeBean.setManager(resultSet.getString(27));
+				
 				listOfEmployee.add(employeeBean);
 			}
 		}
@@ -189,7 +193,6 @@ public class HRMDaoImplementation implements HRMDao {
 		{
 			System.out.println(e);
 		}
-		return listOfEmployee;
 	}
 	
 	@SuppressWarnings("null")
@@ -202,7 +205,7 @@ public class HRMDaoImplementation implements HRMDao {
 			try
 			{
 				pstmt=con.prepareStatement(query);
-				//pstmt.setString(1,role1);
+				
 				resultSet=pstmt.executeQuery();
 				while(resultSet.next())
 				{
@@ -213,7 +216,7 @@ public class HRMDaoImplementation implements HRMDao {
 					listOfEmployee.add(employeeBean);
 				}
 				
-				//listOfEmployee.add(employeeBean);
+				
 			}
 			catch(Exception e)
 			{
@@ -267,7 +270,7 @@ public class HRMDaoImplementation implements HRMDao {
 					listOfEmployee.add(employeeBean);
 				}
 				
-				//listOfEmployee.add(employeeBean);
+				
 			}
 			catch(Exception e)
 			{
@@ -314,15 +317,15 @@ public class HRMDaoImplementation implements HRMDao {
 		catch(Exception e)
 		{
 			System.out.println("");
-		e.printStackTrace();
+			log.info("Exception",e);
 		}
 		return s1;
 	}
 	@Override
 	public int employeeUpdate(EmployeeBean employeeBean) {
 		int result =0;
-		//update employeebean set employeeName = ? where employeeId=?;
-		StringBuffer query = new StringBuffer();
+	
+		StringBuilder query = new StringBuilder();
 		buildQuery(employeeBean, query);
 		
 		
@@ -332,8 +335,8 @@ public class HRMDaoImplementation implements HRMDao {
 			result=pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			log.info("Exception",e);
 		}
 		
 		
@@ -374,7 +377,7 @@ public class HRMDaoImplementation implements HRMDao {
 	 * @param employeeBean
 	 * @param query
 	 */
-	private void buildQuery(EmployeeBean employeeBean, StringBuffer query) {
+	private void buildQuery(EmployeeBean employeeBean, StringBuilder query) {
 		query.append("update employeebean set ");
 		addToQuery(query, employeeBean.getFirstName(),"firstname");
 		addToQuery(query, employeeBean.getLastName(),"lastname");
@@ -426,13 +429,16 @@ public class HRMDaoImplementation implements HRMDao {
 				placeHolderValue++;
 				}
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				
+				log.info("Exception",e);
 			}
 		}
 	}
 	
-	public static void addToQuery(StringBuffer param, Object param2, String param3){
+	public static void addToQuery(StringBuilder param, Object param2, String param3){
+		checkinginstance(param, param2, param3);
+	}
+	private static void checkinginstance(StringBuilder param, Object param2, String param3) {
 		if(param2 instanceof Long && (Long.parseLong(param2.toString())) !=0){
 			param.append(param3+"=?, ");
 		} else if(param2 instanceof Integer && (Integer.parseInt(param2.toString())) != 0){
