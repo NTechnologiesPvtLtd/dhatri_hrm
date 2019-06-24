@@ -125,10 +125,14 @@ if(null != obj)
 	//employeeId=Integer.parseInt(userId);
 }
 HRMService service = new HRMServicesImplementation();
-EmployeeBean bean=service.search(userId);
+List<EmployeeBean> b=service.search(userId);
+for(EmployeeBean bean:b)
+{
+
 	name=bean.getFirstName()+bean.getLastName();
 	role=bean.getRole();
 	ctc=bean.getCurrentCTC(); 
+}
 
 //Double.parseDouble(request.getParameter("ctc"));
 double basic=(40.0/100)*ctc;

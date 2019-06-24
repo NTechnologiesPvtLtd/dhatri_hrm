@@ -167,7 +167,9 @@ ul li:hover ul li {
 					userId = (String) obj;
 				}
 				HRMService service = new HRMServicesImplementation();
-				EmployeeBean bean = service.search(userId);
+				List<EmployeeBean> b = service.search(userId);
+				EmployeeBean bean=null;
+				bean=b.get(0);
 				SharedObject.putInToSession("LoginMailId", bean.getEmailId());
                 //out.println("key"+bean.getEmailId());
 			%>

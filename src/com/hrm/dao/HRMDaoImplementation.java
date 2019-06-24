@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.hrm.bean.EmployeeBean;
 import com.hrm.bean.RequestBean;
 import com.hrm.businesslogic.EmployeeIdGenerator;
@@ -17,6 +19,7 @@ import com.hrm.session.SharedObject;
 
 
 public class HRMDaoImplementation implements HRMDao {
+	Logger log=Logger.getLogger(getClass());
 	
 	private static final EmployeeBean EmployeeBean = null;
 	Connection con;
@@ -130,6 +133,7 @@ public class HRMDaoImplementation implements HRMDao {
 	
 	public List<EmployeeBean> search(String param)
 	{
+		log.info("search param value="+param);
 		if(null == param || param.isEmpty()){
 			return null;
 		}
@@ -137,6 +141,7 @@ public class HRMDaoImplementation implements HRMDao {
 		List<EmployeeBean> listOfEmployee = new ArrayList<>();
 		EmployeeBean employeeBean = null;
 		String query="select * from employeebean where employeeId='"+param +"' or firstname='"+param +"' or currentctc='"+param +"'";
+		log.info("search param value="+query);
 		/*String query1="select * from employeebean where fatherName=param";
 		String query2="select * from employeebean where CurrentCTC=param";
 	*/	
@@ -189,6 +194,7 @@ public class HRMDaoImplementation implements HRMDao {
 		{
 			System.out.println(e);
 		}
+		log.info("search response="+listOfEmployee);
 		return listOfEmployee;
 	}
 	

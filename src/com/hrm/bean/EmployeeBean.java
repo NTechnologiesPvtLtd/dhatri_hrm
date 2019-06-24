@@ -1,10 +1,12 @@
 package com.hrm.bean;
 
+import java.io.Serializable;
+
 /**
  * @author LADDU
  *
  */
-public class EmployeeBean {
+public class EmployeeBean implements Serializable {
 	private String employeeId;
 	private String firstName;
 	private String lastName;
