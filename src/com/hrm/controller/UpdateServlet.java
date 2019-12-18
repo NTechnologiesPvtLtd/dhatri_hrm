@@ -47,20 +47,19 @@ public class UpdateServlet extends HttpServlet {
 
 		response.setContentType("text/html");
 		String employeeId = request.getParameter("empid");
-        String firstName=request.getParameter("Firstname");
+                String firstName=request.getParameter("Firstname");
 		String lastName=request.getParameter("lastname");
 		String fatherName=request.getParameter("fathername");
 		String gender=request.getParameter("Gender");
 		String dob = request.getParameter("dob");
-		
-		
-		
 		String emailId=request.getParameter("EmailId");
 		String mobileNumber=request.getParameter("mobileNumber");
+		String AlternateMobileNumber=request.getParameter("alternatemobileNumber");
 		String aadharNo=request.getParameter("Adharno");
-		String permanentAddress=request.getParameter("PermanentaAddress");
+		String panNumber=request.getParameter("panNo");
+		String passportNumber=request.getParameter("passportNo");
+		String permanentAddress=request.getParameter("PermanentAddress");
 		String localAddress=request.getParameter("LocalAdress");
-		
 		String schoolName=request.getParameter("schoolName");
 		String tenthPassedOut=request.getParameter("tenthPassedOut");
 		String intermediateCollegeName=request.getParameter("intermediateCollegeName");
@@ -72,11 +71,16 @@ public class UpdateServlet extends HttpServlet {
 		
 		String companyName=request.getParameter("companyName");
 		String role=request.getParameter("roleDetails");
-		String noticePeriod=request.getParameter("noticePeriod");
+		//String noticePeriod=request.getParameter("noticePeriod");
 		String location=request.getParameter("location");
 		String experience=request.getParameter("experience");
 		String currentCTC=request.getParameter("currentCTC");
-		String expectedCTC=request.getParameter("expectedCTC");
+		String manager = request.getParameter("empmanager");
+		String bankName = request.getParameter("bankName");
+		String bankAccNo = request.getParameter("bankAccNo");
+		String ifscCode = request.getParameter("ifscCode");
+
+		//String expectedCTC=request.getParameter("expectedCTC");
 		
 		// inject client reading values into Encapsulation object
 		
@@ -129,15 +133,12 @@ public class UpdateServlet extends HttpServlet {
 		}
 	}	
 	
-	if(noticePeriod!=null && !noticePeriod.isEmpty()){							
-		try {									
-				
-			emp.setNoticePeriod(Integer.parseInt(noticePeriod));
-			}
-		 catch (Exception e) {
-			noticePeriod=null;
-		}
-	}
+		/*
+		 * if(noticePeriod!=null && !noticePeriod.isEmpty()){ try {
+		 * 
+		 * emp.setNoticePeriod(Integer.parseInt(noticePeriod)); } catch (Exception e) {
+		 * noticePeriod=null; } }
+		 */
 	
 	if(currentCTC!=null && !currentCTC.isEmpty()){
 		try {					
@@ -148,16 +149,12 @@ public class UpdateServlet extends HttpServlet {
 			currentCTC=null;
 		}
 	}
-	
-	if(expectedCTC!=null && !expectedCTC.isEmpty()){
-		try {					
-			
-			emp.setExpectedCTC(Double.parseDouble(expectedCTC));
-			}
-		 catch (Exception e) {
-			expectedCTC=null;
-		}
-	}	
+		/*
+		 * if(expectedCTC!=null && !expectedCTC.isEmpty()){ try {
+		 * 
+		 * emp.setExpectedCTC(Double.parseDouble(expectedCTC)); } catch (Exception e) {
+		 * expectedCTC=null; } }
+		 */
 		
 	emp.setFirstName(firstName);
 	emp.setLastName(lastName);

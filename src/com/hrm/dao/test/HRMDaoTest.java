@@ -1,7 +1,5 @@
 package com.hrm.dao.test;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import org.junit.Assert;
@@ -18,9 +16,11 @@ public class HRMDaoTest {
 	@Test
 	public void employeeUpdateTest(){
 		EmployeeBean employeeBean = new EmployeeBean();
-		employeeBean.setLastName("Raj");
+		employeeBean.setFirstName("aeF");
+		employeeBean.setFatherName("vnrmohanrao");
+		employeeBean.setLastName("valtheru");
 		employeeBean.setCurrentCTC(400000);
-		employeeBean.setEmployeeId("DS-0001");
+		employeeBean.setEmployeeId("DS-00001");
 		int result = dao.employeeUpdate(employeeBean);
 		Assert.assertEquals(1, result);
 	}
@@ -30,7 +30,21 @@ public class HRMDaoTest {
 	public void searchTest(){
 		List<EmployeeBean> bean = null;
 		try {
-			bean = dao.search("DS-0720");
+			bean = dao.search("DS-40320");
+			if(bean !=null) {
+				for(EmployeeBean employee: bean) {
+		Assert.assertEquals("DS-40324", employee.getEmployeeId());	
+		Assert.assertEquals(""
+				+ ""
+				+ ""
+				+ ""
+				+ ""
+				+ ""
+				+ ""
+				+ ""
+				+ "", employee.getFirstName());
+				}
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -44,10 +58,10 @@ public class HRMDaoTest {
 	@Test
 	public void insertDataInToDBTest(){
 		EmployeeBean bean =new EmployeeBean();
-		bean.setEmployeeId("ds-1140");
-		bean.setFirstName("Narsigh");
-		bean.setLastName("Mahankali");
-		bean.setMobileNumber(970042372);
+		bean.setEmployeeId("ds-1141");
+		bean.setFirstName("monika");
+		bean.setLastName("valtheru");
+		bean.setMobileNumber(991291996);
 		
 		int result= dao.insertEmployeeData(bean);
 		Assert.assertEquals(1, result);

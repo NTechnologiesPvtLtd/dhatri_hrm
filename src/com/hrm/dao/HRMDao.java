@@ -2,6 +2,7 @@ package com.hrm.dao;
 
 import java.util.List;
 
+import com.hrm.bean.AdminBean;
 import com.hrm.bean.EmployeeBean;
 import com.hrm.bean.RequestBean;
 
@@ -19,5 +20,7 @@ public interface HRMDao
 	//public abstract int delete(EmployeeBean emp)throws Exception;
 	//int delete(String employeeId) throws Exception;
 	public abstract int insertRequestData(RequestBean requestBean);
-	
+
+	/* public abstract int insertAdminData(AdminBean adminBean); */
+	public abstract boolean adminlogin(String username, String password);
 }

@@ -15,4 +15,7 @@ public interface HRMService {
 	public EmployeeBean searchGmailId(String str1);
 	public List<EmployeeBean> searchManagerEmp(String Manager);
 	public abstract int insertRequestData(RequestBean requestBean);
+
+	/* public abstract int insertAdminData(AdminBean adminBean); */
+	public abstract boolean adminlogin(String adminid,String password);
 }

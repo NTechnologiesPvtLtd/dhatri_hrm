@@ -15,7 +15,10 @@ public class EmployeeBean implements Serializable {
 	private String dob;
 	private String emailId;
 	private long mobileNumber;
+	private long alternateMobileNumber;
 	private long aadharNo;
+	private String panNumber;
+	private String passportNumber;
 	private String permanentAddress;
 	private String localAddress;
 
@@ -38,6 +41,28 @@ public class EmployeeBean implements Serializable {
 	private double expectedCTC;
 	private String manager;
 	
+	private String bankname;
+	private long bankAccNo;
+	private String ifscCode;
+	
+	public String getBankname() {
+		return bankname;
+	}
+	public void setBankname(String bankname) {
+		this.bankname = bankname;
+	}
+	public long getBankAccNo() {
+		return bankAccNo;
+	}
+	public void setBankAccNo(long bankAccNo) {
+		this.bankAccNo = bankAccNo;
+	}
+	public String getIfscCode() {
+		return ifscCode;
+	}
+	public void setIfscCode(String ifcsCode) {
+		this.ifscCode = ifcsCode;
+	}
 	public String getManager() {
 		return manager;
 	}
@@ -202,6 +227,24 @@ public class EmployeeBean implements Serializable {
 	}
 	public void setExpectedCTC(double expectedCTC) {
 		this.expectedCTC = expectedCTC;
+	}
+	public long getAlternateMobileNumber() {
+		return alternateMobileNumber;
+	}
+	public void setAlternateMobileNumber(long alternateMobileNumber) {
+		this.alternateMobileNumber = alternateMobileNumber;
+	}
+	public String getPanNumber() {
+		return panNumber;
+	}
+	public void setPanNumber(String panNumber) {
+		this.panNumber = panNumber;
+	}
+	public String getPassportNumber() {
+		return passportNumber;
+	}
+	public void setPassportNumber(String passportNumber) {
+		this.passportNumber = passportNumber;
 	}
 	
 	

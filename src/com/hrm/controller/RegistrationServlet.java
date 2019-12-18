@@ -63,7 +63,10 @@ public class RegistrationServlet extends HttpServlet {
 		String dob = request.getParameter("dob");
 		String emailId = request.getParameter("emailId").trim();
 		String mobileNumber = request.getParameter("mobileNumber").trim();
+		String alternateMobileNumber = request.getParameter("alternatemobileNumber").trim();
 		String aadharNo = request.getParameter("aadharNo").trim();
+		String panNumber = request.getParameter("panNo").trim();
+		String passportNumber = request.getParameter("passportNo").trim();
 		String permanentAddress = request.getParameter("permanentAddress")
 				.trim();
 		String localAddress = request.getParameter("localAddress").trim();
@@ -83,17 +86,51 @@ public class RegistrationServlet extends HttpServlet {
 		String companyName = request.getParameter("companyName").trim();
 		String role = request.getParameter("roleDetails").trim();
 		String manager = request.getParameter("empmanager").trim();
-		String noticePeriod = request.getParameter("noticePeriod").trim();
+
 		String location = request.getParameter("location").trim();
 		String experience = request.getParameter("experience").trim();
 		String currentCTC = request.getParameter("currentCTC").trim();
-		String expectedCTC = request.getParameter("expectedCTC").trim();
+		String bankName = request.getParameter("bankName").trim();
+		String bankAccNo = request.getParameter("bankAccNo").trim();
+		String ifscCode = request.getParameter("ifscCode").trim();
 
 		// inject client reading values into Encapsulation object
 
 		EmployeeBean employeebean = new EmployeeBean();
 		employeebean.setEmployeeId(employeeId);
 		setMobileNumber(mobileNumber, employeebean);
+		
+		if(bankAccNo!=null && !bankAccNo.isEmpty()) {
+			try {
+				employeebean.setBankAccNo(Long.parseLong(bankAccNo));
+			}catch(Exception e) {
+				bankAccNo = null;
+			}
+		}
+		
+		if(bankName!=null && !bankName.isEmpty()) {
+			try {
+				employeebean.setBankname(bankName);
+			}catch(Exception e) {
+				bankName = null;
+			}
+		}
+		
+		if(ifscCode!=null && !ifscCode.isEmpty()) {
+			try {
+				employeebean.setIfscCode(ifscCode);
+			}catch(Exception e) {
+				ifscCode = null;
+			}
+		}
+		
+		if(alternateMobileNumber!=null && !alternateMobileNumber.isEmpty()) {
+			try {
+				employeebean.setAlternateMobileNumber(Long.parseLong(alternateMobileNumber));
+			}catch(Exception e) {
+				alternateMobileNumber = null;
+			}
+		}
 
 		if (aadharNo != null && !aadharNo.isEmpty()) {
 			try {
@@ -103,6 +140,22 @@ public class RegistrationServlet extends HttpServlet {
 
 			catch (Exception e) {
 				aadharNo = null;
+			}
+		}
+		
+		if(panNumber!=null && !panNumber.isEmpty()) {
+			try {
+				employeebean.setPanNumber(panNumber);
+			}catch(Exception e) {
+				panNumber = null;
+			}
+		}
+		
+		if(passportNumber!=null && !passportNumber.isEmpty()) {
+			try {
+				employeebean.setPassportNumber(passportNumber);
+			}catch(Exception e) {
+				passportNumber = null;
 			}
 		}
 
@@ -142,14 +195,12 @@ public class RegistrationServlet extends HttpServlet {
 			}
 		}
 
-		if (noticePeriod != null && !noticePeriod.isEmpty()) {
-			try {
-
-				employeebean.setNoticePeriod(Integer.parseInt(noticePeriod));
-			} catch (Exception e) {
-				noticePeriod = null;
-			}
-		}
+		/*
+		 * if (noticePeriod != null && !noticePeriod.isEmpty()) { try {
+		 * 
+		 * employeebean.setNoticePeriod(Integer.parseInt(noticePeriod)); } catch
+		 * (Exception e) { noticePeriod = null; } }
+		 */
 
 		if (currentCTC != null && !currentCTC.isEmpty()) {
 			try {
@@ -159,15 +210,14 @@ public class RegistrationServlet extends HttpServlet {
 				currentCTC = null;
 			}
 		}
+		
 
-		if (expectedCTC != null && !expectedCTC.isEmpty()) {
-			try {
-
-				employeebean.setExpectedCTC(Double.parseDouble(expectedCTC));
-			} catch (Exception e) {
-				expectedCTC = null;
-			}
-		}
+		/*
+		 * if (expectedCTC != null && !expectedCTC.isEmpty()) { try {
+		 * 
+		 * employeebean.setExpectedCTC(Double.parseDouble(expectedCTC)); } catch
+		 * (Exception e) { expectedCTC = null; } }
+		 */
 
 		employeebean.setFirstName(firstName);
 		employeebean.setLastName(lastName);
@@ -177,7 +227,7 @@ public class RegistrationServlet extends HttpServlet {
 		employeebean.setEmailId(emailId);
 		employeebean.setPermanentAddress(permanentAddress);
 		employeebean.setLocalAddress(localAddress);
-
+		
 		employeebean.setSchoolName(schoolName);
 		employeebean.setIntermediateCollegeName(intermediateCollegeName);
 		employeebean.setGraduationDetails(graduationDetails);

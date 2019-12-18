@@ -5,6 +5,7 @@ package com.hrm.services;
 
 import java.util.List;
 
+import com.hrm.bean.AdminBean;
 import com.hrm.bean.EmployeeBean;
 import com.hrm.bean.RequestBean;
 import com.hrm.constants.EmployeeConstants;
@@ -83,5 +84,32 @@ public class HRMServicesImplementation implements HRMService {
 	public int insertRequestData(RequestBean requestBean) {
 		// TODO Auto-generated method stub
 		return hrmDao.insertRequestData(requestBean);
+	}
+
+
+
+
+
+	/*
+	 * @Override public int insertAdminData(AdminBean adminBean) { // TODO
+	 * Auto-generated method stub return hrmDao.insertAdminData(adminBean); }
+	 * 
+	 */
+
+
+
+	@Override
+	public boolean adminlogin(String adminid,String password) {
+		boolean flag=hrmDao.adminlogin(adminid, password);
+
+		if(flag){
+			SharedObject.putInToSession(EmployeeConstants.ADMINID, adminid);
+			}
+			else{
+				SharedObject.putInToSession(EmployeeConstants.ERROR_MSG_UI, "Invalid Credentials");
+			}
+
+		
+	return flag;
 	}
 }

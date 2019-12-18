@@ -14,6 +14,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" media="all" href="stylesheets/mybootstrap.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
 <title>EmployeePayslip</title>
 <style>
 div.headtext {
@@ -100,7 +105,7 @@ td.padding7 {
 	font-size: 20px;
 	color: white;
 }
-page[size="A4"] {  
+page {  
   width: 21cm;
   height: 29.7cm; 
   border-style: solid;
@@ -110,8 +115,9 @@ page[size="A4"] {
 </style>
 </head>
 <body>
-<% SharedObject.setSession(request.getSession()); %>
-<form action="PaySlipServlet" method="post">
+<form action ="PayslipServlet" method ="post" >
+<%-- <% SharedObject.setSession(request.getSession()); %>
+
 <%
 Object obj=SharedObject.getFromSession(EmployeeConstants.EMPLOYEE_ID);
 String userId="";
@@ -147,7 +153,8 @@ double incomeTax=0.0;
 double otherDeductions=0.0;
 double grossSalary=ctc;
 double netPay =ctc- totalDeductions;
-%>
+%> --%>
+<div class = "page">
 	<div class="imgpadding">
 		<img src="logo.png" alt="logo" width="210" height="100" align="center">
 	</div>
@@ -169,21 +176,21 @@ double netPay =ctc- totalDeductions;
 				<br></td>
 				<br>
 				<br>
-				<td><input type="text" name="emploeeName" value=<%=name %>>
+				<td><input type="text" name="emploeeName" <%-- value=<%=name %> --%>>
 				<td class="padding2">EmpID:<br></td>
-				<td class="padding2"><input type="text" name="employeeID" value=<%=userId %>>
+				<td class="padding2"><input type="text" name="employeeID" <%-- value=<%=userId %> --%>>
 			</tr>
 			<tr>
 				<td>Designation:<br>
 				<br></td>
-				<td><input type="text" name="desigantion" value=<%=role %>>
+				<td><input type="text" name="desigantion" <%-- value=<%=role %> --%>>
 				<td class="padding2">Bank:<br></td>
 				<td class="padding2"><input type="text" name="bank">
 			</tr>
 			<tr>
 				<td><br>Date of Joining:<br>
 				<br></td>
-				<td><input type="text" name="date of joining" value=<%=ctc %>>
+				<td><input type="date" name="date of joining" <%-- value=<%=ctc%> --%>>
 				<td class="padding2">BankAccountNo:<br></td>
 				<td class="padding2"><input type="text" name="bankAccountNO">
 			</tr>
@@ -201,17 +208,30 @@ double netPay =ctc- totalDeductions;
 
 	<div class="backgrouondColor2">
 		<table>
+		<tr>
+		<td><br>Basic Salary:<br>
+				<br></td>
+				<td><input type="text" name="basicSalary" ></td>
+				<%-- <td class="padding2"><br>Basic:<br>
+				<br></td>
+				<td class="padding2"><input type="text" name="basic" value=<%=basic %>></td> --%>
+		
+		</tr>
+		
 
-			<tr>
+			<%-- <tr>
 				<br>
 				<br>
-				<td><br>Basic:<br>
+				
+				
+				<td ><br>ProfessionalTax:<br>
 				<br></td>
-				<td><input type="text" name="basic" value=<%=basic %>>
-				<td class="padding2"><br>ProfessionalTax:<br>
-				<br></td>
-				<td class="padding2"><input type="text" name="professionalTax"
+				<td ><input type="text" name="professionalTax"
 					value="<%=professionalTax%>"></td>
+					<td class="padding2"><br>IncomeTax:<br>
+				<br></td>
+				<td class="padding2"><input type="text" name="incomeTax"
+					value="<%=incomeTax%>">
 			</tr>
 
 			<tr>
@@ -219,10 +239,11 @@ double netPay =ctc- totalDeductions;
 				<br></td>
 				<td><input type="text" name="conveyance"
 					value="<%=conveyance %>">
-				<td class="padding2"><br>IncomeTax:<br>
+					<td class="padding2"><br>OtherDeductions:<br>
 				<br></td>
 				<td class="padding2"><input type="text" name="incomeTax"
-					value="<%=incomeTax%>">
+					value=<%=otherDeductions %>"></td>
+				
 			</tr>
 
 			<tr>
@@ -262,19 +283,19 @@ double netPay =ctc- totalDeductions;
 			<tr>
 
 				<td class="padding5">Total Deduction:</td>
-				<td class="padding5"><input type="text"
+				<td class="padding5"><input type="text" name ="totaldeductions"
 					value=<%=totalDeductions %>></td>
 			</tr>
 			<tr>
 				<td>GrossSalary:</td>
-				<td><input type="text" value=<%=grossSalary %>></td>
+				<td><input type="text" value=<%=grossSalary %> name = "grosssalary"></td>
 			</tr>
 			<tr>
 				<td class="padding5">Net Pay:</td>
 				<td class="padding5"><input type="text" name="netpay"
 					value=<%=netPay%>></td>
 			</tr>
-
+ --%>
 		</table>
 	</div>
 
@@ -290,11 +311,20 @@ double netPay =ctc- totalDeductions;
 			If any questions, mail to accounts@dhatriinfo.com <br> Note:
 			This is system generated mail.Signature not required.
 		</p>
+		
+		
+		
+		<center>
+				<input type="submit" class="btn-btn-primary" value="Generate" />
+
+			</center>
+			<br>
+			<br>
 	</div>
 </form>
 	<footer>
 	<p class="aligncenter">DHATRI INFO SOLUTIONS PVT.LTD.</p>
-	<p styple="padding-left :2cm;">_______________________________________________________________________________________________________________________________________________________________________________________</p>
+	<p style="padding-left :2cm;">_______________________________________________________________________________________________________________________________________________________________________________________</p>
 	<p class="aligncenter">
 		Manjeera Trinity Corporate, Suite #406, KPHB Phase 3, Kukatpally,
 		Hyderabad: 500 072, Telangana, India<br> Phone: +91 40 6591 3555,
@@ -302,6 +332,7 @@ double netPay =ctc- totalDeductions;
 			www.dhatriinfo.com</a>.
 	</p>
 	</footer>
+	
 </body>
 
 </html>
