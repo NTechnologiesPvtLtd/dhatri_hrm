@@ -16,11 +16,11 @@ import com.hrm.bean.PayslipBean;
  * Servlet implementation class PayslipServlet
  */
 @WebServlet("/PayslipServlet")
-public class PayslipServlet extends HttpServlet {
+public class PaySlipServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
   
-    public PayslipServlet() {
+    public PaySlipServlet() {
         super();
         
     }
