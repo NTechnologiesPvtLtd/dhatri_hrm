@@ -59,7 +59,7 @@ public class HRMDaoImplementation implements HRMDao {
 	@Override
 	public int insertEmployeeData(EmployeeBean employeeBean) {
 		int result=0;
-		String query="insert into employeebean values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String query="insert into employeebean values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try
 		{
 			while(duplicateData(employeeBean)) {
@@ -94,13 +94,15 @@ public class HRMDaoImplementation implements HRMDao {
 		pstmt.setString(22,employeeBean.getUniversity());
 		pstmt.setString(23,employeeBean.getCompanyName());
 		pstmt.setString(24,employeeBean.getRole());
-		pstmt.setString(25,employeeBean.getLocation());
-		pstmt.setString(26,employeeBean.getExperience());
-		pstmt.setDouble(27,employeeBean.getCurrentCTC());
-		pstmt.setString(28, employeeBean.getManager());
-		pstmt.setString(29,employeeBean.getBankname());
-		pstmt.setLong(30, employeeBean.getBankAccNo());
-		pstmt.setString(31,employeeBean.getIfscCode());
+		pstmt.setInt(25, employeeBean.getNoticePeriod());
+		pstmt.setString(26,employeeBean.getLocation());
+		pstmt.setString(27,employeeBean.getExperience());
+		pstmt.setDouble(28,employeeBean.getCurrentCTC());
+		pstmt.setDouble(29,employeeBean.getExpectedCTC());
+		pstmt.setString(30, employeeBean.getManager());
+		pstmt.setString(31,employeeBean.getBankname());
+		pstmt.setLong(32, employeeBean.getBankAccNo());
+		pstmt.setString(33,employeeBean.getIfscCode());
 		result=pstmt.executeUpdate();
 		
 		}
@@ -114,7 +116,7 @@ public class HRMDaoImplementation implements HRMDao {
 	@Override
 	public List<EmployeeBean> search() {
 		List<EmployeeBean> listOfEmployee = new ArrayList<>();
-		String query="select EmployeeId,FirstName,FatherName,Gender,EmailId,MobileNo,AadharNo,SchoolName,TenthPassedOut,IntermeadiateCollegeName,InterPassedOut,GraduationDetails,GraduationPassedOut,Branch,University,CompanyName,Role,NoticePeriod,Location,Experience,CurrentCtc,ExpectedCtc,PermanatAddress,LocalAddress from employeebean";
+		String query="select EmployeeId,FirstName,LastName,FatherName,Gender,EmailId,MobileNo,AlternateMobileNumber,AadharNo,SchoolName,TenthPassedOut,IntermeadiateCollegeName,InterPassedOut,GraduationDetails,GraduationPassedOut,Branch,University,CompanyName,Role,NoticePeriod,Location,Experience,CurrentCtc,ExpectedCtc,PermanatAddress,LocalAddress from employeebean";
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -125,28 +127,29 @@ public class HRMDaoImplementation implements HRMDao {
 				employeeBean.setEmployeeId(resultSet.getString(1));
 				employeeBean.setFirstName(resultSet.getString(2));
 				employeeBean.setLastName(resultSet.getString(3));
-				employeeBean.setFatherName(resultSet.getString(3));
-				employeeBean.setGender(resultSet.getString(4));				
-				employeeBean.setEmailId(resultSet.getString(5));
-				employeeBean.setMobileNumber((resultSet.getLong(6)));
-				employeeBean.setAlternateMobileNumber(resultSet.getLong(7));
-				employeeBean.setAadharNo(resultSet.getLong(8));
-				employeeBean.setSchoolName(resultSet.getString(9));
-				employeeBean.setTenthPassedOut(resultSet.getInt(10));
-				employeeBean.setIntermediateCollegeName(resultSet.getString(11));
-				employeeBean.setInterPassedOut(resultSet.getInt(12));
-				employeeBean.setGraduationDetails(resultSet.getString(13));
-				employeeBean.setGraduationPassedOut(resultSet.getInt(14));
-				employeeBean.setBranch(resultSet.getString(15));
-				employeeBean.setUniversity(resultSet.getString(16));
-				employeeBean.setCompanyName(resultSet.getString(17));
-				employeeBean.setRole(resultSet.getString(18));
-				employeeBean.setLocation(resultSet.getString(19));
-				employeeBean.setExperience(resultSet.getString(20));
-				employeeBean.setCurrentCTC((resultSet.getDouble(21)));
-				employeeBean.setExpectedCTC((resultSet.getDouble(22)));
-				employeeBean.setPermanentAddress(resultSet.getString(23));
-				employeeBean.setLocalAddress(resultSet.getString(24));
+				employeeBean.setFatherName(resultSet.getString(4));
+				employeeBean.setGender(resultSet.getString(5));				
+				employeeBean.setEmailId(resultSet.getString(6));
+				employeeBean.setMobileNumber((resultSet.getLong(7)));
+				employeeBean.setAlternateMobileNumber(resultSet.getLong(8));
+				employeeBean.setAadharNo(resultSet.getLong(9));
+				employeeBean.setSchoolName(resultSet.getString(10));
+				employeeBean.setTenthPassedOut(resultSet.getInt(11));
+				employeeBean.setIntermediateCollegeName(resultSet.getString(12));
+				employeeBean.setInterPassedOut(resultSet.getInt(13));
+				employeeBean.setGraduationDetails(resultSet.getString(14));
+				employeeBean.setGraduationPassedOut(resultSet.getInt(15));
+				employeeBean.setBranch(resultSet.getString(16));
+				employeeBean.setUniversity(resultSet.getString(17));
+				employeeBean.setCompanyName(resultSet.getString(18));
+				employeeBean.setRole(resultSet.getString(19));
+				employeeBean.setNoticePeriod(resultSet.getInt(20));
+				employeeBean.setLocation(resultSet.getString(21));
+				employeeBean.setExperience(resultSet.getString(22));
+				employeeBean.setCurrentCTC((resultSet.getDouble(23)));
+				employeeBean.setExpectedCTC((resultSet.getDouble(24)));
+				employeeBean.setPermanentAddress(resultSet.getString(25));
+				employeeBean.setLocalAddress(resultSet.getString(26));
 				
 				listOfEmployee.add(employeeBean);
 			}
@@ -187,7 +190,7 @@ public class HRMDaoImplementation implements HRMDao {
 				employeeBean.setLastName(resultSet.getString(3));
 				employeeBean.setFatherName(resultSet.getString(4));
 				employeeBean.setGender(resultSet.getString(5));				
-				employeeBean.setDob(resultSet.getDate(6).toString());
+				employeeBean.setDob(resultSet.getString(6));
 				employeeBean.setEmailId(resultSet.getString(7));
 				employeeBean.setMobileNumber(resultSet.getLong(8));
 				employeeBean.setAlternateMobileNumber(resultSet.getLong(9));
@@ -206,13 +209,15 @@ public class HRMDaoImplementation implements HRMDao {
 				employeeBean.setUniversity(resultSet.getString(22));
 				employeeBean.setCompanyName(resultSet.getString(23));
 				employeeBean.setRole(resultSet.getString(24));
-				employeeBean.setLocation(resultSet.getString(25));
-				employeeBean.setExperience(resultSet.getString(26));
-				employeeBean.setCurrentCTC(resultSet.getDouble(27));
-				  employeeBean.setManager(resultSet.getString(28));
-				  employeeBean.setBankname(resultSet.getString(29));
-				  employeeBean.setBankAccNo(resultSet.getLong(30));
-				  employeeBean.setIfscCode(resultSet.getString(31));
+				employeeBean.setNoticePeriod(resultSet.getInt(25));
+				employeeBean.setLocation(resultSet.getString(26));
+				employeeBean.setExperience(resultSet.getString(27));
+				employeeBean.setCurrentCTC(resultSet.getDouble(28));
+				employeeBean.setExpectedCTC(resultSet.getDouble(29));
+				  employeeBean.setManager(resultSet.getString(30));
+				  employeeBean.setBankname(resultSet.getString(31));
+				  employeeBean.setBankAccNo(resultSet.getLong(32));
+				  employeeBean.setIfscCode(resultSet.getString(33));
 				 
 				listOfEmployee.add(employeeBean);
 			}
@@ -231,7 +236,7 @@ public class HRMDaoImplementation implements HRMDao {
 		EmployeeBean employeeBean=null;
 		List<EmployeeBean> listOfEmployee = new ArrayList<>();
 	
-		String query="select * from employeebean where Role=?";
+		String query="select * from employeebean where role=?";
 			try
 			{
 				
@@ -244,6 +249,7 @@ public class HRMDaoImplementation implements HRMDao {
 					employeeBean.setEmployeeId(resultSet.getString(1));
 					employeeBean.setFirstName(resultSet.getString(2));
 					employeeBean.setLastName(resultSet.getString(3));
+					employeeBean.setManager(resultSet.getString(30));
 					listOfEmployee.add(employeeBean);
 				}
 				
@@ -270,34 +276,40 @@ public class HRMDaoImplementation implements HRMDao {
 				resultSet=pstmt.executeQuery();
 				while(resultSet.next())
 				{
-					employeeBean = new EmployeeBean();
+					employeeBean= new EmployeeBean();
 					employeeBean.setEmployeeId(resultSet.getString(1));
 					employeeBean.setFirstName(resultSet.getString(2));
 					employeeBean.setLastName(resultSet.getString(3));
 					employeeBean.setFatherName(resultSet.getString(4));
 					employeeBean.setGender(resultSet.getString(5));				
-					
+					employeeBean.setDob(resultSet.getString(6));
 					employeeBean.setEmailId(resultSet.getString(7));
 					employeeBean.setMobileNumber(resultSet.getLong(8));
-					employeeBean.setAadharNo(resultSet.getLong(9));
-					employeeBean.setPermanentAddress(resultSet.getString(10));
-					employeeBean.setLocalAddress(resultSet.getString(11));
-					employeeBean.setSchoolName(resultSet.getString(12));
-					employeeBean.setTenthPassedOut(resultSet.getInt(13));
-					employeeBean.setIntermediateCollegeName(resultSet.getString(14));
-					employeeBean.setInterPassedOut(resultSet.getInt(15));
-					employeeBean.setGraduationDetails(resultSet.getString(16));
-					employeeBean.setGraduationPassedOut(resultSet.getInt(17));
-					employeeBean.setBranch(resultSet.getString(18));
-					employeeBean.setUniversity(resultSet.getString(19));
-					employeeBean.setCompanyName(resultSet.getString(20));
-					employeeBean.setRole(resultSet.getString(21));
-					employeeBean.setNoticePeriod(resultSet.getInt(22));
-					employeeBean.setLocation(resultSet.getString(23));
-					employeeBean.setExperience(resultSet.getString(24));
-					employeeBean.setCurrentCTC(resultSet.getDouble(25));
-					employeeBean.setExpectedCTC((resultSet.getDouble(26)));
-					employeeBean.setManager(resultSet.getString(27));
+					employeeBean.setAlternateMobileNumber(resultSet.getLong(9));
+					employeeBean.setAadharNo(resultSet.getLong(10));
+					employeeBean.setPanNumber(resultSet.getString(11));
+					employeeBean.setPassportNumber(resultSet.getString(12));
+					employeeBean.setPermanentAddress(resultSet.getString(13));
+					employeeBean.setLocalAddress(resultSet.getString(14));
+					employeeBean.setSchoolName(resultSet.getString(15));
+					employeeBean.setTenthPassedOut(resultSet.getInt(16));
+					employeeBean.setIntermediateCollegeName(resultSet.getString(17));
+					employeeBean.setInterPassedOut(resultSet.getInt(18));
+					employeeBean.setGraduationDetails(resultSet.getString(19));
+					employeeBean.setGraduationPassedOut(resultSet.getInt(20));
+					employeeBean.setBranch(resultSet.getString(21));
+					employeeBean.setUniversity(resultSet.getString(22));
+					employeeBean.setCompanyName(resultSet.getString(23));
+					employeeBean.setRole(resultSet.getString(24));
+					employeeBean.setNoticePeriod(resultSet.getInt(25));
+					employeeBean.setLocation(resultSet.getString(26));
+					employeeBean.setExperience(resultSet.getString(27));
+					employeeBean.setCurrentCTC(resultSet.getDouble(28));
+					employeeBean.setExpectedCTC(resultSet.getDouble(29));
+					  employeeBean.setManager(resultSet.getString(30));
+					  employeeBean.setBankname(resultSet.getString(31));
+					  employeeBean.setBankAccNo(resultSet.getLong(32));
+					  employeeBean.setIfscCode(resultSet.getString(33));
 					listOfEmployee.add(employeeBean);
 				}
 				
@@ -428,9 +440,11 @@ public class HRMDaoImplementation implements HRMDao {
 		addPlaceHolderValue(pstmt,employeeBean.getUniversity());
 		addPlaceHolderValue(pstmt,employeeBean.getCompanyName());
 		addPlaceHolderValue(pstmt,employeeBean.getRole());
+		addPlaceHolderValue(pstmt,employeeBean.getNoticePeriod());
 		addPlaceHolderValue(pstmt,employeeBean.getLocation());
 		addPlaceHolderValue(pstmt,employeeBean.getExperience());
 		addPlaceHolderValue(pstmt,employeeBean.getCurrentCTC());
+		addPlaceHolderValue(pstmt,employeeBean.getExpectedCTC());
 		addPlaceHolderValue(pstmt,employeeBean.getManager());
 		addPlaceHolderValue(pstmt,employeeBean.getBankname());
 		addPlaceHolderValue(pstmt,employeeBean.getBankAccNo());
@@ -466,12 +480,14 @@ public class HRMDaoImplementation implements HRMDao {
 		addToQuery(query, employeeBean.getUniversity(), "university");
 		addToQuery(query, employeeBean.getCompanyName(),"companyname");
 		addToQuery(query, employeeBean.getRole(), "role");
+		addToQuery(query, employeeBean.getNoticePeriod(), "noticeperiod");
 		addToQuery(query, employeeBean.getLocation(), "location");
 		addToQuery(query, employeeBean.getExperience(), "experience");
 		addToQuery(query, employeeBean.getCurrentCTC(), "currentctc");
+		addToQuery(query, employeeBean.getExpectedCTC(), "expectedctc");
 		addToQuery(query, employeeBean.getManager(), "manager");
 		addToQuery(query, employeeBean.getBankname(), "bankName");
-		addToQuery(query, employeeBean.getBankAccNo(), "bankAccno");
+		addToQuery(query, employeeBean.getBankAccNo(), "bankaccountnumber");
 		addToQuery(query, employeeBean.getIfscCode(), "ifscCode");
 		
  		query.replace(query.length()-2, query.length(), "");
