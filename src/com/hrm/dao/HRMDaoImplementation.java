@@ -360,26 +360,6 @@ public class HRMDaoImplementation implements HRMDao {
 		return s1;
 	}
 	@Override
-	public boolean adminlogin(String adminid, String password) {
-		boolean s2 =false;
-		try {
-		String query ="select * from admindetails where adminid=? and password=?";
-		con =MySqlDBConnection.getInstance();
-		
-			pstmt=con.prepareStatement(query);
-			pstmt.setString(1, adminid);
-			pstmt.setString(2, password);
-			resultSet1 = pstmt.executeQuery();
-			s2 = resultSet1.next();
-			
-		} catch (SQLException e) {
-			System.out.println("");
-			e.printStackTrace();
-		}
-		
-		return s2;
-	}
-	@Override
 	public int employeeUpdate(EmployeeBean employeeBean) {
 		int result =0;
 	
@@ -522,45 +502,6 @@ public class HRMDaoImplementation implements HRMDao {
 			param.append(param3+"=?, ");
 		}
 	}
-	public int insertRequestData(RequestBean employeerequest){
-		String query="insert into CreateRequest values(?,?,?,?,?)";
-		int result=0;
-		try
-		{
-			pstmt=con.prepareStatement(query);	
-		pstmt.setString(1,employeerequest.getReasonId());
-		pstmt.setString(2,employeerequest.getReasonName());
-		pstmt.setString(5,employeerequest.getTextArea());
-		pstmt.setString(4,employeerequest.getSenderMail());
-		pstmt.setString(3,employeerequest.getRecieverMail());
-		result=pstmt.executeUpdate();
-		}
-		catch(Exception e){
-			e.printStackTrace();
-		}
-		return result;
-	}
-	public List<RequestBean> Search(){
-		List<RequestBean>  listofrequest=new ArrayList<RequestBean>();
-		String query="select * from CreateRequest";
-		try {
-		pstmt=con.prepareStatement(query);
-		resultSet=pstmt.executeQuery();
-		RequestBean empsql=null;
-		while(resultSet.next()) {
-		empsql=new RequestBean();
-		empsql.setReasonId(resultSet.getString(1));
-		empsql.setReasonName(resultSet.getString(2));
-		empsql.setTextArea(resultSet.getString(3));
-		empsql.setRecieverMail(resultSet.getString(4));
-		empsql.setSenderMail(resultSet.getString(5));
-		listofrequest.add(empsql);
-		}
-		} catch (SQLException e) {
-		e.printStackTrace();
-		}
-		return listofrequest;
-		}
 	
 public EmployeeBean searchLoggerEmail(String LoginId)throws SQLException{
 	EmployeeBean emp=new EmployeeBean();
@@ -580,7 +521,93 @@ public EmployeeBean searchLoggerEmail(String LoginId)throws SQLException{
 		}
 	return emp;
 }
+public int insertRequestData(RequestBean employeerequest){
+	String query="insert into createrequest values(?,?,?,?,?)";
+	int result=0;
+	if(employeerequest !=null)
+	{
+	try
+	{
+		pstmt=con.prepareStatement(query);	
+	setvaluestoptst(employeerequest);
+	result=pstmt.executeUpdate();
+	}
+	catch(Exception e){
+		e.printStackTrace();
+	}
+	}else {
+		System.out.println("nulll data cannot be inserted");
+	}
+	return result;
+}
+
+public void setvaluestoptst(RequestBean employeerequest) throws SQLException {
+	pstmt.setString(1,employeerequest.getReasonId());
+	pstmt.setString(2,employeerequest.getReasonName());
+	pstmt.setString(5,employeerequest.getTextArea());
+	pstmt.setString(4,employeerequest.getSenderMail());
+	pstmt.setString(3,employeerequest.getRecieverMail());
+}
+public List<RequestBean> Search(){
+	List<RequestBean>  listofrequest=new ArrayList<RequestBean>();
+	String query="select * from createrequest";
+	try {
+	pstmt=con.prepareStatement(query);
+	resultSet=pstmt.executeQuery();
+	RequestBean empsql=null;
+	while(resultSet.next()) {
+	empsql=new RequestBean();
+	setvaluestorequest(empsql);
+	listofrequest.add(empsql);
+	}
+	} catch (SQLException e) {
+	e.printStackTrace();
+	}
+	return listofrequest;
+	}
+
+public void setvaluestorequest(RequestBean empsql) throws SQLException {
+	empsql.setReasonId(resultSet.getString(1));
+	empsql.setReasonName(resultSet.getString(2));
+	empsql.setTextArea(resultSet.getString(3));
+	empsql.setRecieverMail(resultSet.getString(4));
+	empsql.setSenderMail(resultSet.getString(5));
+}
+
+
+
+public boolean adminlogin(String adminid, String password) {
+	boolean s2 =false;
 	
+	if(adminid !=null && password!=null)
+	{
+	
+	try {
+	String query ="select * from admindetails where adminid=? and password=?";
+	con =MySqlDBConnection.getInstance();
+	
+		pstmt=con.prepareStatement(query);
+		setvaluestoAdminlogin(adminid, password);
+		resultSet1 = pstmt.executeQuery();
+		s2 = resultSet1.next();
+		
+	} 
+	catch (SQLException e) {
+		System.out.println("");
+		e.printStackTrace();
+	}
+	
+	
+	}else
+		System.out.println("please enter vaules");
+	return s2;
+}
+
+public void setvaluestoAdminlogin(String adminid, String password) throws SQLException {
+	pstmt.setString(1, adminid);
+	pstmt.setString(2, password);
+}
+
 	
 	
 	
