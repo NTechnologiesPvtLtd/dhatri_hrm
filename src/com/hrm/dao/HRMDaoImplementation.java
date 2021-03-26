@@ -16,11 +16,8 @@ import com.hrm.constants.EmployeeConstants;
 import com.hrm.db.connections.MySqlDBConnection;
 import com.hrm.session.SharedObject;
 
-
-
 public class HRMDaoImplementation implements HRMDao {
-	//Logger log=Logger.getLogger(getClass());
-	
+
 	private static final EmployeeBean EmployeeBean = null;
 	private static final AdminBean AdminBean =null;
 	Connection con;
@@ -59,6 +56,8 @@ public class HRMDaoImplementation implements HRMDao {
 	@Override
 	public int insertEmployeeData(EmployeeBean employeeBean) {
 		int result=0;
+		if(employeeBean!=null) {
+		
 		String query="insert into employeebean values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try
 		{
@@ -68,8 +67,25 @@ public class HRMDaoImplementation implements HRMDao {
 			duplicateData(employeeBean);
 			}
 			
-			pstmt=con.prepareStatement(query);
-			//SharedObject.putInToSession(EmployeeConstants.EMPLOYEE_ID, employeeId);
+		pstmt=con.prepareStatement(query);
+		setValuesToPstmt(employeeBean);
+		result=pstmt.executeUpdate();
+		
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}		
+		
+		}
+		else {
+			System.out.println("Please enter altleat one value in employeebean");
+		
+		}
+		return result;
+	}
+
+	public void setValuesToPstmt(EmployeeBean employeeBean) throws SQLException {
 		pstmt.setString(1,employeeId);
 		pstmt.setString(2,employeeBean.getFirstName());
 		pstmt.setString(3,employeeBean.getLastName());
@@ -103,15 +119,6 @@ public class HRMDaoImplementation implements HRMDao {
 		pstmt.setString(31,employeeBean.getBankname());
 		pstmt.setLong(32, employeeBean.getBankAccNo());
 		pstmt.setString(33,employeeBean.getIfscCode());
-		result=pstmt.executeUpdate();
-		
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}		
-		return result;
-		
 	}
 	@Override
 	public List<EmployeeBean> search() {
@@ -123,33 +130,7 @@ public class HRMDaoImplementation implements HRMDao {
 			resultSet=pstmt.executeQuery();
 			EmployeeBean employeeBean=null;
 			while(resultSet.next()){
-				employeeBean = new EmployeeBean();
-				employeeBean.setEmployeeId(resultSet.getString(1));
-				employeeBean.setFirstName(resultSet.getString(2));
-				employeeBean.setLastName(resultSet.getString(3));
-				employeeBean.setFatherName(resultSet.getString(4));
-				employeeBean.setGender(resultSet.getString(5));				
-				employeeBean.setEmailId(resultSet.getString(6));
-				employeeBean.setMobileNumber((resultSet.getLong(7)));
-				employeeBean.setAlternateMobileNumber(resultSet.getLong(8));
-				employeeBean.setAadharNo(resultSet.getLong(9));
-				employeeBean.setSchoolName(resultSet.getString(10));
-				employeeBean.setTenthPassedOut(resultSet.getInt(11));
-				employeeBean.setIntermediateCollegeName(resultSet.getString(12));
-				employeeBean.setInterPassedOut(resultSet.getInt(13));
-				employeeBean.setGraduationDetails(resultSet.getString(14));
-				employeeBean.setGraduationPassedOut(resultSet.getInt(15));
-				employeeBean.setBranch(resultSet.getString(16));
-				employeeBean.setUniversity(resultSet.getString(17));
-				employeeBean.setCompanyName(resultSet.getString(18));
-				employeeBean.setRole(resultSet.getString(19));
-				employeeBean.setNoticePeriod(resultSet.getInt(20));
-				employeeBean.setLocation(resultSet.getString(21));
-				employeeBean.setExperience(resultSet.getString(22));
-				employeeBean.setCurrentCTC((resultSet.getDouble(23)));
-				employeeBean.setExpectedCTC((resultSet.getDouble(24)));
-				employeeBean.setPermanentAddress(resultSet.getString(25));
-				employeeBean.setLocalAddress(resultSet.getString(26));
+				employeeBean = setToBean();
 				
 				listOfEmployee.add(employeeBean);
 			}
@@ -160,10 +141,42 @@ public class HRMDaoImplementation implements HRMDao {
 		}
 		return listOfEmployee;
 	}
+
+	public EmployeeBean setToBean() throws SQLException {
+		EmployeeBean employeeBean;
+		employeeBean = new EmployeeBean();
+		employeeBean.setEmployeeId(resultSet.getString(1));
+		employeeBean.setFirstName(resultSet.getString(2));
+		employeeBean.setLastName(resultSet.getString(3));
+		employeeBean.setFatherName(resultSet.getString(4));
+		employeeBean.setGender(resultSet.getString(5));				
+		employeeBean.setEmailId(resultSet.getString(6));
+		employeeBean.setMobileNumber((resultSet.getLong(7)));
+		employeeBean.setAlternateMobileNumber(resultSet.getLong(8));
+		employeeBean.setAadharNo(resultSet.getLong(9));
+		employeeBean.setSchoolName(resultSet.getString(10));
+		employeeBean.setTenthPassedOut(resultSet.getInt(11));
+		employeeBean.setIntermediateCollegeName(resultSet.getString(12));
+		employeeBean.setInterPassedOut(resultSet.getInt(13));
+		employeeBean.setGraduationDetails(resultSet.getString(14));
+		employeeBean.setGraduationPassedOut(resultSet.getInt(15));
+		employeeBean.setBranch(resultSet.getString(16));
+		employeeBean.setUniversity(resultSet.getString(17));
+		employeeBean.setCompanyName(resultSet.getString(18));
+		employeeBean.setRole(resultSet.getString(19));
+		employeeBean.setNoticePeriod(resultSet.getInt(20));
+		employeeBean.setLocation(resultSet.getString(21));
+		employeeBean.setExperience(resultSet.getString(22));
+		employeeBean.setCurrentCTC((resultSet.getDouble(23)));
+		employeeBean.setExpectedCTC((resultSet.getDouble(24)));
+		employeeBean.setPermanentAddress(resultSet.getString(25));
+		employeeBean.setLocalAddress(resultSet.getString(26));
+		return employeeBean;
+	}
 	
 	public List<EmployeeBean> search(String param)
 	{
-		//log.info("search param value="+param);
+		
 		if(null == param || param.isEmpty()){
 			return null;
 		}
@@ -174,50 +187,12 @@ public class HRMDaoImplementation implements HRMDao {
 		
 		try
 		{
-			/*pstmt=con.prepareStatement(query);
-			//pstmt=con.prepareStatement(query1);
-			//pstmt=con.prepareStatement(query2);
-			pstmt.setInt(1, param);*/
-			
 			stmt = con.createStatement();
 			
 			resultSet=stmt.executeQuery(query);
 			while(resultSet.next())
 			{
-				employeeBean= new EmployeeBean();
-				employeeBean.setEmployeeId(resultSet.getString(1));
-				employeeBean.setFirstName(resultSet.getString(2));
-				employeeBean.setLastName(resultSet.getString(3));
-				employeeBean.setFatherName(resultSet.getString(4));
-				employeeBean.setGender(resultSet.getString(5));				
-				employeeBean.setDob(resultSet.getString(6));
-				employeeBean.setEmailId(resultSet.getString(7));
-				employeeBean.setMobileNumber(resultSet.getLong(8));
-				employeeBean.setAlternateMobileNumber(resultSet.getLong(9));
-				employeeBean.setAadharNo(resultSet.getLong(10));
-				employeeBean.setPanNumber(resultSet.getString(11));
-				employeeBean.setPassportNumber(resultSet.getString(12));
-				employeeBean.setPermanentAddress(resultSet.getString(13));
-				employeeBean.setLocalAddress(resultSet.getString(14));
-				employeeBean.setSchoolName(resultSet.getString(15));
-				employeeBean.setTenthPassedOut(resultSet.getInt(16));
-				employeeBean.setIntermediateCollegeName(resultSet.getString(17));
-				employeeBean.setInterPassedOut(resultSet.getInt(18));
-				employeeBean.setGraduationDetails(resultSet.getString(19));
-				employeeBean.setGraduationPassedOut(resultSet.getInt(20));
-				employeeBean.setBranch(resultSet.getString(21));
-				employeeBean.setUniversity(resultSet.getString(22));
-				employeeBean.setCompanyName(resultSet.getString(23));
-				employeeBean.setRole(resultSet.getString(24));
-				employeeBean.setNoticePeriod(resultSet.getInt(25));
-				employeeBean.setLocation(resultSet.getString(26));
-				employeeBean.setExperience(resultSet.getString(27));
-				employeeBean.setCurrentCTC(resultSet.getDouble(28));
-				employeeBean.setExpectedCTC(resultSet.getDouble(29));
-				  employeeBean.setManager(resultSet.getString(30));
-				  employeeBean.setBankname(resultSet.getString(31));
-				  employeeBean.setBankAccNo(resultSet.getLong(32));
-				  employeeBean.setIfscCode(resultSet.getString(33));
+				employeeBean = setToBeanAll();
 				 
 				listOfEmployee.add(employeeBean);
 			}
@@ -226,8 +201,48 @@ public class HRMDaoImplementation implements HRMDao {
 		{
 			System.out.println(e);
 		}
-		//log.info("search response="+listOfEmployee);
+	
+		
 		return listOfEmployee;
+	}
+
+	public EmployeeBean setToBeanAll() throws SQLException {
+		EmployeeBean employeeBean;
+		employeeBean= new EmployeeBean();
+		employeeBean.setEmployeeId(resultSet.getString(1));
+		employeeBean.setFirstName(resultSet.getString(2));
+		employeeBean.setLastName(resultSet.getString(3));
+		employeeBean.setFatherName(resultSet.getString(4));
+		employeeBean.setGender(resultSet.getString(5));				
+		employeeBean.setDob(resultSet.getString(6));
+		employeeBean.setEmailId(resultSet.getString(7));
+		employeeBean.setMobileNumber(resultSet.getLong(8));
+		employeeBean.setAlternateMobileNumber(resultSet.getLong(9));
+		employeeBean.setAadharNo(resultSet.getLong(10));
+		employeeBean.setPanNumber(resultSet.getString(11));
+		employeeBean.setPassportNumber(resultSet.getString(12));
+		employeeBean.setPermanentAddress(resultSet.getString(13));
+		employeeBean.setLocalAddress(resultSet.getString(14));
+		employeeBean.setSchoolName(resultSet.getString(15));
+		employeeBean.setTenthPassedOut(resultSet.getInt(16));
+		employeeBean.setIntermediateCollegeName(resultSet.getString(17));
+		employeeBean.setInterPassedOut(resultSet.getInt(18));
+		employeeBean.setGraduationDetails(resultSet.getString(19));
+		employeeBean.setGraduationPassedOut(resultSet.getInt(20));
+		employeeBean.setBranch(resultSet.getString(21));
+		employeeBean.setUniversity(resultSet.getString(22));
+		employeeBean.setCompanyName(resultSet.getString(23));
+		employeeBean.setRole(resultSet.getString(24));
+		employeeBean.setNoticePeriod(resultSet.getInt(25));
+		employeeBean.setLocation(resultSet.getString(26));
+		employeeBean.setExperience(resultSet.getString(27));
+		employeeBean.setCurrentCTC(resultSet.getDouble(28));
+		employeeBean.setExpectedCTC(resultSet.getDouble(29));
+		  employeeBean.setManager(resultSet.getString(30));
+		  employeeBean.setBankname(resultSet.getString(31));
+		  employeeBean.setBankAccNo(resultSet.getLong(32));
+		  employeeBean.setIfscCode(resultSet.getString(33));
+		return employeeBean;
 	}
 	
 	@SuppressWarnings("null")
@@ -235,40 +250,38 @@ public class HRMDaoImplementation implements HRMDao {
 	{
 		EmployeeBean employeeBean=null;
 		List<EmployeeBean> listOfEmployee = new ArrayList<>();
-	
-		String query="select * from employeebean where role=?";
+		if(role1!=null&&!role1.isEmpty())
+		{
+		 String query="select * from employeebean where role=?";
 			try
 			{
-				
-				pstmt=con.prepareStatement(query);
+			    pstmt=con.prepareStatement(query);
 				pstmt.setString(1,role1);
 				resultSet=pstmt.executeQuery();
 				while(resultSet.next())
 				{
-					employeeBean = new EmployeeBean();
-					employeeBean.setEmployeeId(resultSet.getString(1));
-					employeeBean.setFirstName(resultSet.getString(2));
-					employeeBean.setLastName(resultSet.getString(3));
-					employeeBean.setManager(resultSet.getString(30));
+					employeeBean = setToBeanAll();
 					listOfEmployee.add(employeeBean);
-				}
-				
-				//listOfEmployee.add(employeeBean);
+				}	
 			}
 			catch(Exception e)
 			{
 				System.out.println(e);
 			}
-		
+		}
+		else {
+			System.out.println("please enter role");
+		}
 			return listOfEmployee;
 		
 	}
 	public List<EmployeeBean> searchManagerEmp(String manager)
 	{
-		EmployeeBean employeeBean=null;
 		List<EmployeeBean> listOfEmployee = new ArrayList<>();
-	
-		String query="select * from employeebean where Manager=?";
+		EmployeeBean employeeBean=null;
+		if(manager!=null&&!manager.isEmpty())
+		{
+			String query="select * from employeebean where Manager=?";
 			try
 			{
 				pstmt=con.prepareStatement(query);
@@ -276,70 +289,46 @@ public class HRMDaoImplementation implements HRMDao {
 				resultSet=pstmt.executeQuery();
 				while(resultSet.next())
 				{
-					employeeBean= new EmployeeBean();
-					employeeBean.setEmployeeId(resultSet.getString(1));
-					employeeBean.setFirstName(resultSet.getString(2));
-					employeeBean.setLastName(resultSet.getString(3));
-					employeeBean.setFatherName(resultSet.getString(4));
-					employeeBean.setGender(resultSet.getString(5));				
-					employeeBean.setDob(resultSet.getString(6));
-					employeeBean.setEmailId(resultSet.getString(7));
-					employeeBean.setMobileNumber(resultSet.getLong(8));
-					employeeBean.setAlternateMobileNumber(resultSet.getLong(9));
-					employeeBean.setAadharNo(resultSet.getLong(10));
-					employeeBean.setPanNumber(resultSet.getString(11));
-					employeeBean.setPassportNumber(resultSet.getString(12));
-					employeeBean.setPermanentAddress(resultSet.getString(13));
-					employeeBean.setLocalAddress(resultSet.getString(14));
-					employeeBean.setSchoolName(resultSet.getString(15));
-					employeeBean.setTenthPassedOut(resultSet.getInt(16));
-					employeeBean.setIntermediateCollegeName(resultSet.getString(17));
-					employeeBean.setInterPassedOut(resultSet.getInt(18));
-					employeeBean.setGraduationDetails(resultSet.getString(19));
-					employeeBean.setGraduationPassedOut(resultSet.getInt(20));
-					employeeBean.setBranch(resultSet.getString(21));
-					employeeBean.setUniversity(resultSet.getString(22));
-					employeeBean.setCompanyName(resultSet.getString(23));
-					employeeBean.setRole(resultSet.getString(24));
-					employeeBean.setNoticePeriod(resultSet.getInt(25));
-					employeeBean.setLocation(resultSet.getString(26));
-					employeeBean.setExperience(resultSet.getString(27));
-					employeeBean.setCurrentCTC(resultSet.getDouble(28));
-					employeeBean.setExpectedCTC(resultSet.getDouble(29));
-					  employeeBean.setManager(resultSet.getString(30));
-					  employeeBean.setBankname(resultSet.getString(31));
-					  employeeBean.setBankAccNo(resultSet.getLong(32));
-					  employeeBean.setIfscCode(resultSet.getString(33));
+					employeeBean = setToBeanAll();
 					listOfEmployee.add(employeeBean);
 				}
-				
-				//listOfEmployee.add(employeeBean);
-			}
+				}
 			catch(Exception e)
 			{
 				System.out.println(e);
 			}
-		
+		}
+		else
+		{
+			System.out.println("please enter manager");
+		}
 			return listOfEmployee;
 		
 	}
-	public EmployeeBean searchGmailId(String str1)
+	public EmployeeBean searchGmailId(String firstname)
 	{
 		EmployeeBean employeeBean=new EmployeeBean();
+		if(firstname!=null&&!firstname.isEmpty())
+		{
 		String query="select EmailId from employeebean where FirstName=?";
 		try
 		{
 			pstmt=con.prepareStatement(query);
-			pstmt.setString(1,str1);
+			pstmt.setString(1,firstname);
 			resultSet=pstmt.executeQuery();
 			while(resultSet.next())
 			{
-				employeeBean.setEmailId(resultSet.getString(1));
+				employeeBean = setToBeanAll();
 			}
 		}
 		catch(Exception e)
 		{
 			System.out.println(e);
+		}
+		
+		}
+		else {
+			System.out.println("invalid firstname");
 		}
 		return employeeBean;
 	}
@@ -348,6 +337,8 @@ public class HRMDaoImplementation implements HRMDao {
 	public boolean login(String employeeId,long mobileNumber)
 	{
 		boolean s1=false;
+		if(employeeId!=null&&!employeeId.isEmpty())
+		{
 		try{
 		String q1="select * from employeebean where employeeId=? and mobileNo=?";
 		con=MySqlDBConnection.getInstance();
@@ -361,6 +352,10 @@ public class HRMDaoImplementation implements HRMDao {
 		{
 			System.out.println("");
 		e.printStackTrace();
+		}}
+		else
+		{
+			System.out.println("please enter valid username");
 		}
 		return s1;
 	}
@@ -387,19 +382,13 @@ public class HRMDaoImplementation implements HRMDao {
 	@Override
 	public int employeeUpdate(EmployeeBean employeeBean) {
 		int result =0;
-		//String q2="update employeebean set FirstName=?,FatherName=? where employeeId=?";
+	
+		if(employeeBean!=null)
+		{
 		StringBuffer query = new StringBuffer();
 		buildQuery(employeeBean, query);
 		
 		try {
-			
-			/*
-			 * pstmt = con.prepareStatement(q2);
-			 * pstmt.setString(1,employeeBean.getFirstName()); pstmt.setString(2,
-			 * employeeBean.getFatherName()); pstmt.setString(3,
-			 * employeeBean.getEmployeeId()); result= pstmt.executeUpdate();
-			 */
-		
 			 pstmt = con.prepareStatement(query.toString());
 			 setPlaceHolderValuesToPreparedStatement(employeeBean);
 			
@@ -410,7 +399,7 @@ public class HRMDaoImplementation implements HRMDao {
 			e.printStackTrace();
 		}
 		
-		
+		}
 		return result;
 	}
 	/**
@@ -575,13 +564,21 @@ public class HRMDaoImplementation implements HRMDao {
 	
 public EmployeeBean searchLoggerEmail(String LoginId)throws SQLException{
 	EmployeeBean emp=new EmployeeBean();
+	if(LoginId!=null && !LoginId.isEmpty()) {
+	
 	String query ="select EmailId from employeebean where EmployeeId=?";
 	pstmt=con.prepareStatement(query);
 	pstmt.setString(1,LoginId);
 	resultSet=pstmt.executeQuery();
 	while(resultSet.next()) {
 		emp.setEmailId(resultSet.getString(1));
-	}return emp;
+	}
+	}
+	else
+		{
+		System.out.println("please enter the value");
+		}
+	return emp;
 }
 	
 	

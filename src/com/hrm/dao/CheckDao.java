@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.hrm.bean.EmployeeBean;
+import com.hrm.services.HRMServicesImplementation;
 
 
 public class CheckDao {
@@ -13,7 +14,8 @@ public class CheckDao {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		HRMDaoImplementation hd=new HRMDaoImplementation();
-		EmployeeBean eb=new EmployeeBean();
+		EmployeeBean eb=null;
+		HRMServicesImplementation hs=new HRMServicesImplementation();
 		while(true)
 		{System.out.println("\n");
 		System.out.println("1->Insert the Employee Details"
@@ -27,7 +29,8 @@ public class CheckDao {
 				
 				+ "\n9->EmployeeUpdate"
 				+ "\n10.check duplicate data"
-				+ "\n11.Exit");
+				+ "\n11.hrm service login"
+				+ "\n12.exit");
 		Scanner sc=new Scanner(System.in);
 		
 		
@@ -35,6 +38,7 @@ public class CheckDao {
 		switch(n)
 		{
 		case 1://insert
+			eb=new EmployeeBean();
 			   System.out.println("enter employeeid");
 		      String id=sc.next();
 		      
@@ -243,7 +247,9 @@ public class CheckDao {
 				
 			}
 		break;
-		case 9:System.out.println("enter employeeid");
+		case 9:
+			eb=new EmployeeBean();
+			System.out.println("enter employeeid");
 	      String id1=sc.next();
 	      
 	       eb.setEmployeeId(id1);
@@ -358,6 +364,7 @@ public class CheckDao {
 		   }
 		   break;
 		case 10:
+			eb=new EmployeeBean();
 			System.out.println("enter employeeid");
 			String empid3=sc.next();
 			eb.setEmployeeId(empid3);
@@ -373,6 +380,14 @@ public class CheckDao {
 			}
 			break;
 		case 11:
+			System.out.println("enter username ");
+			String id5=sc.next();
+			System.out.println("enter password ");
+			long password=sc.nextLong();
+			boolean flag3=hs.login(id5, password);
+			System.out.println(flag3);
+			break;
+		case 12:
 			sc.close();
 			System.out.println("you are exited run again to do operations.....");
 			System.exit(0);
