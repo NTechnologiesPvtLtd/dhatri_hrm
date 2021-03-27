@@ -14,58 +14,48 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Display title here</title>
-<link href="font-awesome-4.7.0/css/font-awesome.min.css"
-	rel="stylesheet">
-<link
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" media="all" href="stylesheets/animate.css" />
-<script type="text/javascript" src="employeeValidation.js">
-	
-</script>
-<style>
-</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="employeeValidation.js"></script>
 
 </head>
 <body>
 
 
 
-	<div id="nav">
-		<h1>
-			<a href="index.jsp">Dhatsol IT Solutions</a>
-		</h1>
+<div class="container-fluid">
+	<nav class="navbar navbar-expand-sm bg-dark fixed-top navbar-dark">
+	
+		<div class="navbar-header">
+			<a class="navbar-brand" href="index.jsp"><strong>Dhatsol It Solutions</strong></a>
+		</div>
+  		<ul class="navbar-nav ml-auto">
+    		<li class="nav-item active"><a class="nav-link"  href="index.jsp"><strong>Home</strong></a></li>
+    		<li class="nav-item active"><a class="nav-link" href="Aboutus.jsp"><strong>Aboutus</strong></a></li>
+  			<li class="nav-item active"><a class="nav-link" href="user.jsp"><strong>Logout</strong></a></li>
+  			<li class="dropdown nav-item active" ><a class=" nav-link dropdown-toggle" data-toggle="dropdown" href="#"><strong>Employee</strong> <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="Employee.jsp">New Registration</a></li>
+					<li><a href="#">Response Approved</a></li>
+					<li><a href="EmployeeViewDirection.jsp">Search Employee</a></li>
+				</ul>
+			</li>	
+  		</ul>
+  	
+	</nav>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-
-		<ul>
-			<li><a href="index.jsp">Home</a></li>
-			<li><a href="user.jsp">Login</a></li>
-
-
-
-			<div class="dropdown">
-				<button class="dropbtn">
-					Employee <i class="fa fa-caret-down" id="active"></i>
-				</button>
-				<div class="dropdown-content">
-					<a href="EmployeeRegistration.jsp">New Registration</a> <a href="#">Response
-						Approved</a> <a href="EmployeeViewDirection.jsp">Search Employee</a> <a
-						href="user.jsp">Login</a>
-
-				</div>
-			</div>
-
-			<li><a href="Aboutus.html">about us</a></li>
-		</ul>
-	</div>
-
-	</div>
-	<div id="#mainform">
+<div id="#mainform">
 		<br> <br>
 
-		<div class="container" style="background-color: #ddd";>
+		<div class="container" style="background-image:url(color.jpg)";>
 			<center>
 				<h1 style="color: black";"padding:50%"; "margin-top:50%"; "height:20%";>
 
