@@ -1,41 +1,127 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dhatsol</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link href="stylesheets\bootstrap.css" rel="stylesheet" />
+<link href="stylesheets\newstyle.css" rel="stylesheet"/>
+<link href="stylesheets\custom.css" rel="stylesheet"/>
+<link href='https://fonts.googleapis.com/css?family=Cambo|Poppins:400,600' rel='stylesheet' type='text/css'>
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+
 
 </head>
 
 <body class="homepage">
 
 
-	<nav class="navbar navbar-inverse ">
-	<div class="container">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="index.jsp"> Dhatsol It Solutions</a>
-		</div>
+	<nav class="navbar navbar-default navbar-fixed-top" >
+        
+        <div class="container">
+            <div class="navbar-header">
+                <button id="menu-toggle" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar bar1"></span>
+                    <span class="icon-bar bar2"></span>
+                    <span class="icon-bar bar3"></span>
+                </button>
+                <a href="#" class="navbar-brand">
+                    <strong>Dhatsol IT Solutions</strong> 
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right navbar-uppercase">
+                    <li>
+                        
+                        <a href="Home.jsp" ><i class="fa fa-home"></i>Home</a>
+                    </li>
+                    <li>
+                    <a class="nav-link" href="#myModal" class="trigger-btn" data-toggle="modal"><i class="fa fa-sign-in"></i>Login</a>
+                        
+                    </li>
+                    <li>
+                        <a href="Aboutus.jsp" >About Us</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#gaia" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-sliders"></i> Services
+                        </a>
+                        <ul class="dropdown-menu dropdown-danger">
+                            <li>
+                                <a href="#"> Software Development</a>
+                            </li>
+                            <li>
+                                <a href="#">New Technologies Applications</a>
+                            </li>
+                            <li>
+                                <a href="#"> Database Management</a>
+                            </li>
+                            <li>
+                                <a href="#"> IT Consulting</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-danger btn-fill">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+    </nav>
+	<div id="myModal" class="modal fade">
+		<div class="modal-dialog modal-login">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Member Login</h4>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">
 
-		<ul class="nav navbar-nav">
-			<li class="active"><a href="index.jsp"><span
-					class="glyphicon glyphicon-home"></span>Home</a></li>
-			 
-			<li><a href="Login.jsp"><span
-					class="	glyphicon glyphicon-log-in "></span> Login </a></li>
-		</ul>
+					<form action="LoginServlet" method="post">
+						<div class="form-group">
+							<i class="fa fa-user"></i>
+	 <input type="text" onkeypress="clearForm()" id="loginId" name="employeeId" class="form-control"
+								placeholder="EmployeeId" required="required">
+						</div>
+						<div class="form-group">
+							<i class="fa fa-lock"></i>
+							 <input type="password"class="form-control" onkeypress="clearForm()" id="Password"
+								name="mobileNumber" placeholder="Enter password"
+								required="required">
+						</div>
+						<div class="form-group">
+							<p>Type</p>
+							<select name="type" class="form-control" onkeypress="clearForm()"
+								id="type">
+								<option value="None">Enter Given Type</option>
+								<option value="employee">EMPLOYEE</option>
+								<option value="employeer"> Employeer</option>
+								<option value="admin">ADMIN</option>
+								<option value="manager">Manager</option>
+								<option value="hr">HR</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<input type="submit" class="btn btn-primary btn-block btn-lg submit-color"
+								type="submit" onclick="return loginValidation()" value="login">
+						</div>
+					</form>
+
+				</div>
+				<div class="modal-footer">
+					<a href="ForgetPassword.jsp">forgot password</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</div>
+			</div>
+		</div>
 	</div>
-	</nav>
+	
 	<section id="about-us">
 	<div class="container">
 		<div class="skill-wrap clearfix">
@@ -81,7 +167,7 @@
 
 
 			</div>
-			<div class="container" style="background-image: url(blue.jpg)";>
+			<div class="container" style="background-image: url(blue.jpg);">
 
 				<div class="row">
 					<div class="col-sm-3">
@@ -96,7 +182,7 @@
 				</div>
 			</div>
 
-			<div class="container" style="background-image: url(blue.jpg)";>
+			<div class="container" style="background-image: url(blue.jpg);">
 				<div class="col-sm-3">
 					<div class="sinlge-skill wow fadeInDown" data-wow-duration="1000ms"
 						data-wow-delay="600ms">
@@ -137,53 +223,45 @@
 
 		</div>
 	</div>
-	<!--/.row-->
-	</div>
-	<!--section-->
-	</div>
-	<!--/.container--> </section>
-	<!--/about-us-->
+	</section>
+	
 
 
 
-	<section id="bottom">
-	<div class="container wow fadeInDown animated"
-		data-wow-duration="1000ms" data-wow-delay="600ms"
-		style="visibility: visible; animation-duration: 1000ms; animation-delay: 600ms; animation-name: fadeInDown;">
-		<div class="row">
-			<div class="col-md-4 col-sm-6">
-				<div class="widget">
-					<h3>About Company</h3>
-					<ul>
-						<li>
-							<p>We helps customers do business better by leveraging our
+
+<footer class="footer footer-big footer-color-black" data-color="black">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-3">
+                    <div class="info ">
+                        <h5 class="title"><center>About Company</center></h5>
+                        <p class="text-center">
+                            We helps customers do business better by leveraging our
 								industry-wide,deep technology expertise, comprehensive portfolio
-								of services and vertically aligned business model.</p>
-						</li>
-						<li><a href="about-us.html">Read more</a></li>
-					</ul>
-				</div>
-			</div>
-			<!--/.col-md-3-->
-
-			<div class="col-md-4 col-sm-6">
-				<div class="widget">
-					<h3>SERVICES</h3>
-					<ul>
-
-						<li><a href="services.html">Software Development</a></li>
-						<li><a href="services.html">New Technologies Applications</a></li>
-						<li><a href="services.html">Database Management</a></li>
-						<li><a href="services.html">IT Consulting</a></li>
-					</ul>
-				</div>
-			</div>
-			<!--/.col-md-3-->
-
-
-			<div class="col-md-4 col-sm-6">
-				<div class="widget">
-					<h3>Contact</h3>
+								of services and vertically aligned business model.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-md-offset-1 col-sm-3">
+                    <div class="info">
+                        <h5 class="title"> Services</h5>
+                         <nav>
+                            <ul>
+                                <li><a href="#">Software Development</a></li>
+                                <li><a href="#">New Technologies Applications</a></li>
+                                <li><a href="#">Database Management</a></li>
+                                <li><a href="#">IT Consulting</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3">
+                    <div class="info">
+                        <h5 class="title">Contact</h5>
+                        <nav>
+                            <ul>
+                                <li>
+                                    
 					<address>
 
 						<p>
@@ -192,61 +270,52 @@
 							48520666 <br> E-Mail:: hr@dhatsol.com <br>
 						</p>
 					</address>
-				</div>
-			</div>
-			<!--/.col-md-3-->
-
-		</div>
-	</div>
-	</section>
-
-
-
-
-
-
-	<div class="top-bar">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="social">
-						<ul class="social-share">
-							<li><a
-								href="https://www.facebook.com/Dhatsol-It-Solutions-Pvt-Ltd-2417021448322972/?modal=admin_todo_tour">
-									<i class="fa fa-facebook"></i>
-							</a></li>
-							<li><a href="https://twitter.com/dhatsol"> <i
-									class="fa fa-twitter"></i>
-							</a></li>
-							<li><a
-								href="https://in.linkedin.com/company/dhatsol-it-solutions-pvt-ltd">
-									<i class="fa fa-linkedin"></i>
-							</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--/.container-->
-	</div>
-	<!--/.top-bar-->
-
-	<footer id="footer" class="midnight-blue">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-6">
-				&copy; 2013 <a target="_blank" href="http://bootstraptaste.com/"
-					title="Free Twitter Bootstrap WordPress Themes and HTML templates">Dhatsol</a>.
-				All Rights Reserved.
-			</div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-md-2 col-md-offset-1 col-sm-3">
+                    <div class="info">
+                        <h5 class="title">Follow us on</h5>
+                       <nav>
+                            <ul>
+                                <li>
+                                    <a href="#" class="btn btn-social btn-facebook btn-simple">
+                                        <i class="fa fa-facebook-square"></i> Facebook
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="#" class="btn btn-social btn-twitter btn-simple">
+                                        <i class="fa fa-twitter"></i> Twitter
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="btn btn-social btn-reddit btn-simple">
+                                        <i class="fa fa-google-plus-square"></i> Google+
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="copyright">
+                 © <script> document.write(new Date().getFullYear()) </script> Dhatsol IT Solutions
+            </div>
+        </div>
+    </footer>
 
 
-			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-			<script src="js/jquery.js"></script>
-			<script src="js/bootstrap.min.js"></script>
-			<script src="js/jquery.prettyPhoto.js"></script>
-			<script src="js/jquery.isotope.min.js"></script>
-			<script src="js/wow.min.js"></script>
-			<script src="js/main.js"></script>
+
+<script src="jsFiles\jquery.min.js" type="text/javascript"></script>
+<script src="jsFiles\bootstrap.js" type="text/javascript"></script>
+<script type="text/javascript" src="jsFiles\modernizr.js"></script>
+<script type="text/javascript" src="jsFiles\js/gaia.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script>
+
 </body>
 </html>

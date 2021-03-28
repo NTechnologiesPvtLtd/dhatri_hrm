@@ -10,6 +10,7 @@
 
 <title>Dhatsol</title>
 
+
 <link href="font-awesome-4.7.0/css/font-awesome.min.css"
 	rel="stylesheet">
 <link
@@ -28,12 +29,12 @@
 <body>
 	<div id="nav">
 		<h1>
-			<a href="index.jsp">Dhatsol IT Solutions</a>
+			<a href="Home.jsp">Dhatsol IT Solutions</a>
 		</h1>
 <%SharedObject.setSession(request.getSession()); %>
 		<nav>
 		<ul>
-			<li><a href="index.jsp">Home</a></li>
+			<li><a href="Home.jsp">Home</a></li>
 			<li id="active"><a href="user.jsp">Login</a></li>
 
 			<div class="dropdown">
