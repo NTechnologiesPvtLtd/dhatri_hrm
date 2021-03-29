@@ -20,153 +20,17 @@ function callPopUpMethod(gender,dob){
     w.document.close(); // needed for chrome and safari
 }
 </script>
-<style>
-.scroll1{
-transform: rotateX(180deg);
-margin-bottom: -160px;
-}
-.displaytable1{
-overflow-y: auto;
-    transform: rotateX(180deg);
-    width:100%;
-    }
-</style>
-
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
  
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-	<link rel="stylesheet" media="all" href="stylesheets/mybootstrap.css"/> 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+<title>employeeView</title>
 
-<title>employee</title>
-<style>
-h1 {
-	text-align: center;
-}
-
-h4 {
-	animation: blinkingText 0.8s infinite;
-}
-
-@
-keyframes blinkingText { 0%{
-	color: Black;
-}
-
-50%{
-color
-
-
-:
-
- 
-
-red
-
-
-;
-}
-99%{
-color
-
-
-:
-
- 
-
-black
-
-
-;
-}
-100%{
-color
-
-
-:
-
- 
-
-Black
-
-
-;
-}
-}
-table {
-	font-family: Constantia;
-	font-
-}
-
-a {
-	text-decoration: none;
-}
-
-input[type="text"] {
-	border: None;
-	border-bottom: 1px solid silver;
-	background: transparent;
-	outline: none;
-	height: 30px;
-	color: Black;
-	font-size: 16px;
-}
-
-input[type="submit"] {
-	background: blue;
-	color: white;
-	font-size: 20px;
-	font-family: Constantia;
-}
-
-input[type="submit"]:hover {
-	Color: Blue;
-	background: White;
-}
-
-ul {
-	margin: 0px;
-	padding: 0px;
-	list-style: none;
-}
-
-ul li {
-	float: left;
-	width: 200px;
-	height: 40px;
-	background-color: black;
-	opacity: .8;
-	text-align: center;
-	line-height: 40px;
-	margin-right: 2px;
-}
-
-ul li  {
-	text-decoration: none;
-	color: white;
-	display: block;
-}
-
-ul li a:hover {
-	background-color: Blue;
-}
-
-ul li ul li {
-	display: none;
-}
-
-ul li:hover ul li {
-	display: block;
-}
-}
-</style>
- </head>
+</head>
 <body>
 <%
 		Object obj = SharedObject
@@ -175,68 +39,38 @@ ul li:hover ul li {
 		if (null != obj) {
 			userId = (String) obj;
 		}
-	%>
+%>
 
 <%SharedObject.setSession(request.getSession()); %>
-<nav class="navbar navbar-inverse">
-	<div class="container-fluid">
+
+<div class="container-fluid">
+	<nav class="navbar navbar-expand-sm bg-dark fixed-top navbar-dark">
+	
 		<div class="navbar-header">
-			<a class="navbar-link" href="index.jsp"><h2>Dhatsol IT Solutions</h2></a>
-			
+			<a class="navbar-brand" href="index.jsp"><strong>Dhatsol It Solutions</strong></a>
 		</div>
-		<ul class="nav navbar-nav navbar-right">
-			<li class="active"><a href="index.jsp">Home</a></li> 
-					<li class="active"><a href="Aboutus.jsp">AboutUs</a></li>
-					<li class="active"><a href="user.jsp">Logout</a></li>	
-				
-				<li><p align="right"><b>Login As:</b>
-					<%=userId%></p></li>	
-				</ul>
-
-	</div>
+  		<ul class="navbar-nav ml-auto">
+    		<li class="nav-item active"><a class="nav-link"  href="index.jsp"><strong>Home</strong></a></li>
+    		<li class="nav-item active"><a class="nav-link" href="Aboutus.jsp"><strong>Aboutus</strong></a></li>
+  			<li class="nav-item active"><a class="nav-link" href="user.jsp"><strong>Logout</strong></a></li>
+  			<li class="nav-item active"><p class="nav-link" align="right"><b>Login As:</b> <%=userId%></p></li>	
+  		</ul>
+  	
 	</nav>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-	<div class="container">
-
-  <center>
-  <a href="userupdate.jsp" class="btn btn-info" role="button">UpdateProfile</a>
- <a href="Payslip.jsp" class="btn btn-info" role="button">DownloadPayslip</a>
-  <a href="CreateRequest.jsp" class="btn btn-info" role="button">CreateRequest</a></center>
- 
-			
- </div>
+<div class="container">
+	<center>
+  		<a href="userupdate" class="btn btn-info" role="button">UpdateProfile</a>
+ 		<a href="Payslip.jsp" class="btn btn-info" role="button">DownloadPayslip</a>
+  		<a href="CreateRequest.jsp" class="btn btn-info" role="button">CreateRequest</a></center>
+</div>
  
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

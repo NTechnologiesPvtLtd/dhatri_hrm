@@ -1,46 +1,59 @@
 function registrationValidation()
+
 {
-	var fName=document.getElementById("firstName").value;
-	var lName=document.getElementById("lastName").value;
-	var faName=document.getElementById("fatherName").value;
-	var gender=document.getElementById("gender").value;
+    var employee=document.getElementById("employee").value;
+	var firstName =document.getElementById("firstName").value;
+	var lastName=document.getElementById("lastName").value;
+	var fatherName=document.getElementById("fatherName").value;
+	var gender=document.getElementById("gender").value;	
 	var dob=document.getElementById("dob").value;
-	var email=document.getElementById("emailId").value;
-	var mobileid=document.getElementById("mobileNumber").value;
-	var adhar=document.getElementById("aadharNo").value;
-	var permanentadd=document.getElementById("permanentAddress").value;
-	var localadd=document.getElementById("localAddress").value;
-	var schoolname=document.getElementById("schoolName").value;
-	var tenthpassedout=document.getElementById("tenthPassedOut").value;
-	var collegename=document.getElementById("intermediateCollegeName").value;
-	var interpassedout=document.getElementById("interPassedOut").value;
-	var graduation=document.getElementById("graduationDetails").value;
-	var graduationpassedout=document.getElementById("graduationPassedOut").value;
-	var branch=document.getElementById("branch").value;
+	var emailId=document.getElementById("emailId").value;
+	var mobileNumber=document.getElementById("mobileNumber").value;
+	var aadharNo=document.getElementById("aadharNo").value;
+	var panNo=document.getElementById("panNo").value;
+	var passportNo=document.getElementById("passportNo").value;
+	var permanentAddress=document.getElementById("permanentAddress").value;
+	var localAddress=document.getElementById("localAddress").value;
 	
-	var companyid=document.getElementById("companyName").value;
-	var roleid=document.getElementById("role").value;
-	var notice=document.getElementById("noticePeriod").value;
+	var schoolName=document.getElementById("schoolName").value;
+	var tenthPassedOut=document.getElementById("tenthPassedOut").value;
+	var intermediateCollegeName=document.getElementById("intermediateCollegeName").value;
+	var interPassedOut=document.getElementById("interPassedOut").value;
+	var graduationDetails=document.getElementById("graduationDetails").value;
+	var graduationPassedOut=document.getElementById("graduationPassedOut").value;
+	var branch=document.getElementById("branch").value;
+	var university=document.getElementById("univeristy").value;
+	var companyName=document.getElementById("companyName").value;
+	var role=document.getElementById("role").value;
+	var noticePeriod=document.getElementById("noticePeriod").value;
 	var location=document.getElementById("location").value;
 	var experience=document.getElementById("experience").value;
-	var currentctc=document.getElementById("currentCTC").value;
-	var expectedctc=document.getElementById("expectedCTC").value;
-	if(fName==null||fName=="")
+	var currentCTC=document.getElementById("currentCTC").value;
+	var bankName=document.getElementById("bankName").value;
+	var bankAccNo=document.getElementById("bankAccNo").value;
+	var ifscCode=document.getElementById("ifscCode").value;
+	
+	if(employee==null||employee=="")
 		{
-		document.getElementById("errorMsg").innerHTML="please enter firstName";
+		document.getElementById("Employee").innerHTML="please select employee option ";
+		return false;
+		}
+	else if(firstName==null||firstName=="")
+		{
+		document.getElementById("Firstname").innerHTML="please enter firstName";
 		return false;
 		}
 	
-	else if(lName==null||lName=="")
+	else if(lastName==null||lastName=="")
 		{
-		document.getElementById("errorMsg1").innerHTML="please enter lastName";
+		document.getElementById("Lastname").innerHTML="please enter lastName";
 		return false;
 		}
 	
 	
-	else if(faName==null||faName=="")
+	else if(fatherName==null||fatherName=="")
 	{
-	document.getElementById("errorMsg2").innerHTML="please enter FatherName";
+	document.getElementById("Fathername").innerHTML="please enter FatherName";
 	return false;
 	}
 	
@@ -48,135 +61,153 @@ function registrationValidation()
 	
 	else if(gender==null||gender=="")
 		{
-		document.getElementById("errorMsg3").innerHTML="please select the gender";
+		document.getElementById("Gender").innerHTML="please select the gender";
 		return false;
 		}
 	
 	else if(dob==null||dob=="")
 	{
-	document.getElementById("errorMsg4").innerHTML="please select your Date of Birth";
+	document.getElementById("DOB").innerHTML="please select your Date of Birth";
 	return false;
 	}	
 	
-	else if(email==null||email=="")
+	else if(emailId==null||emailId=="")
 		{
-		document.getElementById("errorMsg5").innerHTML="please enter emailId";
+		document.getElementById("Emailid").innerHTML="please enter emailId";
 		return false;
 		}
-	else if(mobileid==null||mobileid=="")
+	else if(mobileNumber==null||mobileNumber=="")
 	{
-	document.getElementById("errorMsg6").innerHTML="please enter mobile Number";
+	document.getElementById("mobileno").innerHTML="please enter mobile Number";
 	return false;
 	}
-	else if(adhar==null||adhar=="")
+	else if(aadharNo==null||aadharNo=="")
 	{
-	document.getElementById("errorMsg7").innerHTML="please enter Adharnumber";
-	return false;
-	}
-	
-	
-	else if(permanentadd==null||permanentadd=="")
-	{
-	document.getElementById("errorMsg8").innerHTML="please enter permanentaddress";
+	document.getElementById("Aadharno").innerHTML="please enter Adharnumber";
 	return false;
 	}
 	
-	else if(localadd==null||localadd=="")
+	else if(panNo==null||panNo=="")
 	{
-	document.getElementById("errorMsg9").innerHTML="please enter localaddress";
+	document.getElementById("Panno").innerHTML="please enter Panno";
+	return false;
+	}
+	else if(passportNo==null||passportNo=="")
+	{
+	document.getElementById("Passportno").innerHTML="please enter Passportno";
 	return false;
 	}
 	
-	else if(schoolname==null||schoolname=="")
+	else if(permanentAddress==null||permanentAddress=="")
 	{
-	document.getElementById("errorMsg10").innerHTML="please enter schoolname";
+	document.getElementById("Permanentadd").innerHTML="please enter permanentaddress";
 	return false;
 	}
 	
-	else if(tenthpassedout==null||tenthpassedout=="")
+	else if(localAddress==null||localAddress=="")
 	{
-	document.getElementById("errorMsg11").innerHTML="please enter year of passing";
+	document.getElementById("Localadd").innerHTML="please enter localaddress";
 	return false;
 	}
 	
-	else if(collegename==null||collegename=="")
+	else if(schoolName==null||schoolName=="")
 	{
-	document.getElementById("errorMsg12").innerHTML="please enter your collage name";
+	document.getElementById("Schoolname").innerHTML="please enter schoolname";
 	return false;
 	}
 	
-	else if(interpassedout==null||interpassedout=="")
+	else if(tenthPassedOut==null||tenthPassedOut=="")
 	{
-	document.getElementById("errorMsg13").innerHTML="please enter year of passing";
+	document.getElementById("Tenthpassedout").innerHTML="please enter year of passing";
 	return false;
 	}
 	
-	else if(graduation==null||graduation=="None")
+	else if(intermediateCollegeName==null||intermediateCollegeName=="")
 	{
-	document.getElementById("errorMsg14").innerHTML="please enter your graduation details";
+	document.getElementById("Intercollegename").innerHTML="please enter your college name";
 	return false;
 	}
 	
-	else if(graduationpassedout==null||graduationpassedout=="")
+	else if(interPassedOut==null||interPassedOut=="")
 	{
-	document.getElementById("errorMsg15").innerHTML="please enter year of passing";
+	document.getElementById("Interpassedout").innerHTML="please enter year of passing";
+	return false;
+	}
+	
+	else if(graduationDetails==null||graduationDetails=="None")
+	{
+	document.getElementById("Graduationdetails").innerHTML="please enter your graduation details";
+	return false;
+	}
+	
+	else if(graduationPassedOut==null||graduationPassedOut=="")
+	{
+	document.getElementById("Graduationpassedout").innerHTML="please enter year of passing";
 	return false;
 	}
 	
 	else if(branch==null||branch=="None")
 	{
-	document.getElementById("errorMsg16").innerHTML="please enter lastName";
+	document.getElementById("Branch").innerHTML="please enter lastName";
 	return false;
 	}
 	
 	else if(university==null||university=="")
 	{
-	document.getElementById("errorMsg17").innerHTML="please enter university name";
+	document.getElementById("Univeristy").innerHTML="please enter university name";
 	return false;
 	}
 	
 	
-	else if(companyid==null||companyid=="")
+	else if(companyName==null||companyName=="")
 	{
-	document.getElementById("errorMsg18").innerHTML="please enter your companyid";
+	document.getElementById("Companyname").innerHTML="please enter your companyid";
 	return false;
 	}
-	else if(roleid==null||roleid=="")
+	else if(role==null||role=="")
 	{
-	document.getElementById("errorMsg19").innerHTML="please enter your role";
+	document.getElementById("Role").innerHTML="please enter your role";
 	return false;
 	}
 	
-	else if(notice==null||notice=="None")
+	else if(noticePeriod==null||noticePeriod=="None")
 	{
-	document.getElementById("errorMsg20").innerHTML="please enter your notice period";
+	document.getElementById("Noticeperiod").innerHTML="please enter your notice period";
 	return false;
 	}
 	
 	else if(location==null||location=="")
 	{
-	document.getElementById("errorMsg21").innerHTML="please enter your location";
+	document.getElementById("Location").innerHTML="please enter your location";
 	return false;
 	}
 	
 	else if(experience==null||experience=="")
 	{
-	document.getElementById("errorMsg22").innerHTML="please enter your experience";
+	document.getElementById("Experience").innerHTML="please enter your experience";
 	return false;
 	}
 	
-	else if(currentctc==null||currentctc=="")
+	else if(currentCTC==null||currentCTC=="")
 	{
-	document.getElementById("errorMsg23").innerHTML="please enter your current ctc";
+	document.getElementById("Currentctc").innerHTML="please enter your current ctc";
 	return false;
 	}
-	
-	else if(expectedctc==null||expecteddctc=="")
+	else if(bankName==null||bankName=="")
 	{
-	document.getElementById("errorMsg24").innerHTML="please enter your expected ctc";
+	document.getElementById("Bankname").innerHTML="please enter your bankName";
 	return false;
 	}
-	
+	else if(bankAccNo==null||bankAccNo=="")
+	{
+	document.getElementById("Bankaccno").innerHTML="please enter your Bankaccno";
+	return false;
+	}
+	else if(ifscCode==null||ifscCode=="")
+	{
+	document.getElementById("Ifsccode").innerHTML="please enter your ifscCode";
+	return false;
+	}
 	
 	else
 		return true;
@@ -184,31 +215,36 @@ function registrationValidation()
 	
 	function clearForm()
 	{
-		document.getElementById("errorMsg").innerHTML="";
-		document.getElementById("errorMsg1").innerHTML=""; 
-		document.getElementById("errorMsg2").innerHTML="";
-		document.getElementById("errorMsg3").innerHTML="";
-		document.getElementById("errorMsg4").innerHTML="";
-		document.getElementById("errorMsg5").innerHTML="";
-		document.getElementById("errorMsg6").innerHTML="";
-		document.getElementById("errorMsg7").innerHTML="";
-		document.getElementById("errorMsg8").innerHTML="";
-		document.getElementById("errorMsg9").innerHTML="";
-		document.getElementById("errorMsg10").innerHTML=""; 
-		document.getElementById("errorMsg11").innerHTML="";
-		document.getElementById("errorMsg12").innerHTML="";
-		document.getElementById("errorMsg13").innerHTML="";
-		document.getElementById("errorMsg14").innerHTML="";
-		document.getElementById("errorMsg15").innerHTML="";
-		document.getElementById("errorMsg16").innerHTML="";
-		document.getElementById("errorMsg17").innerHTML="";
-		document.getElementById("errorMsg18").innerHTML=""; 
-		document.getElementById("errorMsg19").innerHTML="";
-		document.getElementById("errorMsg20").innerHTML="";
-		document.getElementById("errorMsg21").innerHTML="";
-		document.getElementById("errorMsg22").innerHTML="";
-		document.getElementById("errorMsg23").innerHTML="";
-		document.getElementById("errorMsg24").innerHTML="";
+		document.getElementById("FirstName").innerHTML="";
+		document.getElementById("LastName").innerHTML=""; 
+		document.getElementById("FatherName").innerHTML="";
+		document.getElementById("Gender").innerHTML="";
+		document.getElementById("DOB").innerHTML="";
+		document.getElementById("Emailid").innerHTML="";
+		document.getElementById("mobileno").innerHTML="";
+		document.getElementById("Aadharno").innerHTML="";
+		document.getElementById("Panno").innerHTML="";
+		document.getElementById("Passportno").innerHTML="";
+		document.getElementById("Permanentadd").innerHTML=""; 
+		document.getElementById("Localadd").innerHTML="";
+		document.getElementById("Schoolname").innerHTML="";
+		document.getElementById("Tenthpassedout").innerHTML="";
+		document.getElementById("Intercollegename").innerHTML="";
+		document.getElementById("Interpassedout").innerHTML="";
+		document.getElementById("Graduationdetails").innerHTML="";
+		document.getElementById("Graduationpassedout").innerHTML="";
+		document.getElementById("Branch").innerHTML=""; 
+		document.getElementById("University").innerHTML="";
+		document.getElementById("Companyname").innerHTML="";
+		document.getElementById("Role").innerHTML="";
+		document.getElementById("Noticeperiod").innerHTML="";
+		document.getElementById("Location").innerHTML="";
+		document.getElementById("Experience").innerHTML="";
+		document.getElementById("Currentctc").innerHTML="";
+		document.getElementById("Bankname").innerHTML="";
+		document.getElementById("Bankaccno").innerHTML="";
+		document.getElementById("Ifsccode").innerHTML="";		
+
 	}
 	
 	

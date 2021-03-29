@@ -253,7 +253,7 @@ public class RegistrationServlet extends HttpServlet {
 				requestDisForward.forward(request, response);
 			} else {
 				RequestDispatcher requestDisInclude = request
-						.getRequestDispatcher("EmployeeRegistration.jsp");
+						.getRequestDispatcher("Employee.jsp");
 				requestDisInclude.include(request, response);
 			}
 		}

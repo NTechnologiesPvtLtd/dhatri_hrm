@@ -77,7 +77,7 @@ display: block;
 <ul>
  <li><a> Employee </a> 
    <ul>
-   <li>	<a href="EmployeeRegistration.jsp"> New Registration</a> </li>
+   <li>	<a href="Employee.jsp"> New Registration</a> </li>
    <li><a> Search Employee </a> </li>
    <li><a> Respond approved </a> </li>
    </ul>
