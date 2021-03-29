@@ -313,7 +313,7 @@
 <script src="jsFiles\jquery.min.js" type="text/javascript"></script>
 <script src="jsFiles\bootstrap.js" type="text/javascript"></script>
 <script type="text/javascript" src="jsFiles\modernizr.js"></script>
-<script type="text/javascript" src="jsFiles\js/gaia.js"></script>
+<script type="text/javascript" src="jsFiles\gaia.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/0.1.12/wow.min.js"></script>
 
