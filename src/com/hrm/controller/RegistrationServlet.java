@@ -24,6 +24,8 @@ import com.hrm.session.SharedObject;
 @WebServlet("/RegistrationServlet")
 public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final char[] passportNumber = null;
+	private char[] panNo;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -55,44 +57,71 @@ public class RegistrationServlet extends HttpServlet {
 
 		response.setContentType("text/html");
 		String employeeId = request.getParameter("employeeId");
-
-		String firstName = request.getParameter("firstName").trim();
+		System.out.println(employeeId);
+        String firstName = request.getParameter("firstName").trim();
+		System.out.println(firstName);
 		String lastName = request.getParameter("lastName").trim();
+		System.out.println(lastName);
 		String fatherName = request.getParameter("fatherName").trim();
+		System.out.println(fatherName);
 		String gender = request.getParameter("gender").trim();
+		System.out.println(gender);
 		String dob = request.getParameter("dob");
+		System.out.println(dob);
 		String emailId = request.getParameter("emailId").trim();
+		System.out.println(emailId);
 		String mobileNumber = request.getParameter("mobileNumber").trim();
+		System.out.println(mobileNumber);
 		String alternateMobileNumber = request.getParameter("alternatemobileNumber").trim();
+		System.out.println(alternateMobileNumber);
 		String aadharNo = request.getParameter("aadharNo").trim();
+		System.out.println(aadharNo);
 		String panNumber = request.getParameter("panNo").trim();
+		System.out.println(panNumber);
 		String passportNumber = request.getParameter("passportNo").trim();
-		String permanentAddress = request.getParameter("permanentAddress")
-				.trim();
+		System.out.println(passportNumber);
+		String permanentAddress = request.getParameter("permanentAddress").trim();
+		System.out.println(permanentAddress);
 		String localAddress = request.getParameter("localAddress").trim();
+		System.out.println(localAddress);
 
 		String schoolName = request.getParameter("schoolName").trim();
+		System.out.println(schoolName);
 		String tenthPassedOut = request.getParameter("tenthPassedOut").trim();
-		String intermediateCollegeName = request.getParameter(
-				"intermediateCollegeName").trim();
+		System.out.println(tenthPassedOut);
+		String intermediateCollegeName = request.getParameter("intermediateCollegeName").trim();
+		System.out.println(intermediateCollegeName);
 		String interPassedOut = request.getParameter("interPassedOut").trim();
-		String graduationDetails = request.getParameter("graduationDetails")
-				.trim();
-		String graduationPassedOut = request
-				.getParameter("graduationPassedOut").trim();
+		System.out.println(interPassedOut);
+		String graduationDetails = request.getParameter("graduationDetails").trim();
+		System.out.println(graduationDetails );
+		String graduationPassedOut = request.getParameter("graduationPassedOut").trim();
+		System.out.println( graduationPassedOut );
 		String branch = request.getParameter("branch").trim();
+		System.out.println(branch );
 		String university = request.getParameter("university").trim();
-
+		System.out.println(university );
 		String companyName = request.getParameter("companyName").trim();
+		System.out.println(companyName );
 		String role = request.getParameter("roleDetails").trim();
+		System.out.println( role  );
 		String manager = request.getParameter("empmanager").trim();
-
+		System.out.println(manager);
 		String location = request.getParameter("location").trim();
+		System.out.println(location);
 		String experience = request.getParameter("experience").trim();
+		System.out.println(experience);
 		String currentCTC = request.getParameter("currentCTC").trim();
+		System.out.println( currentCTC);
+		String expectedCTC = request.getParameter("expectedCTC").trim();
+		System.out.println( expectedCTC);
+		
 		String bankName = request.getParameter("bankName").trim();
+		System.out.println(bankName);
 		String bankAccNo = request.getParameter("bankAccNo").trim();
+		System.out.println(bankAccNo);
 		String ifscCode = request.getParameter("ifscCode").trim();
+		System.out.println(ifscCode);
 
 		// inject client reading values into Encapsulation object
 
@@ -129,6 +158,7 @@ public class RegistrationServlet extends HttpServlet {
 				employeebean.setAlternateMobileNumber(Long.parseLong(alternateMobileNumber));
 			}catch(Exception e) {
 				alternateMobileNumber = null;
+				System.out.println("error in the alternateMobileNumber");
 			}
 		}
 
@@ -140,6 +170,7 @@ public class RegistrationServlet extends HttpServlet {
 
 			catch (Exception e) {
 				aadharNo = null;
+				System.out.println("error in the aadharNo ");
 			}
 		}
 		
@@ -212,12 +243,12 @@ public class RegistrationServlet extends HttpServlet {
 		}
 		
 
-		/*
-		 * if (expectedCTC != null && !expectedCTC.isEmpty()) { try {
-		 * 
-		 * employeebean.setExpectedCTC(Double.parseDouble(expectedCTC)); } catch
-		 * (Exception e) { expectedCTC = null; } }
-		 */
+		
+		  if (expectedCTC != null && !expectedCTC.isEmpty()) { try {
+		  
+		  employeebean.setExpectedCTC(Double.parseDouble(expectedCTC)); } catch
+		  (Exception e) { expectedCTC = null; } }
+		 
 
 		employeebean.setFirstName(firstName);
 		employeebean.setLastName(lastName);
