@@ -1,6 +1,16 @@
 /**
  * 
  */
+function showcommentform() {
+			var data = "EmployeeId:<input type='text' name='employeeId'>";
+
+			document.getElementById('location').innerHTML = data;
+		}
+
+		function showcommentform1() {
+			document.getElementById('location').innerHTML = "";
+		}
+
 function loginValidation() {
 		var employeeId = document.getElementById("loginId").value;
 		var mobileNumber = document.getElementById("Password").value;
