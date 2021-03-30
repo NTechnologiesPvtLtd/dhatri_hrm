@@ -16,12 +16,12 @@ import com.hrm.session.SharedObject;
 /**
  * Servlet implementation class AdminLogin
  */
-@WebServlet("/AdminLogin")
-public class AdminLogin extends HttpServlet {
+@WebServlet("/AdminLogIn")
+public class AdminLogIn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     
-     public AdminLogin() {
+     public AdminLogIn() {
         super();
         
     }
@@ -29,8 +29,8 @@ public class AdminLogin extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String adminid = request.getParameter ("adminid");
-		String password = request.getParameter("password");
+		String adminid = request.getParameter ("AdminId");
+		String password = request.getParameter("Password");
 		
 		HRMService service =  new HRMServicesImplementation();
 		if (SharedObject.getSession() == null ) {
@@ -40,8 +40,7 @@ public class AdminLogin extends HttpServlet {
 			boolean flag = service.adminlogin(adminid, password);
 			
 			if (flag) {
-				System.out.println("true");
-				RequestDispatcher rd = request.getRequestDispatcher("adminview.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("AdminView.jsp");
 				rd.forward(request,  response);
 			}else {
 				RequestDispatcher includeRequest = request.getRequestDispatcher("adminlogin.jsp");

@@ -1,109 +1,97 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@page import="com.hrm.constants.EmployeeConstants"%>
-    <%@page import="com.hrm.session.SharedObject"%>
+<%@page import="com.hrm.constants.EmployeeConstants"%>
+<%@page import="com.hrm.session.SharedObject"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>admin</title>
+
+
+
+<title>AdminLogin</title>
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<link rel="stylesheet" media="all" href="stylesheets/mybootstrap.css" />
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" media="all" href="stylesheets/mybootstrap.css" />
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-
-  function adminValidation()
-  {
-  	var username=document.getElementById("adminid").value;
-  	var password=document.getElementById("adminpassword").value;
-  	if(username==null||username=="")
-	{
-	document.getElementById("errorMsg").innerHTML="please enter username";
-	return false;
-	}
-
-else if(password==null||password=="")
-	{
-	document.getElementById("errorMsg1").innerHTML="please enter password";
-	return false;
-	}
-else
-	return true;
-}
   
-  function clearForm()
-	{
-		document.getElementById("errorMsg").innerHTML="";
-		document.getElementById("errorMsg1").innerHTML=""; 
+  function validation() {
+		var AdminId = document.getElementById("AdminId").value;
+		var Password = document.getElementById("Password").value;
+		if (AdminId == null || AdminId == "") {
+			document.getElementById("adminid").innerHTML = "please enter admin id";
+			return false;
+
+		}
+
+		if (Password == null || Password == "") {
+			document.getElementById("password").innerHTML = "please enter password";
+			return false;
+		}
 	}
+	function doClearMyMsg(){
+		document.getElementById("adminid").innerHTML = "";
+		document.getElementById("password").innerHTML = "";
 
-  
- 
-
-
+	}
   </script>
+
 </head>
-<body style="background-color: #6495ED;">
+<body style="background-color: Thistle;">
 
-	<form action="AdminLogIn" method="get">
-	
-	
-		<div class="alignment">
-			<table class="partition" align="center">
-				<div align="center">
-					<img src="admin.png">
-				</div>
-				<br>
-				<br>
-				<br>
-				<p class="design" align="center" style="color: white">ADMIN</p>
-				
-				
-				<tr>
-					<td>AdminId:<font color="red">*</font><br>
-					<br></td>
-					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"
-						placeholder="enter the adminid" name="adminid" id="adminid"
-						oninput="clearForm()"><br>
-					<br></td>
-					<td id="errorMsg" style="color: red;"></td>
-				</tr>
+	<!-- <div class="container"> -->
+	<h1 align="center">AdminLogin</h1>
 
-				<tr>
-					<td>Password:<font color="red">*</font><br>
-					<br></td>
-					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"
-						placeholder="enter the password" name="adminpassword" id="adminpassword"
-						oninput="clearForm()"><br>
-					<br></td>
-					<td id="errorMsg1" style="color: red;"></td>
-				</tr>
-			</table>
-			<%SharedObject.setSession(request.getSession()); %>
-				<div id="errorMsg" align="center" style="color: red">
-			<%String errorMgs="";
-			
-			Object obj= SharedObject.getFromSession(EmployeeConstants.ERROR_MSG_UI); 
-			if(null !=obj){
-				errorMgs=(String)obj;
-				out.print(errorMgs);
-			}
-			%>
+
+	<div class="alignment">
+		<div class="partition" align="center">
+			<div align="center">
+				<img src="Admin.jpg" class="img-circle" width="200px" height="200px">
 			</div>
-			<center>
-
-				
-				<button onclick="return adminValidation()" class="btn btn-success">LogIn</button>
-				<button onclick="clearForm()" type="reset" value="Reset" class="btn btn-success">Reset</button>
-
-			</center>
-
 		</div>
-	</form>
+		<br> <br>
+
+		<form class="form-horizontal" action="AdminLogIn" method="post">
+			<div class="form-group">
+				<label class="control-label col-sm-5" for="AdminId">AdminId<span
+					class="red">*</span>:
+				</label>
+				<div class="col-sm-2">
+					<input type="text" name="AdminId" class="form-control" id="AdminId"
+						onkeypress="doClearMyMsg()">
+						 <span id="adminid"
+						class="text-danger"></span>
+				</div>
+			</div>
+
+			<br>
+			<div class="form-group">
+				<label class="control-label col-sm-5" for="Password">Password<span
+					class="red">*</span>:
+				</label>
+				<div class="col-sm-2">
+					<input type="password" class="form-control" name="Password"
+						id="Password" onkeypress="doClearMyMsg()"> <span
+						id="password" class="text-danger"></span> <br>
+					<div class="col-sm-7">
+
+
+						<div class="container">
+							<input type="submit" class="btn btn-info" value="Login"
+								onclick="return validation()"> <input type="reset"
+								class="btn btn-info" value="reset">
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+
+		</form>
+	</div>
 </body>
 </html>

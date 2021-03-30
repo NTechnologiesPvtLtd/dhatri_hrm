@@ -24,7 +24,6 @@ public class HRMDaoImplementation implements HRMDao {
 	Statement stmt;
 	PreparedStatement pstmt;
 	ResultSet resultSet;
-	ResultSet resultSet1;
 	static int placeHolderValue =1;
 	static String employeeId;
 	public HRMDaoImplementation(){
@@ -576,32 +575,26 @@ public void setvaluestorequest(RequestBean empsql) throws SQLException {
 
 
 
-public boolean adminlogin(String adminid, String password) {
-	boolean s2 =false;
-	
-	if(adminid !=null && password!=null)
-	{
-	
-	try {
-	String query ="select * from admindetails where adminid=? and password=?";
-	con =MySqlDBConnection.getInstance();
-	
-		pstmt=con.prepareStatement(query);
-		setvaluestoAdminlogin(adminid, password);
-		resultSet1 = pstmt.executeQuery();
-		s2 = resultSet1.next();
-		
-	} 
-	catch (SQLException e) {
-		System.out.println("");
-		e.printStackTrace();
+	public boolean adminlogin(String adminid, String password) {
+		boolean adminCheck = false;
+		if (null == adminid || null == password) {
+			return adminCheck;
+		}
+		try {
+			String query = "select * from admindetails where adminid=? and password=?";
+			con = MySqlDBConnection.getInstance();
+
+			pstmt = con.prepareStatement(query);
+			setvaluestoAdminlogin(adminid, password);
+			resultSet = pstmt.executeQuery();
+			adminCheck = resultSet.next();
+
+		} catch (SQLException e) {
+			System.out.println("");
+			e.printStackTrace();
+		}
+		return adminCheck;
 	}
-	
-	
-	}else
-		System.out.println("please enter vaules");
-	return s2;
-}
 
 public void setvaluestoAdminlogin(String adminid, String password) throws SQLException {
 	pstmt.setString(1, adminid);

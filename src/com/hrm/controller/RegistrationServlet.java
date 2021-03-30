@@ -90,6 +90,7 @@ public class RegistrationServlet extends HttpServlet {
 		String location = request.getParameter("location").trim();
 		String experience = request.getParameter("experience").trim();
 		String currentCTC = request.getParameter("currentCTC").trim();
+String expectedCTC = request.getParameter("expectedCTC").trim();
 		String bankName = request.getParameter("bankName").trim();
 		String bankAccNo = request.getParameter("bankAccNo").trim();
 		String ifscCode = request.getParameter("ifscCode").trim();

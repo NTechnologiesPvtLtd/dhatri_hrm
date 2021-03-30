@@ -57,7 +57,7 @@
    			 <h3>Employee</h3>
  		 </a>
  		 <div class="dropdown-menu" >
-    		<a class="dropdown-item " href="#"><h3>New Registration</h3></a><br>
+    		<a class="dropdown-item " href="Employee.jsp"><h3>New Registration</h3></a><br>
     		<a class="dropdown-item " href="#"><h3>Response Approved</h3></a><br>
     		<a class="dropdown-item " href="#"><h3>Search Employee</h3></a>
  		 </div>
