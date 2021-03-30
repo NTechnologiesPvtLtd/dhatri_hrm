@@ -212,12 +212,12 @@ public class RegistrationServlet extends HttpServlet {
 		}
 		
 
-		/*
-		 * if (expectedCTC != null && !expectedCTC.isEmpty()) { try {
-		 * 
-		 * employeebean.setExpectedCTC(Double.parseDouble(expectedCTC)); } catch
-		 * (Exception e) { expectedCTC = null; } }
-		 */
+		
+		  if (expectedCTC != null && !expectedCTC.isEmpty()) { try {
+		  
+		  employeebean.setExpectedCTC(Double.parseDouble(expectedCTC)); } catch
+		  (Exception e) { expectedCTC = null; } }
+		 
 
 		employeebean.setFirstName(firstName);
 		employeebean.setLastName(lastName);
@@ -253,7 +253,7 @@ public class RegistrationServlet extends HttpServlet {
 				requestDisForward.forward(request, response);
 			} else {
 				RequestDispatcher requestDisInclude = request
-						.getRequestDispatcher("Employee.jsp");
+						.getRequestDispatcher("EmployeeRegistration.jsp");
 				requestDisInclude.include(request, response);
 			}
 		}
