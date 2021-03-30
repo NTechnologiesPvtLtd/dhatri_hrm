@@ -1,16 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@page import="com.hrm.controller.CreateRequestServlet"%>
+
 <%@page import="com.hrm.constants.EmployeeConstants"%>
 <%@page import="com.hrm.session.SharedObject"%>
-<%@page import="com.hrm.dao.HRMDaoImplementation"%>
-<%@page import="com.hrm.bean.EmployeeBean"%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
-	<meta charset="ISO-8859-1">
+<meta charset="ISO-8859-1">
 	<title>AdminLoginView</title>
 	<meta name="viewport" content="width=device-width, intial-scale=1">
 	
@@ -48,8 +44,10 @@
 	
 	}
 </style>
+
 </head>
-<body >
+<body>
+
 	<div class="container-fluid ">
 		<h1>Dhatsol IT solutions</h1>
 	</div>
@@ -69,65 +67,16 @@
 		<a href="#" class="col-md-2 btn btn-primary " ><h3>Pay Slip</h3></a>
 		<a href="CreateRequest.jsp" class="col-md-2 btn btn-primary " ><h3>Create request</h3></a>
 		<a href="#" class="col-md-2 btn btn-primary " ><h3>Logout</h3></a>
+		
+		
 	</div>
 	
 	
 	</div>
 	<div>
 	</div>
-	
-	<form action="/CreateRequest" method="post">
-	<div  align="center"  class="container "  style= " background:rgba(); margin-top:150px; width:30%; padding:30px;">
-		<table style="color:white;">
-			<tr>
-				<td>  <label>Email to</label>  </td>
-				<td>	:-				</td>
-				<td>  <select class="form-control" id="emailTo" name="emailTo"
-						onchange="getManagerList(this.value)">
-						<option class="">Select manager</option>
-						<option value="Project Manager">ProjectManager</option>
-						<option value="HR Manager">HrManager</option>
-						<option value="Admin">Admin</option>
-					</select>  </td>
-			</tr>
-			
-			
-			<tr>
-			<td>  <label>Manager</label>  </td>
-			<td>:-</td>
-			<td>  <select class="form-control" id="managerOptions" name="managerOptions"
-					onchange="getManagerList(this.value)">
-					<option>Select manager</option>
-					<option value="Manager1">Manager1</option>
-					<option value="Manager2">Manager2</option>
-					<option value="Manager3">Manager3</option>
-					<option value="Manager3">Manager3</option>
-					<option value="Admin">Admin</option>
-					</select> </td>
-			</tr>
-			
-			
-			<tr>
-			<td>    <label>Reason ID</label>  </td>
-			<td>		:-			</td>
-			<td>   <input class="form-control" type="text" id="reasonId" name="reasonId"> </td>
-			</tr>
-			
-			<tr>
-			<td>   
-			
-			<tr>
-			<td>    <label>Reason</label>  </td>
-			<td>		:-			</td>
-			<td>	<textarea color=black; type="text" name="reason" id="reason" onkeydown="reason(this.value)"></textarea>
-			</td>
-	
-		</table>
-		<br><br>
-		<button type="submit">Submit</button>
-		</div>
-		
-		</form>
+
 
 </body>
 </html>
+
