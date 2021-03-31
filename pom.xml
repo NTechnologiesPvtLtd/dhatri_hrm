@@ -1,63 +1,63 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>DhatriHRM_Web</groupId>
-  <artifactId>DhatriHRM_Web</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
-  <profiles>	
-		<profile>	
-			<id>sonar</id>	
-			<activation>	
-				<activeByDefault>true</activeByDefault>	
-			</activation>	
-			<properties>	
-				<sonar.host.url>https://sonarcloud.io</sonar.host.url>	
-				<sonar.login>ddb5d72b8fb6f7950952ecedd5ec49d5f55ae9eb</sonar.login>	
-				<sonar.projectName>narsinghraom_dhatri_hrm</sonar.projectName>
-				<sonar.security.realm>LDAP</sonar.security.realm>	
-				<sonar.security.localUsers>admin</sonar.security.localUsers>				
-			</properties>	
-		</profile>	
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>DhatriHRM_Web</groupId>
+	<artifactId>DhatriHRM_Web</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<profiles>
+		<profile>
+			<id>sonar</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<sonar.projectKey>narsinghraom_dhatri_hrm</sonar.projectKey>
+				<sonar.organization>narsinghraom-github</sonar.organization>
+				<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+			</properties>
+		</profile>
 	</profiles>
-  <dependencies>
-    <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-<dependency>
-    <groupId>javax.servlet</groupId>
-    <artifactId>javax.servlet-api</artifactId>
-    <version>4.0.1</version>
-    <scope>provided</scope>
-</dependency>
-<dependency>
-    <groupId>org.sonarsource.scanner.maven</groupId>
-        <artifactId>sonar-maven-plugin</artifactId>
-        <version>3.5.0.1254</version>
-</dependency>
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.sonarsource.scanner.maven</groupId>
+			<artifactId>sonar-maven-plugin</artifactId>
+			<version>3.5.0.1254</version>
+		</dependency>
 
-</dependencies>
-  <build>
-    <sourceDirectory>src</sourceDirectory>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.1</version>
-        <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>2.3</version>
-        <configuration>
-          <warSourceDirectory>WebContent</warSourceDirectory>
-          <failOnMissingWebXml>false</failOnMissingWebXml>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.sonarsource.scanner.maven</groupId>
-        <artifactId>sonar-maven-plugin</artifactId>
-        <version>3.5.0.1254</version>
-      </plugin>
-    </plugins>
-  </build>
+	</dependencies>
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<warSourceDirectory>WebContent</warSourceDirectory>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.5.0.1254</version>
+			</plugin>
+		</plugins>
+	</build>
 </project>
