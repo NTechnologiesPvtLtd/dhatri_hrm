@@ -42,21 +42,22 @@ public class UpdateServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("unused")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// reading the client values
 
 		response.setContentType("text/html");
 		String employeeId = request.getParameter("empid");
-                String firstName=request.getParameter("Firstname");
+        String firstName=request.getParameter("Firstname");
 		String lastName=request.getParameter("lastname");
 		String fatherName=request.getParameter("fathername");
 		String gender=request.getParameter("Gender");
 		String dob = request.getParameter("dob");
 		String emailId=request.getParameter("EmailId");
 		String mobileNumber=request.getParameter("mobileNumber");
-		String AlternateMobileNumber=request.getParameter("alternatemobileNumber");
+		String alternateMobileNumber=request.getParameter("alternatemobileNumber");
 		String aadharNo=request.getParameter("Adharno");
-		String panNumber=request.getParameter("panNo");
+		String  panNumber=request.getParameter("panNo");
 		String passportNumber=request.getParameter("passportNo");
 		String permanentAddress=request.getParameter("PermanentAddress");
 		String localAddress=request.getParameter("LocalAdress");
@@ -71,7 +72,7 @@ public class UpdateServlet extends HttpServlet {
 		
 		String companyName=request.getParameter("companyName");
 		String role=request.getParameter("roleDetails");
-		//String noticePeriod=request.getParameter("noticePeriod");
+		String noticePeriod=request.getParameter("noticePeriod");
 		String location=request.getParameter("location");
 		String experience=request.getParameter("experience");
 		String currentCTC=request.getParameter("currentCTC");
@@ -79,8 +80,7 @@ public class UpdateServlet extends HttpServlet {
 		String bankName = request.getParameter("bankName");
 		String bankAccNo = request.getParameter("bankAccNo");
 		String ifscCode = request.getParameter("ifscCode");
-
-		//String expectedCTC=request.getParameter("expectedCTC");
+        String expectedCTC=request.getParameter("expectedCTC");
 		
 		// inject client reading values into Encapsulation object
 		
@@ -164,19 +164,30 @@ public class UpdateServlet extends HttpServlet {
 	emp.setEmailId(emailId);
 	emp.setPermanentAddress(permanentAddress);
 	emp.setLocalAddress(localAddress);
-		
-	emp.setSchoolName(schoolName);				
+	emp.setMobileNumber(Long.parseLong(mobileNumber));
+	emp.setAlternateMobileNumber(Long.parseLong(alternateMobileNumber));
+	emp.setAadharNo(Long.parseLong(aadharNo));	
+	emp.setPanNumber(panNumber);
+	emp.setPassportNumber(passportNumber);
+	emp.setSchoolName(schoolName);	
+	emp.setTenthPassedOut(Integer.parseInt(tenthPassedOut));
 	emp.setIntermediateCollegeName(intermediateCollegeName);
+	emp.setInterPassedOut(Integer.parseInt(interPassedOut));
+	emp.setGraduationPassedOut(Integer.parseInt( graduationPassedOut));
 	emp.setGraduationDetails(graduationDetails);
 	emp.setBranch(branch);
 	emp.setUniversity(university);
-		
 	emp.setCompanyName(companyName);
 	emp.setRole(role);
 	emp.setLocation(location);
 	emp.setExperience(experience);
-		
-		
+	emp.setCurrentCTC(Double.parseDouble(currentCTC));
+	emp.setManager(manager);	
+	emp.setBankname(bankName);
+	emp.setBankAccNo(Long.parseLong(bankAccNo));
+	emp.setIfscCode( ifscCode);
+	emp.setExpectedCTC(Double.parseDouble(expectedCTC));
+	emp.setNoticePeriod(Integer.parseInt(noticePeriod));
 		//calling the services
 		SharedObject.setSession(request.getSession());
 		HRMService hrmService=new HRMServicesImplementation();

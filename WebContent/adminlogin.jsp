@@ -55,13 +55,13 @@ else
 	
 		<div class="alignment">
 			<table class="partition" align="center">
-				<div align="center">
+	   <div> align="center"</div>
 					<img src="admin.png">
 				</div>
 				<br>
-				<br>
-				<br>
-				<p class="design" align="center" style="color: white">ADMIN</p>
+				<p>
+				 class="design" align="center" style="color: white">ADMIN
+				 </p>
 				
 				
 				<tr>
