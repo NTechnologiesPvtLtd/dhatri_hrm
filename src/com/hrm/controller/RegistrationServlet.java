@@ -105,6 +105,8 @@ public class RegistrationServlet extends HttpServlet {
 		System.out.println(companyName );
 		String role = request.getParameter("roleDetails").trim();
 		System.out.println( role  );
+		String noticePeriod = request.getParameter("noticePeriod").trim();
+		System.out.println(noticePeriod);
 		String manager = request.getParameter("empmanager").trim();
 		System.out.println(manager);
 		String location = request.getParameter("location").trim();
@@ -250,31 +252,51 @@ public class RegistrationServlet extends HttpServlet {
 		  (Exception e) { expectedCTC = null; } }
 		 
 
-		employeebean.setFirstName(firstName);
-		employeebean.setLastName(lastName);
-		employeebean.setFatherName(fatherName);
-		employeebean.setGender(gender);
-		employeebean.setDob(dob);
-		employeebean.setEmailId(emailId);
-		employeebean.setPermanentAddress(permanentAddress);
-		employeebean.setLocalAddress(localAddress);
-		
-		employeebean.setSchoolName(schoolName);
-		employeebean.setIntermediateCollegeName(intermediateCollegeName);
-		employeebean.setGraduationDetails(graduationDetails);
-		employeebean.setBranch(branch);
-		employeebean.setUniversity(university);
+			employeebean.setEmployeeId(employeeId);
+			employeebean.setFirstName(firstName);
+			employeebean.setLastName(lastName);
+			employeebean.setFatherName(fatherName);
+			employeebean.setGender(gender);
+			employeebean.setDob(dob);
+			employeebean.setEmailId(emailId);
+			employeebean.setMobileNumber(Long.parseLong(mobileNumber));
+		    employeebean.setAlternateMobileNumber(Long.parseLong(alternateMobileNumber));
+			employeebean.setPermanentAddress(permanentAddress);
+			employeebean.setLocalAddress(localAddress);
+			employeebean.setAadharNo(Long.parseLong(aadharNo));
+			employeebean.setPanNumber(panNumber);
+			employeebean.setPassportNumber(passportNumber);
+			employeebean.setPermanentAddress(permanentAddress);
+			employeebean.setLocalAddress(localAddress);
+			
+			employeebean.setSchoolName(schoolName);
+			employeebean.setTenthPassedOut(Integer.parseInt(tenthPassedOut));
+			employeebean.setIntermediateCollegeName(intermediateCollegeName);
+			employeebean.setInterPassedOut(Integer.parseInt(interPassedOut));
+			employeebean.setGraduationDetails(graduationDetails);
+			employeebean.setGraduationPassedOut(Integer.parseInt(graduationPassedOut));
+			employeebean.setBranch(branch);
+			employeebean.setUniversity(university);
 
-		employeebean.setCompanyName(companyName);
-		employeebean.setRole(role);
-		employeebean.setManager(manager);
-		employeebean.setLocation(location);
-		employeebean.setExperience(experience);
+			employeebean.setCompanyName(companyName);
+			employeebean.setRole(role);
+			
+			employeebean.setCurrentCTC(Long.parseLong(currentCTC));
+			employeebean.setNoticePeriod(Integer.parseInt(noticePeriod));
+			employeebean.setExpectedCTC(Double.parseDouble(expectedCTC));
 
-		// calling the services
-		SharedObject.setSession(request.getSession());
-		HRMService hrmService = new HRMServicesImplementation();
-		int result = hrmService.insertEmployeeData(employeebean);
+			employeebean.setManager(manager);
+			employeebean.setLocation(location);
+			employeebean.setExperience(experience);
+			employeebean.setBankAccNo(Long.parseLong(bankAccNo));
+			employeebean.setBankname(bankName);
+			employeebean.setIfscCode(ifscCode);
+
+			// calling the services
+			SharedObject.setSession(request.getSession());
+			HRMService hrmService = new HRMServicesImplementation();
+			int result = hrmService.insertEmployeeData(employeebean);
+
 
 		try {
 			if (result > 0) {
