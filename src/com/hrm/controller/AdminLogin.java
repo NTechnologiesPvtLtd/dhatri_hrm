@@ -41,7 +41,7 @@ public class AdminLogin extends HttpServlet {
 			
 			if (flag) {
 				System.out.println("true");
-				RequestDispatcher rd = request.getRequestDispatcher("adminview.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("AdminView.jsp");
 				rd.forward(request,  response);
 			}else {
 				RequestDispatcher includeRequest = request.getRequestDispatcher("adminlogin.jsp");

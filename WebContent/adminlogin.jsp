@@ -60,7 +60,7 @@
 					class="red">*</span>:
 				</label>
 				<div class="col-sm-2">
-					<input type="text" name="AdminId" class="form-control" id="AdminId"
+					<input type="text" name="adminid" class="form-control" id="AdminId"
 						onkeypress="doClearMyMsg()">
 						 <span id="adminid"
 						class="text-danger"></span>
@@ -73,15 +73,16 @@
 					class="red">*</span>:
 				</label>
 				<div class="col-sm-2">
-					<input type="password" class="form-control" name="Password"
+					<input type="password" class="form-control" name="password"
 						id="Password" onkeypress="doClearMyMsg()"> <span
 						id="password" class="text-danger"></span> <br>
 					<div class="col-sm-7">
 
 
 						<div class="container">
-							<input type="button" class="btn btn-info" value="Login"
-								onclick="return validation()"> <input type="reset"
+							<input type="submit"  class="btn btn-submit" value="Login"
+								onclick="return validation()"> 
+								<input type="reset"
 								class="btn btn-info" value="reset">
 						</div>
 

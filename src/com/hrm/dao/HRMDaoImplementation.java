@@ -363,6 +363,7 @@ public class HRMDaoImplementation implements HRMDao {
 			pstmt.setString(1, adminid);
 			pstmt.setString(2, password);
 			resultSet1 = pstmt.executeQuery();
+			System.out.println(resultSet1);
 			s2 = resultSet1.next();
 			
 		} catch (SQLException e) {
@@ -535,7 +536,7 @@ public class HRMDaoImplementation implements HRMDao {
 		}
 		return result;
 	}
-	public List<RequestBean> Search(){
+	public List<RequestBean> requestSearch(){
 		List<RequestBean>  listofrequest=new ArrayList<RequestBean>();
 		String query="select * from CreateRequest";
 		try {
@@ -544,16 +545,17 @@ public class HRMDaoImplementation implements HRMDao {
 		RequestBean empsql=null;
 		while(resultSet.next()) {
 		empsql=new RequestBean();
-		empsql.setReasonId(resultSet.getString(1));
-		empsql.setReasonName(resultSet.getString(2));
-		empsql.setTextArea(resultSet.getString(3));
-		empsql.setRecieverMail(resultSet.getString(4));
-		empsql.setSenderMail(resultSet.getString(5));
+		empsql.setTextArea(resultSet.getString(1));
+		empsql.setSenderMail(resultSet.getString(2));
+		empsql.setRecieverMail(resultSet.getString(3));
+		empsql.setReasonName(resultSet.getString(4));
+		empsql.setReasonId(resultSet.getString(5));
 		listofrequest.add(empsql);
 		}
 		} catch (SQLException e) {
 		e.printStackTrace();
 		}
+		
 		return listofrequest;
 		}
 	
@@ -567,7 +569,13 @@ public EmployeeBean searchLoggerEmail(String LoginId)throws SQLException{
 		emp.setEmailId(resultSet.getString(1));
 	}return emp;
 }
-	
+	public static void main(String[] args) {
+		/*
+		 * HRMDaoImplementation dbo =new HRMDaoImplementation();
+		 * 
+		 * System.out.println(dbo.requestSearch());
+		 */
+	}
 	
 	
 	

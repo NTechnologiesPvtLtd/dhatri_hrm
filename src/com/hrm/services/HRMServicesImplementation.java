@@ -112,4 +112,13 @@ public class HRMServicesImplementation implements HRMService {
 		
 	return flag;
 	}
+
+	@Override
+	public List<RequestBean> requestSearch() {
+		// TODO Auto-generated method stub
+		return hrmDao.requestSearch();
+	}
+	
+	public static void main(String[] args) {
+		}
 }
