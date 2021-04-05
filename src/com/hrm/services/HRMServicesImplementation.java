@@ -118,7 +118,12 @@ public class HRMServicesImplementation implements HRMService {
 		// TODO Auto-generated method stub
 		return hrmDao.requestSearch();
 	}
+	public List<EmployeeBean> employeeSearch(String searchparam){
+		return hrmDao.employeeSearch(searchparam);
+	}
+
 	
 	public static void main(String[] args) {
 		}
 }
+

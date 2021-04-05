@@ -39,12 +39,15 @@
   <%
   HRMServicesImplementation hrm=new HRMServicesImplementation();
 	List<RequestBean> std = hrm.requestSearch();
+	int x=0;
 for(RequestBean rs:std){
+	x=x+1;
+	
 	
 	%>
   <tbody>
     <tr>
-      <th scope="row">1</th>
+      <th scope="row"><%= x %></th>
       <td><%=rs.getReasonId()%></td>
       <td><%=rs.getReasonName()%></td>
       <td><%=rs.getTextArea()%></td>
@@ -53,11 +56,13 @@ for(RequestBean rs:std){
     </tr>
     
   </tbody>
-</table>
-	
-        <%
+  <%
+ 
 	}
         %>
+        
+</table>
+	
 </div>
 		
 

@@ -226,6 +226,48 @@ public class HRMDaoImplementation implements HRMDao {
 	}
 	
 	@SuppressWarnings("null")
+	public List<EmployeeBean> employeeSearch(String searchparam){
+		
+		EmployeeBean employeeBean1=null;
+		List<EmployeeBean> listOfSearchEmployee = new ArrayList<>();
+	
+		String query="select FirstName , LastName , FatherName from employeebean where Firstname like ? or LastName like ? or FatherName like ?";
+			try
+			{
+				
+				pstmt=con.prepareStatement(query);
+				pstmt.setString(1,searchparam + "%");
+				pstmt.setString(2,searchparam + "%");
+				pstmt.setString(3,searchparam + "%");
+				resultSet=pstmt.executeQuery();
+				while(resultSet.next())
+				{
+					employeeBean1 = new EmployeeBean();
+					
+					employeeBean1.setFirstName(resultSet.getString(1));
+					employeeBean1.setLastName(resultSet.getString(2));
+					employeeBean1.setFatherName(resultSet.getString(3));
+					listOfSearchEmployee.add(employeeBean1);
+				}
+				System.out.println(listOfSearchEmployee.size());
+		          for (int i=0; i<listOfSearchEmployee.size(); i++){
+		              EmployeeBean eb1= listOfSearchEmployee.get(i);
+		              System.out.println(eb1.getFirstName());
+		              System.out.println(eb1.getLastName());
+		              System.out.println(eb1.getFatherName());
+		          }
+				//listOfSearchEmployee.add(employeeBean1);
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+			}
+			
+			return listOfSearchEmployee;
+		
+	}
+	
+	@SuppressWarnings("null")
 	public List<EmployeeBean> searchManager(String role1)
 	{
 		EmployeeBean employeeBean=null;
@@ -570,11 +612,11 @@ public EmployeeBean searchLoggerEmail(String LoginId)throws SQLException{
 	}return emp;
 }
 	public static void main(String[] args) {
-		/*
-		 * HRMDaoImplementation dbo =new HRMDaoImplementation();
-		 * 
-		 * System.out.println(dbo.requestSearch());
-		 */
+		
+		  HRMDaoImplementation dbo =new HRMDaoImplementation();
+		  
+		  System.out.println(dbo.employeeSearch("j"));
+		 
 	}
 	
 	

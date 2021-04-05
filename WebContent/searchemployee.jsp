@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="com.hrm.bean.EmployeeBean"%>
+<%@page import="com.hrm.services.HRMServicesImplementation"%>
+<%@page import="java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,12 +78,53 @@
     
     <br><br><br><br><br><br>
     <div class="container">
-    <form action="SearchData" method="post">
+    <form action="SearchEmployee" method="post">
     <label for="searchid">Search with employee name</label>
     	<input type="text" name="searchid" name="searchid" class="" >
+    	<input type="submit" name="submit" value="submit"  name="submit" class="btn btn-info" >
     </form>
     	
     </div>
+    
+    <div class="container">
+    	<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Father Name</th>
+       
+    </tr>
+  </thead>
+  <%
+  String searchparam = request.getParameter("searchid");
+  HRMServicesImplementation hrm=new HRMServicesImplementation();
+	List<EmployeeBean> std = hrm.employeeSearch(searchparam);
+	int x=0;
+for(EmployeeBean rs:std){
+	x=x+1;
+   
+	%>
+  <tbody>
+    <tr>
+      <th scope="row"><%= x %></th>
+      <td><%=rs.getFirstName()%></td>
+      <td><%=rs.getLastName()%></td>
+      <td><%=rs.getFatherName()%></td>
+      
+    </tr>
+    
+  </tbody>
+  <%
+ 
+	}
+        %>
+        
+</table>
+	
+</div>
+   
 
 
 <br><br><br><br><br><br>
