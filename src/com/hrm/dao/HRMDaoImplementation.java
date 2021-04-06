@@ -57,7 +57,7 @@ public class HRMDaoImplementation implements HRMDao {
 		int result=0;
 		if(employeeBean!=null) {
 		
-		String query="insert into employeebean values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String query="insert into employeebean values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try
 		{
 			while(duplicateData(employeeBean)) {
@@ -118,6 +118,7 @@ public class HRMDaoImplementation implements HRMDao {
 		pstmt.setString(31,employeeBean.getBankname());
 		pstmt.setLong(32, employeeBean.getBankAccNo());
 		pstmt.setString(33,employeeBean.getIfscCode());
+		pstmt.setString(34,employeeBean.getManagerId());
 	}
 	@Override
 	public List<EmployeeBean> search() {
@@ -547,7 +548,7 @@ public void setvaluestoptst(RequestBean employeerequest) throws SQLException {
 	pstmt.setString(4,employeerequest.getSenderMail());
 	pstmt.setString(3,employeerequest.getRecieverMail());
 }
-public List<RequestBean> Search(){
+public List<RequestBean> ViewRequest(){
 	List<RequestBean>  listofrequest=new ArrayList<RequestBean>();
 	String query="select * from createrequest";
 	try {
@@ -566,11 +567,11 @@ public List<RequestBean> Search(){
 	}
 
 public void setvaluestorequest(RequestBean empsql) throws SQLException {
-	empsql.setReasonId(resultSet.getString(1));
-	empsql.setReasonName(resultSet.getString(2));
-	empsql.setTextArea(resultSet.getString(3));
-	empsql.setRecieverMail(resultSet.getString(4));
-	empsql.setSenderMail(resultSet.getString(5));
+	empsql.setReasonId(resultSet.getString(5));
+	empsql.setReasonName(resultSet.getString(4));
+	empsql.setTextArea(resultSet.getString(1));
+	empsql.setRecieverMail(resultSet.getString(3));
+	empsql.setSenderMail(resultSet.getString(2));
 }
 
 
@@ -601,10 +602,85 @@ public void setvaluestoAdminlogin(String adminid, String password) throws SQLExc
 	pstmt.setString(2, password);
 }
 
+@Override
+public String getRole(String userId) {
+String	str = null;
+	String query="select role  from employeebean where employeeId =?";
+	try {
+		pstmt=con.prepareStatement(query);
+		pstmt.setString(1,userId);
+		resultSet=pstmt.executeQuery();
+		while(resultSet.next())
+		{
+		str=resultSet.getString(1);
+		}
+	} catch (SQLException e) {
 	
-	
-	
-	
+		e.printStackTrace();
+	}
+	return str;
+}
+
+
+
+@Override
+public String getMail(String userId) {
+	String str=null;
+	String query="select EmailId from employeebean where employeeId=?";
+	try {
+		pstmt=con.prepareStatement(query);
+		pstmt.setString(1,userId);
+		resultSet=pstmt.executeQuery();
+		while(resultSet.next())
+		{
+		str=resultSet.getString(1);
+		}
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	return str;
+}
+
+@Override
+public List<RequestBean> ViewSenderMialId(String emailID) {
+	List<RequestBean>  listofrequest=new ArrayList<RequestBean>();
+	String query="select * from createrequest where sendermail = ? ";
+	try {
+	pstmt=con.prepareStatement(query);
+	pstmt.setString(1,emailID);
+	resultSet=pstmt.executeQuery();
+	RequestBean rb2=null;
+	while(resultSet.next()) {
+	rb2=new RequestBean();
+	setvaluestorequest(rb2);
+	listofrequest.add(rb2);
+	}
+	} catch (SQLException e) {
+	e.printStackTrace();
+	}
+	return listofrequest;
+}
+
+@Override
+public List<RequestBean> ViewReceiverMialId(String emailID) {
+	List<RequestBean>  listofrequest=new ArrayList<RequestBean>();
+	String query="select * from createrequest where receivermail = ? ";
+	try {
+	pstmt=con.prepareStatement(query);
+	pstmt.setString(1,emailID);
+	resultSet=pstmt.executeQuery();
+	RequestBean rb2=null;
+	while(resultSet.next()) {
+	rb2=new RequestBean();
+	setvaluestorequest(rb2);
+	listofrequest.add(rb2);
+	}
+	} catch (SQLException e) {
+	e.printStackTrace();
+	}
+	return listofrequest;
+}
+
 	
 	
 }

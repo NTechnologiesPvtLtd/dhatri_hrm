@@ -8,6 +8,12 @@ import com.hrm.bean.RequestBean;
 public interface HRMService {
 	public abstract int insertEmployeeData(EmployeeBean employeeBean);
 	public abstract List<EmployeeBean> search();
+	public abstract List<RequestBean>ViewRequest();
+	public abstract String getRole(String userId);
+	public abstract String getMail(String userId);
+	public abstract List<RequestBean>ViewSenderMialId(String emailID);
+	public abstract List<RequestBean>ViewReceiverMialId(String emailID);
+
 	public abstract List<EmployeeBean> search(String param) throws Exception;
 	public abstract boolean login(String employeeeId, long mobileNumber);
 	public abstract int employeeUpdate(EmployeeBean emp) ;

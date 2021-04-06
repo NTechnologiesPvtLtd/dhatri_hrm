@@ -113,4 +113,36 @@ public class HRMServicesImplementation implements HRMService {
 		
 	return flag;
 	}
+
+	@Override
+	public List<RequestBean> ViewRequest() {
+		// TODO Auto-generated method stub
+		return hrmDao.ViewRequest();
+	}
+
+	@Override
+	public java.lang.String getRole(java.lang.String userId) {
+		// TODO Auto-generated method stub
+		
+		return hrmDao.getRole(userId);
+	}
+
+	@Override
+	public java.lang.String getMail(java.lang.String userId) {
+		// TODO Auto-generated method stub
+		
+		return hrmDao.getMail(userId);
+	}
+
+	@Override
+	public List<RequestBean> ViewSenderMialId(java.lang.String emailID) {
+		// TODO Auto-generated method stub
+		return hrmDao.ViewSenderMialId(emailID);
+	}
+
+	@Override
+	public List<RequestBean> ViewReceiverMialId(java.lang.String emailID) {
+		// TODO Auto-generated method stub
+		return hrmDao.ViewReceiverMialId(emailID);
+	}
 }

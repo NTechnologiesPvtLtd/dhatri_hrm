@@ -61,7 +61,7 @@ public class CheckDao1 {
 				System.out.println("something went wrong");
 			break;	
 		case 3:
-			List<RequestBean> list =hd.Search();
+			List<RequestBean> list =hd.ViewRequest();
 			System.out.println("employee details are \n");
 			for(RequestBean re:list)
 			{
