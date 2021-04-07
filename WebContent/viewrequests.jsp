@@ -23,7 +23,7 @@
  </div>
  
 <div id="result" class="container">
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 	
 	<table class="table table-dark">
   <thead>

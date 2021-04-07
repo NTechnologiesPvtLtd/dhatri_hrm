@@ -14,7 +14,34 @@
 <link href="stylesheets\custom.css" rel="stylesheet"/>
 <link href='https://fonts.googleapis.com/css?family=Cambo|Poppins:400,600' rel='stylesheet' type='text/css'>
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-
+<script type="text/javascript">
+var request;  
+function sendInfo()  
+{  
+var value= document.getElementById("searchid").value;  
+var url="data.jsp?val="+value;  
+  
+if(window.XMLHttpRequest){  
+request=new XMLHttpRequest();  
+}  
+else if(window.ActiveXObject){  
+request=new ActiveXObject("Microsoft.XMLHTTP");  
+}  
+  
+try{  
+request.onreadystatechange=getInfo;  
+request.open("POST",url,true);  
+request.send();  
+}catch(e){alert("Unable to connect to server");}  
+}  
+  
+function getInfo(){  
+if(request.readyState==4){  
+var val=request.responseText;  
+document.getElementById('result').innerHTML=val;  
+}  
+}  
+</script>
 </head>
 <body>
  <div class="container-fluid" >
@@ -70,7 +97,7 @@
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
+            
         </div>
     </nav>
  </div>
@@ -78,54 +105,14 @@
     
     <br><br><br><br><br><br>
     <div class="container">
-    <form action="SearchEmployee" method="post">
-    <label for="searchid">Search with employee name</label>
-    	<input type="text" name="searchid" name="searchid" class="" >
-    	<input type="submit" name="submit" value="submit"  name="submit" class="btn btn-info" >
-    </form>
-    	
+    
+    <input type="text" name="searchid" id="searchid"  onkeypress="sendInfo()">
+    <button class="btn btn-primary">Search</button>
     </div>
     
-    <div class="container">
-    	<table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Father Name</th>
-       
-    </tr>
-  </thead>
-  <%
-  String searchparam = request.getParameter("searchid");
-  HRMServicesImplementation hrm=new HRMServicesImplementation();
-	List<EmployeeBean> std = hrm.employeeSearch(searchparam);
-	int x=0;
-for(EmployeeBean rs:std){
-	x=x+1;
-   
-	%>
-  <tbody>
-    <tr>
-      <th scope="row"><%= x %></th>
-      <td><%=rs.getFirstName()%></td>
-      <td><%=rs.getLastName()%></td>
-      <td><%=rs.getFatherName()%></td>
-      
-    </tr>
+    <div class="container" id="result"></div>
     
-  </tbody>
-  <%
- 
-	}
-        %>
-        
-</table>
-	
-</div>
    
-
 
 <br><br><br><br><br><br>
 <footer class="footer footer-big footer-color-black" data-color="black">
