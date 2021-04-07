@@ -29,4 +29,6 @@ public interface HRMDao
 
 	/* public abstract int insertAdminData(AdminBean adminBean); */
 	public abstract boolean adminlogin(String username, String password);
+	public abstract List<RequestBean> requestSearch();
+	public abstract List<EmployeeBean> employeeSearch(String searchparam);
 }
