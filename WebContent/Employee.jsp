@@ -18,7 +18,7 @@
 <script type="text/javascript" src="employeeValidation.js"></script>
 <script type="text/javascript">
 function showcommentform() {
-	var data = "EmployeeId:<input type='text' name='employeeId'><br><br>";
+	var data = "EmployeeId:<input type='text' name='employeeId' id='employeeid' onclick='clearForm()'><span id='Employeeid'class='text-danger'></span><br><br>";
 
 		document.getElementById('location').innerHTML = data;
 	}
@@ -377,7 +377,7 @@ div {text-align: center;}
 							</div>
 						</div>
 					</div>
- 					<input type=submit onclick="return registrationValidation()" class="btn btn-success" value="submit" class="button">
+ 					<input type=submit onclick="registrationValidation();validempid();" class="btn btn-success" value="submit" class="button">
  					<input	type="reset" class="btn btn-primary" id="resetId" name="Clear">
 				</form>
 				<br><br><br>

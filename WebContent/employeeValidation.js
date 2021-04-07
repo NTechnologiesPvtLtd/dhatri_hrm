@@ -1,7 +1,17 @@
-
+function validempid()
+{
+	var empid =document.getElementById("employeeid").value;
+	
+	if(empid==null||empid=="")
+	{
+		document.getElementById("Employeeid").innerHTML="please enter the employeeid";
+		return false;
+		
+	}
+}
 function clearForm()
 	{ 	
-		
+		document.getElementById("Employeeid").innerHTML="";
 		document.getElementById("Employee").innerHTML="";
 		document.getElementById("Firstname").innerHTML="";
 		document.getElementById("Lastname").innerHTML=""; 
