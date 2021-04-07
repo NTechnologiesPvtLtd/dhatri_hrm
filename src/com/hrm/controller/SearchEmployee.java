@@ -45,7 +45,7 @@ public class SearchEmployee extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String searchparam = request.getParameter("searchid");
+		String searchparam = request.getParameter("val");
 		
 		SharedObject.setSession(request.getSession());
 		HRMService hrmService=new HRMServicesImplementation();
