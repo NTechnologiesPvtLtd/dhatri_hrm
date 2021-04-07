@@ -44,7 +44,14 @@ public class EmployeeBean implements Serializable {
 	private String bankname;
 	private long bankAccNo;
 	private String ifscCode;
+	private String ManagerId;
 	
+	public String getManagerId() {
+		return ManagerId;
+	}
+	public void setManagerId(String managerId) {
+		ManagerId = managerId;
+	}
 	public String getBankname() {
 		return bankname;
 	}
