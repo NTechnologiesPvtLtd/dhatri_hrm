@@ -145,4 +145,13 @@ public class HRMServicesImplementation implements HRMService {
 		// TODO Auto-generated method stub
 		return hrmDao.ViewReceiverMialId(emailID);
 	}
+	
+@Override
+	public List<RequestBean> requestSearch() {
+		// TODO Auto-generated method stub
+		return hrmDao.requestSearch();
+	}
+	public List<EmployeeBean> employeeSearch(String searchparam){
+		return hrmDao.employeeSearch(searchparam);
+	}
 }

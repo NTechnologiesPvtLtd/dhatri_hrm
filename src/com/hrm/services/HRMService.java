@@ -24,4 +24,7 @@ public interface HRMService {
 
 	/* public abstract int insertAdminData(AdminBean adminBean); */
 	public abstract boolean adminlogin(String adminid,String password);
+	public abstract List<RequestBean> requestSearch();
+	public abstract List<EmployeeBean> employeeSearch(String searchparam);
+
 }
