@@ -82,7 +82,7 @@ public class RegistrationServlet extends HttpServlet {
 
 		String companyName = request.getParameter("companyName").trim();
 		String role = request.getParameter("roleDetails").trim();
-		String manager = request.getParameter("empmanager").trim();
+		String manager = request.getParameter("empmanager");
 
 		String location = request.getParameter("location").trim();
 		String experience = request.getParameter("experience").trim();
@@ -247,7 +247,7 @@ public class RegistrationServlet extends HttpServlet {
 				RequestDispatcher requestDisForward = request.getRequestDispatcher("userupdate.jsp");
 				requestDisForward.forward(request, response);
 			} else {
-				RequestDispatcher requestDisInclude = request.getRequestDispatcher("EmployeeRegistration.jsp");
+				RequestDispatcher requestDisInclude = request.getRequestDispatcher("EmployeeViewDirection.jsp");
 				requestDisInclude.include(request, response);
 			}
 		}
