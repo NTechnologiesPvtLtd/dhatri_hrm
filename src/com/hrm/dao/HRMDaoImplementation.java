@@ -57,7 +57,7 @@ public class HRMDaoImplementation implements HRMDao {
 		int result=0;
 		if(employeeBean!=null) {
 		
-		String query="insert into employeebean values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String query="insert into employeebean values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try
 		{
 			while(duplicateData(employeeBean)) {
@@ -118,7 +118,7 @@ public class HRMDaoImplementation implements HRMDao {
 		pstmt.setString(31,employeeBean.getBankname());
 		pstmt.setLong(32, employeeBean.getBankAccNo());
 		pstmt.setString(33,employeeBean.getIfscCode());
-		pstmt.setString(34,employeeBean.getManagerId());
+		//pstmt.setString(34,employeeBean.getManagerId());
 	}
 	@Override
 	public List<EmployeeBean> search() {

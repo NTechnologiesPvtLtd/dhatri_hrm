@@ -38,8 +38,8 @@ public class RegistrationServlet extends HttpServlet {
 	 *      response)
 	 */
 	@Override
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
 
@@ -48,8 +48,8 @@ public class RegistrationServlet extends HttpServlet {
 	 *      response)
 	 */
 	@Override
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		// reading the client values
 
@@ -67,19 +67,15 @@ public class RegistrationServlet extends HttpServlet {
 		String aadharNo = request.getParameter("aadharNo").trim();
 		String panNumber = request.getParameter("panNo").trim();
 		String passportNumber = request.getParameter("passportNo").trim();
-		String permanentAddress = request.getParameter("permanentAddress")
-				.trim();
+		String permanentAddress = request.getParameter("permanentAddress").trim();
 		String localAddress = request.getParameter("localAddress").trim();
 
 		String schoolName = request.getParameter("schoolName").trim();
 		String tenthPassedOut = request.getParameter("tenthPassedOut").trim();
-		String intermediateCollegeName = request.getParameter(
-				"intermediateCollegeName").trim();
+		String intermediateCollegeName = request.getParameter("intermediateCollegeName").trim();
 		String interPassedOut = request.getParameter("interPassedOut").trim();
-		String graduationDetails = request.getParameter("graduationDetails")
-				.trim();
-		String graduationPassedOut = request
-				.getParameter("graduationPassedOut").trim();
+		String graduationDetails = request.getParameter("graduationDetails").trim();
+		String graduationPassedOut = request.getParameter("graduationPassedOut").trim();
 		String branch = request.getParameter("branch").trim();
 		String university = request.getParameter("university").trim();
 
@@ -90,7 +86,7 @@ public class RegistrationServlet extends HttpServlet {
 		String location = request.getParameter("location").trim();
 		String experience = request.getParameter("experience").trim();
 		String currentCTC = request.getParameter("currentCTC").trim();
-String expectedCTC = request.getParameter("expectedCTC").trim();
+		String expectedCTC = request.getParameter("expectedCTC").trim();
 		String bankName = request.getParameter("bankName").trim();
 		String bankAccNo = request.getParameter("bankAccNo").trim();
 		String ifscCode = request.getParameter("ifscCode").trim();
@@ -100,35 +96,35 @@ String expectedCTC = request.getParameter("expectedCTC").trim();
 		EmployeeBean employeebean = new EmployeeBean();
 		employeebean.setEmployeeId(employeeId);
 		setMobileNumber(mobileNumber, employeebean);
-		
-		if(bankAccNo!=null && !bankAccNo.isEmpty()) {
+
+		if (bankAccNo != null && !bankAccNo.isEmpty()) {
 			try {
 				employeebean.setBankAccNo(Long.parseLong(bankAccNo));
-			}catch(Exception e) {
+			} catch (Exception e) {
 				bankAccNo = null;
 			}
 		}
-		
-		if(bankName!=null && !bankName.isEmpty()) {
+
+		if (bankName != null && !bankName.isEmpty()) {
 			try {
 				employeebean.setBankname(bankName);
-			}catch(Exception e) {
+			} catch (Exception e) {
 				bankName = null;
 			}
 		}
-		
-		if(ifscCode!=null && !ifscCode.isEmpty()) {
+
+		if (ifscCode != null && !ifscCode.isEmpty()) {
 			try {
 				employeebean.setIfscCode(ifscCode);
-			}catch(Exception e) {
+			} catch (Exception e) {
 				ifscCode = null;
 			}
 		}
-		
-		if(alternateMobileNumber!=null && !alternateMobileNumber.isEmpty()) {
+
+		if (alternateMobileNumber != null && !alternateMobileNumber.isEmpty()) {
 			try {
 				employeebean.setAlternateMobileNumber(Long.parseLong(alternateMobileNumber));
-			}catch(Exception e) {
+			} catch (Exception e) {
 				alternateMobileNumber = null;
 			}
 		}
@@ -143,19 +139,19 @@ String expectedCTC = request.getParameter("expectedCTC").trim();
 				aadharNo = null;
 			}
 		}
-		
-		if(panNumber!=null && !panNumber.isEmpty()) {
+
+		if (panNumber != null && !panNumber.isEmpty()) {
 			try {
 				employeebean.setPanNumber(panNumber);
-			}catch(Exception e) {
+			} catch (Exception e) {
 				panNumber = null;
 			}
 		}
-		
-		if(passportNumber!=null && !passportNumber.isEmpty()) {
+
+		if (passportNumber != null && !passportNumber.isEmpty()) {
 			try {
 				employeebean.setPassportNumber(passportNumber);
-			}catch(Exception e) {
+			} catch (Exception e) {
 				passportNumber = null;
 			}
 		}
@@ -163,8 +159,7 @@ String expectedCTC = request.getParameter("expectedCTC").trim();
 		if (tenthPassedOut != null && !tenthPassedOut.isEmpty()) {
 			try {
 
-				employeebean
-						.setTenthPassedOut(Integer.parseInt(tenthPassedOut));
+				employeebean.setTenthPassedOut(Integer.parseInt(tenthPassedOut));
 			}
 
 			catch (Exception e) {
@@ -175,8 +170,7 @@ String expectedCTC = request.getParameter("expectedCTC").trim();
 		if (interPassedOut != null && !interPassedOut.isEmpty()) {
 			try {
 
-				employeebean
-						.setInterPassedOut(Integer.parseInt(interPassedOut));
+				employeebean.setInterPassedOut(Integer.parseInt(interPassedOut));
 			}
 
 			catch (Exception e) {
@@ -187,8 +181,7 @@ String expectedCTC = request.getParameter("expectedCTC").trim();
 		if (graduationPassedOut != null && !graduationPassedOut.isEmpty()) {
 			try {
 
-				employeebean.setGraduationPassedOut(Integer
-						.parseInt(graduationPassedOut));
+				employeebean.setGraduationPassedOut(Integer.parseInt(graduationPassedOut));
 			}
 
 			catch (Exception e) {
@@ -211,14 +204,15 @@ String expectedCTC = request.getParameter("expectedCTC").trim();
 				currentCTC = null;
 			}
 		}
-		
 
-		
-		  if (expectedCTC != null && !expectedCTC.isEmpty()) { try {
-		  
-		  employeebean.setExpectedCTC(Double.parseDouble(expectedCTC)); } catch
-		  (Exception e) { expectedCTC = null; } }
-		 
+		if (expectedCTC != null && !expectedCTC.isEmpty()) {
+			try {
+
+				employeebean.setExpectedCTC(Double.parseDouble(expectedCTC));
+			} catch (Exception e) {
+				expectedCTC = null;
+			}
+		}
 
 		employeebean.setFirstName(firstName);
 		employeebean.setLastName(lastName);
@@ -228,7 +222,7 @@ String expectedCTC = request.getParameter("expectedCTC").trim();
 		employeebean.setEmailId(emailId);
 		employeebean.setPermanentAddress(permanentAddress);
 		employeebean.setLocalAddress(localAddress);
-		
+
 		employeebean.setSchoolName(schoolName);
 		employeebean.setIntermediateCollegeName(intermediateCollegeName);
 		employeebean.setGraduationDetails(graduationDetails);
@@ -249,12 +243,10 @@ String expectedCTC = request.getParameter("expectedCTC").trim();
 		try {
 			if (result > 0) {
 
-				RequestDispatcher requestDisForward = request
-						.getRequestDispatcher("userupdate.jsp");
+				RequestDispatcher requestDisForward = request.getRequestDispatcher("userupdate.jsp");
 				requestDisForward.forward(request, response);
 			} else {
-				RequestDispatcher requestDisInclude = request
-						.getRequestDispatcher("EmployeeRegistration.jsp");
+				RequestDispatcher requestDisInclude = request.getRequestDispatcher("EmployeeRegistration.jsp");
 				requestDisInclude.include(request, response);
 			}
 		}
