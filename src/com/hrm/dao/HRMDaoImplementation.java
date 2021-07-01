@@ -99,6 +99,7 @@ public class HRMDaoImplementation implements HRMDao {
 		pstmt.setString(12, employeeBean.getPassportNumber());
 		pstmt.setString(13,employeeBean.getPermanentAddress());
 		pstmt.setString(14,employeeBean.getLocalAddress());
+		
 		pstmt.setString(15,employeeBean.getSchoolName());
 		pstmt.setInt(16, employeeBean.getTenthPassedOut());
 		pstmt.setString(17,employeeBean.getIntermediateCollegeName());
