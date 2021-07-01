@@ -8,7 +8,7 @@ Gender varchar(20),DateofBirth varchar(30),EmailId varchar(40),MobileNo long,Alt
 AadharNo long,pannumber varchar(40),passportnumber varchar(40), PermanatAddress varchar(40),LocalAddress varchar(40),
 SchoolName varchar(40),TenthPassedOut int,IntermeadiateCollegeName varchar(40),InterPassedOut int,
 GraduationDetails varchar(40),GraduationPassedOut int,Branch varchar(30),University varchar(40),CompanyName varchar(40),
-Role varchar(30),NoticePeriod int,Location varchar(40),Experience varchar(40),CurrentCtc double,ExpectedCtc double,
+Role varchar(30),NoticePeriod int,Location varchar(40),Experience varchar(40),CurrentCtc int,ExpectedCtc int,
 manager varchar(40),bankname varchar(40),bankaccountnumber long,ifsccode varchar(40));
 
 
