@@ -64,6 +64,7 @@ public class RegistrationServlet extends HttpServlet {
 		String emailId = request.getParameter("emailId").trim();
 		String mobileNumber = request.getParameter("mobileNumber").trim();
 		String alternateMobileNumber = request.getParameter("alternatemobileNumber").trim();
+		
 		String aadharNo = request.getParameter("aadharNo").trim();
 		String panNumber = request.getParameter("panNo").trim();
 		String passportNumber = request.getParameter("passportNo").trim();

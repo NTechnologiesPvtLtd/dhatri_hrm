@@ -316,6 +316,9 @@ div {text-align: center;}
 											    <div class='col-sm-4' align='left'>Current CTC: <input type=text name='currentCTC' onclick="clearForm()" id='currentCTC'><br> 
 											    <br><span id='Currentctc' class='text-danger'> </span>
 											    </div>
+											    <div class='col-sm-4' align='left'>Expected CTC: <input type=text name='expectedCTC' onclick="clearForm()" id='expectedCTC'><br> 
+											    <br><span id='Expectedctc' class='text-danger'> </span>
+											    </div>
 											    </div>
 											    </div>
 												
