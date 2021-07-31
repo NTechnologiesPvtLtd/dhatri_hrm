@@ -10,7 +10,7 @@ public class EmployeeIdGenerator
 	
 	public static String getEmployeeId()
 	{
-		employeeId="";
+		employeeId= new String();
 		employeeId="DS-"+unqiueNo();
 		return employeeId;
 	}
