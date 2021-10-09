@@ -8,7 +8,7 @@ public class DummyUtil {
 			return value;
 		}
 		
-		return null;
+		return value;
 		
 	}
 
