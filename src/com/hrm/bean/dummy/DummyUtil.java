@@ -7,11 +7,11 @@ public class DummyUtil {
 	public static Boolean returnBooleanValue(String val) {
 
 		Boolean value = null;
-		if (val.isEmpty()) {
+		if (val != null && val.isEmpty()) {
 			return value;
 		}
 
-		return null;
+		return value;
 
 	}
 
