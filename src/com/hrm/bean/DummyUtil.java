@@ -6,9 +6,9 @@ public class DummyUtil {
 		Boolean value = null;
 		if(val.isEmpty()) {
 			return value;
-		}
+		}	
 		
-		return null;
+		 return value;
 		
 	}
 
