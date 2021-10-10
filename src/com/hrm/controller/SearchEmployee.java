@@ -50,7 +50,6 @@ public class SearchEmployee extends HttpServlet {
 		
 		SharedObject.setSession(request.getSession());
 		HRMService hrmService=new HRMServicesImplementation();
-		//HttpSession session=request.getSession();
 		//EmployeeBean bean=new EmployeeBean();
 		
 		
