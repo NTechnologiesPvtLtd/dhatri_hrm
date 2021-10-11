@@ -44,7 +44,7 @@ public class SearchData extends HttpServlet {
 		 RequestDispatcher requestDisForward=request.getRequestDispatcher("viewrequests.jsp");
 		 try {
 			 requestDisForward.forward(request, response); 
-		 }catch(ServletException se){
+		 }catch(Exception se){
 			 
 		 }
          
