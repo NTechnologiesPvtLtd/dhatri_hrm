@@ -30,17 +30,12 @@ public class SearchData extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+    @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		SharedObject.setSession(request.getSession());
-		//HRMService hrmService=new HRMServicesImplementation();
-		//HttpSession session=request.getSession();
-		//EmployeeBean bean=new EmployeeBean();
+				
 		
-		/*
-		 * List<RequestBean> requestBean=hrmService.requestSearch();
-		 * request.setAttribute("createrequest", requestBean);
-		 */
 		 RequestDispatcher requestDisForward=request.getRequestDispatcher("viewrequests.jsp");
 		 try {
 			 requestDisForward.forward(request, response); 
