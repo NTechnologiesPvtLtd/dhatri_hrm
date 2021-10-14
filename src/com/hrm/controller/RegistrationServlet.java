@@ -49,18 +49,11 @@ public class RegistrationServlet extends HttpServlet {
 		String dob = request.getParameter("dob");
 		String emailId = request.getParameter("emailId").trim();
 		String mobileNumber = request.getParameter("mobileNumber").trim();
-		String alternateMobileNumber = request.getParameter("alternatemobileNumber").trim();
-		String aadharNo = request.getParameter("aadharNo").trim();
-		String panNumber = request.getParameter("panNo").trim();
-		String passportNumber = request.getParameter("passportNo").trim();
 		String permanentAddress = request.getParameter("permanentAddress").trim();
 		String localAddress = request.getParameter("localAddress").trim();
 		String schoolName = request.getParameter("schoolName").trim();
-		String tenthPassedOut = request.getParameter("tenthPassedOut").trim();
 		String intermediateCollegeName = request.getParameter("intermediateCollegeName").trim();
-		String interPassedOut = request.getParameter("interPassedOut").trim();
 		String graduationDetails = request.getParameter("graduationDetails").trim();
-		String graduationPassedOut = request.getParameter("graduationPassedOut").trim();
 		String branch = request.getParameter("branch").trim();
 		String university = request.getParameter("university").trim();
 		String companyName = request.getParameter("companyName").trim();
@@ -68,8 +61,6 @@ public class RegistrationServlet extends HttpServlet {
 		String manager = request.getParameter("empmanager");
 		String location = request.getParameter("location").trim();
 		String experience = request.getParameter("experience").trim();
-		String currentCTC = request.getParameter("currentCTC").trim();
-		String expectedCTC = request.getParameter("expectedCTC").trim();
 		String bankName = request.getParameter("bankName").trim();
 		String bankAccNo = request.getParameter("bankAccNo").trim();
 		String ifscCode = request.getParameter("ifscCode").trim();
@@ -100,43 +91,9 @@ public class RegistrationServlet extends HttpServlet {
 			}
 		}
 
-		if (HRMUtil.notNullCheck(alternateMobileNumber)) {
-			employeebean.setAlternateMobileNumber(HRMUtil.parseLong(alternateMobileNumber));
-		}
-		if (HRMUtil.notNullCheck(aadharNo)) {
-			employeebean.setAadharNo(HRMUtil.parseLong(aadharNo));
-		}
-		if (HRMUtil.notNullCheck(panNumber)) {
-			employeebean.setPanNumber(panNumber);
-		}
-		if (HRMUtil.notNullCheck(passportNumber)) {
-			employeebean.setPassportNumber(passportNumber);
-		}
-		if (HRMUtil.notNullCheck(tenthPassedOut)) {
-			employeebean.setTenthPassedOut(HRMUtil.parseInt(tenthPassedOut));
-		}
-		if (HRMUtil.notNullCheck(interPassedOut)) {
-			employeebean.setInterPassedOut(HRMUtil.parseInt(interPassedOut));
-		}
-		if (HRMUtil.notNullCheck(graduationPassedOut)) {
-			employeebean.setGraduationPassedOut(HRMUtil.parseInt(graduationPassedOut));
-		}
+		
 
-		/*
-		 * if (noticePeriod != null && !noticePeriod.isEmpty()) { try {
-		 * 
-		 * employeebean.setNoticePeriod(Integer.parseInt(noticePeriod)); } catch
-		 * (Exception e) { noticePeriod = null; } }
-		 */
-
-		if (HRMUtil.notNullCheck(currentCTC)) {
-			employeebean.setCurrentCTC(HRMUtil.parseDouble(currentCTC));
-		}
-		if (HRMUtil.notNullCheck(expectedCTC)) {
-			employeebean.setExpectedCTC(HRMUtil.parseDouble(expectedCTC));
-		}
-
-
+        updateEmployee(request, employeebean);
 		employeebean.setFirstName(firstName);
 		employeebean.setLastName(lastName);
 		employeebean.setFatherName(fatherName);
@@ -176,6 +133,54 @@ public class RegistrationServlet extends HttpServlet {
 
 		catch (Exception e) {
 			System.out.println(e);
+		}
+	}
+	
+	private void updateEmployee(HttpServletRequest request, EmployeeBean employeebean) {
+		String alternateMobileNumber = request.getParameter("alternatemobileNumber").trim();
+		String aadharNo = request.getParameter("aadharNo").trim();
+		String panNumber = request.getParameter("panNo").trim();
+		String passportNumber = request.getParameter("passportNo").trim();
+		String tenthPassedOut = request.getParameter("tenthPassedOut").trim();
+		String interPassedOut = request.getParameter("interPassedOut").trim();
+		String graduationPassedOut = request.getParameter("graduationPassedOut").trim();
+		String currentCTC = request.getParameter("currentCTC").trim();
+		String expectedCTC = request.getParameter("expectedCTC").trim();
+		
+		if (HRMUtil.notNullCheck(alternateMobileNumber)) {
+			employeebean.setAlternateMobileNumber(HRMUtil.parseLong(alternateMobileNumber));
+		}
+		if (HRMUtil.notNullCheck(aadharNo)) {
+			employeebean.setAadharNo(HRMUtil.parseLong(aadharNo));
+		}
+		if (HRMUtil.notNullCheck(panNumber)) {
+			employeebean.setPanNumber(panNumber);
+		}
+		if (HRMUtil.notNullCheck(passportNumber)) {
+			employeebean.setPassportNumber(passportNumber);
+		}
+		if (HRMUtil.notNullCheck(tenthPassedOut)) {
+			employeebean.setTenthPassedOut(HRMUtil.parseInt(tenthPassedOut));
+		}
+		if (HRMUtil.notNullCheck(interPassedOut)) {
+			employeebean.setInterPassedOut(HRMUtil.parseInt(interPassedOut));
+		}
+		if (HRMUtil.notNullCheck(graduationPassedOut)) {
+			employeebean.setGraduationPassedOut(HRMUtil.parseInt(graduationPassedOut));
+		}
+
+		/*
+		 * if (noticePeriod != null && !noticePeriod.isEmpty()) { try {
+		 * 
+		 * employeebean.setNoticePeriod(Integer.parseInt(noticePeriod)); } catch
+		 * (Exception e) { noticePeriod = null; } }
+		 */
+
+		if (HRMUtil.notNullCheck(currentCTC)) {
+			employeebean.setCurrentCTC(HRMUtil.parseDouble(currentCTC));
+		}
+		if (HRMUtil.notNullCheck(expectedCTC)) {
+			employeebean.setExpectedCTC(HRMUtil.parseDouble(expectedCTC));
 		}
 	}
 
