@@ -119,7 +119,6 @@ public class HRMDaoImplementation implements HRMDao {
 		pstmt.setString(31,employeeBean.getBankname());
 		pstmt.setLong(32, employeeBean.getBankAccNo());
 		pstmt.setString(33,employeeBean.getIfscCode());
-		//pstmt.setString(34,employeeBean.getManagerId());
 	}
 	@Override
 	public List<EmployeeBean> search() {
