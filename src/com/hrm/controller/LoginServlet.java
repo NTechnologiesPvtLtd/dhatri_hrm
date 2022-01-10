@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+//import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,7 +22,7 @@ import com.hrm.session.SharedObject;
 /**
  * Servlet implementation class LoginServlet
  */
-@WebServlet("/LoginServlet")
+//@WebServlet("/LoginServlet")													//by clicking login it comes to login servlet
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
 	 *      response)
 	 */
 	@Override
-	protected void doPost(HttpServletRequest request,
+	protected void doPost(HttpServletRequest request,												//our method is doPost
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
@@ -62,27 +62,27 @@ public class LoginServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		String userId = request.getParameter("employeeId").trim();
+		String userId = request.getParameter("employeeId").trim();										//accepting employeeId
 		long password;
 		try {
-			password = Long.parseLong(request.getParameter("mobileNumber"));
+			password = Long.parseLong(request.getParameter("mobileNumber"));							//accepting password
 		} catch (Exception e) {
 			password = 0;
 		}
 		String password1 = request.getParameter("mobileNumber").trim();
 		
-		String type = request.getParameter("type").toLowerCase();
+		String type = request.getParameter("type").toLowerCase();										//accepting type as admin or employee or manager etc
 
-		HRMService service = new HRMServicesImplementation();
+		HRMService service = new HRMServicesImplementation();											// going to implementation class like insert,login,update etc
 		System.out.println(request.getParameter("type"));
 		if (SharedObject.getSession() == null) {
-			SharedObject.setSession(request.getSession());
+			SharedObject.setSession(request.getSession());												//session object created
 			;
 		}
 		// HttpSession session=request.getSession();
 		
 		try {
-			if (type.equals("admin")) {
+			if (type.equals("admin")) {																	//here  if accepted type= admin then goes to service.adminlogin method
 				boolean flag1 = service.adminlogin(userId, password1);
 				if (flag1) {
 				/*
@@ -93,7 +93,7 @@ public class LoginServlet extends HttpServlet {
 				System.out.println("true");
 
 				RequestDispatcher rd = request
-						.getRequestDispatcher("AdminView.jsp");
+						.getRequestDispatcher("AdminView.jsp");											//if true then goes to adminview,jsp page
 				rd.forward(request, response);
 
 			} 

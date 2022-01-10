@@ -9,6 +9,12 @@ package com.hrm.util;
  */
 public class HRMUtil {
 	
+	private HRMUtil()
+	{
+		
+	}
+	
+	
 	public static boolean notNullCheck(String param) {
 		return param !=null && !param.isEmpty();
 	}
