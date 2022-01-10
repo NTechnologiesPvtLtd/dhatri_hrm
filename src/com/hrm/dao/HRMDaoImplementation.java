@@ -735,7 +735,7 @@ public List<RequestBean> requestSearch(){
 		              System.out.println(eb1.getLastName());
 		              System.out.println(eb1.getFatherName());
 		          }
-				//listOfSearchEmployee.add(employeeBean1);
+			
 			}
 			catch(Exception e)
 			{
