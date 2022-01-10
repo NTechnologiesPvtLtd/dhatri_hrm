@@ -30,7 +30,7 @@ public class SearchData extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-    @Override
+    @override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		SharedObject.setSession(request.getSession());
