@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class MySqlDBConnection {
-	 static Connection con;
+	 Connection con;
 	static MySqlDBConnection mySQLDBInstance = new MySqlDBConnection();
 
 	private MySqlDBConnection() {
@@ -21,7 +21,7 @@ public class MySqlDBConnection {
 
 	public static Connection getInstance() {
 
-		return con;
+		return mySQLDBInstance.con;
 	}
 	
 	public static void main(String[] args) {

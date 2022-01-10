@@ -37,7 +37,11 @@ public class SearchEmployee extends HttpServlet {
     @override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+    	try {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
 	}
 
 	/**
