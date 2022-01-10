@@ -51,7 +51,7 @@ function callPopUpMethod(gender,dob){
 		</div>
   		<ul class="navbar-nav ml-auto">
     		<li class="nav-item active"><a class="nav-link"  href="index.jsp"><strong>Home</strong></a></li>
-    		<li class="nav-item active"><a class="nav-link" href="Aboutus.jsp"><strong>Aboutus</strong></a></li>
+    		<li class="nav-item active"><a class="nav-link" href="Aboutus.jsp"><strong>About us</strong></a></li>
   			<li class="nav-item active"><a class="nav-link" href="user.jsp"><strong>Logout</strong></a></li>
   			<li class="nav-item active"><p class="nav-link" align="right"><b>Login As:</b> <%=userId%></p></li>	
   		</ul>

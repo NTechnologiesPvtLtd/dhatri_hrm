@@ -11,7 +11,7 @@ function registrationValidation()
 	var permanentadd=document.getElementById("permanentAddress").value;
 	var localadd=document.getElementById("localAddress").value;
 	var schoolname=document.getElementById("schoolName").value;
-	var tenththpassedout=document.getElementById("tenthPassedOut").value;
+	var tenthpassedout=document.getElementById("tenthPassedOut").value;
 	var collegename=document.getElementById("intermediateCollegeName").value;
 	var interpassedout=document.getElementById("interPassedOut").value;
 	var graduation=document.getElementById("graduationDetails").value;

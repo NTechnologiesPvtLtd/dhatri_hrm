@@ -65,7 +65,7 @@ public class CheckDao1 {
 			System.out.println("employee details are \n");
 			for(RequestBean re:list)
 			{
-				System.out.println(re.getReasonId()+" \t"+re.getReasonName()+"\t"+re.getSenderMail()+"\t"+re.getRecieverMail()+"\t"+re.getTextArea());
+				System.out.println(re.getReasonId()+" \t"+re.getReasonName()+"\t"+re.getSenderMail()+"\t"+re.getReceiverMail()+"\t"+re.getTextArea());
 			}
 			break;
 			
@@ -98,7 +98,7 @@ public class CheckDao1 {
 			
 		case 0:
 			sc.close();
-			System.out.println("exit sucessfully");
+			System.out.println("exit successfully");
 			System.exit(0);
 		default:
 			System.out.println("enter valid option");

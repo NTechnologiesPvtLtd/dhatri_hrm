@@ -63,7 +63,7 @@ div {text-align: center;}
 		</div>
   		<ul class="navbar-nav ml-auto">
     		<li class="nav-item active">
-      			<a class="nav-link"  href="index.jsp"><strong>Home</strong></a>
+      			<a class="nav-link"  href="Home.jsp"><strong>Home</strong></a>
     		</li>
     		<li class="dropdown nav-item active" ><a class=" nav-link dropdown-toggle" data-toggle="dropdown" href="#"><strong>Employee</strong> <span class="caret"></span></a>
 				<ul class="dropdown-menu">
@@ -72,8 +72,8 @@ div {text-align: center;}
 					<li><a href="EmployeeViewDirection.jsp">Search Employee</a></li>
 				</ul>
 			</li>
-   			<li class="nav-item active"> <a class="nav-link" href="Login.jsp"><strong>Login</strong></a></li>
-    		<li class="nav-item active"><a class="nav-link" href="Aboutus.jsp"><strong>Aboutus</strong></a></li>
+   			<li class="nav-item active"><a class="nav-link" href="Login.jsp"><strong>Login</strong></a></li>
+    		<li class="nav-item active"><a class="nav-link" href="Aboutus.jsp"><strong>About us</strong></a></li>
   		</ul>
   	
 	</nav>
@@ -107,20 +107,20 @@ div {text-align: center;}
 								<div id="location"></div>
 
 								<div class="row">
-									<div class="col-sm-4" align="left"> First Name:<font color="red">*</font> 
+									<div class="col-sm-4" align="left">First Name:<font color="red">*</font> 
 										<input type=text onclick="clearForm()" id="firstName" name="firstName"><br>
 										<br>
 										<span id="Firstname" class="text-danger"> </span>
 									</div>
 
-									<div class="col-sm-4" align="left"> Last Name:<font color="red">*</font>
+									<div class="col-sm-4" align="left">Last Name:<font color="red">*</font>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<input type="text" onclick="clearForm()" id="lastName" name="lastName"><br> <br>
 										<span id="Lastname" class="text-danger"> </span>
 									</div>
 
 
-									<div class="col-sm-4" align="left"> Father Name:<font color="red">*</font> 
+									<div class="col-sm-4" align="left">Father Name:<font color="red">*</font> 
 										<input type="text" onclick="clearForm()"id="fatherName" name="fatherName"><br>
 										<br>
 										<span id="Fathername" class="text-danger"> </span>
@@ -128,7 +128,7 @@ div {text-align: center;}
 								</div>
 
 								<div class="row">
-									<div class="col-sm-4" align="left"> Gender:<font color="red">*</font> 
+									<div class="col-sm-4" align="left">Gender:<font color="red">*</font> 
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<input type="radio" name="gender" value="Male" onclick="clearForm()"id="male">Male 
 										<input type="radio" name="gender" value="Female" onclick="clearForm()"id="female">Female 
@@ -137,13 +137,13 @@ div {text-align: center;}
 										<br> <br>
 									</div>
 									
-									<div class="col-sm-4" align="left"> Date Of Birth:<font color="red">*</font>
+									<div class="col-sm-4" align="left">Date Of Birth:<font color="red">*</font>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<input type="date" name="dob" id="dob" onclick="clearForm()">
 										<span id="DOB" class="text-danger"> </span>
 									</div>
 
-									<div class="col-sm-4" align="left"> Email Id:<font color="red">*</font>
+									<div class="col-sm-4" align="left">Email Id:<font color="red">*</font>
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<input type=text onclick="clearForm()"id="emailId" name="emailId"><br>
 										<br>
@@ -152,26 +152,26 @@ div {text-align: center;}
 								</div>
 
 								<div class="row">
-									<div class="col-sm-4" align="left"> Mobile No:<font color="red">*</font> &nbsp;
+									<div class="col-sm-4" align="left">Mobile No:<font color="red">*</font> &nbsp;
 										<input type=text onclick="clearForm()"id="mobileNumber" name="mobileNumber" text-align="right" pattern="[0-9]{10}" title="Mobile number must be 10 digits" placeholder="Mobile number"><br> <br>
 										<span id="mobileno" class="text-danger"> </span>
 									</div>
-									<div class="col-sm-8" align="left"> Alternate Mobile No:<font color="red">*</font> &nbsp;
+									<div class="col-sm-8" align="left">Alternate Mobile No:<font color="red">*</font> &nbsp;
 										<input type=text onclick="clearForm()"id="alternatemobileNumber" name="alternatemobileNumber" text-align=right pattern="[0-9]{10}" title="Alternate Mobile number must be 10 digits" placeholder="Mobile number" ><br> <br>
 										<span id="amobileno" class="text-danger"> </span>
 									</div>
 								</div>
 
 								<div class="row">
-									<div class="col-sm-4" align="left"> Aadhar Number:<font color="red">*</font> 
+									<div class="col-sm-4" align="left">Aadhar Number:<font color="red">*</font> 
 										<input type=text name="aadharNo" onclick="clearForm()"id="aadharNo" pattern="[0-9]{12}" title="Aadhar Card Number must be 12 digits" placeholder="Enter AadharCardNumber" >
 										<span id="Aadharno" class="text-danger"> </span>
 									</div>
-									<div class="col-sm-4" align="left"> PAN Number:<font color="red">*</font> 
+									<div class="col-sm-4" align="left">PAN Number:<font color="red">*</font> 
 										<input type=text name="panNo" onclick="clearForm()"id="panNo" pattern="{10}" title="PAN Card Number must be 10 digits" placeholder="Enter PANCardNumber" >
 										<span id="Panno" class="text-danger"> </span>
 									</div>
-									<div class="col-sm-4" align="left"> Passport Number:<font color="red">*</font> 
+									<div class="col-sm-4" align="left">Passport Number:<font color="red">*</font> 
 										<input type=text name="passportNo" onclick="clearForm()"id="passportNo" pattern="{8}" title="Passport Number must be 8 digits" placeholder="Enter PassportNumber" >
 										<span id="Passportno" class="text-danger"> </span>
 									</div>
@@ -179,13 +179,13 @@ div {text-align: center;}
 								<br>
 
 								<div class="row">
-									<div class="col-sm-6" align="left"> Permanent Address:<font color="red">*</font>
+									<div class="col-sm-6" align="left">Permanent Address:<font color="red">*</font>
 										<textarea onclick="clearForm()"id="permanentAddress" name="permanentAddress"></textarea>
 										<br><br>
 										<span id="Permanentadd" class="text-danger"> </span>
 									</div>
 
-									<div class="col-sm-6" align="left"> Local Address:<font color="red">*</font>
+									<div class="col-sm-6" align="left">Local Address:<font color="red">*</font>
 										<textarea onclick="clearForm()"id="localAddress" name="localAddress"></textarea>
 										<br> <br>
 										<span id="Localadd" class="text-danger"> </span>
@@ -207,25 +207,25 @@ div {text-align: center;}
 				
 									<br>
 									<div class="row">
-										<div class="col-sm-6" align="left"> Board Of Secondary Education:<font color="red">*</font>
+										<div class="col-sm-6" align="left">Board Of Secondary Education:<font color="red">*</font>
 											&nbsp;&nbsp;&nbsp;
 											<input type=text name="schoolName" onclick="clearForm()"id="schoolName"><br> <br>
 											<span id="Schoolname" class="text-danger"> </span>
 										</div>
-										<div class="col-sm-6" align="left"> Passedout:<font color="red">*</font> 
+										<div class="col-sm-6" align="left">Passed out:<font color="red">*</font> 
 											<input type=text name="tenthPassedOut" onclick="clearForm()"id="tenthPassedOut" maxlength="4" title="Only 4 digits are allowed">
 											<span id="Tenthpassedout" class="text-danger"> </span>
 										</div>
 									</div>
 					
 									<div class="row">
-										<div class="col-sm-6" align="left"> Board Of Intermediate Education:<font color="red">*</font> 
+										<div class="col-sm-6" align="left">Board Of Intermediate Education:<font color="red">*</font> 
 											<input type=text name="intermediateCollegeName" onclick="clearForm()"id="intermediateCollegeName"><br>
 											<br>
 											<span id="Intercollegename" class="text-danger"> </span>
 										</div>
 
-										<div class="col-sm-6" align="left"> Passedout:<font color="red">*</font> 
+										<div class="col-sm-6" align="left">Passed out:<font color="red">*</font> 
 											<input type=text name="interPassedOut" onclick="clearForm()"id="interPassedOut" maxlength="4" title="Only 4 digits are allowed">
 											<span id="Interpassedout" class="text-danger"> </span>
 										</div>
@@ -242,7 +242,7 @@ div {text-align: center;}
 					                <span id="Graduationdetails" class='text-danger'> 
 					                </span>
 					                </div>
-					                <div class='col-sm-3' align='left'>Passedout:<font color='red'>*</font> 
+					                <div class='col-sm-3' align='left'>Passed out:<font color='red'>*</font> 
 					                <input type=text name='graduationPassedOut' onclick='clearForm()'	id='graduationPassedOut' maxlength='4' title='Only 4 digits are allowed'>
 					                <span id='Graduationpassedout' class='text-danger'> </span>
 					                </div>
@@ -254,10 +254,10 @@ div {text-align: center;}
 					                <option value='CSE'>CSE</option>
 					                <option value='Civil'>CIVIL</option>
 					                <option value='Mechanical'>MECHANICAL</option>
-					                <option value='Bcom'>Bcom</option></select>
+					                <option value='Bcom'>B.com</option></select>
 					                <span id='Branch' class='text-danger'> </span>
 					                </div>
-					                <div class='col-sm-3' align='left'>	University:<font color='red'>*</font> 
+					                <div class='col-sm-3' align='left'>University:<font color='red'>*</font> 
 					                <input type=text name='university' onclick='clearForm()' id='university'>
 					                <span id='University' class='text-danger'> </span>
 					                </div>
@@ -290,10 +290,10 @@ div {text-align: center;}
 											 <input type=text name='companyName' onclick='clearForm()' id='companyName'>
 											 <br> <br><span id='Companyname' class='text-danger'> </span>
 											 </div>	
-											 <div class='col-sm-4' align='left'>	Role: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											 <div class='col-sm-4' align='left'>Role: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 											 <select name='roleDetails' id='role' onchange="show();" onclick="clearForm();">	
 											   <option value='None'>Select role</option>
-											   <option value='associative engineer' >Associative Engineer</option>	
+											   <option value='associative engineer'>Associative Engineer</option>	
 											   <option value='software engineer'>Software Engineer</option>
 											   <option value='senior software engineer'>Senior	Software Engineer</option>
 											   <option value='lead analyst'>Lead Analyst</option>

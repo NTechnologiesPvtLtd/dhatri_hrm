@@ -91,14 +91,15 @@
 					<form action="LoginServlet" method="post">
 						<div class="form-group">
 							<i class="fa fa-user"></i>
-	 <input type="text" onkeypress="clearForm()" id="loginId" name="employeeId" class="form-control"
+	 						<input type="text" onkeypress="clearForm()" id="loginId" name="employeeId" class="form-control"
 								placeholder="EmployeeId" required="required">
+							<p id="errorMsg"  role="alert"></p>
 						</div>
 						<div class="form-group">
 							<i class="fa fa-lock"></i>
 							 <input type="password"class="form-control" onkeypress="clearForm()" id="Password"
-								name="mobileNumber" placeholder="Enter password"
-								required="required">
+								name="mobileNumber" placeholder="Enter password" required="required">
+							<p id="errorMsg1"  role="alert"></p>
 						</div>
 						<div class="form-group">
 							<p>Type</p>
@@ -106,11 +107,12 @@
 								id="type">
 								<option value="None">Enter Given Type</option>
 								<option value="employee">EMPLOYEE</option>
-								<option value="employeer"> Employeer</option>
+								<option value="employeer">Employer</option>
 								<option value="admin">ADMIN</option>
 								<option value="manager">Manager</option>
 								<option value="hr">HR</option>
 							</select>
+							<p id="errorMsg2"  role="alert"></p>
 						</div>
 						<div class="form-group">
 							<input type="submit" class="btn btn-primary btn-block btn-lg"
@@ -188,7 +190,7 @@
                         <div class="icon text-danger">
                             <i class="fa fa-database"></i>
                         </div>
-                        <h3>Database Mangaement</h3>
+                        <h3>Database Management</h3>
                         <p class="description text-justify">We like to present the world with our work, so we make sure we spread the word regarding our clothes.</p>
                     </div>
                 </div>
@@ -327,8 +329,8 @@
 
 						<p>
 							PJR Arcade<br> Plot No. 129/A, Suite #2, <br> Sri Sai
-							Nagar,<br> Kukatpally, Hyderabad - 500085<br> Ph:: 040
-							48520666 <br> E-Mail:: hr@dhatsol.com <br>
+							Nagar,<br> Kukatpally, Hyderabad - 500085<br> Ph: 040
+							48520666 <br> E-Mail: hr@dhatsol.com <br>
 						</p>
 					</address>
                                 </li>
@@ -364,7 +366,7 @@
             </div>
             <hr>
             <div class="copyright">
-                 © <script> document.write(new Date().getFullYear()) </script> Dhatsol IT Solutions
+                 Copyright &copy; <script> document.write(new Date().getFullYear()) </script> Dhatsol IT Solutions
             </div>
         </div>
     </footer>

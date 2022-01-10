@@ -107,98 +107,98 @@ function registrationValidation()
  else if(firstName==null||firstName=="")
 {
 	
-	document.getElementById("Firstname").innerHTML="plese enter the firstname"
+	document.getElementById("Firstname").innerHTML="please enter the firstname"
 	return false;
 }
 else if(LastName==null||LastName=="")
 {
 	
-	document.getElementById("Lastname").innerHTML="plese enter the lastname"
+	document.getElementById("Lastname").innerHTML="please enter the lastname"
 	return false;
 }
 else if(fatherName==null||fatherName=="")
 {
-	document.getElementById("Fathername").innerHTML="plese enter the fathername"
+	document.getElementById("Fathername").innerHTML="please enter the fathername"
 	return false;
 }
 else if(male==false&&female==false&&others==false)
 {
-	document.getElementById("Gender").innerHTML="plese select atleat one value"
+	document.getElementById("Gender").innerHTML="please select atleat one value"
 	return false;
 }
 else if(!Date.parse(dob))
 {
-	document.getElementById("DOB").innerHTML="plese select the Date"
+	document.getElementById("DOB").innerHTML="please select the Date"
 	return false;
 }
 else if(emailId==null||emailId=="")
 {
 	
-	document.getElementById("Emailid").innerHTML="plese enter the lastname"
+	document.getElementById("Emailid").innerHTML="please enter the lastname"
 	return false;
 }
 else if(mobileNumber==null||mobileNumber=="")
 {
-	document.getElementById("mobileno").innerHTML="plese enter the mobile number"
+	document.getElementById("mobileno").innerHTML="please enter the mobile number"
 	return false;
 }
 
 else if(alternatemobileNumber==null||alternatemobileNumber=="")
 {
 	
-	document.getElementById("amobileno").innerHTML="plese enter the alternatemobilenumber"
+	document.getElementById("amobileno").innerHTML="please enter the alternatemobilenumber"
 	return false;
 }
 else if(aadharNo==null||aadharNo=="")
 {
-	document.getElementById("Aadharno").innerHTML="plese enter the Aadhar number"
+	document.getElementById("Aadharno").innerHTML="please enter the Aadhar number"
 	return false;
 }
 else if(panNo==null||panNo=="")
 {
-	document.getElementById("Panno").innerHTML="plese enter pan number";
+	document.getElementById("Panno").innerHTML="please enter pan number";
 	return false;
 }
 else if(passportNo==null||passportNo=="")
 {
-	document.getElementById("Passportno").innerHTML="plese enter passport number";
+	document.getElementById("Passportno").innerHTML="please enter passport number";
 	return false;
 }
 	
 	else if(permanentAddress==null||permanentAddress=="")
 {
-	document.getElementById("Permanentadd").innerHTML="plese enter permanentAddress";
+	document.getElementById("Permanentadd").innerHTML="please enter permanentAddress";
 	return false;
 }
 else if(localAddress==null||localAddress=="")
 {
 	
-	document.getElementById("Localadd").innerHTML="plese enter localAddress ";
+	document.getElementById("Localadd").innerHTML="please enter localAddress ";
 	return false;
 }
 	
 else if(schoolName==null||schoolName=="")
 {
 	
-	document.getElementById("Schoolname").innerHTML="plese enter school name ";
+	document.getElementById("Schoolname").innerHTML="please enter school name ";
 	return false;
 }
 else if(tenthPassedOut==null||tenthPassedOut=="")
 {
 	
-	document.getElementById("Tenthpassedout").innerHTML="plese enter Tenthpassedout ";
+	document.getElementById("Tenthpassedout").innerHTML="please enter Tenthpassedout ";
 	return false;
 }
 else if(intermediateCollegeName==null||intermediateCollegeName=="")
 {
 	
-	document.getElementById("Intercollegename").innerHTML="plese enter Intercollegename ";
+	document.getElementById("Intercollegename").innerHTML="please enter Intercollegename ";
 	return false;
 }
 else if(interPassedOut==null||interPassedOut=="")
 {
 	
-	document.getElementById("Interpassedout").innerHTML="plese enter Interpassedout";
+	document.getElementById("Interpassedout").innerHTML="please enter Interpassedout";
 	return false;
 }
 else if(graduationDetails=="None")
@@ -224,51 +224,51 @@ else if(university==null||university=="")
 
 else if(companyName==null||companyName=="")
 {
-	document.getElementById("Companyname").innerHTML="plese enter companyname";
+	document.getElementById("Companyname").innerHTML="please enter companyname";
 	
 	return false;
 }
 
 else if(role=="None")
 	{
-		document.getElementById("Role").innerHTML="plese select the role";
+		document.getElementById("Role").innerHTML="please select the role";
 		return false;
 	}
 	
 else if(noticeperiod==null||noticeperiod=="")
 {
-	document.getElementById("Noticeperiod").innerHTML="plese enter Noticeperiod";
+	document.getElementById("Noticeperiod").innerHTML="please enter Noticeperiod";
 	return false;
 }	
 
 else if(location1==null||location1=="")
 {
-	document.getElementById("Location1").innerHTML="plese enter Location";
+	document.getElementById("Location1").innerHTML="please enter Location";
 	return false;
 }
 else if(experience==null||experience=="")
 {
-	document.getElementById("Experience").innerHTML="plese enter Experience";
+	document.getElementById("Experience").innerHTML="please enter Experience";
 	return false;
 }
 else if(currentCTC==null||currentCTC=="")
 {
-	document.getElementById("Currentctc").innerHTML="plese enter Currentctc";
+	document.getElementById("Currentctc").innerHTML="please enter Currentctc";
 	return false;
 }
 else if(bankName==null||bankName=="")
 {
-	document.getElementById("Bankname").innerHTML="plese enter Bankname";
+	document.getElementById("Bankname").innerHTML="please enter Bankname";
 	return false;
 }
 else if(bankAccNo==null||bankAccNo=="")
 {
-	document.getElementById("Bankaccno").innerHTML="plese enter Bankaccno";
+	document.getElementById("Bankaccno").innerHTML="please enter Bankaccno";
 	return false;
 }
 else if(ifscCode==null||ifscCode=="")
 {
-	document.getElementById("Ifsccode").innerHTML="plese enter Ifsccode";
+	document.getElementById("Ifsccode").innerHTML="please enter Ifsccode";
 	return false;
 }
 

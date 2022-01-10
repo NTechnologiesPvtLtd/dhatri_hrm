@@ -78,7 +78,7 @@ public class HRMDaoImplementation implements HRMDao {
 		
 		}
 		else {
-			System.out.println("Please enter altleat one value in employeebean");
+			System.out.println("Please enter alteast one value in employeebean");
 		
 		}
 		return result;
@@ -547,7 +547,7 @@ public void setvaluestoptst(RequestBean employeerequest) throws SQLException {
 	pstmt.setString(2,employeerequest.getReasonName());
 	pstmt.setString(5,employeerequest.getTextArea());
 	pstmt.setString(4,employeerequest.getSenderMail());
-	pstmt.setString(3,employeerequest.getRecieverMail());
+	pstmt.setString(3,employeerequest.getReceiverMail());
 }
 public List<RequestBean> ViewRequest(){
 	List<RequestBean>  listofrequest=new ArrayList<RequestBean>();

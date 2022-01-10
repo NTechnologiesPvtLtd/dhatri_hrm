@@ -11,7 +11,7 @@ public class RequestBean {
 
 	private String textArea;
 	private String senderMail;
-	private String recieverMail;
+	private String receiverMail;
 	private String reasonName;
 	private String reasonId;
 	/**
@@ -41,14 +41,14 @@ public class RequestBean {
 	/**
 	 * @return the recieverMail
 	 */
-	public String getRecieverMail() {
-		return recieverMail;
+	public String getReceiverMail() {
+		return receiverMail;
 	}
 	/**
 	 * @param recieverMail the recieverMail to set
 	 */
-	public void setRecieverMail(String recieverMail) {
-		this.recieverMail = recieverMail;
+	public void setRecieverMail(String receiverMail) {
+		this.receiverMail = receiverMail;
 	}
 	/**
 	 * @return the reasonName

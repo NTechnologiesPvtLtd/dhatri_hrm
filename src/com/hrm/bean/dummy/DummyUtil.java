@@ -2,7 +2,7 @@ package com.hrm.bean.dummy;
 
 public class DummyUtil {
 	private DummyUtil() {
-		//hiding the implemnetation
+		//hiding the implementation
 	}
 	public static Boolean returnBooleanValue(String val) {
 

@@ -77,19 +77,18 @@ public class LoginServlet extends HttpServlet {
 		System.out.println(request.getParameter("type"));
 		if (SharedObject.getSession() == null) {
 			SharedObject.setSession(request.getSession());
-			;
 		}
-		// HttpSession session=request.getSession();
+		HttpSession session=request.getSession();
 		
 		try {
 			if (type.equals("admin")) {
 				boolean flag1 = service.adminlogin(userId, password1);
 				if (flag1) {
-				/*
-				 * if(service.login(userId,password,type)){
-				 * 
-				 * session.setAttribute("adminId",userId);
-				 */
+				
+				 if(service.login(userId,password,type)){
+				 
+				 session.setAttribute("adminId",userId);
+				 
 				System.out.println("true");
 
 				RequestDispatcher rd = request
@@ -134,5 +133,5 @@ public class LoginServlet extends HttpServlet {
 			// System.out.println(e);
 		}
 	}
+	}
 
-}

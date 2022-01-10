@@ -52,7 +52,7 @@ for(RequestBean rs:std){
       <td><%=rs.getReasonName()%></td>
       <td><%=rs.getTextArea()%></td>
       <td><%=rs.getSenderMail() %></td>
-      <td><%=rs.getRecieverMail()%></td>
+      <td><%=rs.getReceiverMail()%></td>
     </tr>
     
   </tbody>

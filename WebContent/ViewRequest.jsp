@@ -97,12 +97,12 @@ if(role.equals(pm)){
 	%>
 	<table class="table table-bordered table-striped">
 	
-	<tr><td id="header" colspan="5"><h3 style="text-align:center;">Recieved requests</h3></tr>
-	<tr><th>reasonId</th><th>reasonname </th><th>Text area</th><th>sender mail id </th><th>reciever mail id</th></tr>
+	<tr><td id="header" colspan="5"><h3 style="text-align:center;">Received requests</h3></tr>
+	<tr><th>reasonId</th><th>reasonname </th><th>Text area</th><th>sender mail id </th><th>receiver mail id</th></tr>
 	<% 
 	for(RequestBean rb:lrr){
 		%> 
-		<tr><td><%= rb.getReasonId() %></td><td><%=  rb.getReasonName() %></td><td><%=  rb.getTextArea() %></td><td><%= rb.getSenderMail() %></td><td><%= rb.getRecieverMail() %></td></tr>
+		<tr><td><%= rb.getReasonId() %></td><td><%=  rb.getReasonName() %></td><td><%=  rb.getTextArea() %></td><td><%= rb.getSenderMail() %></td><td><%= rb.getReceiverMail() %></td></tr>
 <% 	}%>
 	
 	</table>
@@ -113,11 +113,11 @@ else {
 	<table class="table table-bordered table-striped">
 	
 	<tr><td id="header" colspan="5"><h3 style="text-align:center;">Requests sent</h3></tr>
-	<tr><th>textarea</th><th>sendermail</th><th>receivermail</th><th>resaonname</th><th>reasonId</th></tr>
+	<tr><th>textarea</th><th>sendermail</th><th>receivermail</th><th>reasonname</th><th>reasonId</th></tr>
 	<% 
 	for(RequestBean rb:lrs){
 		%> 
-		<tr><td><%= rb.getTextArea() %></td><td><%= rb.getSenderMail() %></td><td><%= rb.getRecieverMail() %></td><td><%=rb.getReasonName() %></td><td><%= rb.getReasonId() %></td></tr>
+		<tr><td><%= rb.getTextArea() %></td><td><%= rb.getSenderMail() %></td><td><%= rb.getReceiverMail() %></td><td><%=rb.getReasonName() %></td><td><%= rb.getReasonId() %></td></tr>
 <% 	}%>
 </table>
 <% }%>

@@ -22,13 +22,15 @@
 		var AdminId = document.getElementById("AdminId").value;
 		var Password = document.getElementById("Password").value;
 		if (AdminId == null || AdminId == "") {
-			document.getElementById("adminid").innerHTML = "please enter admin id";
+			alert("Please enter Admin Id");
+			//document.getElementById("adminid").innerHTML = "Please enter Admin Id";
 			return false;
 
 		}
 
 		if (Password == null || Password == "") {
-			document.getElementById("password").innerHTML = "please enter password";
+			alert("Please enter Password");
+			//document.getElementById("password").innerHTML = "Please enter Password";
 			return false;
 		}
 	}
@@ -62,8 +64,7 @@
 				<div class="col-sm-2">
 					<input type="text" name="AdminId" class="form-control" id="AdminId"
 						onkeypress="doClearMyMsg()">
-						 <span id="adminid"
-						class="text-danger"></span>
+						 <span id="adminid" role="alert"></span>
 				</div>
 			</div>
 
@@ -74,8 +75,8 @@
 				</label>
 				<div class="col-sm-2">
 					<input type="password" class="form-control" name="Password"
-						id="Password" onkeypress="doClearMyMsg()"> <span
-						id="password" class="text-danger"></span> <br>
+						id="Password" onkeypress="doClearMyMsg()" role="alert"> <span
+						id="password" ></span> <br>
 					<div class="col-sm-7">
 
 
