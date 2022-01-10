@@ -85,11 +85,6 @@ public class LoginServlet extends HttpServlet {
 			if (type.equals("admin")) {
 				boolean flag1 = service.adminlogin(userId, password1);
 				if (flag1) {
-				/*
-				 * if(service.login(userId,password,type)){
-				 * 
-				 * session.setAttribute("adminId",userId);
-				 */
 				System.out.println("true");
 
 				RequestDispatcher rd = request
