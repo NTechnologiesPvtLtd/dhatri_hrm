@@ -739,7 +739,8 @@ public List<RequestBean> requestSearch(){
 			}
 			catch(Exception e)
 			{
-				System.out.println(e);
+			
+			e.printStackTrace();
 			}
 			
 			return listOfSearchEmployee;
