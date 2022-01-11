@@ -34,7 +34,6 @@ public class SearchData extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		SharedObject.setSession(request.getSession());
-	
 		 RequestDispatcher requestDisForward=request.getRequestDispatcher("viewrequests.jsp");
 		 try {
 			 requestDisForward.forward(request, response); 

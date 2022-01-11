@@ -7,13 +7,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class MySqlDBConnection {
-	 Connection con;
+	 static Connection con;
 	static MySqlDBConnection mySQLDBInstance = new MySqlDBConnection();
 
 	private MySqlDBConnection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hrm", "root", "root");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hrm", "root", "MySQL@123");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -21,7 +21,7 @@ public class MySqlDBConnection {
 
 	public static Connection getInstance() {
 
-		return mySQLDBInstance.con;
+		return con;
 	}
 	
 	public static void main(String[] args) {
