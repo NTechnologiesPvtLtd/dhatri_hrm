@@ -34,22 +34,26 @@ public class SearchEmployee extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+    @override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+    	try {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+    @override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		try {
 		String searchparam = request.getParameter("val");
 		
 		SharedObject.setSession(request.getSession());
 		HRMService hrmService=new HRMServicesImplementation();
-		//HttpSession session=request.getSession();
-		//EmployeeBean bean=new EmployeeBean();
 		
 		
 		  List<EmployeeBean> employeeBean1= hrmService.employeeSearch(searchparam);
@@ -61,10 +65,15 @@ public class SearchEmployee extends HttpServlet {
               System.out.println(eb1.getFatherName());
           }
 		
+		
 		  request.setAttribute("searchemployee", employeeBean1);
 		 
 		 RequestDispatcher requestDisForward=request.getRequestDispatcher("searchemployee.jsp");
          requestDisForward.forward(request, response);
+         } catch (Exception e) {
+ 			e.printStackTrace();
+ 		}
+         
 	}
 
 }
