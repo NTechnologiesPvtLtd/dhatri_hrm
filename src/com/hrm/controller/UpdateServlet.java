@@ -57,7 +57,7 @@ public class UpdateServlet extends HttpServlet {
 		String mobileNumber=request.getParameter("mobileNumber");
 		String alternateMobileNumber=request.getParameter("alternatemobileNumber");
 		String aadharNo=request.getParameter("Adharno");
-		String  panNumber=request.getParameter("panNo");
+		String panNumber=request.getParameter("panNo");
 		String passportNumber=request.getParameter("passportNo");
 		String permanentAddress=request.getParameter("PermanentAddress");
 		String localAddress=request.getParameter("LocalAdress");
@@ -133,12 +133,17 @@ public class UpdateServlet extends HttpServlet {
 		}
 	}	
 	
-		/*
-		 * if(noticePeriod!=null && !noticePeriod.isEmpty()){ try {
-		 * 
-		 * emp.setNoticePeriod(Integer.parseInt(noticePeriod)); } catch (Exception e) {
-		 * noticePeriod=null; } }
-		 */
+		
+	if(noticePeriod!=null && !noticePeriod.isEmpty()){ 
+		try {
+		  
+		 emp.setNoticePeriod(Integer.parseInt(noticePeriod)); 
+		 }
+		catch (Exception e) {
+		 noticePeriod=null; 
+		 } 
+		}
+		
 	
 	if(currentCTC!=null && !currentCTC.isEmpty()){
 		try {					
@@ -149,12 +154,16 @@ public class UpdateServlet extends HttpServlet {
 			currentCTC=null;
 		}
 	}
-		/*
-		 * if(expectedCTC!=null && !expectedCTC.isEmpty()){ try {
-		 * 
-		 * emp.setExpectedCTC(Double.parseDouble(expectedCTC)); } catch (Exception e) {
-		 * expectedCTC=null; } }
-		 */
+	
+	if(expectedCTC!=null && !expectedCTC.isEmpty()){ 
+		try {
+		 
+		 emp.setExpectedCTC(Double.parseDouble(expectedCTC)); } 
+		catch (Exception e) {
+		 expectedCTC=null; 
+		 }
+		}
+		 
 		
 	emp.setFirstName(firstName);
 	emp.setLastName(lastName);
