@@ -49,7 +49,7 @@ public class SearchEmployee extends HttpServlet {
 	 */
     @override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		try {
 		String searchparam = request.getParameter("val");
 		
 		SharedObject.setSession(request.getSession());
@@ -65,10 +65,15 @@ public class SearchEmployee extends HttpServlet {
               System.out.println(eb1.getFatherName());
           }
 		
+		
 		  request.setAttribute("searchemployee", employeeBean1);
 		 
 		 RequestDispatcher requestDisForward=request.getRequestDispatcher("searchemployee.jsp");
          requestDisForward.forward(request, response);
+         } catch (Exception e) {
+ 			e.printStackTrace();
+ 		}
+         
 	}
 
 }
