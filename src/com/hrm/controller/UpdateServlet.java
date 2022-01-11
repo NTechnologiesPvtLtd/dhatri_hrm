@@ -95,7 +95,7 @@ public class UpdateServlet extends HttpServlet {
 			emp.setAadharNo(Long.parseLong(aadharNo));
 			}
 			
-		 catch (Exception e) {
+		 catch (NumberFormatException e) {
 			aadharNo=null;
 		}
 	}
