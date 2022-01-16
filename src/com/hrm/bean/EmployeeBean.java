@@ -7,6 +7,10 @@ import java.io.Serializable;
  *
  */
 public class EmployeeBean implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1564677427458764368L;
 	private String employeeId;
 	private String firstName;
 	private String lastName;
