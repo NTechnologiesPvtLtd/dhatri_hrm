@@ -30,6 +30,7 @@ function loginValidation() {
 			return true;
 	}
 	function clearForm() {
+		
 		document.getElementById("errorMsg").innerHTML = "";
 		document.getElementById("errorMsg1").innerHTML = "";
 		document.getElementById("errorMsg2").innerHTML = "";
